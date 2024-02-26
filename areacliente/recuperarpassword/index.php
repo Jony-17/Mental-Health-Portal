@@ -18,31 +18,39 @@
             <div class="signin-signup">
 
                 <!---- FORMULÁRIO LOGIN ---->
-                <form action="login.php" method="post" class="sign-in-form">
-                    <h3 class="title-h3">Bem-vindo</h3>
-                    <h2 class="title-h2">Login</h2>
-
+                <form action="recuperarpassword.php" method="post" class="sign-in-form">
+                    <h3 class="title-h3">Recupera a tua password</h3>
+                    <!--<h2 class="title">Login</h2>-->
                     <?php if (isset($_GET['error'])) { ?>
                         <p class="error">
                             <?php echo $_GET['error']; ?>
                         </p>
                     <?php } ?>
+                    <?php if (isset($_GET['success'])) { ?>
+                        <p class="success">
+                            <?php echo $_GET['success']; ?>
+                        </p>
+                    <?php } ?>
 
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" name="emaill" placeholder="Email Institucional" />
+                        <input type="email" name="emaill" placeholder="Email Institucional" required value="<?php if ($_POST) {
+                            echo "$_POST[emaill]";
+                        } ?>">
                     </div>
 
                     <div class="input-field">
                         <i class="fas fa-eye-slash toggle-password"></i>
-                        <input type="password" name="passwordd" id="password" placeholder="Password" />
+                        <input type="password" name="passwordd" id="password" placeholder="Nova password" />
                     </div>
 
-                    <a href="../recuperarpassword/" class="text">Esqueci-me da password</a>
-                    <input type="submit" value="Login" class="btn" />
-                    <p class="text2">OU</p>
-                    <p class="text3">Não tens conta? <a class="text3" href="../registo/">Junta-te a
-                            nós!</a></p>
+                    <div class="input-field">
+                        <i class="fas fa-eye-slash toggle-cpassword"></i>
+                        <input type="password" name="cpasswordd" id="cpassword" placeholder="Repetir password" />
+                    </div>
+
+                    <input type="submit" value="Recuperar" class="btn" />
+                    <p class="text3"><a class="text3" href="../login/">Inicia sessão novamente</a></p>
                 </form>
             </div>
         </div>
