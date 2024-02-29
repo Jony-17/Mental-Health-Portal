@@ -190,18 +190,64 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="about-text-section">
                 <h2 class="about-primary-heading">A nossa missão</h2>
                 <h1 class="primary-heading">
-                Nós queremos <br> saber de ti
+                    Nós queremos <br> saber de ti
                 </h1>
                 <p class="primary-text">
                     Healthy switcher chefs do all the prep work, like
                     peeding, chopping & marinating, so you can cook
                     a fresh food.
                 </p>
-                <a href="index.php" class="secondary-button">
-                    <i class="fas fa-arrow-down"></i> Sabe mais
-                </a>
+                <div class="card" style="width: auto;">
+                    <iframe srcdoc='
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+                            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+                            crossorigin="anonymous" referrerpolicy="no-referrer" />
+                            <style>
+                                .card {
+                                    border: none;
+                                    gap: 20px;
+                                }
+                                .card-body {
+                                    background-color: #F0F0F0;
+                                    border-radius: 10px;
+                                    display: -webkit-inline-box;
+                                }
+                                .card-title {
+                                    color: #505050;
+                                    font-size: 20px;
+                                    margin-left: 15px;
+                                    vertical-align: middle;
+                                }
+                                .card-body .fas fa-comments {
+                                    color: #505050;
+                                    font-size: 20px;
+                                    vertical-align: middle;
+                                    display: inline-block;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <!-- Conteúdo dentro do iframe -->
+                            <div class="card">
+                                <div class="card-body">
+                                <i class="fas fa-comments"></i>
+                                    <h1 class="card-title">Fórum de discussão</h1>
+                                </div>
+
+                                <div class="card-body">
+                                <i class="fas fa-comments"></i>
+                                    <h1 class="card-title">Chatbot com ajuda personalizada</h1>
+                                </div>
+                            </div>
+                        </body>
+                        </html>' style="width:100%; border:none;">
+                    </iframe>
+                </div>
             </div>
-        </div>
     </section>
 
     <script>
