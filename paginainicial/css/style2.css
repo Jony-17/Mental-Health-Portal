@@ -203,9 +203,9 @@ header {
 /*------------------DROPDOWN MENU------------------*/
 .dropdown_menu {
   display: none;
-  position: absolute;
+  position: fixed;
   right: 2rem;
-  top: 60px;
+  top: 90px;
   height: 0;
   width: 300px;
   background: rgba(255, 255, 255, 0.1);
@@ -289,18 +289,18 @@ img {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: flex-start;
 }
 
-.primary-heading {
+.home-primary-heading {
   font-size: clamp(24px, 5vw, 64px);
   color: #4c4c4c;
   /* line-height: 5rem; */
   max-width: 600px;
 }
 
-.primary-text {
+.home-primary-text {
   font-size: clamp(1rem, 3vw, 1.5rem);
   max-width: 500px;
   color: #6a6a6a;
@@ -335,13 +335,11 @@ img {
   background-color: #e48f0f;
 }
 
-
 /*------------------ABOUT------------------*/
 .about-banner-container {
   margin-top: 70px;
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -367,7 +365,7 @@ img {
 
 .about-text-section {
   flex: 1;
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -385,7 +383,7 @@ img {
   max-width: 600px;
 }
 
-.primary-text {
+.about-primary-text {
   font-size: clamp(1rem, 3vw, 1.5rem);
   max-width: 500px;
   color: #6a6a6a;
@@ -393,9 +391,333 @@ img {
   padding-bottom: 40px;
 }
 
+.card {
+  border: none;
+  margin-bottom: 50px;
+}
+
+.card-body {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/*.card-body:hover {
+  color: white;
+}*/
+
+.card-title {
+  color: #505050;
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: 15px;
+  flex: 1;
+}
+
+.card-body .fas.fa-comments,
+.card-body .fas.fa-robot,
+.card-body .fas.fa-sticky-note,
+.card-body .far.fa-newspaper {
+  color: #505050;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/*------------------Tipos Perturbações Mentais------------------*/
+
+.perturbacoes-banner-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.perturbacoes-primary-heading {
+  color: #fe9e0d;
+  font-size: 25px;
+  margin-top: 100px;
+}
+
+.perturbacoes-second-heading {
+  font-size: clamp(12px, 5vw, 52px);
+  color: #4c4c4c;
+  /*max-width: 600px;*/
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.perturbacoes-banner-container2 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.third-button {
+  padding: 0.8rem 2rem;
+  background-color: #fe9e0d;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.card2-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.card2 img {
+  margin-top: 50px;
+  width: 230px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/*
+.card2 img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+*/
+
+.card2 h1 {
+  text-align: center;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 27px;
+}
+
+/*------------------Artigos científicos------------------*/
+
+.artigos-banner-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.artigos-primary-heading {
+  color: #fe9e0d;
+  font-size: 25px;
+  margin-top: 50px;
+}
+
+.artigos-second-heading {
+  font-size: clamp(12px, 5vw, 52px);
+  color: #4c4c4c;
+  /*max-width: 600px;*/
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.fourth-button {
+  padding: 0.8rem;
+  background-color: #fe9e0d;
+  outline: none;
+  border: none;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.card3-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+
+.card3 {
+  width: 325px;
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0 30px 70px 30px;
+}
+
+.card3 img {
+  width: 100%;
+  height: 200px;
+}
+
+.card3-content {
+  padding: 16px;
+}
+
+.card3-content h1 {
+  font-size: 27px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.card3-content p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.artigos-bannerImage2-container {
+  position: absolute;
+  top: 100px;
+  left: -240px;
+  z-index: -2;
+  transform: rotate(180deg);
+}
+
+/*------------------Quizzes------------------*/
+
+.quizzes-banner-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.quizzes-primary-heading {
+  color: #fe9e0d;
+  font-size: 25px;
+  margin-top: 50px;
+}
+
+.quizzes-second-heading {
+  font-size: clamp(12px, 5vw, 52px);
+  color: #4c4c4c;
+  /*max-width: 600px;*/
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.fifth-button {
+  padding: 0.8rem;
+  background-color: #fe9e0d;
+  outline: none;
+  border: none;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.quizzes-bannerImage4-container {
+  position: absolute;
+  top: -300px;
+  right: -250px;
+  z-index: -2;
+}
+
+.card4-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+
+.card4 {
+  display: flex;
+  width: 600px;
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0 30px 70px 30px;
+}
+
+.card4 img {
+  height: 200px;
+}
+
+.card4-content {
+  padding: 16px;
+  flex: 1;
+  text-align: center;
+  align-self: center;
+}
+
+.card4-content h1 {
+  font-size: 40px;
+  margin-bottom: 8px;
+  color: #4c4c4c;
+}
+
+.card4-content2 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
 
 
+/*------------------Notícias------------------*/
 
+.image-grid {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: var(300px);
+  gap: 5px;
+  margin-top: 50px;
+}
+
+.image-grid>img {
+  width: 100%;
+  /*height: 100%;*/
+  object-fit: cover;
+}
+
+.image-grid-col-2 {
+  grid-column: span 2;
+}
+
+.image-grid-row-2 {
+  grid-row: span 2;
+}
+
+.noticias-bannerImage2-container {
+  position: absolute;
+  top: 850px;
+  right: -240px;
+  z-index: -2;
+  max-width: 700px;
+}
+
+
+/*------------------------------------------------------*/
 
 /* Responsive */
 /* Tela igual ou inferior a 576px */
@@ -419,37 +741,102 @@ img {
   .home-bannerImage-container {
     max-width: 450px;
   }
-  .home-banner-container,
-  .about-banner-container {
+
+  .about-bannerImage2-container {
+    top: -130px;
+    right: -100px;
+    max-width: 100px;
+  }
+
+  .home-banner-container {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
   }
+
   .about-banner-container {
     flex-direction: column;
   }
-  /*.image-container {
+
+  .image-container {
     width: 100%;
     max-width: 400px;
-  }*/
-  .primary-heading {
+    margin: 0;
+  }
+
+  .home-primary-heading {
     text-align: center;
     max-width: 90%;
   }
-  .primary-text {
+  .home-primary-text {
     text-align: center;
     max-width: 80%;
   }
-  .home-text-section,
-  .about-text-container {
+  .home-text-section {
     justify-content: center;
     align-items: center;
     /*margin-top: 4rem;*/
+  }
+  .about-text-section {
+    padding-left: 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .about-primary-heading,
+  .home-primary-heading,
+  .home-primary-text,
+  .about-primary-text {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .secondary-button {
     font-size: 1rem;
     padding: 0.8rem 2rem;
     cursor: pointer;
+  }
+  .card-title {
+    font-size: 17px;
+  }
+
+  .card-body .fas.fa-comments,
+  .card-body .fas.fa-robot,
+  .card-body .fas.fa-sticky-note,
+  .card-body .far.fa-newspaper {
+    font-size: 15px;
+  }
+
+  .perturbacoes-banner-container2 {
+    width: auto;
+  }
+
+  .perturbacoes-primary-heading {
+    font-size: 20px;
+    margin-top: 50px;
+  }
+
+  .perturbacoes-second-heading {
+    font-size: 20px;
+  }
+
+  .card2-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card2 img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .card2 h1 {
+    font-size: 20px;
+  }
+
+  .third-button {
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 25px;
   }
 }
 
@@ -491,11 +878,52 @@ img {
 /* Tela igual ou superior a 1300 */
 @media (min-width: 1300px) {
   .home-bannerImage-container {
-    max-width: 750px;
+    max-width: 650px;
   }
 
-  .image-container {
-    max-width: 550px;
+  .about-bannerImage2-container {
+    top: 100px;
+    right: -225px;
+    max-width: 100px;
+  }
+
+  .home-primary-heading {
+    font-size: 47px;
+    margin-top: 100px;
+  }
+
+  .primary-heading {
+    font-size: 47px;
+    margin-top: 20px;
+  }
+
+  .home-primary-text,
+  .about-primary-text {
+    font-size: 20px;
+  }
+
+  .about-text-section {
+    margin-top: 100px; /* Adicione um espaço superior */
+  }
+
+  .about-primary-heading {
+    font-size: 25px;
+    margin-top: 70px;
+  }
+
+  .image-container2 {
+    max-width: 500px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-body .fas.fa-comments,
+  .card-body .fas.fa-robot,
+  .card-body .fas.fa-sticky-note,
+  .card-body .far.fa-newspaper {
+    font-size: 15px;
   }
 }
 
@@ -505,7 +933,42 @@ img {
     max-width: 850px;
   }
 
+  .about-bannerImage2-container {
+    top: 100px;
+    right: -240px;
+    max-width: 150px;
+  }
+
+  .home-primary-heading {
+    font-size: 70px;
+    margin-top: 200px;
+  }
+
+  .primary-heading {
+    font-size: 70px;
+  }
+
+  .home-primary-text,
+  .about-primary-text {
+    font-size: 25px;
+  }
+
   .image-container {
     max-width: 750px;
+  }
+
+  .image-container2 {
+    max-width: 900px;
+  }
+
+  .card-title {
+    font-size: 25px;
+  }
+
+  .card-body .fas.fa-comments,
+  .card-body .fas.fa-robot,
+  .card-body .fas.fa-sticky-note,
+  .card-body .far.fa-newspaper {
+    font-size: 20px;
   }
 }
