@@ -385,13 +385,170 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
         </div>
         <div class="image-grid">
-            <img class="image-grid-col-2 image-grid-row-2" src="imgs/imgs-noticias/noticia1.jpg" alt="noticia1">
-            <img src="imgs/imgs-noticias/noticia2.jpg" alt="noticia2">
-            <img src="imgs/imgs-noticias/noticia3.jpg" alt="noticia3">
-            <img src="imgs/imgs-noticias/noticia4.jpg" alt="noticia4">
-            <img src="imgs/imgs-noticias/noticia5.jpg" alt="noticia5">
+
+            <div class="image-grid-col-2 image-grid-row-2 image-grid-container">
+                <img loading="lazy" src="imgs/imgs-noticias/noticia1.jpg" alt="noticia1">
+            </div>
+
+            <!--<div class="box-img">
+                <img loading="lazy" class="image-grid-col-2 image-grid-row-2" src="imgs/imgs-noticias/noticia1.jpg"
+                    alt="noticia1">
+                <div class="details">
+                    <h2>Vamos falar de saúde mental</h2>
+                    <p>João Araújo</p>
+                </div>
+            </div>-->
+            <img loading="lazy" src="imgs/imgs-noticias/noticia2.jpg" alt="noticia2">
+            <img loading="lazy" src="imgs/imgs-noticias/noticia3.jpg" alt="noticia3">
+            <img loading="lazy" src="imgs/imgs-noticias/noticia4.jpg" alt="noticia4">
+            <img loading="lazy" src="imgs/imgs-noticias/noticia5.jpg" alt="noticia5">
         </div>
     </section>
+
+
+    <!--Perguntas Frequentes-->
+    <section class="perguntas" id="perguntas">
+        <div class="perguntas-banner-container">
+            <div class="perguntas-bannerImage5-container">
+                <img src="imgs/imgs-backgrounds/background5.png" alt="banner background" />
+            </div>
+            <h2 class="artigos-primary-heading">O que precisas de saber</h2>
+            <h1 class="artigos-second-heading">
+                Perguntas Frequentes
+            </h1>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>What is</h3>
+                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>testetestestestetetetetetetetetete</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>It is</h3>
+                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>testetestestestetetetetetetetetete</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                <h3>Why the</h3>
+                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>testetestestestetetetetetetetetete</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Newsletter-->
+    <?php if (empty($_SESSION['id_utilizador'])): ?>
+        <section class="newsletter" id="newsletter">
+            <div class="newsletter-container">
+                <div class="box-newsletter">
+                    <h2>Junta-te à nossa comunidade!</h2>
+                    <p>Aqui poderás ter acesso a informação credível e fundamental
+                        no que toca à saúde mental</p>
+                    <a href="../areacliente/registo/">Registar</a>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
+
+    <!---Footer--->
+    <footer>
+        <div class="footer-row">
+            <div class="footer-col">
+                <h1>Portal de <br> Saúde Mental.</h1>
+                <p>Tu mereces ser feliz.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Perturbações</h3>
+                <ul>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Artigos</h3>
+                <ul>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Notícias</h3>
+                <ul>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                    <li><a href="#">Depressão</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Conteúdo Educativo</h3>
+                <ul>
+                    <li><a href="#">Quizzes</a></li>
+                    <li><a href="#">Exercícios Mindfulness</a></li>
+                </ul>
+            </div>
+
+            <!-- <a class="gotop" href="#"> <i class="fa-solid fa-chevron-up"></i> </a> -->
+
+        </div>
+        <hr>
+
+        <div class="footer-links">
+            <p class="copyright">@2024 Todos os direitos reservados</p>
+            <div class="footer-links-2">
+                <a href="#">Termos & Condições</a>
+
+                <div class="vertical-hr"></div>
+
+                <li class="dropdown-trigger"><a href="#">Português <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="#">Quizzes</a></li>
+                        <li><a href="#">Exercícios Mindfulness</a></li>
+                    </ul>
+                </li>
+
+                <div class="vertical-hr"></div>
+
+                <input type="checkbox" id="darkmode-toggle">
+                Light/Dark
+                <label class="change" for="darkmode-toggle">
+            </div>
+        </div>
+    </footer>
 
 
     <!--Chatbot-->
@@ -402,6 +559,24 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script>
+
+        const darkModeToggle = document.getElementById('darkmode-toggle');
+        //Função Light/Dark
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode', this.checked);
+        }
+        darkModeToggle.addEventListener('change', toggleDarkMode);
+
+        
+        const faqs = document.querySelectorAll(".faq");
+
+        faqs.forEach(faq => {
+            faq.addEventListener("click", () => {
+                faq.classList.toggle("active");
+            })
+        })
+
+
         const btn = document.querySelector('.toggle_btn');
         const btnIcon = document.querySelector('.toggle_btn i');
         const dropdownMenus = document.querySelectorAll('.dropdown_menu');
