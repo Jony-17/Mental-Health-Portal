@@ -96,8 +96,8 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="#">Perfil</a></li>
-                            <li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>
+                            <!--<li><a href="#">Termos e Condições</a></li>
+                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
@@ -138,8 +138,8 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="#">Perfil</a></li>
-                        <li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>
+                        <!--<li><a href="#">Termos e Condições</a></li>
+                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
@@ -420,8 +420,8 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="faq">
             <div class="question">
                 <h3>What is</h3>
-                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
                         d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
                 </svg>
@@ -434,8 +434,8 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="faq">
             <div class="question">
                 <h3>It is</h3>
-                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
                         d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
                 </svg>
@@ -448,8 +448,8 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="faq">
             <div class="question">
                 <h3>Why the</h3>
-                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
                         d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
                 </svg>
@@ -534,10 +534,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <li class="dropdown-trigger"><a href="#">Português <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="#">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
+                <li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
+                    <ul class="dropdown-f">
+                        <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
+                        <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
                     </ul>
                 </li>
 
@@ -551,6 +551,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </footer>
 
 
+
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
@@ -559,6 +560,22 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script>
+        function changeLanguage(language) {
+            // Lógica para mudar o idioma aqui
+            // Por exemplo, você pode recarregar a página com o idioma selecionado ou usar AJAX para carregar novos conteúdos.
+            console.log("Idioma selecionado: " + language);
+
+            if (language === 'portuguese') {
+                document.getElementById('portugues').removeAttribute('href');
+                document.getElementById('ingles').setAttribute('href', '#');
+            } else if (language === 'english') {
+                document.getElementById('ingles').removeAttribute('href');
+                document.getElementById('portugues').setAttribute('href', '#');
+            }
+
+            // Aqui você pode implementar a lógica para alterar o idioma conforme necessário
+        }
+
 
         const darkModeToggle = document.getElementById('darkmode-toggle');
         //Função Light/Dark
@@ -567,7 +584,7 @@ if (isset($_SESSION['id_utilizador'])) {
         }
         darkModeToggle.addEventListener('change', toggleDarkMode);
 
-        
+
         const faqs = document.querySelectorAll(".faq");
 
         faqs.forEach(faq => {
@@ -600,9 +617,9 @@ if (isset($_SESSION['id_utilizador'])) {
 
             const isOpen = dropdownMenus[0].classList.contains('open'); // Verificar apenas um dos menus
 
-            btnIcon.className = isOpen
-                ? 'fas fa-xmark'
-                : 'fas fa-bars';
+            btnIcon.className = isOpen ?
+                'fas fa-xmark' :
+                'fas fa-bars';
 
             // Ajustar a altura do dropdown_menu
             const alturaDropdownsAbertos = calcularAlturaDropdownsAbertos();
