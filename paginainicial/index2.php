@@ -31,7 +31,7 @@ if (isset($_SESSION['id_utilizador'])) {
 <head>
     <title>Portal de Saúde Mental</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imgs/logo.png">
 
     <link rel="stylesheet" type="text/css" href="css/style2.css">
@@ -105,9 +105,6 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php else: ?>
                 <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
-
-
-
 
             <div class="toggle_btn">
                 <i class="fas fa-bars"></i>
@@ -372,23 +369,25 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <!--Notícias-->
     <section class="noticias" id="noticias">
-        <div class="perturbacoes-banner-container">
+        <div class="noticias-banner-container">
             <div class="noticias-bannerImage2-container">
                 <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
             </div>
-            <h2 class="perturbacoes-primary-heading">Notícias</h2>
-            <div class="perturbacoes-banner-container2">
-                <h1 class="perturbacoes-second-heading">
+            <h2 class="noticias-primary-heading">Notícias</h2>
+            <div class="noticias-banner-container2">
+                <h1 class="noticias-second-heading">
                     Saúde Mental
                 </h1>
-                <a href="#" class="third-button">Ver mais</a>
+                <a href="#" class="sixth-button">Ver mais</a>
             </div>
         </div>
+
+
         <div class="image-grid">
 
-            <div class="image-grid-col-2 image-grid-row-2 image-grid-container">
-                <img loading="lazy" src="imgs/imgs-noticias/noticia1.jpg" alt="noticia1">
-            </div>
+            <img class="image-grid-col-2 image-grid-row-2 image-grid-container" src="imgs/imgs-noticias/noticia1.jpg"
+                alt="noticia1">
+            <!--</div>-->
 
             <!--<div class="box-img">
                 <img loading="lazy" class="image-grid-col-2 image-grid-row-2" src="imgs/imgs-noticias/noticia1.jpg"
@@ -398,13 +397,37 @@ if (isset($_SESSION['id_utilizador'])) {
                     <p>João Araújo</p>
                 </div>
             </div>-->
-            <img loading="lazy" src="imgs/imgs-noticias/noticia2.jpg" alt="noticia2">
-            <img loading="lazy" src="imgs/imgs-noticias/noticia3.jpg" alt="noticia3">
-            <img loading="lazy" src="imgs/imgs-noticias/noticia4.jpg" alt="noticia4">
-            <img loading="lazy" src="imgs/imgs-noticias/noticia5.jpg" alt="noticia5">
+            <img src="imgs/imgs-noticias/noticia2.jpg" alt="noticia2">
+            <img src="imgs/imgs-noticias/noticia3.jpg" alt="noticia3">
+            <img src="imgs/imgs-noticias/noticia4.jpg" alt="noticia4">
+            <img src="imgs/imgs-noticias/noticia5.jpg" alt="noticia5">
         </div>
     </section>
 
+    <!--<section class="noticias" id="noticias">
+        <div class="noticias-banner-container">
+            <div class="noticias-bannerImage2-container">
+                <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
+            </div>
+            <h2 class="noticias-primary-heading">Notícias</h2>
+            <div class="noticias-banner-container2">
+                <h1 class="noticias-second-heading">
+                    Saúde Mental
+                </h1>
+                <a href="#" class="sixth-button">Ver mais</a>
+            </div>
+        </div>
+
+        <div class="img-area">
+            <div class="single-img"><img src="imgs/imgs-noticias/noticia1.jpg" alt=""></div>
+            <div class="single-img"><img src="imgs/imgs-noticias/noticia2.jpg" alt=""></div>
+            <div class="single-img"><img src="imgs/imgs-noticias/noticia3.jpg" alt=""></div>
+            <div class="single-img"><img src="imgs/imgs-noticias/noticia4.jpg" alt=""></div>
+            <div class="single-img"><img src="imgs/imgs-noticias/noticia5.jpg" alt=""></div>
+        </div>-->
+
+
+    </section>
 
     <!--Perguntas Frequentes-->
     <section class="perguntas" id="perguntas">
@@ -412,8 +435,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="perguntas-bannerImage5-container">
                 <img src="imgs/imgs-backgrounds/background5.png" alt="banner background" />
             </div>
-            <h2 class="artigos-primary-heading">O que precisas de saber</h2>
-            <h1 class="artigos-second-heading">
+            <h2 class="perguntas-primary-heading">O que precisas de saber</h2>
+            <h1 class="perguntas-second-heading">
                 Perguntas Frequentes
             </h1>
         </div>
@@ -560,7 +583,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script>
-        function changeLanguage(language) {
+        /*function changeLanguage(language) {
             // Lógica para mudar o idioma aqui
             // Por exemplo, você pode recarregar a página com o idioma selecionado ou usar AJAX para carregar novos conteúdos.
             console.log("Idioma selecionado: " + language);
@@ -574,10 +597,11 @@ if (isset($_SESSION['id_utilizador'])) {
             }
 
             // Aqui você pode implementar a lógica para alterar o idioma conforme necessário
-        }
+        }*/
 
 
         const darkModeToggle = document.getElementById('darkmode-toggle');
+
         //Função Light/Dark
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode', this.checked);
