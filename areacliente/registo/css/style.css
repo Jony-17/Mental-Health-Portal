@@ -12,8 +12,8 @@
 :root {
   /*-----FONTS-----*/
   --logo: 20px;
-  --title-h2: 60px;
-  --title-h3: 25px;
+  --title-h2: 50px;
+  --title-h3: 20px;
   --input-field: 17px;
   --text: 18px;
   --content-text1: 50px;
@@ -110,6 +110,7 @@ input {
   transform: translate(-50%, -50%);
   left: 75%;
   width: 50%;
+  height: 50%;
   transition: 1s 0.7s ease-in-out;
   display: grid;
   grid-template-columns: 1fr;
@@ -160,8 +161,8 @@ form.sign-in-form {
   max-width: 380px;
   width: 100%;
   border: 2px solid #d7d7d7;
-  margin: 10px 0;
-  height: 55px;
+  margin: 5px 0;
+  height: 53px;
   border-radius: 12px;
   display: grid;
   grid-template-columns: 15% 85%;
@@ -171,7 +172,7 @@ form.sign-in-form {
 
 .input-field i {
   text-align: center;
-  line-height: 55px;
+  line-height: 53px;
   color: #acacac;
   transition: 0.5s;
   font-size: 1.1rem;
@@ -422,21 +423,15 @@ form.sign-in-form {
 
 /*----------------MEDIA QUERIES------------------------*/
 
+/* Responsive */
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (min-width: 600px) {
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  
-}
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
 
-@media (max-width: 870px) {
+@media only screen and (max-width: 768px) {
   .logo {
     font-size: 10px;
     margin: 100px 0 0 0;
@@ -446,37 +441,44 @@ form.sign-in-form {
     font-size: 35px;
   }
 
-  .title2 {
-    font-size: 13px;
+  .title-h2 {
+    font-size: 42px;
   }
 
-  .first-text {
-    margin-left: 50px;
-    margin-left: 100px;
-    width: 400px;
-  }
-
-  .second-text {
-    font-size: 30px;
-    margin-left: 100px;
-    width: 400px;
-  }
-
-  .third-text {
+  .title-h3 {
     font-size: 20px;
-    margin-left: 100px;
+  }
+
+  .content-text1 {
+    font-size: 35px;
+    margin-left: 70px;
     width: 400px;
   }
 
-  .fourth-text {
-    font-size: 20px;
-    margin-left: 100px;
+  .content-text2 {
+    font-size: 25px;
+    margin-left: 70px;
     width: 400px;
   }
 
-  .fifth-text {
+  .content-text3 {
     font-size: 15px;
-    margin-left: 100px;
+    margin-left: 70px;
+    margin-top: 10px;
+    width: 360px;
+  }
+
+  .content-text4 {
+    font-size: 15px;
+    margin-left: 70px;
+    margin-top: 10px;
+    width: 400px;
+  }
+
+  .content-text5 {
+    font-size: 10px;
+    margin-left: 70px;
+    margin-top: 10px;
     width: 400px;
   }
 
@@ -485,9 +487,17 @@ form.sign-in-form {
     height: 100vh;
   }
 
+  /*.forms-container {
+
+  }*/
+  
+  /*.sign-in-form {
+    height: 150px;
+  }*/
+
   .signin-signup {
     width: 100%;
-    top: 95%;
+    top: 85%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
@@ -581,32 +591,103 @@ form.sign-in-form {
   }
 }
 
-@media only screen and (max-width: 1360px) {
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  .title-h2 {
+    font-size: 30px;
+  }
+
+  .title-h3 {
+    margin-top: 0;
+    font-size: 15px;
+  }
+  
+}
+
+
+
+/* Tela igual ou superior a 1360 */
+@media screen and (min-width: 1360px) {
   .logo {
     font-size: 15px;
   }
+  
   .title {
     font-size: 50px;
   }
-  .title2 {
-    margin-top: 50px;
-    font-size: 20px;
+
+  /*.sign-in-form {
+    
+  }*/
+  
+  .title-h2 {
+    font-size: 30px;
   }
+
+  .title-h3 {
+    margin-top: 0;
+    font-size: 15px;
+  }
+
+  .signin-signup {
+    width: 100%;
+    top: 60%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  
   .input-field input {
     font-size: 15px;
   }
+  
   .text-a {
     font-size: 15px;
   }
+
+  .text2 {
+    padding: 0;
+    margin: 0;
+  }
+  
   .btn {
     font-size: 20px;
   }
-  .social-text,
-  .social-text2 {
+  
+  .text2,
+  .text3 {
     font-size: 15px;
   }
+  
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1361px) {
+
+
+
+/* Tela igual ou superior a 1600 */
+@media screen and (min-width: 1600px) {
+
+  .title-h2 {
+    font-size: var(--title-h2);
+  }
+
+  .title-h3 {
+    margin-top: 0;
+    font-size: var(--title-h3);
+  }
+
+  .signin-signup {
+    width: 100%;
+    top: 55%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
+
+  .text2 {
+    padding: 0;
+    margin: 0;
+  }
+
 }
