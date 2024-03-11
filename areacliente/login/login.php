@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header('Location: ../../admin/index.php');
                     exit();
                 } else if ($_SESSION['admin'] == "0") {
-                    header('Location: ../../paginainicial/index2.php');
+                    header('Location: ../../paginainicial/index.php');
                     exit();
                 }
             } else {
