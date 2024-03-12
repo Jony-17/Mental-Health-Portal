@@ -1,11 +1,11 @@
 <?php 
     session_start();
     if(isset($_SESSION['unique_id'])){
-        include_once "config.php";
+        require_once("../../../conn/conn.php");
         $outgoing_id = $_SESSION['unique_id'];
         $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);
         $output = "";
-        $sql = "SELECT * FROM messages LEFT JOIN users ON users.unique_id = messages.outgoing_msg_id
+        $sql = "SELECT * FROM mensagens LEFT JOIN utilizadores ON utilizadores.unique_id = mensagens.outgoing_msg_id
                 WHERE (outgoing_msg_id = {$outgoing_id} AND incoming_msg_id = {$incoming_id})
                 OR (outgoing_msg_id = {$incoming_id} AND incoming_msg_id = {$outgoing_id}) ORDER BY msg_id";
         $query = mysqli_query($conn, $sql);
@@ -19,7 +19,7 @@
                                 </div>';
                 }else{
                     $output .= '<div class="chat incoming">
-                                <img src="php/images/'.$row['img'].'" alt="">
+                                <img src="../../areacliente/registo/imgs/'.$row['img_perfil'].'" alt="">
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
                                 </div>
@@ -27,7 +27,7 @@
                 }
             }
         }else{
-            $output .= '<div class="text">No messages are available. Once you send message they will appear here.</div>';
+            $output .= '<div class="text">Não há mensagens disponíveis. Assim que uma mensagem for enviada, irá aparecer aqui.</div>';
         }
         echo $output;
     }else{
