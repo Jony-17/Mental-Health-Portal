@@ -40,12 +40,12 @@
                     </div>
 
                     <div class="input-field">
-                        <i class="fas fa-eye-slash toggle-password"></i>
+                        <i class="fas fa-eye toggle-password"></i>
                         <input type="password" name="passwordd" id="password" placeholder="Nova password" />
                     </div>
 
                     <div class="input-field">
-                        <i class="fas fa-eye-slash toggle-cpassword"></i>
+                        <i class="fas fa-eye toggle-cpassword"></i>
                         <input type="password" name="cpasswordd" id="cpassword" placeholder="Repetir password" />
                     </div>
 

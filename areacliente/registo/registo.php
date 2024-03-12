@@ -24,7 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($_POST['passwordd'] != $_POST['cpasswordd']) { //se as palavras passes nao coincidirem
             header('Location: index.php?error=Passwords não coincidem');
         } else {
-            // Hash da senha para armazenamento seguro no banco de dados
+             // Gerar um unique_id único
+             $ran_id = rand(time(), 100000000);
+
+             // Hash da senha para armazenamento seguro no banco de dados
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // Obtém a data e hora atuais
@@ -51,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Prepara e executa a query SQL para inserir o novo registro
-            $sql = "INSERT INTO utilizadores (nome, email, password, genero, img_perfil, data_criacao)
-            VALUES ('$nome', '$email', '$hashed_password', '$genero', '$imagemperfil', '$data_criacao')";
+            $sql = "INSERT INTO utilizadores (unique_id, nome, email, password, genero, img_perfil, data_criacao)
+            VALUES ('$ran_id', '$nome', '$email', '$hashed_password', '$genero', '$imagemperfil', '$data_criacao')";
 
             if ($conn->query($sql) === TRUE) {
                 header('Location: index.php?success=Registo feito com sucesso');

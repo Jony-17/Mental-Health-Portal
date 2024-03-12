@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="input-field">
-                        <i class="fas fa-eye-slash toggle-password"></i>
+                        <i class="fas fa-eye toggle-password"></i>
                         <input type="password" name="passwordd" id="password" placeholder="Password" />
                     </div>
 

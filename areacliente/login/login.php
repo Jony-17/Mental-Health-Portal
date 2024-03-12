@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['nome_user'] = $row['nome'];
                 $_SESSION['id_utilizador'] = $row['utilizador_id'];
                 $_SESSION['admin'] = $row['admin'];
+                $_SESSION['unique_id'] = $row['unique_id'];
 
                 if ($_SESSION['admin'] == "1") {
                     header('Location: ../../admin/index.php');
