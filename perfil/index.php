@@ -173,7 +173,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Perfis dos Alunos -->
       <li class="nav-item">
-        <a class="nav-link" href="forum/login.php"> <!--Alterar HREF -->
+        <a class="nav-link" href="forum/users.php"> <!--Alterar HREF -->
           <i class="fas fa-comments"></i>
           <span>Fórum</span></a>
       </li>
@@ -362,7 +362,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <p>PASSWORD</p>
                     <p>Esta encontra-se encriptada</p>
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                      <i class="fas fa-eye-slash toggle-password" style="cursor: pointer" ;></i>
+                      <i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>
                       <input type="password" name="nova_password" id="password"
                         style="border: 1px solid rgba(0, 0, 0, 0.1);" value="<?php echo $row["password"] ?>">
                       <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
