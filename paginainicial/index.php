@@ -78,7 +78,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="#quizzes">Quizzes</a></li>
+                        <li><a href="../quizzes/index.php">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
@@ -113,13 +113,13 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="#begin">Sobre Nós</a></li>
+            <li><a href="../quizzes/index.php">Sobre Nós</a></li>
             <li><a href="#about-me">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="#">Quizzes</a></li>
+                    <li><a href="../quizzes/index.php">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
@@ -134,7 +134,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="#">Perfil</a></li>
+                        <li><a href="../perfil/index.php">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
@@ -149,7 +149,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "logout.php";
+                        var url = "../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -696,6 +696,8 @@ if (isset($_SESSION['id_utilizador'])) {
             });
         });
     </script>
+
+<script src="js/script.js"></script>
 
 </body>
 
