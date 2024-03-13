@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../conn/conn.php");
+require_once("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -71,7 +71,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial/index.php">Página Inicial</a></li>
+                <li><a href="../../paginainicial/index.php">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="#perturbacoes">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
@@ -79,7 +79,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes/index.php">Quizzes</a></li>
+                        <li><a href="../index.php">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
@@ -89,14 +89,14 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/index.php">Perfil</a></li>
+                            <li><a href="../../perfil/index.php">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -114,14 +114,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial/index.php">Página Inicial</a></li>
-            <li><a href="../quizzes/index.php">Sobre Nós</a></li>
+            <li><a href="../../paginainicial/index.php">Página Inicial</a></li>
+            <li><a href="#">Sobre Nós</a></li>
             <li><a href="#about-me">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes/index.php">Quizzes</a></li>
+                    <li><a href="../index.php">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
@@ -136,7 +136,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/index.php">Perfil</a></li>
+                        <li><a href="../../perfil/index.php">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
@@ -172,9 +172,18 @@ if (isset($_SESSION['id_utilizador'])) {
 
         </li>
         <li class="list">
+            <div class="items">
+                <a href="../index.php" class="text-sm" aria-current=page>
+                    Quizzes
+                </a>
+                <span class="separator">/</span>
+            </div>
+
+        </li>
+        <li class="list">
             <div class="items-current">
                 <a href="index.php" class="text-sm" aria-current=page>
-                    Quizzes
+                    O quão empática/o és?
                 </a>
             </div>
         </li>
@@ -182,56 +191,109 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <!--Quizzes-->
-    <section class="quizzes" id="quizzes">
-        <div class="quizzes-banner-container">
-            <div class="quizzes-bannerImage4-container">
-                <img src="imgs/imgs-backgrounds/background4.png" alt="banner background" />
+    <section class="about" id="about">
+        <div class="about-banner-container">
+
+            <div class="about-text-section">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">O quão empática/o és?</h1>
+                        <p>É um empata? Já lhe disseram que você é “muito sensível” ou precisa se fortalecer? Você
+                            se sente exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
+                            pessoas? Você tem sensibilidade à luz, som e cheiros? Ou talvez você demore mais para
+                            relaxar depois de um longo dia de trabalho? Se você respondeu “sim” a essas perguntas, você
+                            pode ser um empata.</p>
+                        <h2 class="card-title2">Informações acerca da empatia</h2>
+                        <p>Ser empático é diferente de ser empático. Ser empático é quando seu coração está com outra
+                            pessoa. Ser empático significa que você pode realmente sentir a felicidade ou a tristeza de
+                            outra pessoa em seu próprio corpo.
+
+                            Nos empatas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo
+                            especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, os
+                            empatas podem absorver as energias de outras pessoas (positivas e negativas) em seus
+                            próprios corpos. Às vezes pode até ser difícil saber se você está sentindo suas próprias
+                            emoções ou as de outra pessoa.
+
+                            Existem diferentes tipos de sensibilidades que um empata pode experimentar. Os empatas
+                            físicos, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras
+                            pessoas e absorvem-nos nos seus próprios corpos. Os empatas emocionais captam as emoções das
+                            pessoas e tornam-se uma esponja para os seus sentimentos, tanto felizes como tristes. Os
+                            empatas alimentares são outro tipo de empata que está sintonizado com a energia dos
+                            alimentos e pode até sentir sensibilidade a certos alimentos.
+
+                            Ser empático traz benefícios incríveis, como maior intuição, compaixão, criatividade e uma
+                            conexão mais profunda com outras pessoas. Mas viver neste estado de alta sensibilidade
+                            também traz consigo desafios, como ficar facilmente sobrecarregado, superestimulado, exausto
+                            ou absorver o estresse e a negatividade dos outros.
+
+                            Se uma pessoa não está ciente de que é empática, as interações cotidianas que os outros
+                            consideram toleráveis ​​podem estar causando estresse empático. Aqueles que não estão
+                            conscientes de suas habilidades empáticas podem estar inclinados a usar alimentos, álcool e
+                            drogas para entorpecer inconscientemente suas emoções.
+
+                            Os empatas são o remédio que o mundo precisa e podem ter um impacto profundo na humanidade
+                            com a sua compaixão e compreensão. Ao aprender a identificar seus talentos especiais, você
+                            descobrirá que não apenas enriquecerá sua vida, mas também poderá enriquecer a vida de
+                            outras pessoas. A habilidade principal é aprender como controlar suas sensibilidades e
+                            aprender estratégias específicas para evitar a sobrecarga de empatia.
+                        </p>
+                        <p class="disclaimer">Esta triagem online não é uma ferramenta de diagnóstico. Somente um
+                            profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
+                            a determinar os próximos passos mais adequados para você.</p>
+                    </div>
+                </div>
             </div>
-            <h1 class="quizzes-second-heading">
-                Descobre o que és
-            </h1>
-        </div>
-        <div class="card4-container">
-            <a href="quizzes-empatia/index.php">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão empática/o és?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/emocao.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão livre és, emocionalmente?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>Tens uma energia positiva?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão preocupada/o és?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
+
+
+            <div class="about-text-section">
+                <div class="card">
+                    <div class="card-body2">
+
+                        <div class="quiz-container" id="quiz">
+                            <div class="quiz-header">
+                                <p class="disclaimer2">Responda a cada uma das 20 perguntas. Seja honesta/o para obter o
+                                    resultado
+                                    mais preciso
+                                </p>
+                                <h2 id="question">Question Text</h2>
+                                <ul>
+                                    <li>
+                                        <input type="radio" name="answer" id="a" class="answer">
+                                        <label for="a" id="a_text">Answer</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="answer" id="b" class="answer">
+                                        <label for="b" id="b_text">Answer</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="answer" id="c" class="answer">
+                                        <label for="c" id="c_text">Answer</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="answer" id="d" class="answer">
+                                        <label for="d" id="d_text">Answer</label>
+                                    </li>
+                                </ul>
+                                <button id="submit">Obter resultados</button>
+                            </div>
+                            <!--<button id="submit">Submeter</button>-->
+                        </div>
                     </div>
                 </div>
-            </a>
+            </div>
+
+
+            <div class="about-text-section">
+                <div class="card">
+                    <div class="card-body2">
+                        <p>Disclaimer: This quiz is for entertainment purposes only. In no way is this an empirically
+                            validated test. The concepts presented by Dr. Judith Orloff[1] are not rooted in any known
+                            research.</p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -407,6 +469,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </script>
 
     <script src="js/script.js"></script>
+    <script src="js/script-quizz.js"></script>
 
 </body>
 
