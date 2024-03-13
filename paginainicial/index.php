@@ -363,7 +363,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 </div>
             </a>
         </div>
-        <a href="#" class="fifth-button">Ver mais</a>
+        <a href="../quizzes/index.php" class="fifth-button">Ver mais</a>
     </section>
 
 
