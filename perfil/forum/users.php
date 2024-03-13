@@ -235,27 +235,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
                   <div class="wrapper">
                     <section class="users">
-                      <header>
-                        <div class="content">
-                          <?php
-                          $sql = mysqli_query($conn, "SELECT * FROM utilizadores WHERE unique_id = {$_SESSION['unique_id']}");
-                          if (mysqli_num_rows($sql) > 0) {
-                            $row = mysqli_fetch_assoc($sql);
-                          }
-                          ?>
-                          <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
-                            echo $row["img_perfil"];
-                          } else {
-                            echo "teste.jpeg";
-                          } ?>" alt="Imagem de Perfil">
-                          <div class="details">
-                            <span>
-                              <?php echo $row['nome'] ?>
-                            </span>
-                          </div>
-                        </div>
-                        <!--<a href="../index.php">Voltar ao Perfil</a>-->
-                      </header>
                       <div class="search">
                         <span class="text">Selecione um utilizador para conversar</span>
                         <input type="text" placeholder="Pesquisar um nome...">
