@@ -636,6 +636,110 @@
       font-size: 15px;
     }
   
+    /*Perturbações*/
+    .perturbacoes-banner-container2 {
+      width: auto;
+    }
+  
+    .perturbacoes-primary-heading,
+    .artigos-primary-heading,
+    .quizzes-primary-heading,
+    .noticias-primary-heading,
+    .perguntas-primary-heading {
+      font-size: 22px;
+      margin-top: 50px;
+    }
+  
+    .perturbacoes-second-heading,
+    .artigos-second-heading,
+    .quizzes-second-heading,
+    .noticias-second-heading,
+    .perguntas-second-heading {
+      font-size: 25px;
+    }
+  
+    .card2-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .card2 img {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .card2 h1 {
+      font-size: 20px;
+    }
+  
+    .third-button {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      padding: 10px 30px;
+      text-align: center;
+      white-space: nowrap;
+    }
+  
+    /*Artigos científicos*/
+    /*.fourth-button {
+      font-size: 0.9rem;
+      padding: 10px 30px;
+      text-align: center;
+      white-space: nowrap;
+    }*/
+  
+    /*Quizzes*/
+    .card4-content h1 {
+      font-size: 25px;
+    }
+  
+    .card4 {
+      width: auto;
+    }
+  
+    /*Notícias*/
+  
+    .noticias-banner-container2 {
+      width: auto;
+    }
+  
+    .sixth-button {
+      font-size: 0.9rem;
+      padding: 10px 30px;
+      text-align: center;
+      white-space: nowrap;
+      margin-left: 7px;
+    }
+  
+    .image-grid-container1text {
+      margin-top: 300px;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+  
+    .image-grid-container2text {
+      margin-top: 130px;
+      margin-left: 10px;
+      font-size: 10px;
+    }
+  
+    /*Perguntas frequentes*/
+    .faq {
+      font-size: 100px;
+    }
+  
+    /*Newsletter*/
+    .newsletter .box-newsletter h2 {
+      font-size: 40px;
+    }
+  
+    .newsletter .box-newsletter p {
+      margin-top: 10px;
+      font-size: 15px;
+    }
+  
+    .newsletter .box-newsletter a {
+      font-size: 15px;
+    }
   
     /*Footer*/
     .footer-col {
@@ -731,7 +835,40 @@
       font-size: 15px;
     }
   
-    
+    /*OUTROS*/
+    .perturbacoes-banner-container,
+    .artigos-banner-container,
+    .quizzes-banner-container,
+    .noticias-banner-container,
+    .perguntas-banner-container {
+      margin-top: 70px;
+    }
+  
+    .perturbacoes-second-heading,
+    .artigos-second-heading,
+    .quizzes-second-heading,
+    .noticias-second-heading,
+    .perguntas-second-heading {
+      font-size: clamp(8px, 5vw, 46px);
+    }
+  
+    .card2 h1 {
+      font-size: 22px;
+    }
+  
+    .artigos-bannerImage2-container {
+      top: 100px;
+      left: -155px;
+    }
+  
+    .noticias-bannerImage2-container {
+      top: 700px;
+      right: -155px;
+    }
+  
+    /*body {
+      width: 85vw;
+    }*/
   }
   
   /* Tela igual ou superior a 1600 */
@@ -780,5 +917,36 @@
       font-size: 20px;
     }
   
+    /*OUTROS*/
+    .perturbacoes-banner-container,
+    .artigos-banner-container,
+    .quizzes-banner-container,
+    .noticias-banner-container,
+    .perguntas-banner-container {
+      margin-top: 100px;
+    }
+  
+    .perturbacoes-second-heading,
+    .artigos-second-heading,
+    .quizzes-second-heading,
+    .noticias-second-heading,
+    .perguntas-second-heading {
+      font-size: clamp(12px, 5vw, 52px);
+    }
+  
+    .card2 h1 {
+      font-size: 27px;
+    }
+  
+    .artigos-bannerImage2-container {
+      top: 100px;
+      left: -220px;
+    }
+  
+    .noticias-bannerImage2-container {
+      top: 700px;
+      right: -250px;
+      max-width: 150px;
+    }
   }
   

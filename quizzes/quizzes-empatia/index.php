@@ -256,27 +256,18 @@ if (isset($_SESSION['id_utilizador'])) {
                                     mais preciso
                                 </p>
                                 <h2 id="question">Question Text</h2>
-                                <ul>
-                                    <li>
+                                <ul class="ul-question">
+                                    <li class="li-question">
                                         <input type="radio" name="answer" id="a" class="answer">
                                         <label for="a" id="a_text">Answer</label>
                                     </li>
-                                    <li>
+                                    <li class="li-question">
                                         <input type="radio" name="answer" id="b" class="answer">
                                         <label for="b" id="b_text">Answer</label>
                                     </li>
-                                    <li>
-                                        <input type="radio" name="answer" id="c" class="answer">
-                                        <label for="c" id="c_text">Answer</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="answer" id="d" class="answer">
-                                        <label for="d" id="d_text">Answer</label>
-                                    </li>
                                 </ul>
-                                <button id="submit">Obter resultados</button>
+                                <button id="submit">Próxima</button>
                             </div>
-                            <!--<button id="submit">Submeter</button>-->
                         </div>
                     </div>
                 </div>
@@ -286,9 +277,9 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="about-text-section">
                 <div class="card">
                     <div class="card-body2">
-                        <p>Disclaimer: This quiz is for entertainment purposes only. In no way is this an empirically
-                            validated test. The concepts presented by Dr. Judith Orloff[1] are not rooted in any known
-                            research.</p>
+                        <p>Isenção de responsabilidade: este quizz é apenas para fins de entretenimento. De forma alguma
+                            este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff[1]
+                            não estão enraizados em nenhuma pesquisa conhecida.</p>
                     </div>
                 </div>
             </div>
