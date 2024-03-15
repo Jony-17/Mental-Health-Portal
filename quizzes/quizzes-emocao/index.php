@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once("../../conn/conn.php");
+require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset($_SESSION['id_utilizador'])) {
+if (isset ($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -86,10 +86,10 @@ if (isset($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -126,10 +126,10 @@ if (isset($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -183,7 +183,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <li class="list">
             <div class="items-current">
                 <a href="index.php" class="text-sm" aria-current=page>
-                    O quão empática/o és?
+                    O quão livre emocionalmente, és?
                 </a>
             </div>
         </li>
@@ -197,51 +197,41 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="quizzes-text-section">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title">O quão empática/o és?</h1>
-                        <p>É um empata? Já lhe disseram que você é “muito sensível” ou precisa se fortalecer? Você
-                            se sente exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
-                            pessoas? Você tem sensibilidade à luz, som e cheiros? Ou talvez você demore mais para
-                            relaxar depois de um longo dia de trabalho? Se você respondeu “sim” a essas perguntas, você
-                            pode ser um empata.</p>
-                        <h2 class="card-title2">Informações acerca da empatia</h2>
-                        <p>Ser empático é diferente de ser empático. Ser empático é quando seu coração está com outra
-                            pessoa. Ser empático significa que você pode realmente sentir a felicidade ou a tristeza de
-                            outra pessoa em seu próprio corpo.
+                        <h1 class="card-title">O quão livre emocionalmente, és?</h1>
+                        <p>Are you able to cultivate positive emotions and compassion without having negative thoughts
+                            dominate your life? This test will help you assess your current level of emotional freedom
+                            at this time.</p>
+                        <h2 class="card-title2">Informações acerca da liberdade emocional</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
+                            dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget
+                            nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At
+                            imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis
+                            donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam
+                            viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa.
+                            Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam
+                            tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut
+                            placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc.
 
-                            Nos empatas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo
-                            especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, os
-                            empatas podem absorver as energias de outras pessoas (positivas e negativas) em seus
-                            próprios corpos. Às vezes pode até ser difícil saber se você está sentindo suas próprias
-                            emoções ou as de outra pessoa.
-
-                            Existem diferentes tipos de sensibilidades que um empata pode experimentar. Os empatas
-                            físicos, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras
-                            pessoas e absorvem-nos nos seus próprios corpos. Os empatas emocionais captam as emoções das
-                            pessoas e tornam-se uma esponja para os seus sentimentos, tanto felizes como tristes. Os
-                            empatas alimentares são outro tipo de empata que está sintonizado com a energia dos
-                            alimentos e pode até sentir sensibilidade a certos alimentos.
-
-                            Ser empático traz benefícios incríveis, como maior intuição, compaixão, criatividade e uma
-                            conexão mais profunda com outras pessoas. Mas viver neste estado de alta sensibilidade
-                            também traz consigo desafios, como ficar facilmente sobrecarregado, superestimulado, exausto
-                            ou absorver o estresse e a negatividade dos outros.
-
-                            Se uma pessoa não está ciente de que é empática, as interações cotidianas que os outros
-                            consideram toleráveis ​​podem estar causando estresse empático. Aqueles que não estão
-                            conscientes de suas habilidades empáticas podem estar inclinados a usar alimentos, álcool e
-                            drogas para entorpecer inconscientemente suas emoções.
-
-                            Os empatas são o remédio que o mundo precisa e podem ter um impacto profundo na humanidade
-                            com a sua compaixão e compreensão. Ao aprender a identificar seus talentos especiais, você
-                            descobrirá que não apenas enriquecerá sua vida, mas também poderá enriquecer a vida de
-                            outras pessoas. A habilidade principal é aprender como controlar suas sensibilidades e
-                            aprender estratégias específicas para evitar a sobrecarga de empatia.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
+                            dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget
+                            nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At
+                            imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis
+                            donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam
+                            viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa.
+                            Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam
+                            tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut
+                            placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc.
                         </p>
                         <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
                             entretenimento. De forma alguma
-                            este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
-                            não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
-                            acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
+                            este é um teste empiricamente validado (ATENÇÃO). Os conceitos apresentados pela Dra. Judith
+                            Orloff
+                            estão apresentados no capítulo 1, do seu livro, Emotional Freedom: Liberate Yourself from
+                            Negative
+                            Emotions and Transform Your Life <a href="#fontes">[1]</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -255,7 +245,12 @@ if (isset($_SESSION['id_utilizador'])) {
                             <div class="quiz-header">
                                 <p class="disclaimer2">Responda a cada uma das 20 perguntas. Seja honesta/o para obter o
                                     resultado
-                                    mais preciso
+                                    mais preciso.
+                                </p>
+                                <p class="disclaimer2"><br>
+                                    0 corresponde a: Não é verdade.<br>
+                                    1 corresponde a: Por vezes é verdade.<br>
+                                    2 corresponde a: Maioritariamente é verdade.
                                 </p>
                                 <h2 id="question">Question Text</h2>
                                 <ul class="ul-question">
@@ -266,6 +261,10 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <li class="li-question">
                                         <input type="radio" name="answer" id="b" class="answer">
                                         <label for="b" id="b_text">Answer</label>
+                                    </li>
+                                    <li class="li-question">
+                                        <input type="radio" name="answer" id="c" class="answer">
+                                        <label for="c" id="c_text">Answer</label>
                                     </li>
                                 </ul>
                                 <button id="nextButton" onclick="nextQuestion()">Próxima</button>
@@ -280,9 +279,12 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="quizzes-text-section">
                 <div class="card">
                     <div class="card-body3">
-                        <p>Esta triagem online não é uma ferramenta de diagnóstico. Somente um
+                        <p>Whatever your score, be
+                            compassionate when you identify areas you’d like to improve. Realize that we all have a ways
+                            to go. Emotional freedom isn’t some place you arrive at and just stay there. It’s an ongoing
+                            blossoming.<br><br>Esta triagem online não é uma ferramenta de diagnóstico. Somente um
                             profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
-                            a determinar os próximos passos mais adequados para você</p>
+                            a determinar os próximos passos mais adequados para você </p>
                     </div>
                 </div>
             </div>
@@ -290,8 +292,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <div id="fontes">
                 <div class="quizzes-text-section">
                     <h3>Fontes</h3>
-                    <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                        vita. MyLife.</p>
+                    <p>1. Colocar fonte</p>
                 </div>
             </div>
 

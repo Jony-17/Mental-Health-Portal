@@ -202,7 +202,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </a>
-            <a href="#">
+            <a href="quizzes-emocao/index.php">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>O quão livre és, emocionalmente?</h1>
@@ -212,20 +212,20 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </a>
-            <a href="#">
+            <a href="quizzes-preocupacao/index.php">
                 <div class="card4">
                     <div class="card4-content">
-                        <h1>Tens uma energia positiva?</h1>
+                        <h1>O quão preocupada/o és?</h1>
                     </div>
                     <div class="card4-content2">
                         <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
                     </div>
                 </div>
             </a>
-            <a href="#">
+            <a href="quizzes-energia/index.php">
                 <div class="card4">
                     <div class="card4-content">
-                        <h1>O quão preocupada/o és?</h1>
+                        <h1>Tens uma energia positiva?</h1>
                     </div>
                     <div class="card4-content2">
                         <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">

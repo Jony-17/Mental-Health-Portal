@@ -1,101 +1,31 @@
 const quizData = [
     {
-        question: "1. Fui rotulado como “excessivamente sensível”, tímido ou introvertido?",
+        question: "1. Preocupo-me com muitas coisas todos os dias?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "2. Fico frequentemente sobrecarregado ou ansioso?",
+        question: "2. Torno os problemas maiores, e não menores?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "3. Discussões ou gritos me deixam doente?",
+        question: "3. Preocupo-me com coisas nas quais ninguém ao meu redor se preocupa?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "4. Muitas vezes sinto que não me encaixo?",
+        question: "4. Preocupo-me mesmo em momentos felizes?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "5. Estou esgotado pelas multidões e preciso de um tempo sozinho para me reanimar?",
+        question: "5. Acho que não consigo parar de me preocupar, embora tente?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "6. Sou superestimulado por ruídos, odores ou pessoas que falam sem parar?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "7. Tenho sensibilidades químicas ou não tolero roupas que arranham?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "8. Prefiro levar meu próprio carro para poder sair mais cedo se precisar?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "9. Como demais para lidar com o estresse?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "10. Tenho medo de ser sufocado por relacionamentos íntimos?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "11. Eu me assusto facilmente?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "12. Reajo fortemente à cafeína ou aos medicamentos?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "13. Tenho um limiar de dor baixo?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "14. Tenho tendência a me isolar socialmente?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "15. Absorvo o estresse, as emoções ou os sintomas de outras pessoas?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "16. Fico sobrecarregado com a multitarefa e prefiro fazer uma coisa de cada vez?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "17. Eu me reabasteço na natureza?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "18. Preciso de muito tempo para me recuperar depois de estar com pessoas difíceis ou vampiros energéticos?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "19. Sinto-me melhor nas cidades pequenas ou no campo do que nas grandes?",
-        a: "Sim",
-        b: "Não"
-    },
-    {
-        question: "20. Prefiro interações individuais ou pequenos grupos em vez de grandes reuniões?",
+        question: "6. Quando uma preocupação é resolvida, concentro-me imediatamente em outra?",
         a: "Sim",
         b: "Não"
     }
@@ -172,18 +102,18 @@ function submitQuiz() {
             loadQuiz();
         } else {
             let result;
-            if (simCount >= 1 && simCount <= 5) {
-                result = "És uma pessoa parcialmente empática.";
-            } else if (simCount >= 6 && simCount <= 10) {
-                result = "És uma pessoa com tendências empáticas moderadas.";
-            } else if (simCount >= 11 && simCount <= 15) {
-                result = "És uma pessoa com tendências empáticas fortes.";
+            if (simCount >= 0 && simCount <= 1) {
+                result = "És mais um guerreiro que preocupado.";
+            } else if (simCount >= 2 && simCount <= 3) {
+                result = "A preocupação toma conta de parte da tua vida.";
+            } else if (simCount >= 4 && simCount <= 5) {
+                result = "A preocupação toma grande parte da tua vida.";
             } else {
-                result = "És uma pessoa com mesmo muita empatia.";
+                result = "A preocupação toma mesmo muito conta de parte da tua vida.";
             }
             quiz.innerHTML = `
                 <h2 class="result-heading">OS TEUS RESULTADOS</h2>
-                <p class="quiz-heading">O quão empática/o és?</p>
+                <p class="quiz-heading">O quão preocupada/o és?</p>
                 <p class="result-text">${result}</p>
                 <button class="restart-btn" onclick="location.reload()">Responder novamente</button>
             `;
