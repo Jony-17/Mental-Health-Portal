@@ -198,9 +198,11 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title">O quão livre emocionalmente, és?</h1>
-                        <p>Are you able to cultivate positive emotions and compassion without having negative thoughts
-                            dominate your life? This test will help you assess your current level of emotional freedom
-                            at this time.</p>
+                        <p>É um empata? Já lhe disseram que você é “muito sensível” ou precisa se fortalecer? Você
+                            se sente exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
+                            pessoas? Você tem sensibilidade à luz, som e cheiros? Ou talvez você demore mais para
+                            relaxar depois de um longo dia de trabalho? Se você respondeu “sim” a essas perguntas, você
+                            pode ser um empata.</p>
                         <h2 class="card-title2">Informações acerca da liberdade emocional</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
@@ -282,7 +284,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                         <p>Whatever your score, be
                             compassionate when you identify areas you’d like to improve. Realize that we all have a ways
                             to go. Emotional freedom isn’t some place you arrive at and just stay there. It’s an ongoing
-                            blossoming.<br><br>Esta triagem online não é uma ferramenta de diagnóstico. Somente um
+                            blossoming. teste teste teste teste teste teste teste teste teste <br><br>Esta triagem online não
+                            é uma ferramenta de diagnóstico. Somente um
                             profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
                             a determinar os próximos passos mais adequados para você </p>
                     </div>

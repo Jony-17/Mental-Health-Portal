@@ -1,120 +1,120 @@
 const quizData = [
     {
-        question: "1. Fui rotulado como “excessivamente sensível”, tímido ou introvertido?",
+        question: "1. Se estou com raiva de alguém, vou respirar e concentrar-me antes de reagir.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "2. Fico frequentemente sobrecarregado ou ansioso?",
+        question: "2. Quando estou cheio de dúvidas ou medo, trato-me com amor.",
         a: "0",
         b: "1",
         c: "2"
     },
     /*{
-        question: "3. Discussões ou gritos me deixam doente?",
+        question: "3. Quando estou preso no trânsito ou se algo não acontece no meu horário, tenho paciência.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "4. Muitas vezes sinto que não me encaixo?",
+        question: "4. Depois de um dia difícil, concentro-me nas coisas pelas quais sou grato, em vez de me culpar pelo que deu errado.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "5. Estou esgotado pelas multidões e preciso de um tempo sozinho para me reanimar?",
+        question: "5. Raramente fico ríspido ou tenho uma atitude arrogante se as pessoas me frustram.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "6. Sou superestimulado por ruídos, odores ou pessoas que falam sem parar?",
+        question: "6. Sinto-me conectado a um senso de espiritualidade, independentemente de como eu o defina.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "7. Tenho sensibilidades químicas ou não tolero roupas que arranham?",
+        question: "7. Eu verifico a minha intuição - meus instintos - ao fazer escolhas.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "8. Prefiro levar meu próprio carro para poder sair mais cedo se precisar?",
+        question: "8. Se sou culpado por alguma coisa, raramente ataco e digo coisas das quais me arrependo.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "9. Como demais para lidar com o estresse?",
+        question: "9. Adormeço rapidamente e não me preocupo com a lista de “tarefas” de amanhã.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "10. Tenho medo de ser sufocado por relacionamentos íntimos?",
+        question: "10. Se o meu coração se partir eu não desisto do amor.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "11. Eu me assusto facilmente?",
+        question: "11. Sou uma pessoa positiva e não transformo pequenos problemas em grandes.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "12. Reajo fortemente à cafeína ou aos medicamentos?",
+        question: "12. Não procuro vingança se alguém me tratar mal.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "13. Tenho um limiar de dor baixo?",
+        question: "13. Não tenho inveja do sucesso de outras pessoas se ele superar o meu.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "14. Tenho tendência a me isolar socialmente?",
+        question: "14. Deixo rapidamente de lado as emoções negativas e não fico a pensar nelas.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "15. Absorvo o estresse, as emoções ou os sintomas de outras pessoas?",
+        question: "15. Não sou facilmente esmagado por decepções.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "16. Fico sobrecarregado com a multitarefa e prefiro fazer uma coisa de cada vez?",
+        question: "16. Eu não me comparo com os outros.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "17. Eu me reabasteço na natureza?",
+        question: "17. Tenho empatia pelos outros, mas não me torno terapeuta nem fico esgotado pela sua dor emocional.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "18. Preciso de muito tempo para me recuperar depois de estar com pessoas difíceis ou vampiros energéticos?",
+        question: "18. Eu vivo no “Agora”, em vez de ficar a pensar no passado ou no futuro.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "19. Sinto-me melhor nas cidades pequenas ou no campo do que nas grandes?",
+        question: "19. Sinto-me feliz com a minha vida, não que ela esteja apenas a passar por mim.",
         a: "0",
         b: "1",
         c: "2"
     },
     {
-        question: "20. Prefiro interações individuais ou pequenos grupos em vez de grandes reuniões?",
+        question: "20. Sou bom em estabelecer limites com pessoas que retiram a minha energia.",
         a: "0",
         b: "1",
         c: "2"
