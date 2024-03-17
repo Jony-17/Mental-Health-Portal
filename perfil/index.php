@@ -8,6 +8,9 @@ if (isset($_SESSION['id_utilizador'])) {
   $utilizador_id = $_SESSION['id_utilizador'];
   echo "<script>console.log('ID: $utilizador_id');</script>";
 
+  // Variável para rastrear se houve alguma edição nos campos
+  $edicao_realizada = false;
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>console.log('Formulário enviado');</script>";
 
@@ -20,6 +23,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
       if ($conn->query($sql) === TRUE) {
         $_SESSION['success_nome_message'] = "Nome atualizado com sucesso!";
+        $edicao_realizada = true;
       } else {
         echo "<p class='text-danger'>Erro ao atualizar o nome: " . $conn->error . "</p>";
       }
@@ -379,7 +383,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     </form>
                   </div>
 
-                  
+
 
                 </div>
               </div>
@@ -421,30 +425,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">A tua atividade</h6>
                 </div>-->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">ALUNOS REGISTADOS</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php
-                        $query = "SELECT utilizador_id FROM utilizadores WHERE admin=0 ORDER BY utilizador_id";
-                        $query_run = mysqli_query($conn, $query);
 
-                        $row = mysqli_num_rows($query_run);
-
-                        echo '<h1> ' . $row . '</h1>';
-                        ?>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
             <!-- Pending Requests Card Example -->
@@ -453,10 +434,10 @@ if (isset($_SESSION['id_utilizador'])) {
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TAREFAS REALIZADAS
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">QUIZZES REALIZADOS
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM utilizadores WHERE admin=0 ORDER BY utilizador_id";
+                      $query = "SELECT utilizador_id FROM quizzes ORDER BY quiz_id";
                       $query_run = mysqli_query($conn, $query);
 
                       $row = mysqli_num_rows($query_run);
