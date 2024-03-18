@@ -845,90 +845,15 @@ color: #8A8A8A;
 
 /* Tela igual ou superior a 1360 */
 @media screen and (min-width: 1360px) {
-/*HOME and ABOUT*/
-.home-bannerImage-container {
-  max-width: 650px;
-}
 
-.about-bannerImage2-container {
-  top: 100px;
-  right: -155px;
-  max-width: 100px;
-}
-
-.home-primary-heading {
-  font-size: 47px;
-  margin-top: 100px;
-}
-
-.primary-heading {
-  font-size: 47px;
-  margin-top: 20px;
-}
-
-.home-primary-text,
-.about-primary-text {
-  font-size: 20px;
-}
-
-.about-text-section {
+.quizzes-banner-container {
   margin-top: 70px;
 }
 
-.about-primary-heading {
-  font-size: 25px;
-  margin-top: 70px;
-}
-
-.image-container2 {
-  max-width: 500px;
-}
-
-.card-title {
-  font-size: 20px;
-}
-
-.card-body .fas.fa-comments,
-.card-body .fas.fa-robot,
-.card-body .fas.fa-sticky-note,
-.card-body .far.fa-newspaper {
-  font-size: 15px;
-}
-
-/*OUTROS*/
-.perturbacoes-banner-container,
-.artigos-banner-container,
-.quizzes-banner-container,
-.noticias-banner-container,
-.perguntas-banner-container {
-  margin-top: 70px;
-}
-
-.perturbacoes-second-heading,
-.artigos-second-heading,
-.quizzes-second-heading,
-.noticias-second-heading,
-.perguntas-second-heading {
+.quizzes-second-heading {
   font-size: clamp(8px, 5vw, 46px);
 }
 
-.card2 h1 {
-  font-size: 22px;
-}
-
-.artigos-bannerImage2-container {
-  top: 100px;
-  left: -155px;
-}
-
-.noticias-bannerImage2-container {
-  top: 700px;
-  right: -155px;
-}
-
-/*body {
-  width: 85vw;
-}*/
 }
 
 /* Tela igual ou superior a 1600 */
