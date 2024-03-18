@@ -240,7 +240,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             </div>
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/depressão.png" alt="Depressão">
                 </a>
                 <h1>Perturbações do Sono</h1>
                 <p>TesteTesteTesteTesteTesteTesteTeste</p>
@@ -250,7 +250,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             </div>
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/stress.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/depressão.png" alt="Depressão">
                 </a>
                 <h1>Perturbações Alimentares</h1>
                 <p>TesteTesteTesteTesteTesteTesteTeste</p>
@@ -260,7 +260,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             </div>
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/stress.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/depressão.png" alt="Depressão">
                 </a>
                 <h1>Perturbações Obsessivo-Compulsivas</h1>
                 <p>TesteTesteTesteTesteTesteTesteTeste</p>
@@ -270,7 +270,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             </div>
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/stress.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/depressão.png" alt="Depressão">
                 </a>
                 <h1>Perturbações de Personalidade</h1>
                 <p>TesteTesteTesteTesteTesteTesteTeste</p>
