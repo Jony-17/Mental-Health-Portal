@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../conn/conn.php");
+require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset ($_SESSION['id_utilizador'])) {
@@ -71,15 +71,15 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial">Página Inicial</a></li>
+                <li><a href="../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="#">Perturbações</a></li>
+                <li><a href="..">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes">Quizzes</a></li>
+                        <li><a href="../../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
@@ -104,7 +104,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -114,14 +114,14 @@ if (isset ($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial">Página Inicial</a></li>
+            <li><a href="../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#about-me">Perturbações</a></li>
+            <li><a href="..">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes">Quizzes</a></li>
+                    <li><a href="../../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
@@ -143,7 +143,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -161,88 +161,159 @@ if (isset ($_SESSION['id_utilizador'])) {
     </header>
 
 
+    <div class="background">
+        <h1>Perturbações de Ansiedade</h1>
+    </div>
+
+
     <ol role="list">
+        <li class="list">
+            <div class="items">
+                <a href=".." class="text-sm">
+                    Perturbações Mentais
+                </a>
+                <span class="separator">/</span>
+            </div>
+
+        </li>
+
+        </li>
         <li class="list">
             <div class="items-current">
                 <span class="text-sm" aria-current=page>
-                    Perturbações Mentais
+                    Perturbações de Ansiedade
                 </span>
             </div>
         </li>
     </ol>
 
+    <div class="buttons">
+        <a class="btn2" href="#">Ansiedade Social</a>
+        <a class="btn2" href="ansiedade-generalizada">Ansiedade Generalizada</a>
+        <a class="btn2" href="#">Fobia específica</a>
+        <a class="btn2" href="#">Perturbação de pánico</a>
+    </div>
 
-    <!--Perturbações Mentais-->
-    <section class="perturbacoes" id="perturbacoes">
-        <div class="perturbacoes-banner-container">
-            <h1 class="perturbacoes-primary-heading">
-                Perturbações Mentais
-            </h1>
+    <!--Perturbação de Ansiedade-->
+    <section class="perturbacao-ansiedade" id="perturbacao-ansiedade">
+        <div class="perturbacao-ansiedade-banner-container">
+            <div class="perturbacao-ansiedade-text-section">
+                <div class="card">
+                    <div class="card-body">
+                        <!--<h1 class="card-title">O quão empática/o és?</h1>-->
+                        <p>Everybody deals with anxiety from time to time, but when everyday feelings of nervousness
+                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable
+                            anxiety disorder.
+
+                            If you're struggling with an anxiety disorder like social anxiety or generalized anxiety,
+                            know that you are not alone. The National Institutes of Mental Health estimate that nearly
+                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1
+                            Any Anxiety Disorder, National Institutes of Mental Health
+
+                            Since anxiety is a common mental health condition (and is a condition that can be
+                            debilitating), it's recommended that all adults under the age of 65 receive routine anxiety
+                            screening.2
+
+                            Treatment options like therapy, medication, self-care strategies, and lifestyle changes can
+                            help you manage your anxiety and help you live your best life at home, at work, and in your
+                            relationships.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="card-container">
-            <div class="card">
-                <a href="perturbacoes-ansiedade/">
-                    <img src="imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
+        <div class="card2-container">
+            <div class="card2">
+                <a href="perturbacoes-ansiedade/index.php">
+                    <img src="../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
                 </a>
-                <h1>Perturbações de Ansiedade</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="perturbacoes-ansiedade/" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
+                <div class="card2-content">
+                    <h1>10 Factos sobre a Ansiedade</h1>
+                    <p>TesteTesteTesteTesteTesteTesteTeste</p>
+                    <a href="perturbacoes-ansiedade/index.php" class="secondary-button">
+                        Sabe mais<i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-sono.png" alt="Depressão">
-                </a>
-                <h1>Perturbações do Sono</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-humor.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Humor</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-aliment.png" alt="Depressão">
-                </a>
-                <h1>Perturbações Alimentares</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-obscomp.png" alt="Depressão">
-                </a>
-                <h1>Perturbações Obsessivo-Compulsivas</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Personalidade</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
+
+
+            <div class="card4-container">
+                <div class="card4">
+                    <a href="perturbacoes-ansiedade/index.php">
+                        <img src="../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
+                    </a>
+                    <div class="card4-content">
+                        <h3>Perturbações de Ansiedade</h3>
+                        <h1>Artigo 1 sobre a Ansiedade</h1>
+                        <p>Escrito por: João</p>
+                        <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
+                            Sabe mais<i class="fas fa-arrow-right"></i>
+                        </a>-->
+                    </div>
+                </div>
+
+                <div class="card4">
+                    <a href="perturbacoes-ansiedade/index.php">
+                        <img src="../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
+                    </a>
+                    <div class="card4-content">
+                        <h3>Perturbações de Ansiedade</h3>
+                        <h1>Artigo 1 sobre a Ansiedade</h1>
+                        <p>Escrito por: João</p>
+                        <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
+                            Sabe mais<i class="fas fa-arrow-right"></i>
+                        </a>-->
+                    </div>
+                </div>
+
+                <div class="card4">
+                    <a href="perturbacoes-ansiedade/index.php">
+                        <img src="../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
+                    </a>
+                    <div class="card4-content">
+                        <h3>Perturbações de Ansiedade</h3>
+                        <h1>Artigo 1 sobre a Ansiedade</h1>
+                        <p>Escrito por: João</p>
+                        <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
+                            Sabe mais<i class="fas fa-arrow-right"></i>
+                        </a>-->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="fontes" id="fontes">
+        <div class="fontes-content">
+            <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <h3>Fontes</h3>
+        </div>
+        <div class="fontes-content2">
+            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
+                vita. MyLife.</p>
+        </div>
+    </div>
+
+    <script>
+        //Função fontes
+        const fontes = document.querySelectorAll(".fontes");
+
+        fontes.forEach(fonte => {
+            fonte.addEventListener("click", () => {
+                fonte.classList.toggle("active");
+            })
+        })
+    </script>
+
 
 
 
