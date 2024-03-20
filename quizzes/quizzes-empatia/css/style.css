@@ -875,6 +875,10 @@ input[type="radio"] {
     margin-right: 10px;
   }
 
+  .fontes-content2 p {
+    padding: 10px 0px 0px 0px;
+  }
+
   /*Footer*/
   .footer-col {
     flex-basis: 100%;

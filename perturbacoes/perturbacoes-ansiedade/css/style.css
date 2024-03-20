@@ -854,7 +854,7 @@ input:checked + .change::after {
   .card2 img {
     /*width: 150px;
     height: 150px;*/
-    width: 225px;
+    width: 200px;
     height: 200px;
   }
 
@@ -885,6 +885,10 @@ input:checked + .change::after {
     padding: 0;
     margin-left: 15px;
     margin-right: 10px;
+  }
+
+  .fontes-content2 p {
+    padding: 10px 0px 0px 0px;
   }
 
   /*Footer*/

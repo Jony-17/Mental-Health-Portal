@@ -229,7 +229,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </a>
                 <div class="card2-content">
                     <h1>10 Factos sobre a Ansiedade</h1>
-                    <p>TesteTesteTesteTesteTesteTesteTeste</p>
+                    <p>TesteTesteTesteTeste</p><p>TesteTesteTeste</p>
                     <a href="perturbacoes-ansiedade/index.php" class="secondary-button">
                         Sabe mais<i class="fas fa-arrow-right"></i>
                     </a>
