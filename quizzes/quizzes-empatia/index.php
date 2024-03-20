@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once("../../conn/conn.php");
+require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset($_SESSION['id_utilizador'])) {
+if (isset ($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -71,7 +71,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial/index.php">Página Inicial</a></li>
+                <li><a href="../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="#perturbacoes">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
@@ -86,10 +86,10 @@ if (isset($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -114,7 +114,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial/index.php">Página Inicial</a></li>
+            <li><a href="../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#about-me">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
@@ -126,10 +126,10 @@ if (isset($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -173,7 +173,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </li>
         <li class="list">
             <div class="items">
-                <a href="../index.php" class="text-sm" aria-current=page>
+                <a href=".." class="text-sm" aria-current=page>
                     Quizzes
                 </a>
                 <span class="separator">/</span>
@@ -182,9 +182,9 @@ if (isset($_SESSION['id_utilizador'])) {
         </li>
         <li class="list">
             <div class="items-current">
-                <a href="index.php" class="text-sm" aria-current=page>
+                <span class="text-sm" aria-current=page>
                     O quão empática/o és?
-                </a>
+                </span>
             </div>
         </li>
     </ol>
@@ -287,17 +287,37 @@ if (isset($_SESSION['id_utilizador'])) {
                 </div>
             </div>
 
-            <div id="fontes">
-                <div class="quizzes-text-section">
+            <div class="fontes" id="fontes">
+                <div class="fontes-content">
+                    <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+                    </svg>
+                    <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+                    </svg>
                     <h3>Fontes</h3>
+                </div>
+                <div class="fontes-content2">
                     <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
                         vita. MyLife.</p>
                 </div>
             </div>
-
-        </div>
     </section>
 
+    <script>
+        //Função fontes
+        const fontes = document.querySelectorAll(".fontes");
+
+        fontes.forEach(fonte => {
+            fonte.addEventListener("click", () => {
+                fonte.classList.toggle("active");
+            })
+        })
+    </script>
 
 
     <!---Footer--->

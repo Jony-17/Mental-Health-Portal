@@ -71,15 +71,15 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial/index.php">Página Inicial</a></li>
+                <li><a href="../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="#perturbacoes">Perturbações</a></li>
+                <li><a href="../perturbacoes">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes/index.php">Quizzes</a></li>
+                        <li><a href="../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
@@ -114,14 +114,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial/index.php">Página Inicial</a></li>
-            <li><a href="../quizzes/index.php">Sobre Nós</a></li>
-            <li><a href="#about-me">Perturbações</a></li>
+            <li><a href="../paginainicial">Página Inicial</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes/index.php">Quizzes</a></li>
+                    <li><a href="../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
@@ -192,7 +192,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </h1>
         </div>
         <div class="card4-container">
-            <a href="quizzes-empatia/index.php">
+            <a href="quizzes-empatia">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>O quão empática/o és?</h1>
@@ -202,7 +202,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </a>
-            <a href="quizzes-emocao/index.php">
+            <a href="quizzes-emocao">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>O quão livre és, emocionalmente?</h1>
@@ -212,7 +212,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </a>
-            <a href="quizzes-preocupacao/index.php">
+            <a href="quizzes-preocupacao">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>O quão preocupada/o és?</h1>
@@ -222,7 +222,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </a>
-            <a href="quizzes-energia/index.php">
+            <a href="quizzes-energia">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>Tens uma energia positiva?</h1>

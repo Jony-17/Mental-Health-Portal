@@ -625,6 +625,12 @@ color: #8A8A8A;
 
 /* Tela igual ou inferior a 768 */
 @media screen and (max-width: 768px) {
+
+  ol {
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+  
 /*HOME and ABOUT*/
 .home-bannerImage-container {
   max-width: 450px;
