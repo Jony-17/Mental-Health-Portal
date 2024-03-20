@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once("../conn/conn.php");
+require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset($_SESSION['id_utilizador'])) {
+if (isset ($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -72,23 +72,23 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <ul class="links">
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../perturbacoes/index.php">Perturbações</a></li>
+                <li><a href="../perturbacoes">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes/index.php">Quizzes</a></li>
+                        <li><a href="../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
                 </li>
             </ul>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -114,20 +114,20 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <div class="dropdown_menu">
             <li><a href="../quizzes/index.php">Sobre Nós</a></li>
-            <li><a href="#about-me">Perturbações</a></li>
+            <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes/index.php">Quizzes</a></li>
+                    <li><a href="../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -245,39 +245,33 @@ if (isset($_SESSION['id_utilizador'])) {
                 <h1 class="perturbacoes-second-heading">
                     Perturbações Mentais
                 </h1>
-                <a href="#" class="third-button">Ver mais</a>
+                <a href="../perturbacoes" class="third-button">Ver mais</a>
             </div>
         </div>
         <div class="card2-container">
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/depressão.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/pert-perso-circle.png" alt="Depressão">
                 </a>
-                <h1>Depressão</h1>
+                <h1>Perturbações de Personalidade</h1>
             </div>
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/ansiedade.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/pert-humor-circle.png" alt="Depressão">
                 </a>
-                <h1>Ansiedade</h1>
+                <h1>Perturbações de Humor</h1>
             </div>
             <div class="card2">
                 <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
+                    <img src="imgs/imgs-perturbacoes/pert-sono-circle.png" alt="Depressão">
                 </a>
-                <h1>Personalidade</h1>
+                <h1>Perturbações do Sono</h1>
             </div>
             <div class="card2">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/stress.png" alt="Depressão">
+                <a href="../perturbacoes/perturbacoes-ansiedade/">
+                    <img src="imgs/imgs-perturbacoes/pert-ansie-circle.png" alt="Depressão">
                 </a>
-                <h1>Stress</h1>
-            </div>
-            <div class="card2">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/stress.png" alt="Depressão">
-                </a>
-                <h1>Stress</h1>
+                <h1>Perturbações de Ansiedade</h1>
             </div>
         </div>
     </section>
@@ -363,7 +357,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 </div>
             </a>
         </div>
-        <a href="../quizzes/index.php" class="fifth-button">Ver mais</a>
+        <a href="../quizzes" class="fifth-button">Ver mais</a>
     </section>
 
 
@@ -514,7 +508,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <!--Newsletter-->
-    <?php if (empty($_SESSION['id_utilizador'])): ?>
+    <?php if (empty ($_SESSION['id_utilizador'])): ?>
         <section class="newsletter" id="newsletter">
             <div class="newsletter-container">
                 <div class="box-newsletter">
@@ -539,10 +533,12 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Perturbações</h3>
                 <ul>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
+                    <li><a href="../perturbacoes/perturbacoes-ansiedade/">Perturbações de Ansiedade</a></li>
+                    <li><a href="#">Perturbações do Sono</a></li>
+                    <li><a href="#">Perturbações de Humor</a></li>
+                    <li><a href="#">Perturbações Alimentares</a></li>
+                    <li><a href="#">Perturbações Obsessivo-Compulsivas</a></li>
+                    <li><a href="#">Perturbações de Personalidade</a></li>
                 </ul>
             </div>
 
@@ -569,8 +565,36 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Conteúdo Educativo</h3>
                 <ul>
-                    <li><a href="#">Quizzes</a></li>
+                    <li><a href="../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contactos</h3>
+                <ul>
+                    <li><a href="#" target="_blank">Apoio Psicológico</a>
+                        <ul>
+                            <li style="color: #DADADA;">24h/dia</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
+                        <ul>
+                            <li style="color: #DADADA;">Todos os dias das 08h00 às 00h00</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="_blank">SOS Voz Amiga</a>
+                        <ul>
+                            <li style="color: #DADADA;">Todos os dias das 15:30h às 00:30h</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="_blank">Linha Conversa Amiga</a>
+                        <ul>
+                            <li style="color: #DADADA;">Dias úteis das 15h00 às 22h00</li>
+                            <li style="color: #DADADA;">Fins de semana das 19h00 às 22h00</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
@@ -586,12 +610,15 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
+                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown-f">
                         <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
                         <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
                     </ul>
-                </li>
+                </li>-->
+
+                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
+                        class="lang-link">PT</a></span>
 
                 <div class="vertical-hr"></div>
 
@@ -638,6 +665,7 @@ if (isset($_SESSION['id_utilizador'])) {
         darkModeToggle.addEventListener('change', toggleDarkMode);
 
 
+        //Função perguntas frequentes
         const faqs = document.querySelectorAll(".faq");
 
         faqs.forEach(faq => {
@@ -697,7 +725,7 @@ if (isset($_SESSION['id_utilizador'])) {
         });
     </script>
 
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
