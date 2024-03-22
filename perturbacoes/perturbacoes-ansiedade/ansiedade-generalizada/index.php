@@ -89,7 +89,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -129,7 +129,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -214,14 +214,14 @@ if (isset ($_SESSION['id_utilizador'])) {
             </div>
         </li>
 
-        <li class="list">
+        <!--<li class="list">
             <div class="items">
                 <a href="#diagnostico" class="text-sm">
                     Diagnóstico
                 </a>
                 <span class="separator">|</span>
             </div>
-        </li>
+        </li>-->
 
         </li>
         <li class="list">
@@ -279,7 +279,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
     </div>
 
-    <div class="subheading" id="diagnostico">
+    <!--<div class="subheading" id="diagnostico">
         <h1>Diagnóstico</h1>
         <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
             their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
@@ -292,7 +292,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             adults under the age of 65 should be routinely screened for anxiety. [2]</p>
         <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
             psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>
+    </div>-->
 
     <div class="subheading" id="ajuda">
         <h1>Procurar ajuda</h1>

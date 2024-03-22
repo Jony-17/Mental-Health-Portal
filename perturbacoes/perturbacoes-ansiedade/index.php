@@ -89,7 +89,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -129,7 +129,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -190,6 +190,7 @@ if (isset ($_SESSION['id_utilizador'])) {
     <div class="buttons">
         <a class="btn2" href="#">Ansiedade Social</a>
         <a class="btn2" href="ansiedade-generalizada">Ansiedade Generalizada</a>
+        <a class="btn2" href="#">Agorafobia</a>
         <a class="btn2" href="#">Fobia específica</a>
         <a class="btn2" href="#">Perturbação de pánico</a>
     </div>

@@ -195,7 +195,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <a href="#">
                     <img src="imgs/imgs-perturbacoes/pert-sono.png" alt="Depressão">
                 </a>
-                <h1>Perturbações do Sono</h1>
+                <h1>Perturbações do Sono - vigília</h1>
                 <p>TesteTesteTesteTesteTesteTesteTeste</p>
                 <a href="#about" class="first-button">
                     Sabe mais<i class="fas fa-arrow-right"></i>
@@ -236,6 +236,16 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
                 </a>
                 <h1>Perturbações de Personalidade</h1>
+                <p>TesteTesteTesteTesteTesteTesteTeste</p>
+                <a href="#about" class="first-button">
+                    Sabe mais<i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
+                </a>
+                <h1>Perturbações relacionadas com Trauma e Fatores de Stress</h1>
                 <p>TesteTesteTesteTesteTesteTesteTeste</p>
                 <a href="#about" class="first-button">
                     Sabe mais<i class="fas fa-arrow-right"></i>

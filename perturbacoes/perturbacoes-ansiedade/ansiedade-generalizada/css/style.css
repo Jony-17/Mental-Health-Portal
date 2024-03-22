@@ -954,6 +954,6 @@ input:checked + .change::after {
   
   /*OUTROS*/
   .ansiedade-generalizada-banner-container {
-    margin-top: 100px;
+    margin-top: 70px;
   }
 }
