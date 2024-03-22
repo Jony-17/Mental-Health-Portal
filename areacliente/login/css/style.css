@@ -340,7 +340,7 @@ form.sign-in-form {
 .elem2.lp2 {
   position: relative;
   left: -400px;
-  bottom: 700px;
+  bottom: 820px;
 }
 
 .elem3.lp1 {
@@ -352,13 +352,13 @@ form.sign-in-form {
 .elem3.lp2 {
   position: relative;
   left: -200px;
-  bottom: 780px;
+  bottom: 820px;
 }
 
 .elem4.lp1 {
   position: relative;
-  left: -500px;
-  bottom: 650px;
+  left: -560px;
+  bottom: 550px;
 }
 
 .elem4.lp2 {
@@ -415,6 +415,12 @@ form.sign-in-form {
   .title-h3 {
     font-size: 20px;
   }
+
+  .text2,
+  .text3 {
+    margin: 0;
+  }
+  
 
   .content-text1 {
     font-size: 35px;

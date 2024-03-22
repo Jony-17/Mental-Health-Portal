@@ -22,7 +22,7 @@
                     <h3 class="title-h3">Bem-vindo</h3>
                     <h2 class="title-h2">Login</h2>
 
-                    <?php if (isset($_GET['error'])) { ?>
+                    <?php if (isset ($_GET['error'])) { ?>
                         <p class="error">
                             <?php echo $_GET['error']; ?>
                         </p>
@@ -43,6 +43,7 @@
                     <p class="text2">OU</p>
                     <p class="text3">Não tens conta? <a class="text3" href="../registo/">Junta-te a
                             nós!</a></p>
+                    <p class="text3"><a class="text3" href="../../paginainicial/">Acede ao website sem criar conta</a></p>
                 </form>
             </div>
         </div>
@@ -58,7 +59,7 @@
                     <h2 class="content-text4">Abraham Maslow</h2>
                     <h3 class="content-text5">Psicólogo</h3>
                 </div>
-                <!--<img src="imgs/teste.png" class="image" alt="" />
+                <img src="imgs/teste.png" class="image" />
                 <img src="imgs/elementos/musica.png" class="elem1 lp1" />
                 <img src="imgs/elementos/musica.png" class="elem1 lp2" />
 
@@ -75,7 +76,7 @@
                 <img src="imgs/elementos/lua.png" class="elem5 lp2" />
 
                 <img src="imgs/elementos/sol.png" class="elem6 lp1" />
-                <img src="imgs/elementos/sol.png" class="elem6 lp2" />-->
+                <img src="imgs/elementos/sol.png" class="elem6 lp2" />
             </div>
         </div>
     </div>
