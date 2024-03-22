@@ -1205,6 +1205,8 @@ hr {
   margin: 6px 0;
 }
 
+/*Scroll to top*/
+
 #scrollToTopBtn {
   display: none; /* Ocultar inicialmente */
   position: fixed;

@@ -255,6 +255,10 @@ if (isset ($_SESSION['id_utilizador'])) {
     </section>
 
 
+    <!--Scroll to top-->
+    <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
+            class="fas fa-chevron-up"></i></button>
+
 
     <!---Footer--->
     <footer>
@@ -267,10 +271,13 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Perturbações</h3>
                 <ul>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
+                    <li><a href="../perturbacoes/perturbacoes-ansiedade/">Perturbações de Ansiedade</a></li>
+                    <li><a href="#">Perturbações do Sono - Vigília</a></li>
+                    <li><a href="#">Perturbações de Humor</a></li>
+                    <li><a href="#">Perturbações Alimentares</a></li>
+                    <li><a href="#">Perturbações Obsessivo-Compulsivas</a></li>
+                    <li><a href="#">Perturbações de Personalidade</a></li>
+                    <li><a href="#">Perturbações relacionadas com trauma<br>e fatores de stress</a></li>
                 </ul>
             </div>
 
@@ -297,14 +304,40 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Conteúdo Educativo</h3>
                 <ul>
-                    <li><a href="#">Quizzes</a></li>
+                    <li><a href="../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
                 </ul>
             </div>
 
-            <!-- <a class="gotop" href="#"> <i class="fa-solid fa-chevron-up"></i> </a> -->
-
+            <div class="footer-col">
+                <h3>Contactos</h3>
+                <ul>
+                    <li><a href="#" target="_blank">Apoio Psicológico</a>
+                        <ul>
+                            <li style="color: #DADADA;">24h/dia</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
+                        <ul>
+                            <li style="color: #DADADA;">Todos os dias das 08h00 às 00h00</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="_blank">SOS Voz Amiga</a>
+                        <ul>
+                            <li style="color: #DADADA;">Todos os dias das 15:30h às 00:30h</li>
+                        </ul>
+                    </li>
+                    <li><a href="#" target="_blank">Linha Conversa Amiga</a>
+                        <ul>
+                            <li style="color: #DADADA;">Dias úteis das 15h00 às 22h00</li>
+                            <li style="color: #DADADA;">Fins de semana das 19h00 às 22h00</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
+
         <hr>
 
         <div class="footer-links">
@@ -314,12 +347,15 @@ if (isset ($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
+                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown-f">
                         <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
                         <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
                     </ul>
-                </li>
+                </li>-->
+
+                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
+                        class="lang-link">PT</a></span>
 
                 <div class="vertical-hr"></div>
 
@@ -331,99 +367,10 @@ if (isset ($_SESSION['id_utilizador'])) {
     </footer>
 
 
-
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
-
-
-
-    <script>
-        /*function changeLanguage(language) {
-                // Lógica para mudar o idioma aqui
-                // Por exemplo, você pode recarregar a página com o idioma selecionado ou usar AJAX para carregar novos conteúdos.
-                console.log("Idioma selecionado: " + language);
-    
-                if (language === 'portuguese') {
-                    document.getElementById('portugues').removeAttribute('href');
-                    document.getElementById('ingles').setAttribute('href', '#');
-                } else if (language === 'english') {
-                    document.getElementById('ingles').removeAttribute('href');
-                    document.getElementById('portugues').setAttribute('href', '#');
-                }
-    
-                // Aqui você pode implementar a lógica para alterar o idioma conforme necessário
-            }*/
-
-
-        const darkModeToggle = document.getElementById('darkmode-toggle');
-
-        //Função Light/Dark
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode', this.checked);
-        }
-        darkModeToggle.addEventListener('change', toggleDarkMode);
-
-
-        const faqs = document.querySelectorAll(".faq");
-
-        faqs.forEach(faq => {
-            faq.addEventListener("click", () => {
-                faq.classList.toggle("active");
-            })
-        })
-
-
-        const btn = document.querySelector('.toggle_btn');
-        const btnIcon = document.querySelector('.toggle_btn i');
-        const dropdownMenus = document.querySelectorAll('.dropdown_menu');
-
-        // Função para calcular a altura total dos dropdowns abertos
-        function calcularAlturaDropdownsAbertos() {
-            let alturaTotal = 0;
-            dropdownMenus.forEach(menu => {
-                if (menu.classList.contains('open')) {
-                    alturaTotal += menu.scrollHeight;
-                }
-            });
-            return alturaTotal;
-        }
-
-        // Event listener para o botão do hambúrguer
-        btn.onclick = function () {
-            dropdownMenus.forEach(menu => {
-                menu.classList.toggle('open');
-            });
-
-            const isOpen = dropdownMenus[0].classList.contains('open'); // Verificar apenas um dos menus
-
-            btnIcon.className = isOpen ?
-                'fas fa-xmark' :
-                'fas fa-bars';
-
-            // Ajustar a altura do dropdown_menu
-            const alturaDropdownsAbertos = calcularAlturaDropdownsAbertos();
-            dropdownMenus[0].style.height = `${alturaDropdownsAbertos}px`;
-        }
-
-        // Event listener para os dropdown triggers
-        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-        dropdownTriggers.forEach(trigger => {
-            trigger.addEventListener('click', function (event) {
-                event.preventDefault();
-                const dropdown = this.querySelector('.dropdown');
-                dropdown.classList.toggle('is-active');
-
-                // Adicione esta linha para exibir o menu dropdown correspondente quando o dropdown estiver ativo
-                dropdown.nextElementSibling.classList.toggle('open');
-
-                // Ajustar a altura do dropdown_menu
-                const alturaDropdownsAbertos = calcularAlturaDropdownsAbertos();
-                dropdownMenus[0].style.height = `${alturaDropdownsAbertos}px`;
-            });
-        });
-    </script>
 
     <script src="js/script.js"></script>
 

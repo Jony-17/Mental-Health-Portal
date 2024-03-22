@@ -172,8 +172,6 @@ function nextQuestion() {
         currentQuiz++;
         if (currentQuiz < quizData.length) {
             loadQuiz();
-            // Carrega a próxima pergunta
-            loadQuiz();
         }
     }
 }

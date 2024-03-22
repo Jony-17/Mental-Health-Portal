@@ -453,23 +453,26 @@ hr {
   margin: 6px 0;
 }
 
-.gotop {
-  position: absolute;
-  background: var(--white-color);
-  color: var(--orange2-color);
-  width: 50px;
-  bottom: 5px;
-  right: 50px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 20px;
+/*Scroll to top*/
+
+#scrollToTopBtn {
+  display: none; /* Ocultar inicialmente */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
   border-radius: 10px;
-  transition: 0.4s;
 }
-.gotop:hover {
-  transform: scale(1.2);
-  color: var(--orange2-color);
-  background: var(--white-color);
+
+#scrollToTopBtn:hover {
+  background-color: var(--orange3-color);
 }
 
 .change {

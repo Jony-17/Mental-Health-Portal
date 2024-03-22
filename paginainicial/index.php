@@ -53,8 +53,8 @@ if (isset ($_SESSION['id_utilizador'])) {
     <style>
         #chatbotContainer {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 50px;
+            right: -10px;
             z-index: 9999;
             /* Z-index alto para garantir que o iframe fique acima de outros elementos */
         }
@@ -66,6 +66,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             border: none;
         }
     </style>
+
     <header>
         <div class="navbar">
             <div class="logo">Portal de <br> Saúde Mental.</div>
@@ -427,31 +428,6 @@ if (isset ($_SESSION['id_utilizador'])) {
         </div>
     </section>
 
-    <!--<section class="noticias" id="noticias">
-        <div class="noticias-banner-container">
-            <div class="noticias-bannerImage2-container">
-                <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
-            </div>
-            <h2 class="noticias-primary-heading">Notícias</h2>
-            <div class="noticias-banner-container2">
-                <h1 class="noticias-second-heading">
-                    Saúde Mental
-                </h1>
-                <a href="#" class="sixth-button">Ver mais</a>
-            </div>
-        </div>
-
-        <div class="img-area">
-            <div class="single-img"><img src="imgs/imgs-noticias/noticia1.jpg" alt=""></div>
-            <div class="single-img"><img src="imgs/imgs-noticias/noticia2.jpg" alt=""></div>
-            <div class="single-img"><img src="imgs/imgs-noticias/noticia3.jpg" alt=""></div>
-            <div class="single-img"><img src="imgs/imgs-noticias/noticia4.jpg" alt=""></div>
-            <div class="single-img"><img src="imgs/imgs-noticias/noticia5.jpg" alt=""></div>
-        </div>-->
-
-
-    </section>
-
     <!--Perguntas Frequentes-->
     <section class="perguntas" id="perguntas">
         <div class="perguntas-banner-container">
@@ -523,31 +499,12 @@ if (isset ($_SESSION['id_utilizador'])) {
 
 
     <!--Scroll to top-->
-
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
 
 
-    <!-- Colocar num ficheiro JavaScript -->
-    <script>
-        window.onscroll = function () { scrollFunction() };
 
-        function scrollFunction() {
-            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
-        }
-
-        function scrollTopFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-
-    <!---Footer--->
+    <!--Footer-->
     <footer>
         <div class="footer-row">
             <div class="footer-col">
@@ -559,11 +516,12 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <h3>Perturbações</h3>
                 <ul>
                     <li><a href="../perturbacoes/perturbacoes-ansiedade/">Perturbações de Ansiedade</a></li>
-                    <li><a href="#">Perturbações do Sono</a></li>
+                    <li><a href="#">Perturbações do Sono - Vigília</a></li>
                     <li><a href="#">Perturbações de Humor</a></li>
                     <li><a href="#">Perturbações Alimentares</a></li>
                     <li><a href="#">Perturbações Obsessivo-Compulsivas</a></li>
                     <li><a href="#">Perturbações de Personalidade</a></li>
+                    <li><a href="#">Perturbações relacionadas com trauma<br>e fatores de stress</a></li>
                 </ul>
             </div>
 
@@ -622,10 +580,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                     </li>
                 </ul>
             </div>
-
-
-
         </div>
+
         <hr>
 
         <div class="footer-links">
@@ -655,103 +611,11 @@ if (isset ($_SESSION['id_utilizador'])) {
     </footer>
 
 
-
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
 
-
-
-    <script>
-        /*function changeLanguage(language) {
-            // Lógica para mudar o idioma aqui
-            // Por exemplo, você pode recarregar a página com o idioma selecionado ou usar AJAX para carregar novos conteúdos.
-            console.log("Idioma selecionado: " + language);
-
-            if (language === 'portuguese') {
-                document.getElementById('portugues').removeAttribute('href');
-                document.getElementById('ingles').setAttribute('href', '#');
-            } else if (language === 'english') {
-                document.getElementById('ingles').removeAttribute('href');
-                document.getElementById('portugues').setAttribute('href', '#');
-            }
-
-            // Aqui você pode implementar a lógica para alterar o idioma conforme necessário
-        }*/
-
-
-        const darkModeToggle = document.getElementById('darkmode-toggle');
-
-        //Função Light/Dark
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode', this.checked);
-        }
-        darkModeToggle.addEventListener('change', toggleDarkMode);
-
-
-        //Função perguntas frequentes
-        const faqs = document.querySelectorAll(".faq");
-
-        faqs.forEach(faq => {
-            faq.addEventListener("click", () => {
-                faq.classList.toggle("active");
-            })
-        })
-
-
-        const btn = document.querySelector('.toggle_btn');
-        const btnIcon = document.querySelector('.toggle_btn i');
-        const dropdownMenus = document.querySelectorAll('.dropdown_menu');
-
-        // Função para calcular a altura total dos dropdowns abertos
-        function calcularAlturaDropdownsAbertos() {
-            let alturaTotal = 0;
-            dropdownMenus.forEach(menu => {
-                if (menu.classList.contains('open')) {
-                    alturaTotal += menu.scrollHeight;
-                }
-            });
-            return alturaTotal;
-        }
-
-        // Event listener para o botão do hambúrguer
-        btn.onclick = function () {
-            dropdownMenus.forEach(menu => {
-                menu.classList.toggle('open');
-            });
-
-            const isOpen = dropdownMenus[0].classList.contains('open'); // Verificar apenas um dos menus
-
-            btnIcon.className = isOpen ?
-                'fas fa-xmark' :
-                'fas fa-bars';
-
-            // Ajustar a altura do dropdown_menu
-            const alturaDropdownsAbertos = calcularAlturaDropdownsAbertos();
-            dropdownMenus[0].style.height = `${alturaDropdownsAbertos}px`;
-        }
-
-        // Event listener para os dropdown triggers
-        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-
-        dropdownTriggers.forEach(trigger => {
-            trigger.addEventListener('click', function (event) {
-                event.preventDefault();
-                const dropdown = this.querySelector('.dropdown');
-                dropdown.classList.toggle('is-active');
-            });
-
-            const dropdownItems = trigger.querySelectorAll('.dropdown li');
-            dropdownItems.forEach(item => {
-                item.addEventListener('click', function (event) {
-                    event.stopPropagation(); // Impede a propagação do evento até o elemento pai
-                    // Lógica adicional para lidar com o clique nos itens da lista, se necessário
-                });
-            });
-        });
-
-    </script>
 
     <script src="js/script.js"></script>
 
