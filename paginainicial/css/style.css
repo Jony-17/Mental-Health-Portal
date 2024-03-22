@@ -507,7 +507,6 @@ img {
 .card2 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   text-align: center;
 }
 
@@ -833,7 +832,7 @@ img {
 
 .image-grid-container2text {
   margin-top: 200px;
-  margin-left: 40px;
+  margin-left: 20px;
   text-align: left;
   font-size: 15px;
   color: var(--neutralgrey-color);
@@ -1206,23 +1205,24 @@ hr {
   margin: 6px 0;
 }
 
-.gotop {
-  position: absolute;
-  background: var(--white-color);
-  color: var(--orange2-color);
-  width: 50px;
-  bottom: 5px;
-  right: 50px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 20px;
+#scrollToTopBtn {
+  display: none; /* Ocultar inicialmente */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
   border-radius: 10px;
-  transition: 0.4s;
 }
-.gotop:hover {
-  transform: scale(1.2);
-  color: var(--orange2-color);
-  background: var(--white-color);
+
+#scrollToTopBtn:hover {
+  background-color: var(--orange3-color);
 }
 
 .change {
@@ -1638,7 +1638,8 @@ input:checked + .change::after {
 
   .home-primary-heading {
     font-size: 70px;
-    margin-top: 200px;
+    /*margin-top: 200px;*/
+    margin-top: 100px;
   }
 
   .primary-heading {

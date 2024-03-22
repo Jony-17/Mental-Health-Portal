@@ -522,6 +522,31 @@ if (isset ($_SESSION['id_utilizador'])) {
     <?php endif; ?>
 
 
+    <!--Scroll to top-->
+
+    <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
+            class="fas fa-chevron-up"></i></button>
+
+
+    <!-- Colocar num ficheiro JavaScript -->
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        function scrollTopFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
     <!---Footer--->
     <footer>
         <div class="footer-row">
@@ -598,7 +623,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </ul>
             </div>
 
-            <!-- <a class="gotop" href="#"> <i class="fa-solid fa-chevron-up"></i> </a> -->
+
 
         </div>
         <hr>
@@ -709,20 +734,23 @@ if (isset ($_SESSION['id_utilizador'])) {
 
         // Event listener para os dropdown triggers
         const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+
         dropdownTriggers.forEach(trigger => {
             trigger.addEventListener('click', function (event) {
                 event.preventDefault();
                 const dropdown = this.querySelector('.dropdown');
                 dropdown.classList.toggle('is-active');
+            });
 
-                // Adicione esta linha para exibir o menu dropdown correspondente quando o dropdown estiver ativo
-                dropdown.nextElementSibling.classList.toggle('open');
-
-                // Ajustar a altura do dropdown_menu
-                const alturaDropdownsAbertos = calcularAlturaDropdownsAbertos();
-                dropdownMenus[0].style.height = `${alturaDropdownsAbertos}px`;
+            const dropdownItems = trigger.querySelectorAll('.dropdown li');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Impede a propagação do evento até o elemento pai
+                    // Lógica adicional para lidar com o clique nos itens da lista, se necessário
+                });
             });
         });
+
     </script>
 
     <script src="js/script.js"></script>
