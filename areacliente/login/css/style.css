@@ -570,6 +570,11 @@ form.sign-in-form {
   .logo {
     font-size: 15px;
   }
+
+  .image {
+    margin-top: -70px;
+  }
+
   .title-h2 {
     font-size: 50px;
   }
@@ -596,8 +601,20 @@ form.sign-in-form {
 
 /* Tela igual ou superior a 1600 */
 @media screen and (min-width: 1600px) {
+
+  .image {
+    margin-top: 0;
+  }
+
   .text2 {
     padding: 0;
     margin: 0;
+  }
+}
+
+/* Tela igual ou superior a 1900 */
+@media screen and (min-width: 1900px) {
+  .image {
+    margin-top: 110px;
   }
 }
