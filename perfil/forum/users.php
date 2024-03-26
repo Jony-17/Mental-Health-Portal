@@ -72,7 +72,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="../index.php">
+        <a class="nav-link" href="..">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -193,7 +193,7 @@ if (isset($_SESSION['id_utilizador'])) {
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../../paginainicial/index.php">
+                <a class="dropdown-item" href="../../paginainicial/">
                   <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                   Voltar à Página Inicial
                 </a>

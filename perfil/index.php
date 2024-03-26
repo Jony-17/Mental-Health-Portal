@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once("../conn/conn.php");
+require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset($_SESSION['id_utilizador'])) {
+if (isset ($_SESSION['id_utilizador'])) {
   // Obtém o ID do usuário da sessão
   $utilizador_id = $_SESSION['id_utilizador'];
   echo "<script>console.log('ID: $utilizador_id');</script>";
@@ -14,7 +14,7 @@ if (isset($_SESSION['id_utilizador'])) {
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>console.log('Formulário enviado');</script>";
 
-    if (isset($_POST["novo_nome"]) && !empty($_POST["novo_nome"])) {
+    if (isset ($_POST["novo_nome"]) && !empty ($_POST["novo_nome"])) {
       $novo_nome = $_POST["novo_nome"];
       echo "<script>console.log('Novo nome: $novo_nome');</script>";
 
@@ -30,7 +30,7 @@ if (isset($_SESSION['id_utilizador'])) {
     }
 
     // Verifica se o novo email foi enviado no formulário
-    if (isset($_POST["novo_email"]) && !empty($_POST["novo_email"])) {
+    if (isset ($_POST["novo_email"]) && !empty ($_POST["novo_email"])) {
       $novo_email = $_POST["novo_email"];
       echo "<script>console.log('Novo email: $novo_email');</script>";
 
@@ -54,7 +54,7 @@ if (isset($_SESSION['id_utilizador'])) {
     }
 
     // Verifica se a nova senha foi enviada no formulário
-    if (isset($_POST["nova_password"]) && !empty($_POST["nova_password"])) {
+    if (isset ($_POST["nova_password"]) && !empty ($_POST["nova_password"])) {
       $nova_password = $_POST["nova_password"];
 
       $senha_hash = password_hash($nova_password, PASSWORD_DEFAULT);
@@ -175,11 +175,18 @@ if (isset($_SESSION['id_utilizador'])) {
         Interface
       </div>
 
-      <!-- Nav Item - Perfis dos Alunos -->
+      <!-- Nav Item - Fórum -->
       <li class="nav-item">
         <a class="nav-link" href="forum/users.php"> <!--Alterar HREF -->
           <i class="fas fa-comments"></i>
           <span>Fórum</span></a>
+      </li>
+
+      <!-- Nav Item - GAP -->
+      <li class="nav-item">
+        <a class="nav-link" href="#"> <!--Alterar HREF -->
+          <i class="fas fa-users"></i>
+          <span>Gabinete de Apoio Psicológico</span></a>
       </li>
 
       <!-- Nav Item - Inserir Collapse Menu -->
@@ -274,7 +281,7 @@ if (isset($_SESSION['id_utilizador'])) {
                   <?php echo $row["nome"] ?>
                 </span>
                 <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (
-                  !empty($row["img_perfil"])
+                  !empty ($row["img_perfil"])
                 ) {
                   echo $row["img_perfil"];
                 } else {
@@ -283,7 +290,7 @@ if (isset($_SESSION['id_utilizador'])) {
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../paginainicial/index.php">
+                <a class="dropdown-item" href="../paginainicial/">
                   <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                   Voltar à Página Inicial
                 </a>
@@ -329,7 +336,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       </button>
                       <?php
                       // Verifica se existe uma mensagem de sucesso na sessão
-                      if (isset($_SESSION['success_nome_message'])) {
+                      if (isset ($_SESSION['success_nome_message'])) {
                         echo "<p class='text-success'>" . $_SESSION['success_nome_message'] . "</p>";
                         // Limpa a mensagem da sessão
                         unset($_SESSION['success_nome_message']);
@@ -348,12 +355,12 @@ if (isset($_SESSION['id_utilizador'])) {
                       </button>
                       <?php
                       // Verifica se existe uma mensagem de sucesso na sessão
-                      if (isset($_SESSION['success_email_message'])) {
+                      if (isset ($_SESSION['success_email_message'])) {
                         echo "<p class='text-success'>" . $_SESSION['success_email_message'] . "</p>";
                         // Limpa a mensagem da sessão
                         unset($_SESSION['success_email_message']);
                       }
-                      if (isset($_SESSION['danger_email_message'])) {
+                      if (isset ($_SESSION['danger_email_message'])) {
                         echo "<p class='text-danger'>" . $_SESSION['danger_email_message'] . "</p>";
                         // Limpa a mensagem da sessão
                         unset($_SESSION['danger_email_message']);
@@ -374,7 +381,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       </button>
                       <?php
                       // Verifica se existe uma mensagem de sucesso na sessão
-                      if (isset($_SESSION['success_password_message'])) {
+                      if (isset ($_SESSION['success_password_message'])) {
                         echo "<p class='text-success'>" . $_SESSION['success_password_message'] . "</p>";
                         // Limpa a mensagem da sessão
                         unset($_SESSION['success_password_message']);
@@ -428,16 +435,93 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 
-            <!-- Pending Requests Card Example -->
+            <!-- QUIZ EMPATIA -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">QUIZZES REALIZADOS
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão empática/o és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_empatia_id IS NOT NULL ORDER BY quiz_id";
+
+                      $query_run = mysqli_query($conn, $query);
+
+                      $row = mysqli_num_rows($query_run);
+
+                      echo '<h1> ' . $row . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- QUIZ PREOCUPAÇÃO -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão preocupada/o és?
+                      </div>
+                      <?php
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_preocupacao_id IS NOT NULL ORDER BY quiz_id";
+                      $query_run = mysqli_query($conn, $query);
+
+                      $row = mysqli_num_rows($query_run);
+
+                      echo '<h1> ' . $row . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- QUIZ ENERGIA -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - Tens uma energia positiva?
+                      </div>
+                      <?php
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_energia_id IS NOT NULL ORDER BY quiz_id";
+                      $query_run = mysqli_query($conn, $query);
+
+                      $row = mysqli_num_rows($query_run);
+
+                      echo '<h1> ' . $row . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+            <!-- QUIZ EMOÇÃO -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão livre emocionalmente, és?
+                      </div>
+                      <?php
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_emocao_id IS NOT NULL ORDER BY quiz_id";
                       $query_run = mysqli_query($conn, $query);
 
                       $row = mysqli_num_rows($query_run);
