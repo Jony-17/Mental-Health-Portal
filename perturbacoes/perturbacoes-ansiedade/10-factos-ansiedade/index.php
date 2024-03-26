@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset ($_SESSION['id_utilizador'])) {
@@ -20,7 +20,7 @@ if (isset ($_SESSION['id_utilizador'])) {
         $row = mysqli_fetch_assoc($result);
     }
 } else {
-    header("Location: ../../areacliente/login");
+    echo "NÃO DEU";
 }
 ?>
 
@@ -71,15 +71,15 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../../perturbacoes">Perturbações</a></li>
+                <li><a href="../..">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../index.php">Quizzes</a></li>
+                        <li><a href="../../../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
@@ -89,14 +89,14 @@ if (isset ($_SESSION['id_utilizador'])) {
             <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -104,7 +104,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -114,14 +114,14 @@ if (isset ($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial">Página Inicial</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="../../perturbacoes">Perturbações</a></li>
+            <li><a href="../..">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../index.php">Quizzes</a></li>
+                    <li><a href="../../../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
@@ -129,21 +129,21 @@ if (isset ($_SESSION['id_utilizador'])) {
             <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -151,7 +151,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../../logout/logout.php";
+                        var url = "../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -161,20 +161,12 @@ if (isset ($_SESSION['id_utilizador'])) {
     </header>
 
 
+
     <ol role="list">
         <li class="list">
             <div class="items">
-                <span class="text-sm">
-                    Conteúdo Educativo
-                </span>
-                <span class="separator">/</span>
-            </div>
-
-        </li>
-        <li class="list">
-            <div class="items">
-                <a href=".." class="text-sm" aria-current=page>
-                    Quizzes
+                <a href="../.." class="text-sm">
+                    Perturbações Mentais
                 </a>
                 <span class="separator">/</span>
             </div>
@@ -182,138 +174,186 @@ if (isset ($_SESSION['id_utilizador'])) {
         </li>
 
         <li class="list">
+            <div class="items">
+                <a href="../" class="text-sm">
+                    Perturbações de Ansiedade
+                </a>
+                <span class="separator">/</span>
+            </div>
+
+        </li>
+
+        </li>
+        <li class="list">
             <div class="items-current">
                 <span class="text-sm" aria-current=page>
-                    O quão livre emocionalmente, és?
+                    10 factos sobre a Ansiedade
                 </span>
             </div>
         </li>
     </ol>
 
 
-    <!--Quizzes-->
-    <section class="quizzes" id="quizzes">
-        <div class="quizzes-banner-container">
+    <div class="heading">
+        <h1>10 factos sobre a Ansiedade</h1>
+        <div class="div-hr"></div>
+    </div>
 
-            <div class="quizzes-text-section">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">O quão livre emocionalmente, és?</h1>
-                        <p>É um empata? Já lhe disseram que você é “muito sensível” ou precisa se fortalecer? Você
-                            se sente exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
-                            pessoas? Você tem sensibilidade à luz, som e cheiros? Ou talvez você demore mais para
-                            relaxar depois de um longo dia de trabalho? Se você respondeu “sim” a essas perguntas, você
-                            pode ser um empata.</p>
-                        <h2 class="card-title2">Informações acerca da liberdade emocional</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
-                            dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget
-                            nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At
-                            imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis
-                            donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam
-                            viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa.
-                            Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam
-                            tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut
-                            placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc.
 
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
-                            dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget
-                            nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At
-                            imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis
-                            donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam
-                            viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa.
-                            Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam
-                            tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut
-                            placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc.
-                        </p>
-                        <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
-                            entretenimento. De forma alguma
-                            este é um teste empiricamente validado (ATENÇÃO). Os conceitos apresentados pela Dra. Judith
-                            Orloff
-                            estão apresentados no capítulo 1, do seu livro, Emotional Freedom: Liberate Yourself from
-                            Negative
-                            Emotions and Transform Your Life <a href="#fontes">[1]</a>
-                        </p>
-                    </div>
-                </div>
+    <!--Factos-->
+    <div class="timeline">
+
+        <div class="factos-bannerImage-container">
+            <img src="imgs/background2.png" alt="banner background" />
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">01</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
             </div>
+        </div>
 
-
-            <div class="quizzes-text-section">
-                <div class="card">
-                    <div class="card-body2">
-
-                        <div class="quiz-container" id="quiz">
-                            <div class="quiz-header">
-                                <p class="disclaimer2">Responda a cada uma das 20 perguntas. Seja honesta/o para obter o
-                                    resultado
-                                    mais preciso.
-                                </p>
-                                <p class="disclaimer2"><br>
-                                    0 corresponde a: Não é verdade.<br>
-                                    1 corresponde a: Por vezes é verdade.<br>
-                                    2 corresponde a: Maioritariamente é verdade.
-                                </p>
-                                <h2 id="question">Question Text</h2>
-                                <ul class="ul-question">
-                                    <li class="li-question">
-                                        <input type="radio" name="answer" id="a" class="answer" value="0">
-                                        <label for="a" id="a_text">Answer</label>
-                                    </li>
-                                    <li class="li-question">
-                                        <input type="radio" name="answer" id="b" class="answer" value="1">
-                                        <label for="b" id="b_text">Answer</label>
-                                    </li>
-                                    <li class="li-question">
-                                        <input type="radio" name="answer" id="c" class="answer" value="2">
-                                        <label for="c" id="c_text">Answer</label>
-                                    </li>
-                                </ul>
-                                <button class="button-quiz" id="nextButton" onclick="nextQuestion()">Próxima</button>
-                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter resultados</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">02</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
             </div>
+        </div>
 
-
-            <div class="quizzes-text-section">
-                <div class="card">
-                    <div class="card-body3">
-                        <p>Whatever your score, be
-                            compassionate when you identify areas you’d like to improve. Realize that we all have a ways
-                            to go. Emotional freedom isn’t some place you arrive at and just stay there. It’s an ongoing
-                            blossoming. teste teste teste teste teste teste teste teste teste <br><br>Esta triagem
-                            online não
-                            é uma ferramenta de diagnóstico. Somente um
-                            profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
-                            a determinar os próximos passos mais adequados para você </p>
-                    </div>
-                </div>
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">03</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
             </div>
+        </div>
 
-            <div class="fontes" id="fontes">
-                <div class="fontes-content">
-                    <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
-                    </svg>
-                    <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
-                    </svg>
-                    <h3>Fontes</h3>
-                </div>
-                <div class="fontes-content2">
-                    <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                        vita. MyLife.</p>
-                </div>
+        <div class="factos-bannerImage-container2">
+            <img src="imgs/background1.png" alt="banner background" />
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">04</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
             </div>
-    </section>
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">05</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container3">
+            <img src="imgs/background1.png" alt="banner background" />
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">06</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">07</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">08</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container4">
+            <img src="imgs/background1.png" alt="banner background" />
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">09</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container5">
+            <img src="imgs/background3.png" alt="banner background" />
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">10</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+  window.addEventListener('scroll', function() {
+    const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    const timelineAfter = document.querySelector('.timeline::after');
+    timelineAfter.style.height = scrollPercentage + '%';
+  });
+</script>
+
+    <!--Fontes-->
+    <div class="fontes" id="fontes">
+        <div class="fontes-content">
+            <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <h3>Fontes</h3>
+        </div>
+        <div class="fontes-content2">
+            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
+                vita. MyLife.</p>
+        </div>
+    </div>
 
 
     <!--Scroll to top-->
@@ -321,8 +361,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             class="fas fa-chevron-up"></i></button>
 
 
-
-    <!--Footer-->
+    <!---Footer--->
     <footer>
         <div class="footer-row">
             <div class="footer-col">
@@ -436,7 +475,6 @@ if (isset ($_SESSION['id_utilizador'])) {
 
 
     <script src="js/script.js"></script>
-    <script src="js/script-quizz.js"></script>
 
 </body>
 

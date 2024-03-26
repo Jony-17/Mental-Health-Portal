@@ -178,7 +178,7 @@ function nextQuestion() {
 
 
 function submitQuiz() {
-    let totalScore = 0;
+    let totalScore = [];
     answerEls.forEach(answerEl => {
         if (answerEl.checked) {
             const answerValue = answerEl.id;

@@ -96,7 +96,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/index.php">Perfil</a></li>
+                            <li><a href="../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -136,7 +136,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/index.php">Perfil</a></li>
+                        <li><a href="../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
@@ -225,13 +225,13 @@ if (isset ($_SESSION['id_utilizador'])) {
 
         <div class="card2-container">
             <div class="card2">
-                <a href="perturbacoes-ansiedade/index.php">
+                <a href="10-factos-ansiedade">
                     <img src="../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
                 </a>
                 <div class="card2-content">
                     <h1>10 Factos sobre a Ansiedade</h1>
                     <p>TesteTesteTesteTeste</p><p>TesteTesteTeste</p>
-                    <a href="perturbacoes-ansiedade/index.php" class="secondary-button">
+                    <a href="10-factos-ansiedade" class="secondary-button">
                         Sabe mais<i class="fas fa-arrow-right"></i>
                     </a>
                 </div>

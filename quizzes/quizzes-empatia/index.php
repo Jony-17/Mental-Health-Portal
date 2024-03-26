@@ -20,7 +20,7 @@ if (isset ($_SESSION['id_utilizador'])) {
         $row = mysqli_fetch_assoc($result);
     }
 } else {
-    echo "NÃO DEU";
+    header("Location: ../../areacliente/login");
 }
 ?>
 
@@ -96,7 +96,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/index.php">Perfil</a></li>
+                            <li><a href="../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -136,7 +136,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/index.php">Perfil</a></li>
+                        <li><a href="../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>

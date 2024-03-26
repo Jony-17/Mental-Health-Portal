@@ -9,7 +9,7 @@ const quizData = [
         a: "Sim",
         b: "Não"
     },
-    {
+    /*{
         question: "3. És uma pessoa geralmente positiva?",
         a: "Sim",
         b: "Não"
@@ -43,7 +43,7 @@ const quizData = [
         question: "9. És gentil com a tua família, amigos e pessoas que não conheces bem?",
         a: "Sim",
         b: "Não"
-    }
+    }*/
 ];
 
 const quiz = document.getElementById('quiz');

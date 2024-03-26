@@ -617,11 +617,7 @@ color: #8A8A8A;
 
 /* Tela igual ou inferior a 600px */
 @media screen and (max-width: 600px) {
-.home-bannerImage-container,
-.about-bannerImage2-container,
-.about-bannerImage3-container,
-.quizzes-bannerImage4-container,
-.noticias-bannerImage2-container {
+.quizzes-bannerImage4-container {
   display: none;
 }
 }
@@ -629,185 +625,21 @@ color: #8A8A8A;
 /* Tela igual ou inferior a 768 */
 @media screen and (max-width: 768px) {
 
-  ol {
-    margin-left: 15px;
-    margin-right: 10px;
-  }
-  
-/*HOME and ABOUT*/
-.home-bannerImage-container {
-  max-width: 450px;
+ol {
+  margin-left: 15px;
+  margin-right: 10px;
 }
 
-.home-banner-container {
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-banner-container {
-  flex-direction: column;
-}
-
-.image-container {
-  width: 100%;
-  max-width: 400px;
-  margin: 0;
-}
-
-.home-primary-heading {
-  text-align: center;
-  max-width: 90%;
-  font-size: 30px;
-}
-.home-primary-text {
-  text-align: center;
-  max-width: 80%;
-  padding-bottom: 10px;
-}
-.home-text-section {
-  justify-content: center;
-  align-items: center;
-  /*margin-top: 4rem;*/
-}
-.about-text-section {
-  padding-left: 0;
-  text-align: center;
-  margin-top: 40px;
-}
-.about-primary-heading {
-  font-size: 20px;
-}
-.primary-heading {
-  font-size: 30px;
-}
-.about-primary-heading,
-.home-primary-heading,
-.home-primary-text,
-.about-primary-text {
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.secondary-button {
-  font-size: 1rem;
-  padding: 0.8rem 2rem;
-  cursor: pointer;
-}
-.card-title {
-  font-size: 17px;
-}
-
-.card-body .fas.fa-comments,
-.card-body .fas.fa-robot,
-.card-body .fas.fa-sticky-note,
-.card-body .far.fa-newspaper {
-  font-size: 15px;
-}
-
-/*Perturbações*/
-.perturbacoes-banner-container2 {
-  width: auto;
-}
-
-.perturbacoes-primary-heading,
-.artigos-primary-heading,
-.quizzes-primary-heading,
-.noticias-primary-heading,
-.perguntas-primary-heading {
-  font-size: 22px;
-  margin-top: 50px;
-}
-
-.perturbacoes-second-heading,
-.artigos-second-heading,
-.quizzes-second-heading,
-.noticias-second-heading,
-.perguntas-second-heading {
+.quizzes-second-heading {
   font-size: 25px;
 }
 
-.card2-container {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.card2 img {
-  width: 150px;
-  height: 150px;
-}
-
-.card2 h1 {
-  font-size: 20px;
-}
-
-.third-button {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  padding: 10px 30px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/*Artigos científicos*/
-/*.fourth-button {
-  font-size: 0.9rem;
-  padding: 10px 30px;
-  text-align: center;
-  white-space: nowrap;
-}*/
-
-/*Quizzes*/
 .card4-content h1 {
   font-size: 25px;
 }
 
 .card4 {
   width: auto;
-}
-
-/*Notícias*/
-
-.noticias-banner-container2 {
-  width: auto;
-}
-
-.sixth-button {
-  font-size: 0.9rem;
-  padding: 10px 30px;
-  text-align: center;
-  white-space: nowrap;
-  margin-left: 7px;
-}
-
-.image-grid-container1text {
-  margin-top: 300px;
-  margin-left: 20px;
-  font-size: 15px;
-}
-
-.image-grid-container2text {
-  margin-top: 130px;
-  margin-left: 10px;
-  font-size: 10px;
-}
-
-/*Perguntas frequentes*/
-.faq {
-  font-size: 100px;
-}
-
-/*Newsletter*/
-.newsletter .box-newsletter h2 {
-  font-size: 40px;
-}
-
-.newsletter .box-newsletter p {
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-.newsletter .box-newsletter a {
-  font-size: 15px;
 }
 
 /*Footer*/
@@ -867,79 +699,13 @@ color: #8A8A8A;
 
 /* Tela igual ou superior a 1600 */
 @media screen and (min-width: 1600px) {
-/*HOME and ABOUT*/
-.home-bannerImage-container {
-  max-width: 850px;
-}
 
-.about-bannerImage2-container {
-  top: 100px;
-  right: -220px;
-  max-width: 150px;
-}
-
-.home-primary-heading {
-  font-size: 70px;
-  margin-top: 200px;
-}
-
-.primary-heading {
-  font-size: 70px;
-}
-
-.home-primary-text,
-.about-primary-text {
-  font-size: 25px;
-}
-
-.image-container {
-  max-width: 750px;
-}
-
-.image-container2 {
-  max-width: 900px;
-}
-
-.card-title {
-  font-size: 25px;
-}
-
-.card-body .fas.fa-comments,
-.card-body .fas.fa-robot,
-.card-body .fas.fa-sticky-note,
-.card-body .far.fa-newspaper {
-  font-size: 20px;
-}
-
-/*OUTROS*/
-.perturbacoes-banner-container,
-.artigos-banner-container,
-.quizzes-banner-container,
-.noticias-banner-container,
-.perguntas-banner-container {
+.quizzes-banner-container {
   margin-top: 100px;
 }
 
-.perturbacoes-second-heading,
-.artigos-second-heading,
-.quizzes-second-heading,
-.noticias-second-heading,
-.perguntas-second-heading {
+.quizzes-second-heading {
   font-size: clamp(12px, 5vw, 52px);
 }
 
-.card2 h1 {
-  font-size: 27px;
-}
-
-.artigos-bannerImage2-container {
-  top: 100px;
-  left: -220px;
-}
-
-.noticias-bannerImage2-container {
-  top: 700px;
-  right: -250px;
-  max-width: 150px;
-}
 }

@@ -9,7 +9,7 @@ const quizData = [
         a: "Sim",
         b: "Não"
     },
-    {
+    /*{
         question: "3. Discussões ou gritos me deixam doente?",
         a: "Sim",
         b: "Não"
@@ -98,7 +98,7 @@ const quizData = [
         question: "20. Prefiro interações individuais ou pequenos grupos em vez de grandes reuniões?",
         a: "Sim",
         b: "Não"
-    }
+    }*/
 ];
 
 const quiz = document.getElementById('quiz');
