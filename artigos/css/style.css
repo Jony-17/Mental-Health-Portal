@@ -480,10 +480,84 @@
     color: var(--white-color);
   }
 
-  .search {
+  .container-search {
     margin: 50px 90px 50px 100px;
   }
+
+  form {
+    background: #fff;
+    width: 450px;
+    height: 55px;
+    display: flex;
+  }
+
+  form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+
+  form button {
+    background: var(--main-color);
+    padding: 10px 50px;
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 9px 9px 9px 0px;
+    font-size: 15px;
+  }
+
+  form .fa-search {
+    align-self: center;
+    padding: 10px 20px;
+    color: #777;
+  }
   
+  /*.search {
+    margin: 50px 90px 50px 100px;
+  }*/
+  
+
+  /*-----------------Paginação-----------------*/
+
+.paginacao {
+  display: inline-block;
+  margin: 100px 100px 30px 100px;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+}
+
+.paginacao a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.paginacao a.active {
+  background-color: var(--main-color);
+  color: white;
+  border: 1px solid var(--main-color);
+}
+
+.paginacao a:hover:not(.active) {background-color: #ddd;}
+
+.paginacao a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.paginacao a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
   
   /*----------------FOOTER------------------------*/
   
@@ -630,7 +704,7 @@
     transition: 0.3s;
   }
   
-  input {
+  input:not(#input-search) {
     width: 0;
     height: 0;
     visibility: hidden;
@@ -740,6 +814,10 @@
       justify-content: flex-start;
       flex-wrap: wrap;
       margin-left: 0;
+    }
+
+    .container-search {
+      margin: 0;
     }
 
     .artigos-banner-container {
