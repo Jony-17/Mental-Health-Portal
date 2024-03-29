@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Mar-2024 às 16:49
+-- Tempo de geração: 29-Mar-2024 às 23:49
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -34,24 +34,48 @@ CREATE TABLE `artigos` (
   `descricao` mediumtext NOT NULL,
   `data_publicacao` mediumtext NOT NULL,
   `autor` mediumtext NOT NULL,
-  `img_artigo` mediumtext NOT NULL
+  `img_artigo` mediumtext NOT NULL,
+  `conteudo_texto` varchar(1000) DEFAULT NULL,
+  `conteudo_pontos` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `artigos`
 --
 
-INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descricao`, `data_publicacao`, `autor`, `img_artigo`) VALUES
-(1, 1, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental.', '09 de outubro de 2020', 'Sandra Varandas, Bárbara Ferreira e Inês M. Borges', 'https://images.impresa.pt/sicnot/2020-10-02-livro-saude-mental-2/original/mw-720'),
-(2, 2, 'Saúde mental: deixar de sofrer em silêncio', 'Pedir ajuda aos amigos, aos familiares, ao médico de família ou ao psicólogo é o grande passo para a recuperação.', '13 de outubro de 2020', 'Sandra Varandas e Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-09-27-saude-mental--2-.jpg/original/mw-720'),
-(3, 3, '\"Ó doutor, eu não estou bem. Não tem um medicamento para mim?\"', 'A SIC Notícias falou com o psicoterapeuta Pedro Brás sobre o consumo de antidepressivos e ansiolíticos em Portugal.', '11 de outubro de 2020', 'Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-10-09-cerebro-1/original/mw-720'),
-(4, 4, 'Como está a saúde mental das crianças e dos jovens?', 'Vinte por cento das crianças e dos adolescentes têm, pelo menos, uma perturbação mental, de acordo com a Organização Mundial de Saúde.', '10 de outubro de 2020', 'Rita Rogado, Sandra Varandas e Diogo Sentieiro', 'https://images.impresa.pt/sicnot/2020-10-08-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Untitled-Design.png/original/mw-720'),
-(5, 5, 'A sociedade está preparada para lidar com a doença mental?', 'Estima-se que 20% da população portuguesa sofra ou venha a sofrer de uma doença mental.', '10 de outubro de 2020', 'Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-10-01-puzzle-saude-mental-7d99260e-1/original/mw-720'),
-(6, 6, '\"Não há o mínimo dos recursos\". As lacunas e os números da saúde mental em Portugal', 'Mais de um quinto dos portugueses tem uma perturbação mental.', '10 de outubro de 2020', 'Rita Rogado', 'https://images.impresa.pt/sicnot/2020-10-10-saude-mental.png/original/mw-720'),
-(7, 7, 'A vida nunca mais foi a mesma desde aquela noite', '\"Quis contar a minha história ao pormenor por vários motivos: não por ser um drama razoavelmente bom, mas porque não quero que outros se sintam sozinhos nesta difícil jornada.\"', '11 de outubro de 2020', 'SIC Notícias', 'https://images.impresa.pt/sicnot/2020-10-10-Saude-mental.jpg/original/mw-720'),
-(8, 8, 'Uma história, uma caixa azul e um pássaro para falar de saúde mental a crianças e adolescentes', 'Uma equipa de psicólogos e terapeutas ocupacionais do Hospital de São João visita as escolas da Maia, do Porto e de Valongo para combater preconceitos ligados à saúde mental.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3878:2585:nowe:0:0/rs:fill:640/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/16102359/1-igor-martins-portaabertasaudemental-01-069-1.jpg'),
-(9, 9, 'O que é a terapia de casal? E para que serve?', 'Discussões e diferenças de opinião fazem parte da vida de qualquer casal. Se são difíceis de ultrapassar ou não há boa comunicação, a terapia pode ajudar. A recuperar ou a preparar um final saudável.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:4096:2731:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/08152454/gettyimages-1204607778-scaled.jpg'),
-(10, 10, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg');
+INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descricao`, `data_publicacao`, `autor`, `img_artigo`, `conteudo_texto`, `conteudo_pontos`) VALUES
+(1, 1, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental.', '09 de outubro de 2020', 'Sandra Varandas, Bárbara Ferreira e Inês M. Borges', 'https://images.impresa.pt/sicnot/2020-10-02-livro-saude-mental-2/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', 'Introdução; Desenvolvimento; Conclusão'),
+(2, 2, 'Saúde mental: deixar de sofrer em silêncio', 'Pedir ajuda aos amigos, aos familiares, ao médico de família ou ao psicólogo é o grande passo para a recuperação.', '13 de outubro de 2020', 'Sandra Varandas e Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-09-27-saude-mental--2-.jpg/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(3, 3, '\"Ó doutor, eu não estou bem. Não tem um medicamento para mim?\"', 'A SIC Notícias falou com o psicoterapeuta Pedro Brás sobre o consumo de antidepressivos e ansiolíticos em Portugal.', '11 de outubro de 2020', 'Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-10-09-cerebro-1/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(4, 4, 'Como está a saúde mental das crianças e dos jovens?', 'Vinte por cento das crianças e dos adolescentes têm, pelo menos, uma perturbação mental, de acordo com a Organização Mundial de Saúde.', '10 de outubro de 2020', 'Rita Rogado, Sandra Varandas e Diogo Sentieiro', 'https://images.impresa.pt/sicnot/2020-10-08-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Untitled-Design.png/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(5, 5, 'A sociedade está preparada para lidar com a doença mental?', 'Estima-se que 20% da população portuguesa sofra ou venha a sofrer de uma doença mental.', '10 de outubro de 2020', 'Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-10-01-puzzle-saude-mental-7d99260e-1/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(6, 6, '\"Não há o mínimo dos recursos\". As lacunas e os números da saúde mental em Portugal', 'Mais de um quinto dos portugueses tem uma perturbação mental.', '10 de outubro de 2020', 'Rita Rogado', 'https://images.impresa.pt/sicnot/2020-10-10-saude-mental.png/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(7, 7, 'A vida nunca mais foi a mesma desde aquela noite', '\"Quis contar a minha história ao pormenor por vários motivos: não por ser um drama razoavelmente bom, mas porque não quero que outros se sintam sozinhos nesta difícil jornada.\"', '11 de outubro de 2020', 'SIC Notícias', 'https://images.impresa.pt/sicnot/2020-10-10-Saude-mental.jpg/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(8, 8, 'Uma história, uma caixa azul e um pássaro para falar de saúde mental a crianças e adolescentes', 'Uma equipa de psicólogos e terapeutas ocupacionais do Hospital de São João visita as escolas da Maia, do Porto e de Valongo para combater preconceitos ligados à saúde mental.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3878:2585:nowe:0:0/rs:fill:640/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/16102359/1-igor-martins-portaabertasaudemental-01-069-1.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(9, 9, 'O que é a terapia de casal? E para que serve?', 'Discussões e diferenças de opinião fazem parte da vida de qualquer casal. Se são difíceis de ultrapassar ou não há boa comunicação, a terapia pode ajudar. A recuperar ou a preparar um final saudável.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:4096:2731:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/08152454/gettyimages-1204607778-scaled.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', ''),
+(10, 10, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `conteudo_artigo`
+--
+
+CREATE TABLE `conteudo_artigo` (
+  `conteudo_artigo_id` int(11) NOT NULL,
+  `artigo_id` int(11) NOT NULL,
+  `ponto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `conteudo_artigo`
+--
+
+INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`) VALUES
+(1, 1, 'Introdução'),
+(2, 1, 'Desenvolvimento'),
+(3, 1, 'Conclusão'),
+(4, 2, 'Conteúdo');
 
 -- --------------------------------------------------------
 
@@ -271,6 +295,27 @@ INSERT INTO `quiz_preocupacao` (`quiz_preocupacao_id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `texto_artigo`
+--
+
+CREATE TABLE `texto_artigo` (
+  `texto_artigo_id` int(11) NOT NULL,
+  `conteudo_artigo_id` int(11) NOT NULL,
+  `texto` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `texto_artigo`
+--
+
+INSERT INTO `texto_artigo` (`texto_artigo_id`, `conteudo_artigo_id`, `texto`) VALUES
+(1, 1, 'Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about\r\n            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in\r\n            a way that is persistent, excessive, and intrusive. [1]'),
+(2, 2, 'conteúdo 2'),
+(3, 3, 'conteúdo 3');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `utilizadores`
 --
 
@@ -307,6 +352,13 @@ INSERT INTO `utilizadores` (`utilizador_id`, `unique_id`, `nome`, `email`, `pass
 ALTER TABLE `artigos`
   ADD PRIMARY KEY (`artigo_id`),
   ADD KEY `fk_juncao_perturbacoes_id` (`juncao_perturbacoes_id`);
+
+--
+-- Índices para tabela `conteudo_artigo`
+--
+ALTER TABLE `conteudo_artigo`
+  ADD PRIMARY KEY (`conteudo_artigo_id`),
+  ADD KEY `fk_artigo_id` (`artigo_id`);
 
 --
 -- Índices para tabela `grupos_perturbacoes`
@@ -370,6 +422,13 @@ ALTER TABLE `quiz_preocupacao`
   ADD PRIMARY KEY (`quiz_preocupacao_id`);
 
 --
+-- Índices para tabela `texto_artigo`
+--
+ALTER TABLE `texto_artigo`
+  ADD PRIMARY KEY (`texto_artigo_id`),
+  ADD KEY `fk_conteudo_artigo_id` (`conteudo_artigo_id`);
+
+--
 -- Índices para tabela `utilizadores`
 --
 ALTER TABLE `utilizadores`
@@ -384,6 +443,12 @@ ALTER TABLE `utilizadores`
 --
 ALTER TABLE `artigos`
   MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `conteudo_artigo`
+--
+ALTER TABLE `conteudo_artigo`
+  MODIFY `conteudo_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
@@ -440,6 +505,12 @@ ALTER TABLE `quiz_preocupacao`
   MODIFY `quiz_preocupacao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `texto_artigo`
+--
+ALTER TABLE `texto_artigo`
+  MODIFY `texto_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de tabela `utilizadores`
 --
 ALTER TABLE `utilizadores`
@@ -454,6 +525,12 @@ ALTER TABLE `utilizadores`
 --
 ALTER TABLE `artigos`
   ADD CONSTRAINT `fk_juncao_perturbacoes_id` FOREIGN KEY (`juncao_perturbacoes_id`) REFERENCES `juncao_perturbacoes` (`juncao_perturbacoes_id`);
+
+--
+-- Limitadores para a tabela `conteudo_artigo`
+--
+ALTER TABLE `conteudo_artigo`
+  ADD CONSTRAINT `fk_artigo_id` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`artigo_id`);
 
 --
 -- Limitadores para a tabela `juncao_perturbacoes`
@@ -471,6 +548,12 @@ ALTER TABLE `quizzes`
   ADD CONSTRAINT `fk_quiz_energia_id` FOREIGN KEY (`quiz_energia_id`) REFERENCES `quiz_energia` (`quiz_energia_id`),
   ADD CONSTRAINT `fk_quiz_preocupacao_id` FOREIGN KEY (`quiz_preocupacao_id`) REFERENCES `quiz_preocupacao` (`quiz_preocupacao_id`),
   ADD CONSTRAINT `fk_utilizador_id` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
+
+--
+-- Limitadores para a tabela `texto_artigo`
+--
+ALTER TABLE `texto_artigo`
+  ADD CONSTRAINT `fk_conteudo_artigo_id` FOREIGN KEY (`conteudo_artigo_id`) REFERENCES `conteudo_artigo` (`conteudo_artigo_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
