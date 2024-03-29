@@ -391,41 +391,32 @@ li:not(:last-child) .separator {
 }
 
 
+.img-artigo {
+  width: 90%;
+  max-height: 100%;
+  margin-left: 100px;
+}
 
 /*------------------Tipos Perturbações Mentais------------------*/
 
-.ansiedade-generalizada-banner-container {
+.artigo-banner-container {
   position: relative;
   display: flex;
   flex-direction: column;
   /*justify-content: space-between;*/
 }
 
-.ansiedade-generalizada-text-section {
+.artigo-text-section {
   flex: 1;
   /*display: flex;*/
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding-left: 100px;
-  padding-right: 100px;
 }
 
-.ansiedade-generalizada2-text-section {
-  flex: 1;
-  /*display: flex;*/
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 100px;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
-.card2 {
-  border: none;
-  /*margin-bottom: 50px;*/
-  width: 100%; /* Adicionando largura de 100% */
+.card {
+  display: flex;
 }
 
 .card-body {
@@ -441,6 +432,18 @@ li:not(:last-child) .separator {
   border-left: 5px solid orange;
 }
 
+.card-body2 {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  max-width: none; /* Removendo a limitação de largura máxima */
+}
+
 .card-body p {
   /*margin-top: 15px;
   margin-left: 15px;*/
@@ -448,79 +451,10 @@ li:not(:last-child) .separator {
   line-height: 2;
 }
 
-.card2-body {
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  align-items: center;
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 100%; /* Adicionando largura de 100% */
-  max-width: none; /* Removendo a limitação de largura máxima */
-  font-size: 20px;
-  color: #333;
-  font-weight: 600;
+.card-body2 h1 {
+  font-size: 25px;
 }
 
-.card2-body a {
-  display: grid;
-  margin-bottom: 10px;
-  color: var(--orange3-color);
-}
-
-.card2-body a:hover {
-  color: var(--main-color)
-}
-
-.perturbacoes-hr {
-  border: 0;
-  border-bottom: 1px solid var(--white2-color);
-  margin: 20px auto;
-}
-
-.perturbacoes-hr2 {
-  width: 90%;
-  border: 0;
-  border-bottom: 1px solid var(--white2-color);
-  margin: 20px auto;
-}
-
-
-.card4 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
-
-.card4 img {
-  margin-top: 50px;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card4-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.card4-content h3 {
-  font-size: 16px;
-  color: var(--main-color);
-  margin-top: 25px;
-  text-transform: uppercase;
-}
-
-.card4-content h1 {
-  text-align: left;
-  color: var(--grey2-color);
-  font-size: 27px;
-}
-
-.card4-content p {
-  text-align: left;
-  margin-top: 30px;
-}
 
 /*---*/
 
@@ -589,51 +523,6 @@ svg {
 }
 
 /*---*/
-
-
-/*--Artigos relacionados--*/
-
-.artigos h2 {
-  margin-top: 100px;
-  padding-left: 100px;
-  padding-right: 100px;
-  font-size: 25px;
-  text-transform: uppercase;
-  color: #333;
-}
-
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(230px, 1fr)); /*auto-fit*/
-  gap: 60px;
-  width: 80%;
-  margin: 20px auto;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card img {
-  margin-top: 50px;
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-}
-
-.card h1 {
-  text-align: left;
-  margin-top: 20px;
-  color: var(--grey2-color);
-  text-transform: uppercase;
-  font-size: 27px;
-}
-
-.card p {
-  text-align: left;
-}
 
 
 /*-----------------Botões--------------------*/
@@ -887,6 +776,11 @@ input:checked + .change::after {
     margin-right: 10px;
   }
 
+  .img-artigo {
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+
   .heading {
     font-size: 25px;
     line-height: 1;
@@ -901,35 +795,16 @@ input:checked + .change::after {
     font-size: 15px;
   }
 
-  .ansiedade-generalizada-text-section {
+  .artigo-text-section {
     padding-right: 10px;
     padding-left: 10px;
     text-align: center;
     margin-top: 40px;
   }
 
-  .ansiedade-generalizada2-text-section {
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-top: 40px;
-  }
-
-  .ansiedade-generalizada-container {
-    flex-direction: column;
-  }
-
   .card-body {
     padding: 10px; /* Reduz o preenchimento */
     /*margin-left: 10px;*/
-  }
-  
-  .artigos h2 {
-    font-size: 22px;
-    padding-left: 30px;
-  }
-
-  .card-container {
-    grid-template-columns: repeat(1, 1fr);
   }
 
   .fontes {
@@ -986,7 +861,7 @@ input:checked + .change::after {
 
 /* Tela igual ou superior a 1360 */
 @media screen and (min-width: 1360px) {
-  .ansiedade-generalizada-banner-container {
+  .artigo-banner-container {
     margin-top: 70px;
   }
 }
@@ -995,7 +870,7 @@ input:checked + .change::after {
 @media screen and (min-width: 1600px) {
   
   /*OUTROS*/
-  .ansiedade-generalizada-banner-container {
+  .artigo-banner-container {
     margin-top: 70px;
   }
 }

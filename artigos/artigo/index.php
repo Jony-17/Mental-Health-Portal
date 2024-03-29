@@ -280,82 +280,153 @@ if (isset($_SESSION['id_utilizador'])) {
     }
     ?>
 
+    <!--Imagem da publicação-->
+    <?php
+    if (isset($_GET['titulo'])) {
+        // Obter o título do artigo da URL e decodificar
+        $titulo_artigo = urldecode($_GET['titulo']);
+
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT img_artigo FROM artigos WHERE titulo = '$titulo_artigo'";
+
+        // Executar a consulta
+        $result = mysqli_query($conn, $query);
+
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            // Exibir o autor e a data de publicação do artigo
+            echo '<img class="img-artigo" src="' . $row['img_artigo'] . '">';
+        } else {
+            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Autor ou data de publicação não encontrados.";
+        }
+    } else {
+        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+        echo "Título do artigo não especificado na URL.";
+    }
+    ?>
 
 
-    <!--Ansiedade Generalizada-->
-    <section class="ansiedade-generalizada" id="ansiedade-generalizada">
-        <div class="ansiedade-generalizada-banner-container">
-            <div class="ansiedade-generalizada-text-section">
+    <!--Artigo-->
+    <section class="artigo" id="artigo">
+        <div class="artigo-banner-container">
+            <div class="artigo-text-section">
+
                 <div class="card">
                     <div class="card-body">
                         <!--<h1 class="card-title">O quão empática/o és?</h1>-->
-                        <p>Everybody deals with anxiety from time to time, but when everyday feelings of nervousness
-                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable
-                            anxiety disorder.
+                        <?php
+                        if (isset($_GET['titulo'])) {
+                            // Obter o título do artigo da URL e decodificar
+                            $titulo_artigo = urldecode($_GET['titulo']);
 
-                            If you're struggling with an anxiety disorder like social anxiety or generalized anxiety,
-                            know that you are not alone. The National Institutes of Mental Health estimate that nearly
-                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1
-                            Any Anxiety Disorder, National Institutes of Mental Health
+                            // Consulta SQL para buscar o artigo pelo título
+                            $query = "SELECT conteudo_texto FROM artigos WHERE titulo = '$titulo_artigo'";
 
-                            Since anxiety is a common mental health condition (and is a condition that can be
-                            debilitating), it's recommended that all adults under the age of 65 receive routine anxiety
-                            screening.2
+                            // Executar a consulta
+                            $result = mysqli_query($conn, $query);
 
-                            Treatment options like therapy, medication, self-care strategies, and lifestyle changes can
-                            help you manage your anxiety and help you live your best life at home, at work, and in your
-                            relationships.</p>
+                            // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+                            if ($result && mysqli_num_rows($result) > 0) {
+                                // Extrair o resultado da consulta
+                                $row = mysqli_fetch_assoc($result);
+                                // Exibir o autor e a data de publicação do artigo
+                                echo '<p>' . $row['conteudo_texto'] . '</p>';
+                            } else {
+                                // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
+                                echo "Ainda não tem texto.";
+                            }
+                        } else {
+                            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+                            echo "Título do artigo não especificado na URL.";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!--Tabela de conteúdos-->
+    <?php
+    // Sua conexão com o banco de dados e outras configurações
+    
+    // Consulta SQL para selecionar os pontos da tabela conteudo_artigo
+    $query = "SELECT ponto FROM conteudo_artigo WHERE artigo_id = $artigo_id";
 
-    <div class="subheading" id="sintomas">
-        <h1>Sintomas</h1>
-        <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
-            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
-            a way that is persistent, excessive, and intrusive. [1]</p>
-        <p>Often, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience
-            physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.</p>
-        <p>According to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and
-            it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a
-            common mental health condition, the United States Preventative Services Task Force recommends that all
-            adults under the age of 65 should be routinely screened for anxiety. [2]</p>
-        <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
-            psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>
+    // Executar a consulta
+    $result = mysqli_query($conn, $query);
 
-    <!--<div class="subheading" id="diagnostico">
-        <h1>Diagnóstico</h1>
-        <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
-            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
-            a way that is persistent, excessive, and intrusive. [1]</p>
-        <p>Often, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience
-            physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.</p>
-        <p>According to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and
-            it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a
-            common mental health condition, the United States Preventative Services Task Force recommends that all
-            adults under the age of 65 should be routinely screened for anxiety. [2]</p>
-        <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
-            psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>-->
+    // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+    if ($result && mysqli_num_rows($result) > 0) {
+        // Início da lista não ordenada
+        echo '<div class="card-body2">';
+        echo '<h1>Tabela de conteúdos</h1>';
+        echo '<ul>';
 
-    <div class="subheading" id="ajuda">
-        <h1>Procurar ajuda</h1>
-        <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
-            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
-            a way that is persistent, excessive, and intrusive. [1]</p>
-        <p>Often, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience
-            physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.</p>
-        <p>According to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and
-            it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a
-            common mental health condition, the United States Preventative Services Task Force recommends that all
-            adults under the age of 65 should be routinely screened for anxiety. [2]</p>
-        <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
-            psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>
+        // Loop através dos resultados
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Exibir cada ponto dentro de um elemento <li>
+            echo '<li>' . $row['ponto'] . '</li>';
+        }
+
+        // Fim da lista não ordenada
+        echo '</ul>';
+        echo '</div>';
+    } else {
+        // Se a consulta não retornar nenhum resultado
+        echo "Não há pontos disponíveis.";
+    }
+    ?>
+
+    <!--Pontos-->
+    <?php
+    // Sua conexão com o banco de dados e outras configurações
+    
+    // Consulta SQL para selecionar os pontos do artigo atual apenas
+    $query = "SELECT artigo_id, ponto, conteudo_artigo_id FROM conteudo_artigo WHERE artigo_id = $artigo_id";
+
+    // Executar a consulta
+    $result = mysqli_query($conn, $query);
+
+    // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+    if ($result && mysqli_num_rows($result) > 0) {
+        // Loop através dos resultados
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Exibir o conteúdo de cada ponto dentro dos elementos <div> e <h1>
+            echo '<div class="subheading" id="ponto_' . $row['artigo_id'] . '">';
+            echo '<h1>' . $row['ponto'] . '</h1>';
+
+            $conteudo_artigo_id = $row['conteudo_artigo_id'];
+            $query_conteudo = "SELECT texto FROM texto_artigo WHERE conteudo_artigo_id = $conteudo_artigo_id";
+
+            // Executar a consulta de conteúdo
+            $result_conteudo = mysqli_query($conn, $query_conteudo);
+
+            // Verificar se a consulta de conteúdo foi bem-sucedida e se retornou pelo menos uma linha
+            if ($result_conteudo && mysqli_num_rows($result_conteudo) > 0) {
+                // Exibir o conteúdo real do ponto
+                while ($row_conteudo = mysqli_fetch_assoc($result_conteudo)) {
+                    echo '<p>' . $row_conteudo['texto'] . '</p>';
+                }
+            } else {
+                // Se a consulta de conteúdo não retornar nenhum resultado
+                echo "Não há conteúdo disponível para este ponto.";
+            }
+
+            echo '</div>';
+        }
+    } else {
+        // Se a consulta não retornar nenhum resultado
+        echo "Não há pontos disponíveis para este artigo.";
+    }
+    ?>
+
+
+
+
 
 
     <div class="fontes" id="fontes">
