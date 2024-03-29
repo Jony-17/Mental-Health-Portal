@@ -3,7 +3,7 @@ session_start();
 require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -86,10 +86,10 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -126,10 +126,10 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -161,215 +161,125 @@ if (isset ($_SESSION['id_utilizador'])) {
     </header>
 
 
+    <!--Separadores-->
+    <?php
+    if (isset($_GET['titulo'])) {
+        // Obter o título do artigo da URL e decodificar
+        $titulo_artigo = urldecode($_GET['titulo']);
 
-    <ol role="list">
-        <li class="list">
-            <div class="items">
-                <a href=".." class="text-sm">
-                    Artigos
-                </a>
-                <span class="separator">/</span>
-            </div>
-        </li>
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
 
-        <li class="list">
-            <div class="items">
-                <span class="text-sm">
-                    <?php
-                    if (isset ($_GET['titulo'])) {
-                        // Obter o título do artigo da URL e decodificar
-                        $titulo_artigo = urldecode($_GET['titulo']);
+        // Executar a consulta
+        $result = mysqli_query($conn, $query);
 
-                        // Consulta SQL para buscar o artigo pelo título
-                        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
-
-                        // Executar a consulta para obter o artigo
-                        $result = mysqli_query($conn, $query);
-
-                        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-                        if ($result && mysqli_num_rows($result) > 0) {
-                            // Extrair o resultado da consulta
-                            $row = mysqli_fetch_assoc($result);
-
-                            // Acessar o artigo_id associado ao artigo
-                            $artigo_id = $row['artigo_id'];
-
-                            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-                            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao 
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
+    
+            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao 
                         FROM juncao_perturbacoes jp 
                         INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id 
                         WHERE jp.juncao_perturbacoes_id = $artigo_id";
 
-                            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
-                            $result_grupo = mysqli_query($conn, $query_grupo);
+            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            $result_grupo = mysqli_query($conn, $query_grupo);
 
-                            // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-                            if ($result_grupo && mysqli_num_rows($result_grupo) > 0) {
-                                // Extrair o resultado da consulta
-                                $row_grupo = mysqli_fetch_assoc($result_grupo);
-                                // Exibir a perturbacao_id e o nome da perturbacao associada ao artigo
-                                echo $row_grupo['nome_perturbacao'];
-                            } else {
-                                // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-                                echo " Perturbação não encontrada.";
-                            }
-                        } else {
-                            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-                            echo "Artigo não encontrado.";
-                        }
-                    } else {
-                        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                        echo "Título do artigo não especificado na URL.";
-                    }
-                    ?>
+            // Exibir os resultados
+            echo '<ol role="list">';
+            echo '<li class="list"><div class="items"><a href=".." class="text-sm">Artigos</a><span class="separator">/</span></div></li>';
+            echo '<li class="list"><div class="items"><span class="text-sm">' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</span><span class="separator">/</span></div></li>';
+            echo '<li class="list"><div class="items-current"><span class="text-sm" aria-current="page">Artigo - ' . $row['titulo'] . '</span></div></li>';
+            echo '</ol>';
+        } else {
+            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Artigo não encontrado.";
+        }
+    } else {
+        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+        echo "Título do artigo não especificado na URL.";
+    }
+    ?>
 
-                </span>
-                <span class="separator">/</span>
-            </div>
-        </li>
 
-        </li>
-        <li class="list">
-            <div class="items-current">
-                <span class="text-sm" aria-current=page>
+    <!--Títulos-->
+    <?php
+    if (isset($_GET['titulo'])) {
+        // Obter o título do artigo da URL e decodificar
+        $titulo_artigo = urldecode($_GET['titulo']);
 
-                    <?php
-                    if (isset ($_GET['titulo'])) {
-                        // Obter o título do artigo da URL e decodificar
-                        $titulo_artigo = urldecode($_GET['titulo']);
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
 
-                        // Consulta SQL para buscar o artigo pelo título
-                        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
+        // Executar a consulta
+        $result = mysqli_query($conn, $query);
 
-                        // Executar a consulta
-                        $result = mysqli_query($conn, $query);
-
-                        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-                        if ($result && mysqli_num_rows($result) > 0) {
-                            // Extrair o resultado da consulta
-                            $row = mysqli_fetch_assoc($result);
-                            // Exibir o título do artigo
-                            echo "Artigo - " . $row['titulo'];
-                        } else {
-                            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-                            echo "Artigo não encontrado.";
-                        }
-                    } else {
-                        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                        echo "Título do artigo não especificado na URL.";
-                    } ?>
-                </span>
-            </div>
-        </li>
-    </ol>
-
-    <div class="heading">
-        <h4>
-            <?php
-            if (isset ($_GET['titulo'])) {
-                // Obter o título do artigo da URL e decodificar
-                $titulo_artigo = urldecode($_GET['titulo']);
-
-                // Consulta SQL para buscar o artigo pelo título
-                $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
-
-                // Executar a consulta para obter o artigo
-                $result = mysqli_query($conn, $query);
-
-                // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-                if ($result && mysqli_num_rows($result) > 0) {
-                    // Extrair o resultado da consulta
-                    $row = mysqli_fetch_assoc($result);
-
-                    // Acessar o artigo_id associado ao artigo
-                    $artigo_id = $row['artigo_id'];
-
-                    // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-                    $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
+    
+            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
                         FROM juncao_perturbacoes jp 
                         INNER JOIN grupos_perturbacoes p ON jp.grupos_perturbacoes_id = p.grupos_perturbacoes_id 
                         WHERE jp.juncao_perturbacoes_id = $artigo_id";
 
-                    // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
-                    $result_grupo = mysqli_query($conn, $query_grupo);
+            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            $result_grupo = mysqli_query($conn, $query_grupo);
 
-                    // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-                    if ($result_grupo && mysqli_num_rows($result_grupo) > 0) {
-                        // Extrair o resultado da consulta
-                        $row_grupo = mysqli_fetch_assoc($result_grupo);
-                        // Exibir a perturbacao_id e o nome da perturbacao associada ao artigo
-                        echo $row_grupo['nome_perturbacao'];
-                    } else {
-                        // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-                        echo " Perturbação não encontrada.";
-                    }
-                } else {
-                    // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-                    echo "Artigo não encontrado.";
-                }
-            } else {
-                // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                echo "Título do artigo não especificado na URL.";
-            }
-            ?>
-        </h4>
-        <h1>
-            <?php
-            if (isset ($_GET['titulo'])) {
-                // Obter o título do artigo da URL e decodificar
-                $titulo_artigo = urldecode($_GET['titulo']);
+            // Exibir os resultados
+            echo '<div class="heading">';
+            echo '<h4>' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</h4>';
+            echo '<h1>Artigo - ' . $row['titulo'] . '</h1>';
+            echo '</div>';
+        } else {
+            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "<div class='heading'><h4>Artigo não encontrado.</h4></div>";
+        }
+    } else {
+        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+        echo "<div class='heading'><h4>Título do artigo não especificado na URL.</h4></div>";
+    }
+    ?>
 
-                // Consulta SQL para buscar o artigo pelo título
-                $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
 
-                // Executar a consulta
-                $result = mysqli_query($conn, $query);
 
-                // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-                if ($result && mysqli_num_rows($result) > 0) {
-                    // Extrair o resultado da consulta
-                    $row = mysqli_fetch_assoc($result);
-                    // Exibir o título do artigo
-                    echo "Artigo - " . $row['titulo'];
-                } else {
-                    // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-                    echo "Artigo não encontrado.";
-                }
-            } else {
-                // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                echo "Título do artigo não especificado na URL.";
-            } ?>
-        </h1>
-    </div>
+    <!--Autor/es e data de publicação-->
+    <?php
+    if (isset($_GET['titulo'])) {
+        // Obter o título do artigo da URL e decodificar
+        $titulo_artigo = urldecode($_GET['titulo']);
 
-    <ol role="list2" class="list2">
-        <li class="list">
-            <div class="items">
-                <a href="#sintomas" class="text-sm">
-                    Sintomas
-                </a>
-                <span class="separator">|</span>
-            </div>
-        </li>
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT autor, data_publicacao FROM artigos WHERE titulo = '$titulo_artigo'";
 
-        <!--<li class="list">
-            <div class="items">
-                <a href="#diagnostico" class="text-sm">
-                    Diagnóstico
-                </a>
-                <span class="separator">|</span>
-            </div>
-        </li>-->
+        // Executar a consulta
+        $result = mysqli_query($conn, $query);
 
-        </li>
-        <li class="list">
-            <div class="items">
-                <a href="#ajuda" class="text-sm">
-                    Procurar ajuda
-                </a>
-            </div>
-        </li>
-    </ol>
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            // Exibir o autor e a data de publicação do artigo
+            echo '<ol role="list2" class="list2">';
+            echo '<li class="list"><div class="items"><span class="text-sm">' . $row['autor'] . '</span><span class="separator">|</span></div></li>';
+            echo '<li class="list"><div class="items"><span class="text-sm">' . $row['data_publicacao'] . '</span></div></li>';
+            echo '</ol>';
+        } else {
+            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Autor ou data de publicação não encontrados.";
+        }
+    } else {
+        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+        echo "Título do artigo não especificado na URL.";
+    }
+    ?>
+
 
 
     <!--Ansiedade Generalizada-->
