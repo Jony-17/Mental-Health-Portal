@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Mar-2024 às 20:50
+-- Tempo de geração: 29-Mar-2024 às 16:49
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -48,7 +48,10 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 (4, 4, 'Como está a saúde mental das crianças e dos jovens?', 'Vinte por cento das crianças e dos adolescentes têm, pelo menos, uma perturbação mental, de acordo com a Organização Mundial de Saúde.', '10 de outubro de 2020', 'Rita Rogado, Sandra Varandas e Diogo Sentieiro', 'https://images.impresa.pt/sicnot/2020-10-08-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Copy-of-Untitled-Design.png/original/mw-720'),
 (5, 5, 'A sociedade está preparada para lidar com a doença mental?', 'Estima-se que 20% da população portuguesa sofra ou venha a sofrer de uma doença mental.', '10 de outubro de 2020', 'Bárbara Ferreira', 'https://images.impresa.pt/sicnot/2020-10-01-puzzle-saude-mental-7d99260e-1/original/mw-720'),
 (6, 6, '\"Não há o mínimo dos recursos\". As lacunas e os números da saúde mental em Portugal', 'Mais de um quinto dos portugueses tem uma perturbação mental.', '10 de outubro de 2020', 'Rita Rogado', 'https://images.impresa.pt/sicnot/2020-10-10-saude-mental.png/original/mw-720'),
-(7, 7, 'A vida nunca mais foi a mesma desde aquela noite', '\"Quis contar a minha história ao pormenor por vários motivos: não por ser um drama razoavelmente bom, mas porque não quero que outros se sintam sozinhos nesta difícil jornada.\"', '11 de outubro de 2020', 'SIC Notícias', 'https://images.impresa.pt/sicnot/2020-10-10-Saude-mental.jpg/original/mw-720');
+(7, 7, 'A vida nunca mais foi a mesma desde aquela noite', '\"Quis contar a minha história ao pormenor por vários motivos: não por ser um drama razoavelmente bom, mas porque não quero que outros se sintam sozinhos nesta difícil jornada.\"', '11 de outubro de 2020', 'SIC Notícias', 'https://images.impresa.pt/sicnot/2020-10-10-Saude-mental.jpg/original/mw-720'),
+(8, 8, 'Uma história, uma caixa azul e um pássaro para falar de saúde mental a crianças e adolescentes', 'Uma equipa de psicólogos e terapeutas ocupacionais do Hospital de São João visita as escolas da Maia, do Porto e de Valongo para combater preconceitos ligados à saúde mental.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3878:2585:nowe:0:0/rs:fill:640/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/16102359/1-igor-martins-portaabertasaudemental-01-069-1.jpg'),
+(9, 9, 'O que é a terapia de casal? E para que serve?', 'Discussões e diferenças de opinião fazem parte da vida de qualquer casal. Se são difíceis de ultrapassar ou não há boa comunicação, a terapia pode ajudar. A recuperar ou a preparar um final saudável.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:4096:2731:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/08152454/gettyimages-1204607778-scaled.jpg'),
+(10, 10, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg');
 
 -- --------------------------------------------------------
 
@@ -93,7 +96,12 @@ INSERT INTO `juncao_perturbacoes` (`juncao_perturbacoes_id`, `perturbacoes_id`, 
 (2, 1, 2),
 (3, 1, 3),
 (4, 1, 4),
-(5, 1, 5);
+(5, 1, 5),
+(6, 2, 1),
+(7, 2, 1),
+(8, 2, 1),
+(9, 2, 1),
+(10, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -297,7 +305,8 @@ INSERT INTO `utilizadores` (`utilizador_id`, `unique_id`, `nome`, `email`, `pass
 -- Índices para tabela `artigos`
 --
 ALTER TABLE `artigos`
-  ADD PRIMARY KEY (`artigo_id`);
+  ADD PRIMARY KEY (`artigo_id`),
+  ADD KEY `fk_juncao_perturbacoes_id` (`juncao_perturbacoes_id`);
 
 --
 -- Índices para tabela `grupos_perturbacoes`
@@ -374,19 +383,19 @@ ALTER TABLE `utilizadores`
 -- AUTO_INCREMENT de tabela `artigos`
 --
 ALTER TABLE `artigos`
-  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
-  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_perturbacoes`
-  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
@@ -439,6 +448,12 @@ ALTER TABLE `utilizadores`
 --
 -- Restrições para despejos de tabelas
 --
+
+--
+-- Limitadores para a tabela `artigos`
+--
+ALTER TABLE `artigos`
+  ADD CONSTRAINT `fk_juncao_perturbacoes_id` FOREIGN KEY (`juncao_perturbacoes_id`) REFERENCES `juncao_perturbacoes` (`juncao_perturbacoes_id`);
 
 --
 -- Limitadores para a tabela `juncao_perturbacoes`
