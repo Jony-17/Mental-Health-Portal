@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -21,28 +21,6 @@ if (isset($_SESSION['id_utilizador'])) {
     }
 } else {
     echo "NÃO DEU";
-}
-
-// Definir o banner
-
-// Verifique se a variável $_GET['nome'] está definida na URL
-if (isset($_GET['nome'])) {
-    // Obter o título da perturbação da URL e decodificar
-    $nome_perturbacao = urldecode($_GET['nome']);
-
-    // Consulta SQL para buscar o banner da perturbação pelo nome
-    $query_banner = "SELECT banner_perturbacao FROM perturbacoes WHERE nome = '$nome_perturbacao'";
-
-    // Executar a consulta para obter o banner da perturbação
-    $result_banner = mysqli_query($conn, $query_banner);
-
-    // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-    if ($result_banner && mysqli_num_rows($result_banner) > 0) {
-        // Extrair o resultado da consulta
-        $row_banner = mysqli_fetch_assoc($result_banner);
-        // Atribuir o valor do banner à variável $banner_perturbacao
-        $banner_perturbacao = $row_banner['banner_perturbacao'];
-    }
 }
 ?>
 
@@ -87,25 +65,21 @@ if (isset($_GET['nome'])) {
             height: 600px;
             border: none;
         }
-
-        .background {
-            background-image: url("<?php echo $banner_perturbacao; ?>");
-        }
     </style>
     <header>
         <div class="navbar">
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="..">Perturbações</a></li>
+                <li><a href="../..">Perturbações</a></li>
                 <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../../quizzes">Quizzes</a></li>
+                        <li><a href="../../../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                     </ul>
                 </li>
@@ -115,14 +89,14 @@ if (isset($_GET['nome'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -130,7 +104,7 @@ if (isset($_GET['nome'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -140,14 +114,14 @@ if (isset($_GET['nome'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial">Página Inicial</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="..">Perturbações</a></li>
+            <li><a href="../..">Perturbações</a></li>
             <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../../quizzes">Quizzes</a></li>
+                    <li><a href="../../../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                 </ul>
             </li>
@@ -155,21 +129,21 @@ if (isset($_GET['nome'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -188,15 +162,14 @@ if (isset($_GET['nome'])) {
 
 
 
-
     <!--Separadores-->
     <?php
     if (isset($_GET['nome'])) {
-        // Obter o nome da perturbação da URL e decodificar
-        $nome_perturbacao = urldecode($_GET['nome']);
+        // Obter o título do artigo da URL e decodificar
+        $nome_codificado = urldecode($_GET['nome']);
 
-        // Consulta SQL para buscar a perturbação pelo nome
-        $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_perturbacao'";
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_codificado'";
 
         // Executar a consulta
         $result = mysqli_query($conn, $query);
@@ -205,192 +178,125 @@ if (isset($_GET['nome'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $perturbacoes_id = $row['perturbacoes_id'];
-
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao nome
+            $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
+    
+            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
             $query_grupo = "SELECT nome FROM perturbacoes WHERE perturbacoes_id = $perturbacoes_id";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
-
             ?>
-            <div class="background">
-                <h1>
-                    <?php echo $row['nome'] ?>
-                </h1>
-            </div>
             <ol role="list">
                 <li class="list">
-                    <div class="items"><a href=".." class="text-sm">Perturbações Mentais</a><span class="separator">/</span></div>
+                    <div class="items"><a href="../.." class="text-sm">Perturbações Mentais</a><span class="separator">/</span>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="items"><a href="../?nome=<?php echo $nome_codificado; ?>" class="text-sm">
+                            <?php echo $row['nome'] ?>
+                        </a><span class="separator">/</span></div>
                 </li>
                 <li class="list">
                     <div class="items-current"><span class="text-sm" aria-current="page">
+                            10 Factos sobre
                             <?php echo $row['nome'] ?>
                         </span></div>
                 </li>
             </ol>
+            <div class="heading">
+                <h1>10 factos sobre
+                    <?php echo $row['nome'] ?>
+                </h1>
+                <div class="div-hr"></div>
+            </div>
             <?php
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Perturbação não encontrada.";
+            echo "Artigo não encontrado.";
         }
     } else {
-        // Se o título da perturbação não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "Título da perturbação não especificado na URL.";
+        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+        echo "Título do artigo não especificado na URL.";
     }
     ?>
 
 
-    <!--Botões-->
+
+
+
     <?php
     if (isset($_GET['nome'])) {
-        $nome_perturbacao = urldecode($_GET['nome']);
-        $perturbacoes_id = $row['perturbacoes_id'];
+        // Obter o título do artigo da URL e decodificar
+        $nome_codificado = urldecode($_GET['nome']);
 
-        $query = "SELECT grupos_perturbacoes.nome
-        FROM grupos_perturbacoes
-        INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-        INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-        WHERE perturbacoes.perturbacoes_id = $perturbacoes_id";
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_codificado'";
 
+        // Executar a consulta
         $result = mysqli_query($conn, $query);
 
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
         if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
+    
+            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            $query_grupo = "SELECT nº, factos, descricao 
+        FROM 10_factos 
+        WHERE perturbacoes_id = $perturbacoes_id";
 
-            echo '<div class="buttons">';
+            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            $result_grupo = mysqli_query($conn, $query_grupo);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                echo '<a class="btn2" href="ansiedade-generalizada/?nome=<?php echo $nome; ?>">' . $row['nome'] . '</a>'; /*Ajustar href*/
-            }
-
-            echo '</div>';
-        } else {
-            // Se o título da perturbação não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Grupo da perturbação não especificado na URL.";
-        }
-    }
-    ?>
-
-    <!--Texto de cada grupo de Perturbações-->
-    <section class="grupo-perturbacoes" id="grupo-perturbacoes">
-        <div class="grupo-perturbacoes-card">
-            <div class="grupo-perturbacoes-card-body">
-                <?php
-                // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
-                if (isset($_GET['nome'])) {
-                    $nome_perturbacao = urldecode($_GET['nome']);
-                    $query = "SELECT texto FROM perturbacoes WHERE nome = '$nome_perturbacao'";
-                    $result = mysqli_query($conn, $query);
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        echo '<p>' . $row['texto'] . '</p>';
-                    } else {
-                        echo "Ainda não tem texto.";
-                    }
-                } else {
-                    // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                    echo "Texto da perturbação não especificado na URL.";
-                }
+            if ($result_grupo && mysqli_num_rows($result_grupo) > 0) {
                 ?>
-            </div>
-        </div>
+                <!--Factos-->
+                <div class="timeline">
+                    <div class="factos-bannerImage-container">
+                        <img src="imgs/background2.png" alt="banner background" />
+                    </div>
 
-
-       <!--Factos e artigos-->
-<div class="card2-container">
-    <div class="card2">
-        <?php
-        // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
-        if (isset($_GET['nome'])) {
-            $nome_codificado = urldecode($_GET['nome']);
-            $query = "SELECT nome, img_perturbacao FROM perturbacoes WHERE nome = '$nome_codificado'";
-            $result = mysqli_query($conn, $query);
-            if ($result && mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                ?>
-                <a href="10-factos/?nome=<?php echo $nome_codificado; ?>">
-                    <img src="<?php echo $row["img_perturbacao"]; ?>" alt="Perturbacoes">
-                </a>
-                <div class="card2-content">
-                    <h1>10 Factos sobre
-                        <?php echo $row["nome"]; ?>
-                    </h1>
-                    <p>TesteTesteTesteTeste</p>
-                    <p>TesteTesteTeste</p>
-                    <a href="10-factos/?nome=<?php echo $nome_codificado; ?>" class="secondary-button">
-                        Sabe mais<i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <?php
-            // Consulta para obter informações adicionais sobre a perturbação (outra consulta)
-            $query_info_adicional = "SELECT
-                                        perturbacoes.nome AS perturbacoes_nome,
-                                        grupos_perturbacoes.nome AS grupos_perturbacoes_nome,
-                                        artigos.titulo AS titulo_artigo,
-                                        artigos.img_artigo AS img_artigo,
-                                        artigos.data_publicacao AS data_artigo,
-                                        artigos.autor AS autor_artigo
-                                    FROM
-                                        grupos_perturbacoes
-                                    INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                                    INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                                    INNER JOIN artigos ON juncao_perturbacoes.juncao_perturbacoes_id = artigos.juncao_perturbacoes_id
-                                    WHERE
-                                        juncao_perturbacoes.perturbacoes_id = $perturbacoes_id AND LENGTH(artigos.titulo) <= 30
-                                    LIMIT 3;";
-            $result_info_adicional = mysqli_query($conn, $query_info_adicional);
-
-            if ($result_info_adicional && mysqli_num_rows($result_info_adicional) > 0) {
-                ?>
-                <div class="card4-container">
                     <?php
+                    $left = true;
                     // Exibir informações adicionais sobre outras perturbações
-                    while ($row_info_adicional = mysqli_fetch_assoc($result_info_adicional)) {
+                    while ($row_info_adicional = mysqli_fetch_assoc($result_grupo)) {
                         ?>
-
-                        <div class="card4">
-                            <a href="../../artigos/artigo/?titulo=<?php echo urlencode($row_info_adicional["titulo_artigo"]); ?>">
-                                <img src="<?php echo $row_info_adicional["img_artigo"]; ?>" alt="Depressão">
-                            </a>
-                            <div class="card4-content">
-                                <h3>
-                                    <?php echo $row_info_adicional["perturbacoes_nome"]; ?>
-                                </h3>
-                                <h2>
-                                    <?php echo $row_info_adicional["grupos_perturbacoes_nome"]; ?>
-                                </h2>
-                                <h1>
-                                    <?php echo $row_info_adicional["titulo_artigo"]; ?>
+                        <div class="container <?php echo $left ? 'left-container' : 'right-container'; ?>">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="text-box">
+                                <h1><span class="number">
+                                        <?php echo $row_info_adicional['nº'] == 10 ? 10 : sprintf('%02d', $row_info_adicional['nº']); ?>
+                                    </span>
+                                    <?php echo $row_info_adicional['factos']; ?>
                                 </h1>
                                 <p>
-                                    <?php echo $row_info_adicional["data_artigo"]; ?>
+                                    <?php echo $row_info_adicional['descricao']; ?>
                                 </p>
-                                <p>
-                                    <?php echo $row_info_adicional["autor_artigo"]; ?>
-                                </p>
+                                <span class="<?php echo $left ? 'left-container-arrow' : 'right-container-arrow'; ?>"></span>
                             </div>
                         </div>
                         <?php
+                        $left = !$left;
                     }
-
                     ?>
                 </div>
                 <?php
-            } else {
-                echo "Ainda não tem texto para mostrar.";
-            }
             }
         }
-        ?>
-
-    </div>
-</div>
-</section>
+    }
+    ?>
 
 
+    <script>
+        window.addEventListener('scroll', function () {
+            const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+            const timelineAfter = document.querySelector('.timeline::after');
+            timelineAfter.style.height = scrollPercentage + '%';
+        });
+    </script>
+
+    <!--Fontes-->
     <div class="fontes" id="fontes">
         <div class="fontes-content">
             <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
@@ -411,13 +317,13 @@ if (isset($_GET['nome'])) {
         </div>
     </div>
 
+
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
 
 
-
-    <!--Footer-->
+    <!---Footer--->
     <footer>
         <div class="footer-row">
             <div class="footer-col">
@@ -524,12 +430,10 @@ if (isset($_GET['nome'])) {
     </footer>
 
 
-
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
-
 
 
     <script src="js/script.js"></script>
