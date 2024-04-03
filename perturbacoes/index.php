@@ -3,7 +3,7 @@ session_start();
 require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -86,10 +86,10 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -126,10 +126,10 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -171,7 +171,6 @@ if (isset ($_SESSION['id_utilizador'])) {
         </li>
     </ol>
 
-
     <!--Perturbações Mentais-->
     <section class="perturbacoes" id="perturbacoes">
         <div class="perturbacoes-banner-container">
@@ -180,80 +179,45 @@ if (isset ($_SESSION['id_utilizador'])) {
             </h1>
         </div>
 
-        <div class="card-container">
-            <div class="card">
-                <a href="perturbacoes-ansiedade/">
-                    <img src="imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Ansiedade</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="perturbacoes-ansiedade/" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-sono.png" alt="Depressão">
-                </a>
-                <h1>Perturbações do Sono - vigília</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-humor.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Humor</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-aliment.png" alt="Depressão">
-                </a>
-                <h1>Perturbações Alimentares</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-obscomp.png" alt="Depressão">
-                </a>
-                <h1>Perturbações Obsessivo-Compulsivas</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Personalidade</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-perso.png" alt="Depressão">
-                </a>
-                <h1>Perturbações relacionadas com Trauma e Fatores de Stress</h1>
-                <p>TesteTesteTesteTesteTesteTesteTeste</p>
-                <a href="#about" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+        <?php
+        
+        $query = "SELECT nome, img_perturbacao FROM perturbacoes";
+        $result = mysqli_query($conn, $query);
 
+        if ($result && mysqli_num_rows($result) > 0) {
+            ?>
+            <div class="card-container">
+                <?php
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="card">
+                        <?php
+
+                        $nome_codificado = urlencode($row["nome"]);
+                        $img_perturbacao = $row["img_perturbacao"];
+
+                        ?>
+                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
+                            <img src="<?php echo $row["img_perturbacao"] ?>" alt="Perturbacoes">
+                        </a>
+                        <h1>
+                            <?php echo $row["nome"] ?>
+                        </h1>
+                        <a href="grupo-perturbacoes/?nome=<?php echo $nome; ?>" class="first-button"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
+                            Sabe mais<i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+        } else {
+            echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhuma perturbação encontrada.</div>';
+        }
+        ?>
+    </section>
 
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i

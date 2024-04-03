@@ -34,7 +34,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imgs/logo.png">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -399,19 +399,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </div>
 
 
-    <script>
-    window.addEventListener('DOMContentLoaded', function () {
-        var dropdownToggle = document.querySelector('.dropdown-toggle');
-        var dropdownMenu = document.querySelector('.dropdown-menu');
-
-        if (window.innerWidth <= 768) {
-            dropdownToggle.addEventListener('click', function () {
-                dropdownMenu.classList.toggle('show');
-            });
-        }
-    });
-</script>
-
+    
     <div class="fontes" id="fontes">
         <div class="fontes-content">
             <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"

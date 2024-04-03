@@ -381,69 +381,71 @@
 
  /*------------------Fontes------------------*/  
   
-  .fontes {
-    width: 100%;
-    background-color: var(--white-color);
-    cursor: pointer;
-    flex: 1;
-    /*display: flex;*/
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-  
-  .fontes-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 100px;
-  }
-  
-  .fontes-content h3 {
-    color: #B13E3E;
-    font-size: 1.3rem;
-    margin-left: 10px;
-  }
-  
-  .fontes-content2 {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 1.4s ease;
-  }
-  
-  .fontes-content2 p {
-    color: black;
-    padding: 20px 0px 0px 25px;
-    line-height: 1.6;
-    font-size: 1rem;
-  }
-  
-  .fontes.active .fontes-content2 {
-    max-height: 300px;
-  }
-  
-  .fontes.active svg {
-    transform: rotate(180deg);
-  }
-  
-  svg {
-    /*transition: transform 0.5s ease-in;*/
-    fill: #B13E3E;
-  }
-  
-  .svg-down {
-    display: none; /* Inicialmente, esconde o SVG para baixo */
-  }
-  
-  .fontes.active .svg-up {
-    display: none; /* Esconde o SVG para cima quando o conteúdo está ativo */
-  }
-  
-  .fontes.active .svg-down {
-    display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo */
-  }
+ .fontes {
+  width: 100%;
+  background-color: var(--white-color);
+  cursor: default;
+  flex: 1;
+  /*display: flex;*/
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.fontes-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.fontes-content h3 {
+  color: #B13E3E;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.fontes-content2 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.4s ease;
+}
+
+.fontes-content2 p {
+  color: black;
+  padding: 20px 0px 0px 25px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.fontes.active .fontes-content2 {
+  max-height: 300px;
+}
+
+.fontes.active svg {
+  transform: rotate(180deg);
+}
+
+svg {
+  /*transition: transform 0.5s ease-in;*/
+  fill: #B13E3E;
+  cursor: pointer;
+}
+
+.svg-down {
+  display: none; /* Inicialmente, esconde o SVG para baixo */
+}
+
+.fontes.active .svg-up {
+  display: none; /* Esconde o SVG para cima quando o conteúdo está ativo */
+}
+
+.fontes.active .svg-down {
+  display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo */
+}
   
   
   /*-----------------Botões e Lupa--------------------*/

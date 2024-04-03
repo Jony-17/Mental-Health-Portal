@@ -34,7 +34,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imgs/logo.png">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,256 +161,56 @@ if (isset($_SESSION['id_utilizador'])) {
     </header>
 
 
-    <!--Separadores-->
-    <?php
-    if (isset($_GET['titulo'])) {
-        // Obter o título do artigo da URL e decodificar
-        $titulo_artigo = urldecode($_GET['titulo']);
-
-        // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
-
-        // Executar a consulta
-        $result = mysqli_query($conn, $query);
-
-        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-        if ($result && mysqli_num_rows($result) > 0) {
-            // Extrair o resultado da consulta
-            $row = mysqli_fetch_assoc($result);
-            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
-    
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao 
-                        FROM juncao_perturbacoes jp 
-                        INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id 
-                        WHERE jp.juncao_perturbacoes_id = $artigo_id";
-
-            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
-            $result_grupo = mysqli_query($conn, $query_grupo);
-
-            // Exibir os resultados
-            echo '<ol role="list">';
-            echo '<li class="list"><div class="items"><a href=".." class="text-sm">Artigos</a><span class="separator">/</span></div></li>';
-            echo '<li class="list"><div class="items"><span class="text-sm">' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</span><span class="separator">/</span></div></li>';
-            echo '<li class="list"><div class="items-current"><span class="text-sm" aria-current="page">Artigo - ' . $row['titulo'] . '</span></div></li>';
-            echo '</ol>';
-        } else {
-            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Artigo não encontrado.";
-        }
-    } else {
-        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "Título do artigo não especificado na URL.";
-    }
-    ?>
-
-
-    <!--Títulos-->
-    <?php
-    if (isset($_GET['titulo'])) {
-        // Obter o título do artigo da URL e decodificar
-        $titulo_artigo = urldecode($_GET['titulo']);
-
-        // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
-
-        // Executar a consulta
-        $result = mysqli_query($conn, $query);
-
-        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-        if ($result && mysqli_num_rows($result) > 0) {
-            // Extrair o resultado da consulta
-            $row = mysqli_fetch_assoc($result);
-            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
-    
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
-                        FROM juncao_perturbacoes jp 
-                        INNER JOIN grupos_perturbacoes p ON jp.grupos_perturbacoes_id = p.grupos_perturbacoes_id 
-                        WHERE jp.juncao_perturbacoes_id = $artigo_id";
-
-            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
-            $result_grupo = mysqli_query($conn, $query_grupo);
-
-            // Exibir os resultados
-            echo '<div class="heading">';
-            echo '<h4>' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</h4>';
-            echo '<h1>Artigo - ' . $row['titulo'] . '</h1>';
-            echo '</div>';
-        } else {
-            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "<div class='heading'><h4>Artigo não encontrado.</h4></div>";
-        }
-    } else {
-        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "<div class='heading'><h4>Título do artigo não especificado na URL.</h4></div>";
-    }
-    ?>
-
-
-
-    <!--Autor/es e data de publicação-->
-    <?php
-    if (isset($_GET['titulo'])) {
-        // Obter o título do artigo da URL e decodificar
-        $titulo_artigo = urldecode($_GET['titulo']);
-
-        // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT autor, data_publicacao FROM artigos WHERE titulo = '$titulo_artigo'";
-
-        // Executar a consulta
-        $result = mysqli_query($conn, $query);
-
-        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-        if ($result && mysqli_num_rows($result) > 0) {
-            // Extrair o resultado da consulta
-            $row = mysqli_fetch_assoc($result);
-            // Exibir o autor e a data de publicação do artigo
-            echo '<ol role="list2" class="list2">';
-            echo '<li class="list"><div class="items"><span class="text-sm">' . $row['autor'] . '</span><span class="separator">|</span></div></li>';
-            echo '<li class="list"><div class="items"><span class="text-sm">' . $row['data_publicacao'] . '</span></div></li>';
-            echo '</ol>';
-        } else {
-            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Autor ou data de publicação não encontrados.";
-        }
-    } else {
-        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "Título do artigo não especificado na URL.";
-    }
-    ?>
-
-    <!--Imagem da publicação-->
-    <?php
-    if (isset($_GET['titulo'])) {
-        // Obter o título do artigo da URL e decodificar
-        $titulo_artigo = urldecode($_GET['titulo']);
-
-        // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT img_artigo FROM artigos WHERE titulo = '$titulo_artigo'";
-
-        // Executar a consulta
-        $result = mysqli_query($conn, $query);
-
-        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-        if ($result && mysqli_num_rows($result) > 0) {
-            // Extrair o resultado da consulta
-            $row = mysqli_fetch_assoc($result);
-            // Exibir o autor e a data de publicação do artigo
-            echo '<img class="img-artigo" src="' . $row['img_artigo'] . '">';
-        } else {
-            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Autor ou data de publicação não encontrados.";
-        }
-    } else {
-        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "Título do artigo não especificado na URL.";
-    }
-    ?>
-
-
-    <div class="container">
-        <div class="artigo-wrapper">
-            <section class="artigo" id="artigo">
-                <div class="card">
-                    <div class="card-body">
-                        <?php
-                        // Se o título do artigo estiver definido na URL, exibir o conteúdo do artigo
-                        if (isset($_GET['titulo'])) {
-                            $titulo_artigo = urldecode($_GET['titulo']);
-                            $query = "SELECT conteudo_texto FROM artigos WHERE titulo = '$titulo_artigo'";
-                            $result = mysqli_query($conn, $query);
-                            if ($result && mysqli_num_rows($result) > 0) {
-                                $row = mysqli_fetch_assoc($result);
-                                echo '<p>' . $row['conteudo_texto'] . '</p>';
-                            } else {
-                                echo "Ainda não tem texto.";
-                            }
-                        } else {
-                            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                            echo "Título do artigo não especificado na URL.";
-                        }
-                        ?>
-                    </div>
-                </div>
-            </section>
-
-            <!--Pontos-->
-            <?php
-            // Consulta SQL para selecionar os pontos do artigo atual apenas
-            $query = "SELECT artigo_id, ponto, conteudo_artigo_id FROM conteudo_artigo WHERE artigo_id = $artigo_id";
-
-            // Executar a consulta
-            $result = mysqli_query($conn, $query);
-
-            // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-            if ($result && mysqli_num_rows($result) > 0) {
-                // Loop através dos resultados
-                while ($row = mysqli_fetch_assoc($result)) {
-                    // Exibir o conteúdo de cada ponto dentro dos elementos <div> e <h1>
-                    echo '<div class="subheading" id="ponto_' . $row['ponto'] . '">';
-                    echo '<h1>' . $row['ponto'] . '</h1>';
-
-                    $conteudo_artigo_id = $row['conteudo_artigo_id'];
-                    $query_conteudo = "SELECT texto FROM texto_artigo WHERE conteudo_artigo_id = $conteudo_artigo_id";
-
-                    // Executar a consulta de conteúdo
-                    $result_conteudo = mysqli_query($conn, $query_conteudo);
-
-                    // Verificar se a consulta de conteúdo foi bem-sucedida e se retornou pelo menos uma linha
-                    if ($result_conteudo && mysqli_num_rows($result_conteudo) > 0) {
-                        // Exibir o conteúdo real do ponto
-                        while ($row_conteudo = mysqli_fetch_assoc($result_conteudo)) {
-                            echo '<p>' . $row_conteudo['texto'] . '</p>';
-                        }
-                    } else {
-                        // Se a consulta de conteúdo não retornar nenhum resultado
-                        echo "Não há conteúdo disponível para este ponto.";
-                    }
-
-                    echo '</div>';
-                }
-            } else {
-                // Se a consulta não retornar nenhum resultado
-                echo "Não há pontos disponíveis para este artigo.";
-            }
-            ?>
+    <div class="img-slider">
+        <div class="slide active">
+            <img src="images/1.jpg" alt="">
+            <div class="info">
+                <h2>Slide 01</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
         </div>
-
-        <section class="tabela-conteudo">
-            <?php
-            // Consulta SQL para selecionar os pontos da tabela conteudo_artigo
-            $query = "SELECT ponto FROM conteudo_artigo WHERE artigo_id = $artigo_id";
-            $result = mysqli_query($conn, $query);
-            if ($result && mysqli_num_rows($result) > 0) {
-                echo '<div class="card-body2">';
-                echo '<h1>Tabela de conteúdos</h1>';
-                echo '<ul>';
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<li><a href="#ponto_' . urlencode($row['ponto']) . '">' . $row['ponto'] . '</a></li>';
-                }
-                echo '</ul>';
-                echo '</div>';
-            } else {
-                echo "Não há pontos disponíveis.";
-            }
-            ?>
-        </section>
+        <div class="slide">
+            <img src="images/2.jpg" alt="">
+            <div class="info">
+                <h2>Slide 02</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/3.jpg" alt="">
+            <div class="info">
+                <h2>Slide 03</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/4.jpg" alt="">
+            <div class="info">
+                <h2>Slide 04</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/5.jpg" alt="">
+            <div class="info">
+                <h2>Slide 05</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="btn active"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+        </div>
     </div>
 
-
-    <script>
-    window.addEventListener('DOMContentLoaded', function () {
-        var dropdownToggle = document.querySelector('.dropdown-toggle');
-        var dropdownMenu = document.querySelector('.dropdown-menu');
-
-        if (window.innerWidth <= 768) {
-            dropdownToggle.addEventListener('click', function () {
-                dropdownMenu.classList.toggle('show');
-            });
-        }
-    });
-</script>
 
     <div class="fontes" id="fontes">
         <div class="fontes-content">
@@ -544,7 +344,60 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
+    <script type="text/javascript">
+        var slides = document.querySelectorAll('.slide');
+        var btns = document.querySelectorAll('.btn');
+        let currentSlide = 1;
 
+        // Javascript for image slider manual navigation
+        var manualNav = function (manual) {
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+
+                btns.forEach((btn) => {
+                    btn.classList.remove('active');
+                });
+            });
+
+            slides[manual].classList.add('active');
+            btns[manual].classList.add('active');
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                manualNav(i);
+                currentSlide = i;
+            });
+        });
+
+        // Javascript for image slider autoplay navigation
+        var repeat = function (activeClass) {
+            let active = document.getElementsByClassName('active');
+            let i = 1;
+
+            var repeater = () => {
+                setTimeout(function () {
+                    [...active].forEach((activeSlide) => {
+                        activeSlide.classList.remove('active');
+                    });
+
+                    slides[i].classList.add('active');
+                    btns[i].classList.add('active');
+                    i++;
+
+                    if (slides.length == i) {
+                        i = 0;
+                    }
+                    if (i >= slides.length) {
+                        return;
+                    }
+                    repeater();
+                }, 10000);
+            }
+            repeater();
+        }
+        repeat();
+    </script>
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>

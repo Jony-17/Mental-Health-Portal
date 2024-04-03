@@ -187,144 +187,154 @@ if (isset ($_SESSION['id_utilizador'])) {
         <li class="list">
             <div class="items-current">
                 <span class="text-sm" aria-current=page>
-                    Ansiedade Generalizada
+                    10 factos sobre a Ansiedade
                 </span>
             </div>
         </li>
     </ol>
 
-    <!--<div class="buttons">
-        <a class="btn2" href="#">Ansiedade Social</a>
-        <a class="btn2" href="#">Ansiedade Generalizada</a>
-        <a class="btn2" href="#">Fobia específica</a>
-        <a class="btn2" href="#">Perturbação de pánico</a>
-    </div>-->
-
 
     <div class="heading">
-        <h1>Ansiedade Generalizada</h1>
+        <h1>10 factos sobre a Ansiedade</h1>
+        <div class="div-hr"></div>
     </div>
 
-    <ol role="list2" class="list2">
-        <li class="list">
-            <div class="items">
-                <a href="#sintomas" class="text-sm">
-                    Sintomas
-                </a>
-                <span class="separator">|</span>
-            </div>
-        </li>
 
-        <!--<li class="list">
-            <div class="items">
-                <a href="#diagnostico" class="text-sm">
-                    Diagnóstico
-                </a>
-                <span class="separator">|</span>
-            </div>
-        </li>-->
+    <!--Factos-->
+    <div class="timeline">
 
-        </li>
-        <li class="list">
-            <div class="items">
-                <a href="#ajuda" class="text-sm">
-                    Procurar ajuda
-                </a>
-            </div>
-        </li>
-    </ol>
+        <div class="factos-bannerImage-container">
+            <img src="imgs/background2.png" alt="banner background" />
+        </div>
 
-
-    <!--Ansiedade Generalizada-->
-    <section class="ansiedade-generalizada" id="ansiedade-generalizada">
-        <div class="ansiedade-generalizada-banner-container">
-            <div class="ansiedade-generalizada-text-section">
-                <div class="card">
-                    <div class="card-body">
-                        <!--<h1 class="card-title">O quão empática/o és?</h1>-->
-                        <p>Everybody deals with anxiety from time to time, but when everyday feelings of nervousness
-                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable
-                            anxiety disorder.
-
-                            If you're struggling with an anxiety disorder like social anxiety or generalized anxiety,
-                            know that you are not alone. The National Institutes of Mental Health estimate that nearly
-                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1
-                            Any Anxiety Disorder, National Institutes of Mental Health
-
-                            Since anxiety is a common mental health condition (and is a condition that can be
-                            debilitating), it's recommended that all adults under the age of 65 receive routine anxiety
-                            screening.2
-
-                            Treatment options like therapy, medication, self-care strategies, and lifestyle changes can
-                            help you manage your anxiety and help you live your best life at home, at work, and in your
-                            relationships.</p>
-                    </div>
-                </div>
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">01</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
             </div>
         </div>
-    </section>
 
-
-    <div class="subheading" id="sintomas">
-        <h1>Sintomas</h1>
-        <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
-            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
-            a way that is persistent, excessive, and intrusive. [1]</p>
-        <p>Often, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience
-            physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.</p>
-        <p>According to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and
-            it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a
-            common mental health condition, the United States Preventative Services Task Force recommends that all
-            adults under the age of 65 should be routinely screened for anxiety. [2]</p>
-        <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
-            psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>
-
-    <!--<div class="subheading" id="diagnostico">
-        <h1>Diagnóstico</h1>
-        <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
-            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
-            a way that is persistent, excessive, and intrusive. [1]</p>
-        <p>Often, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience
-            physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.</p>
-        <p>According to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and
-            it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a
-            common mental health condition, the United States Preventative Services Task Force recommends that all
-            adults under the age of 65 should be routinely screened for anxiety. [2]</p>
-        <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
-            psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>-->
-
-    <div class="subheading" id="ajuda">
-        <h1>Procurar ajuda</h1>
-        <p>Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about
-            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in
-            a way that is persistent, excessive, and intrusive. [1]</p>
-        <p>Often, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience
-            physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.</p>
-        <p>According to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and
-            it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a
-            common mental health condition, the United States Preventative Services Task Force recommends that all
-            adults under the age of 65 should be routinely screened for anxiety. [2]</p>
-        <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
-            psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
-    </div>
-
-
-    <div class="ansiedade-generalizada2-text-section">
-        <div class="card2">
-            <div class="card2-body">
-                <!--<h1 class="card-title">O quão empática/o és?</h1>-->
-                <p>Também nas Perturbações de Ansiedade</p>
-                <div class="perturbacoes-hr"></div>
-                <a href="#">Ansiedade Social</a>
-                <a href="#">Agorafobia</a>
-                <a href="#">Fobia Específica</a>
-                <a href="#">Perturbação de pânico</a>
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">02</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
             </div>
         </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">03</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container2">
+            <img src="imgs/background1.png" alt="banner background" />
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">04</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">05</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container3">
+            <img src="imgs/background1.png" alt="banner background" />
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">06</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">07</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">08</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container4">
+            <img src="imgs/background1.png" alt="banner background" />
+        </div>
+
+        <div class="container left-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">09</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="factos-bannerImage-container5">
+            <img src="imgs/background3.png" alt="banner background" />
+        </div>
+
+        <div class="container right-container">
+            <i class="fas fa-lightbulb"></i>
+            <div class="text-box">
+                <h1><span class="number">10</span> Symptoms</h1>
+                <p>While symptoms of anxiety can be debilitating, with proper treatment—including medication and
+                    psychotherapy—people can learn to manage their symptoms and live a more productive life.</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+
     </div>
 
+    <script>
+  window.addEventListener('scroll', function() {
+    const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    const timelineAfter = document.querySelector('.timeline::after');
+    timelineAfter.style.height = scrollPercentage + '%';
+  });
+</script>
+
+    <!--Fontes-->
     <div class="fontes" id="fontes">
         <div class="fontes-content">
             <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
@@ -346,60 +356,11 @@ if (isset ($_SESSION['id_utilizador'])) {
     </div>
 
 
-    <div class="artigos">
-        <h2>Alguns artigos relacionados</h2>
-        <div class="perturbacoes-hr2"></div>
-        <div class="card-container">
-            <div class="card4">
-                <a href="perturbacoes-ansiedade/index.php">
-                    <img src="../../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
-                </a>
-                <div class="card4-content">
-                    <h3>Perturbações de Ansiedade</h3>
-                    <h1>Artigo 1 sobre a Ansiedade</h1>
-                    <p>Escrito por: João</p>
-                    <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>-->
-                </div>
-            </div>
-
-            <div class="card4">
-                <a href="perturbacoes-ansiedade/index.php">
-                    <img src="../../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
-                </a>
-                <div class="card4-content">
-                    <h3>Perturbações de Ansiedade</h3>
-                    <h1>Artigo 1 sobre a Ansiedade</h1>
-                    <p>Escrito por: João</p>
-                    <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>-->
-                </div>
-            </div>
-
-            <div class="card4">
-                <a href="perturbacoes-ansiedade/index.php">
-                    <img src="../../imgs/imgs-perturbacoes/pert-ansie.png" alt="Depressão">
-                </a>
-                <div class="card4-content">
-                    <h3>Perturbações de Ansiedade</h3>
-                    <h1>Artigo 1 sobre a Ansiedade</h1>
-                    <p>Escrito por: João</p>
-                    <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>-->
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
 
-            
+
     <!---Footer--->
     <footer>
         <div class="footer-row">
