@@ -267,7 +267,7 @@ if (isset($_GET['nome'])) {
                     <?php
                 }
                 ?>
-            </div>;
+            </div>
             <?php
         } else {
             // Se o título da perturbação não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação

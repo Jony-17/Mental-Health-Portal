@@ -203,7 +203,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </ol>
 
 
-    <!--Perturbações Mentais-->
+    <!--Artigos-->
     <section class="artigos" id="artigos">
         <div class="artigos-banner-container">
             <h1 class="artigos-primary-heading">
@@ -235,17 +235,7 @@ if (isset($_SESSION['id_utilizador'])) {
         }
         ?>
 
-        <!--<a class="btn2" href="?filter=perturbacoes">Todos</a>
-        <a class="btn2" href="?filter=perturbacoes-ansiedade">Perturbações de Ansiedade</a>
-        <a class="btn2" href="?filter=perturbacoes-sono">Perturbações de Sono</a>
-        <a class="btn2" href="?filter=perturbacoes-humor">Perturbações de Humor</a>
-        <a class="btn2" href="?filter=perturbacoes-alimentares">Perturbações Alimentares</a>
-        <a class="btn2" href="?filter=perturbacoes-personalidade">Perturbações de Personalidade</a>
-        <a class="btn2" href="?filter=perturbacoes-obsessivo-compulsivas">Perturbações Obsessivo-Compulsivas</a>
-        <a class="btn2" href="?filter=perturbacoes-trauma-stress">Perturbações relacionadas com Trauma e Fatores de
-            stress</a>
-        </div>-->
-
+        <!--Pesquisa-->
         <div class="container-search">
             <form method="GET">
                 <div class="search-wrapper">
@@ -299,6 +289,12 @@ if (isset($_SESSION['id_utilizador'])) {
                     echo "Filtro não encontrado.";
                 }
             }
+        } else {
+            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+                FROM artigos 
+                INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
         }
 
         $result = mysqli_query($conn, $query);
@@ -350,16 +346,54 @@ if (isset($_SESSION['id_utilizador'])) {
         }
         ?>
 
-        <div class="paginacao">
-            <a href="#">Anterior</a>
-            <a class="active" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">Seguinte</a>
-        </div>
+<?php
+    // Define o número de itens por página
+    $itens_por_pagina = 3;
+
+    // Página atual. Se não for fornecido na URL, assume a primeira página (1)
+    $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+    // Calcula o offset para a consulta SQL com base na página atual
+    $offset = ($pagina_atual - 1) * $itens_por_pagina;
+
+    // Sua consulta SQL com limitação para paginação
+    $query_paginacao = "SELECT * FROM artigos LIMIT $itens_por_pagina OFFSET $offset";
+
+    // Executa a consulta SQL
+    $result_paginacao = mysqli_query($conn, $query_paginacao);
+
+    // Verifica o número total de resultados
+    $total_resultados = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM artigos"));
+
+    // Calcula o número total de páginas
+    $total_paginas = ceil($total_resultados / $itens_por_pagina);
+
+    // Exibe os resultados da página atual
+    while ($row = mysqli_fetch_assoc($result_paginacao)) {
+        // Exiba os resultados conforme necessário
+    }
+
+    echo "<div class='paginacao'>";
+    
+    // Link para a página anterior
+    if ($pagina_atual > 1) {
+        echo "<a href='?pagina=".($pagina_atual - 1)."'>Anterior</a> ";
+    }
+
+    // Exibe os números das páginas
+    for ($pagina = 1; $pagina <= $total_paginas; $pagina++) {
+        $classe_pagina_atual = ($pagina == $pagina_atual) ? "pagina-atual" : "";
+        echo "<a class='$classe_pagina_atual' href='?pagina=$pagina'>$pagina</a> ";
+    }
+
+    // Link para a próxima página
+    if ($pagina_atual < $total_paginas) {
+        echo "<a href='?pagina=".($pagina_atual + 1)."'>Seguinte</a>";
+    }
+
+    echo "</div>";
+?>
+
     </section>
 
 

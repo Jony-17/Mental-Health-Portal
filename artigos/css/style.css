@@ -546,24 +546,16 @@ svg {
   border: 1px solid #ddd;
 }
 
-.paginacao a.active {
+.paginacao .pagina-atual {
   background-color: var(--main-color);
   color: white;
   border: 1px solid var(--main-color);
 }
 
-.paginacao a:hover:not(.active) {background-color: #ddd;}
-
-.paginacao a:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+.paginacao .pagina-atual:hover {
+  background-color: var(--orange3-color);
+  border: 1px solid var(--orange3-color);
 }
-
-.paginacao a:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
 
   
   /*----------------FOOTER------------------------*/
@@ -748,7 +740,6 @@ svg {
   .dropdown-trigger-f:hover .dropdown-f {
     display: block;
   }
-  
 
   /*--------------Navbar hrefs---------------------------*/
   

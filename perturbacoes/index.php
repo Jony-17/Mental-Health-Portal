@@ -204,7 +204,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h1>
                             <?php echo $row["nome"] ?>
                         </h1>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome; ?>" class="first-button"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
+                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>" class="first-button"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
                             Sabe mais<i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
