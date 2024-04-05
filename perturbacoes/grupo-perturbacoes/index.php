@@ -380,7 +380,6 @@ if (isset($_GET['nome'])) {
                                 </div>
                                 <?php
                             }
-
                             ?>
                         </div>
                         <?php

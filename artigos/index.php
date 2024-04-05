@@ -3,7 +3,7 @@ session_start();
 require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -86,10 +86,10 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -126,10 +126,10 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -169,73 +169,36 @@ if (isset ($_SESSION['id_utilizador'])) {
                     Artigos
                 </span>
                 <span class="separator"
-                    style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] != 'perturbacoes')) ? 'inline-block' : 'none'; ?>">/</span>
+                    style="display: <?php echo (isset($_GET['filter']) && ($_GET['filter'] != 'Perturbações')) ? 'inline-block' : 'none'; ?>">/</span>
             </div>
         </li>
 
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-ansiedade')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações de Ansiedade
-                </span>
-            </div>
-        </li>
+        <?php
+        // Defina os nomes das perturbações que deseja exibir na lista
+        $perturbacoes = array(
+            'Perturbações de Ansiedade',
+            'Perturbações do Sono - Vigília',
+            'Perturbações de Humor',
+            'Perturbações Alimentares',
+            'Perturbações de Personalidade',
+            'Perturbações Obsessivo-Compulsivas',
+            'Perturbações relacionadas com Trauma e Fatores de stress'
+        );
 
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-sono')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações de Sono - Vigília
-                </span>
-            </div>
-        </li>
-
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-humor')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações de Humor
-                </span>
-            </div>
-        </li>
-
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-alimentares')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações Alimentares
-                </span>
-            </div>
-        </li>
-
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-personalidade')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações de Personalidade
-                </span>
-            </div>
-        </li>
-
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-obsessivo-compulsivas')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações Obsessivo-Compulsivas
-                </span>
-            </div>
-        </li>
-
-        <li class="list-visible"
-            style="display: <?php echo (isset ($_GET['filter']) && ($_GET['filter'] == 'perturbacoes-trauma-stress')) ? 'inline-block' : 'none'; ?>">
-            <div class="items-current">
-                <span class="text-sm" aria-current="page">
-                    Perturbações relacionadas com Trauma e Fatores de stress
-                </span>
-            </div>
-        </li>
-
+        // Percorre a lista de perturbações
+        foreach ($perturbacoes as $perturbacao) {
+            ?>
+            <li class="list-visible"
+                style="display: <?php echo (isset($_GET['filter']) && ($_GET['filter'] == urldecode($perturbacao))) ? 'inline-block' : 'none'; ?>">
+                <div class="items-current">
+                    <span class="text-sm" aria-current="page">
+                        <?php echo htmlspecialchars($perturbacao); ?>
+                    </span>
+                </div>
+            </li>
+            <?php
+        }
+        ?>
 
     </ol>
 
@@ -248,29 +211,54 @@ if (isset ($_SESSION['id_utilizador'])) {
             </h1>
         </div>
 
-        <div class="buttons">
-            <a class="btn2" href="?filter=perturbacoes">Todos</a>
-            <a class="btn2" href="?filter=perturbacoes-ansiedade">Perturbações de Ansiedade</a>
-            <a class="btn2" href="?filter=perturbacoes-sono">Perturbações de Sono</a>
-            <a class="btn2" href="?filter=perturbacoes-humor">Perturbações de Humor</a>
-            <a class="btn2" href="?filter=perturbacoes-alimentares">Perturbações Alimentares</a>
-            <a class="btn2" href="?filter=perturbacoes-personalidade">Perturbações de Personalidade</a>
-            <a class="btn2" href="?filter=perturbacoes-obsessivo-compulsivas">Perturbações Obsessivo-Compulsivas</a>
-            <a class="btn2" href="?filter=perturbacoes-trauma-stress">Perturbações relacionadas com Trauma e Fatores de
-                stress</a>
-        </div>
+        <?php
+
+        $query = "SELECT nome, perturbacoes_id FROM perturbacoes";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            ?>
+            <div class="buttons">
+                <a class="btn2" href="?filter=Perturbações">Todos</a>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <a class="btn2" href="?filter=<?php echo urlencode($row['nome']); ?>">
+                        <?php echo $row['nome']; ?>
+                    </a>
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+
+        <!--<a class="btn2" href="?filter=perturbacoes">Todos</a>
+        <a class="btn2" href="?filter=perturbacoes-ansiedade">Perturbações de Ansiedade</a>
+        <a class="btn2" href="?filter=perturbacoes-sono">Perturbações de Sono</a>
+        <a class="btn2" href="?filter=perturbacoes-humor">Perturbações de Humor</a>
+        <a class="btn2" href="?filter=perturbacoes-alimentares">Perturbações Alimentares</a>
+        <a class="btn2" href="?filter=perturbacoes-personalidade">Perturbações de Personalidade</a>
+        <a class="btn2" href="?filter=perturbacoes-obsessivo-compulsivas">Perturbações Obsessivo-Compulsivas</a>
+        <a class="btn2" href="?filter=perturbacoes-trauma-stress">Perturbações relacionadas com Trauma e Fatores de
+            stress</a>
+        </div>-->
 
         <div class="container-search">
             <form method="GET">
-                <i class="fas fa-search"></i>
-                <input id="input-search" type="text" name="search_query" placeholder="Pesquisa o nome de um artigo">
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input id="input-search" type="text" name="search_query" placeholder="Pesquisa o nome de um artigo">
+                </div>
                 <button type="submit">Pesquisa</button>
             </form>
         </div>
 
         <?php
 
-        if (isset ($_GET['search_query']) && !empty ($_GET['search_query'])) {
+        if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
             $search_query = $_GET['search_query'];
             $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
             FROM artigos 
@@ -278,61 +266,39 @@ if (isset ($_SESSION['id_utilizador'])) {
             INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
             INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
             WHERE artigos.titulo LIKE '%$search_query%'";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-ansiedade') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-            FROM artigos 
-            INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-            INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-            INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-            WHERE perturbacoes.perturbacoes_id = 1;";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-sono') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-            FROM artigos 
-            INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-            INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-            INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-            WHERE perturbacoes.perturbacoes_id = 2;";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-humor') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-            FROM artigos 
-            INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-            INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-            INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-            WHERE perturbacoes.perturbacoes_id = 3;";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-alimentares') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-             FROM artigos 
-             INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-             INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-             INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-             WHERE perturbacoes.perturbacoes_id = 4;";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-obsessivo-compulsivas') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-             FROM artigos 
-             INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-             INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-             INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-             WHERE perturbacoes.perturbacoes_id = 5;";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-personalidade') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-             FROM artigos 
-             INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-             INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-             INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-             WHERE perturbacoes.perturbacoes_id = 6;";
-        } else if (isset ($_GET['filter']) && $_GET['filter'] == 'perturbacoes-trauma-stress') {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-             FROM artigos 
-             INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-             INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-             INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-             WHERE perturbacoes.perturbacoes_id = 7;";
-        } else {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.artigo_id, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-            FROM artigos 
-            INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-            INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-            INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
+        } else if (isset($_GET['filter']) && $_GET['filter'] !== '') {
+            // Verificar se o filtro não está vazio
+            $filtro_nome = urldecode($_GET['filter']); // Decodificar o nome do filtro, se necessário
+        
+            if ($filtro_nome === 'Perturbações') {
+                // Se o filtro for 'perturbacoes', não aplicar filtro, mostrar todos os artigos
+                $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+                FROM artigos 
+                INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
+            } else {
+                // Consultar o banco de dados para obter o ID do filtro com base no nome fornecido
+                $query_id = "SELECT perturbacoes_id FROM perturbacoes WHERE nome = '$filtro_nome'";
+                $result_id = mysqli_query($conn, $query_id);
+
+                if ($result_id && mysqli_num_rows($result_id) > 0) {
+                    $row_id = mysqli_fetch_assoc($result_id);
+                    $perturbacao_id = $row_id['perturbacoes_id'];
+
+                    // Ajustar a consulta SQL para selecionar os artigos relacionados ao filtro
+                    $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+                    FROM artigos 
+                    INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                    INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                    INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+                    WHERE perturbacoes.perturbacoes_id = $perturbacao_id";
+                } else {
+                    // Se o filtro não for encontrado, você pode lidar com isso aqui
+                    // Por exemplo, redirecionar para uma página de erro ou mostrar uma mensagem de erro
+                    echo "Filtro não encontrado.";
+                }
+            }
         }
 
         $result = mysqli_query($conn, $query);

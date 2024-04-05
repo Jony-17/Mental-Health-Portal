@@ -495,7 +495,7 @@ li:not(:last-child) .separator {
 .card2 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   width: 100%;
 }
 

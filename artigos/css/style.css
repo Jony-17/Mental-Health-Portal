@@ -489,7 +489,7 @@ svg {
   form {
     background: #fff;
     width: 450px;
-    height: 55px;
+    /*height: 55px;*/
     display: flex;
   }
 
@@ -498,6 +498,11 @@ svg {
     border: none;
     outline: none;
     font-size: 15px;
+  }
+
+  .search-wrapper {
+    flex: 1;
+    display: flex;
   }
 
   form button {
@@ -514,7 +519,7 @@ svg {
 
   form .fa-search {
     align-self: center;
-    padding: 10px 20px;
+    padding-right: 10px;
     color: #777;
   }
   
@@ -847,7 +852,16 @@ svg {
     .card p {
         font-size: 15px;
     }
-  
+
+    form {
+      height: auto; /* Altere a altura para 'auto' para acomodar o conteúdo conforme necessário */
+      flex-direction: column; /* Empilhe os elementos verticalmente em dispositivos móveis */
+    }
+
+    .search-wrapper {
+      margin-bottom: 15px;
+    }
+
     .fontes {
       padding: 0;
       margin-left: 15px;
