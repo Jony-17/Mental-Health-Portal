@@ -444,7 +444,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão empática/o és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_empatia_id IS NOT NULL ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_empatia_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
 
                       $query_run = mysqli_query($conn, $query);
 
@@ -470,7 +470,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão preocupada/o és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_preocupacao_id IS NOT NULL ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_preocupacao_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+
                       $query_run = mysqli_query($conn, $query);
 
                       $row = mysqli_num_rows($query_run);
@@ -495,7 +496,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - Tens uma energia positiva?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_energia_id IS NOT NULL ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_energia_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+                      
                       $query_run = mysqli_query($conn, $query);
 
                       $row = mysqli_num_rows($query_run);
@@ -521,7 +523,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão livre emocionalmente, és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_emocao_id IS NOT NULL ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_emocao_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+                      
                       $query_run = mysqli_query($conn, $query);
 
                       $row = mysqli_num_rows($query_run);
