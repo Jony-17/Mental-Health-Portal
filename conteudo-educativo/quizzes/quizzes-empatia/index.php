@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once ("../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset($_SESSION['id_utilizador'])) {
+if (isset ($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -20,7 +20,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $row = mysqli_fetch_assoc($result);
     }
 } else {
-    echo "NÃO DEU";
+    header("Location: ../../../areacliente/login");
 }
 ?>
 
@@ -71,15 +71,15 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial">Página Inicial</a></li>
+                <li><a href="../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="#">Perturbações</a></li>
-                <li><a href="../artigos">Artigos</a></li>
+                <li><a href="../../perturbacoes">Perturbações</a></li>
+                <li><a href="#artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes">Quizzes</a></li>
+                        <li><a href="../index.php">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                         <li><a href="#">TED Talks</a></li>
                     </ul>
@@ -87,17 +87,17 @@ if (isset($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/">Perfil</a></li>
+                            <li><a href="../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -115,30 +115,30 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial">Página Inicial</a></li>
+            <li><a href="../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Perturbações</a></li>
-            <li><a href="../artigos">Artigos</a></li>
+            <li><a href="../../perturbacoes">Perturbações</a></li>
+            <li><a href="#skills">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes">Quizzes</a></li>
+                    <li><a href="../index.php">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                     <li><a href="#">TED Talks</a></li>
                 </ul>
             </li>
 
-            <?php if (!empty($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/">Perfil</a></li>
+                        <li><a href="../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
@@ -153,7 +153,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../logout/logout.php";
+                        var url = "../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -165,60 +165,149 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <ol role="list">
         <li class="list">
+            <div class="items">
+                <span class="text-sm">
+                    Conteúdo Educativo
+                </span>
+                <span class="separator">/</span>
+            </div>
+
+        </li>
+        <li class="list">
+            <div class="items">
+                <a href=".." class="text-sm" aria-current=page>
+                    Quizzes
+                </a>
+                <span class="separator">/</span>
+            </div>
+
+        </li>
+        <li class="list">
             <div class="items-current">
                 <span class="text-sm" aria-current=page>
-                    Perturbações Mentais
+                    O quão empática/o és?
                 </span>
             </div>
         </li>
     </ol>
 
-    <!--Perturbações Mentais-->
-    <section class="perturbacoes" id="perturbacoes">
-        <div class="perturbacoes-banner-container">
-            <h1 class="perturbacoes-primary-heading">
-                Perturbações Mentais
-            </h1>
-        </div>
 
-        <?php
-        
-        $query = "SELECT nome, img_perturbacao FROM perturbacoes";
-        $result = mysqli_query($conn, $query);
+    <!--Quizzes-->
+    <section class="quizzes" id="quizzes">
+        <div class="quizzes-banner-container">
 
-        if ($result && mysqli_num_rows($result) > 0) {
-            ?>
-            <div class="card-container">
-                <?php
+            <div class="quizzes-text-section">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">O quão empática/o és?</h1>
+                        <p>É um empata? Já lhe disseram que você é “muito sensível” ou precisa se fortalecer? Você
+                            se sente exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
+                            pessoas? Você tem sensibilidade à luz, som e cheiros? Ou talvez você demore mais para
+                            relaxar depois de um longo dia de trabalho? Se você respondeu “sim” a essas perguntas, você
+                            pode ser um empata.</p>
+                        <h2 class="card-title2">Informações acerca da empatia</h2>
+                        <p>Ser empático é diferente de ser empático. Ser empático é quando seu coração está com outra
+                            pessoa. Ser empático significa que você pode realmente sentir a felicidade ou a tristeza de
+                            outra pessoa em seu próprio corpo.
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <div class="card">
-                        <?php
+                            Nos empatas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo
+                            especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, os
+                            empatas podem absorver as energias de outras pessoas (positivas e negativas) em seus
+                            próprios corpos. Às vezes pode até ser difícil saber se você está sentindo suas próprias
+                            emoções ou as de outra pessoa.
 
-                        $nome_codificado = urlencode($row["nome"]);
-                        $img_perturbacao = $row["img_perturbacao"];
+                            Existem diferentes tipos de sensibilidades que um empata pode experimentar. Os empatas
+                            físicos, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras
+                            pessoas e absorvem-nos nos seus próprios corpos. Os empatas emocionais captam as emoções das
+                            pessoas e tornam-se uma esponja para os seus sentimentos, tanto felizes como tristes. Os
+                            empatas alimentares são outro tipo de empata que está sintonizado com a energia dos
+                            alimentos e pode até sentir sensibilidade a certos alimentos.
 
-                        ?>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                            <img src="<?php echo $row["img_perturbacao"] ?>" alt="Perturbacoes">
-                        </a>
-                        <h1>
-                            <?php echo $row["nome"] ?>
-                        </h1>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>" class="first-button"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>
+                            Ser empático traz benefícios incríveis, como maior intuição, compaixão, criatividade e uma
+                            conexão mais profunda com outras pessoas. Mas viver neste estado de alta sensibilidade
+                            também traz consigo desafios, como ficar facilmente sobrecarregado, superestimulado, exausto
+                            ou absorver o estresse e a negatividade dos outros.
+
+                            Se uma pessoa não está ciente de que é empática, as interações cotidianas que os outros
+                            consideram toleráveis ​​podem estar causando estresse empático. Aqueles que não estão
+                            conscientes de suas habilidades empáticas podem estar inclinados a usar alimentos, álcool e
+                            drogas para entorpecer inconscientemente suas emoções.
+
+                            Os empatas são o remédio que o mundo precisa e podem ter um impacto profundo na humanidade
+                            com a sua compaixão e compreensão. Ao aprender a identificar seus talentos especiais, você
+                            descobrirá que não apenas enriquecerá sua vida, mas também poderá enriquecer a vida de
+                            outras pessoas. A habilidade principal é aprender como controlar suas sensibilidades e
+                            aprender estratégias específicas para evitar a sobrecarga de empatia.
+                        </p>
+                        <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
+                            entretenimento. De forma alguma
+                            este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
+                            não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
+                            acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
                     </div>
-                    <?php
-                }
-                ?>
+                </div>
             </div>
-            <?php
-        } else {
-            echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhuma perturbação encontrada.</div>';
-        }
-        ?>
+
+
+            <div class="quizzes-text-section">
+                <div class="card">
+                    <div class="card-body2">
+
+                        <div class="quiz-container" id="quiz">
+                            <div class="quiz-header">
+                                <p class="disclaimer2">Responda a cada uma das 20 perguntas. Seja honesta/o para obter o
+                                    resultado
+                                    mais preciso
+                                </p>
+                                <h2 id="question">Question Text</h2>
+                                <ul class="ul-question">
+                                    <li class="li-question">
+                                        <input type="radio" name="answer" id="a" class="answer">
+                                        <label for="a" id="a_text">Answer</label>
+                                    </li>
+                                    <li class="li-question">
+                                        <input type="radio" name="answer" id="b" class="answer">
+                                        <label for="b" id="b_text">Answer</label>
+                                    </li>
+                                </ul>
+                                <button class="button-quiz" id="nextButton" onclick="nextQuestion()">Próxima</button>
+                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter resultados</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="quizzes-text-section">
+                <div class="card">
+                    <div class="card-body3">
+                        <p>Esta triagem online não é uma ferramenta de diagnóstico. Somente um
+                            profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
+                            a determinar os próximos passos mais adequados para você</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fontes" id="fontes">
+                <div class="fontes-content">
+                    <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+                    </svg>
+                    <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+                    </svg>
+                    <h3>Fontes</h3>
+                </div>
+                <div class="fontes-content2">
+                    <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
+                        vita. MyLife.</p>
+                </div>
+            </div>
     </section>
 
     <!--Scroll to top-->
@@ -226,7 +315,8 @@ if (isset($_SESSION['id_utilizador'])) {
             class="fas fa-chevron-up"></i></button>
 
 
-    <!---Footer--->
+
+    <!--Footer-->
     <footer>
         <div class="footer-row">
             <div class="footer-col">
@@ -333,12 +423,16 @@ if (isset($_SESSION['id_utilizador'])) {
     </footer>
 
 
+
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
 
+
+
     <script src="js/script.js"></script>
+    <script src="js/script-quizz.js"></script>
 
 </body>
 

@@ -79,9 +79,9 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes">Quizzes</a></li>
+                        <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
-                        <li><a href="#">TED Talks</a></li>
+                        <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -121,9 +121,9 @@ if (isset ($_SESSION['id_utilizador'])) {
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes">Quizzes</a></li>
+                    <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="#">TED Talks</a></li>
+                    <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
@@ -323,7 +323,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </div>
             </div>
         </div>
-        <a href="#" class="fourth-button">Ver mais</a>
+        <a href="../artigos" class="fourth-button">Ver mais</a>
     </section>
 
 
@@ -590,6 +590,10 @@ if (isset ($_SESSION['id_utilizador'])) {
             <p class="copyright">@2024 Todos os direitos reservados</p>
             <div class="footer-links-2">
                 <a href="#">Termos & Condições</a>
+
+                <div class="vertical-hr"></div>
+
+                <a href="#">FAQ</a>
 
                 <div class="vertical-hr"></div>
 

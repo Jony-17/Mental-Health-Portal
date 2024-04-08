@@ -38,10 +38,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -74,13 +72,14 @@ if (isset($_SESSION['id_utilizador'])) {
                 <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="../..">Perturbações</a></li>
-                <li><a href="#artigos">Artigos</a></li>
+                <li><a href="../../../artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../../../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="#">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -117,12 +116,13 @@ if (isset($_SESSION['id_utilizador'])) {
             <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="../..">Perturbações</a></li>
-            <li><a href="#skills">Artigos</a></li>
+            <li><a href="../../../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../../../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
                 </ul>
             </li>
 

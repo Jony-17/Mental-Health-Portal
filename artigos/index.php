@@ -81,6 +81,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <ul class="dropdown">
                         <li><a href="../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="#">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -123,6 +124,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <ul class="dropdown">
                     <li><a href="../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
                 </ul>
             </li>
 

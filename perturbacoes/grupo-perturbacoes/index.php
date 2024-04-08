@@ -100,13 +100,14 @@ if (isset($_GET['nome'])) {
                 <li><a href="../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="..">Perturbações</a></li>
-                <li><a href="#artigos">Artigos</a></li>
+                <li><a href="../../artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="#">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -143,12 +144,13 @@ if (isset($_GET['nome'])) {
             <li><a href="../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="..">Perturbações</a></li>
-            <li><a href="#skills">Artigos</a></li>
+            <li><a href="../../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
                 </ul>
             </li>
 
