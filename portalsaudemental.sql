@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Abr-2024 às 01:09
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.3.31
+-- Tempo de geração: 09-Abr-2024 às 19:04
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,7 +59,7 @@ INSERT INTO `10_factos` (`10_factos_id`, `perturbacoes_id`, `nº`, `factos`, `de
 
 CREATE TABLE `artigos` (
   `artigo_id` int(11) NOT NULL,
-  `juncao_perturbacoes_id` int(11) NOT NULL,
+  `juncao_perturbacoes_id` int(11) DEFAULT NULL,
   `titulo` varchar(255) NOT NULL,
   `descricao` mediumtext NOT NULL,
   `data_publicacao` mediumtext NOT NULL,
@@ -82,7 +82,15 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 (7, 7, 'A vida nunca mais foi a mesma desde aquela noite', '\"Quis contar a minha história ao pormenor por vários motivos: não por ser um drama razoavelmente bom, mas porque não quero que outros se sintam sozinhos nesta difícil jornada.\"', '11 de outubro de 2020', 'SIC Notícias', 'https://images.impresa.pt/sicnot/2020-10-10-Saude-mental.jpg/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (8, 8, 'Uma história, uma caixa azul e um pássaro para falar de saúde mental a crianças e adolescentes', 'Uma equipa de psicólogos e terapeutas ocupacionais do Hospital de São João visita as escolas da Maia, do Porto e de Valongo para combater preconceitos ligados à saúde mental.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3878:2585:nowe:0:0/rs:fill:640/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/16102359/1-igor-martins-portaabertasaudemental-01-069-1.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (9, 9, 'O que é a terapia de casal? E para que serve?', 'Discussões e diferenças de opinião fazem parte da vida de qualquer casal. Se são difíceis de ultrapassar ou não há boa comunicação, a terapia pode ajudar. A recuperar ou a preparar um final saudável.', '16 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:4096:2731:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/08152454/gettyimages-1204607778-scaled.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
-(10, 10, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ');
+(10, 10, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(11, 11, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(12, 12, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(13, 13, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(14, 14, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(15, 15, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(16, 16, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(17, 17, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(18, 18, 'Este coro ajuda a tratar a doença mental', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ');
 
 -- --------------------------------------------------------
 
@@ -114,7 +122,7 @@ INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`) VALUE
 
 CREATE TABLE `grupos_perturbacoes` (
   `grupos_perturbacoes_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
   `texto` mediumtext NOT NULL,
   `sintomas_texto` mediumtext NOT NULL,
   `ajuda_texto` mediumtext NOT NULL
@@ -126,11 +134,23 @@ CREATE TABLE `grupos_perturbacoes` (
 
 INSERT INTO `grupos_perturbacoes` (`grupos_perturbacoes_id`, `nome`, `texto`, `sintomas_texto`, `ajuda_texto`) VALUES
 (1, 'Ansiedade Social', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety, know that you are not alone. The National Institutes of Mental Health estimate that nearly one-third of US adults will deal with an anxiety disorder at some point in their lives.1 Any Anxiety Disorder, National Institutes of Mental Health Since anxiety is a common mental health condition (and is a condition that can be debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety screening.2 \n\n', 'Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about their health, job, money, or family, but people with GAD experience anxiety about these things and more, in a way that is persistent, excessive, and intrusive. [1]\n\nOften, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.\n\nAccording to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a common mental health condition, the United States Preventative Services Task Force recommends that all adults under the age of 65 should be routinely screened for anxiety. [2]', 'Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about their health, job, money, or family, but people with GAD experience anxiety about these things and more, in a way that is persistent, excessive, and intrusive. [1]\n\nOften, people with GAD struggle to relax and have trouble concentrating on tasks. They may experience physical symptoms including restlessness, sweating, difficulty swallowing, and using the restroom a lot.\n\nAccording to mental health experts, nearly 3% of all U.S. adults have experienced GAD in the last year and it is estimated that up to 9% experience GAD at some point in their lives. Considering that anxiety is a common mental health condition, the United States Preventative Services Task Force recommends that all adults under the age of 65 should be routinely screened for anxiety. [2]'),
-(2, 'Ansiedade Generalizada', '', '', ''),
-(3, 'Agorafobia', '', '', ''),
-(4, 'Fobia específica', '', '', ''),
-(5, 'Perturbação de pânico', '', '', ''),
-(6, 'teste', 'teste', 'teste', 'teste');
+(2, 'Ansiedade Generalizada', 'teste', 'teste', 'teste'),
+(3, 'Agorafobia', 'teste', 'teste', 'teste'),
+(4, 'Fobia específica', 'teste', 'teste', 'teste'),
+(5, 'Perturbação de pânico', 'teste', 'teste', 'teste'),
+(6, 'Perturbação de Insónia', 'teste', 'teste', 'teste'),
+(7, 'Hipersonolência', 'teste', 'teste', 'teste'),
+(8, 'Perturbação Depressiva Major', 'teste', 'teste', 'teste'),
+(9, 'Perturbação Bipolar', 'teste', 'teste', 'teste'),
+(10, 'Anorexia Nervosa', 'teste', 'teste', 'teste'),
+(11, 'Bulimia Nervosa', 'teste', 'teste', 'teste'),
+(12, 'Perturbação de Ingestão Alimentar Compulsiva', 'teste', 'teste', 'teste'),
+(13, 'Perturbações Obsessivo-Compulsivas', 'teste', 'teste', 'teste'),
+(14, 'Grupo A', 'teste', 'teste', 'teste'),
+(15, 'Grupo B', 'teste', 'teste', 'teste'),
+(16, 'Grupo C', 'teste', 'teste', 'teste'),
+(17, 'Perturbação de Stress Pós-Traumático', 'teste', 'teste', 'teste'),
+(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -155,10 +175,46 @@ INSERT INTO `juncao_perturbacoes` (`juncao_perturbacoes_id`, `perturbacoes_id`, 
 (4, 1, 4),
 (5, 1, 5),
 (6, 2, 6),
-(7, 2, 6),
-(8, 2, 6),
-(9, 2, 6),
-(10, 3, 1);
+(7, 2, 7),
+(8, 3, 8),
+(9, 3, 9),
+(10, 4, 10),
+(11, 4, 11),
+(12, 4, 12),
+(13, 5, 13),
+(14, 6, 14),
+(15, 6, 15),
+(16, 6, 16),
+(17, 7, 17),
+(18, 7, 18);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `juncao_pert_personalidade`
+--
+
+CREATE TABLE `juncao_pert_personalidade` (
+  `juncao_pert_pers_id` int(11) NOT NULL,
+  `perturbacoes_personalidade_id` int(11) NOT NULL,
+  `grupos_perturbacoes_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `juncao_pert_personalidade`
+--
+
+INSERT INTO `juncao_pert_personalidade` (`juncao_pert_pers_id`, `perturbacoes_personalidade_id`, `grupos_perturbacoes_id`) VALUES
+(1, 1, 14),
+(2, 2, 14),
+(3, 3, 14),
+(4, 4, 15),
+(5, 5, 15),
+(6, 6, 15),
+(7, 7, 15),
+(8, 8, 16),
+(9, 9, 16),
+(10, 10, 16);
 
 -- --------------------------------------------------------
 
@@ -198,7 +254,11 @@ INSERT INTO `mensagens` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) 
 (18, 1703689628, 1035944128, 'a'),
 (19, 1703689628, 1035944128, 'a'),
 (20, 1703689628, 1035944128, 'a'),
-(21, 1035944128, 1659325471, 'ola miguel');
+(21, 1035944128, 1659325471, 'ola miguel'),
+(22, 1703689628, 1703689423, 'Olá!'),
+(23, 1703689423, 1703689628, 'Como estás?'),
+(24, 1703689628, 1703689423, 'bem e tu?'),
+(25, 1703689423, 1703689628, 'também, obg por perguntares');
 
 -- --------------------------------------------------------
 
@@ -220,12 +280,42 @@ CREATE TABLE `perturbacoes` (
 
 INSERT INTO `perturbacoes` (`perturbacoes_id`, `nome`, `texto`, `img_perturbacao`, `banner_perturbacao`) VALUES
 (1, 'Perturbações de Ansiedade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety, know that you are not alone. The National Institutes of Mental Health estimate that nearly one-third of US adults will deal with an anxiety disorder at some point in their lives.1 Any Anxiety Disorder, National Institutes of Mental Health Since anxiety is a common mental health condition (and is a condition that can be debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety screening.2 Treatment options like therapy, medication, self-care strategies, and lifestyle changes can help you manage your anxiety and help you live your best life at home, at work, and in your relationships.\n\nwith anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety, know that you are not alone. The National Institutes of Mental Health estimate that nearly one-third of US adults will deal with an anxiety disorder at some point in their lives.1 Any Anxiety Disorder, National Institutes of Mental Health Since anxiety is a common mental health condition (and is a condition that can be debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety screening.2 Treatment options like therapy, medication, self-care strategies, and lifestyle changes can help you manage your anxiety and help you live your best life at home, at work, and in your relationships.\n\n', 'https://i.ibb.co/dc26MBN/pert-ansie.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-(2, 'Perturbações do Sono - Vigília', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/tBQHpFF/pert-sono.png', ''),
-(3, 'Perturbações de Humor', '', 'https://i.ibb.co/3dMTsNb/pert-humor.png', ''),
-(4, 'Perturbações Alimentares', '', 'https://i.ibb.co/Mp1bqy7/pert-aliment.png', ''),
-(5, 'Perturbações Obsessivo-Compulsivas', '', 'https://i.ibb.co/s2gQVVf/pert-obscomp.png', ''),
-(6, 'Perturbações de Personalidade', '', 'https://i.ibb.co/4NyWkFy/pert-perso.png', ''),
-(7, 'Perturbações relacionadas com Trauma e Fatores de stress', '', 'https://i.ibb.co/wpVRfkR/pert-stress.png', '');
+(2, 'Perturbações do Sono - Vigília', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/tBQHpFF/pert-sono.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(3, 'Perturbações de Humor', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/3dMTsNb/pert-humor.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(4, 'Perturbações Alimentares', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/Mp1bqy7/pert-aliment.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(5, 'Perturbações Obsessivo-Compulsivas', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/s2gQVVf/pert-obscomp.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(6, 'Perturbações de Personalidade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/4NyWkFy/pert-perso.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/wpVRfkR/pert-stress.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `perturbacoes_personalidade`
+--
+
+CREATE TABLE `perturbacoes_personalidade` (
+  `perturbacoes_personalidade_id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `texto` mediumtext NOT NULL,
+  `sintomas_texto` mediumtext NOT NULL,
+  `ajuda_texto` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `perturbacoes_personalidade`
+--
+
+INSERT INTO `perturbacoes_personalidade` (`perturbacoes_personalidade_id`, `nome`, `texto`, `sintomas_texto`, `ajuda_texto`) VALUES
+(1, 'Perturbação Paranóide da Personalidade', 'teste', 'teste', 'teste'),
+(2, 'Perturbação Esquizóide da Personalidade', 'teste', 'teste', 'teste'),
+(3, 'Perturbação Esquizotípica de Personalidade', 'teste', 'teste', 'teste'),
+(4, 'Perturbação Antissocial da Personalidade', 'teste', 'teste', 'teste'),
+(5, 'Perturbação Borderline da Personalidade', 'teste', 'teste', 'teste'),
+(6, 'Perturbação Histriónica da Personalidade', 'teste', 'teste', 'teste'),
+(7, 'Perturbação Narcísica da Personalidade', 'teste', 'teste', 'teste'),
+(8, 'Perturbação Evitante da Personalidade', 'teste', 'teste', 'teste'),
+(9, 'Perturbação Dependente da Personalidade', 'teste', 'teste', 'teste'),
+(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -331,6 +421,27 @@ INSERT INTO `quiz_preocupacao` (`quiz_preocupacao_id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `ted_talks`
+--
+
+CREATE TABLE `ted_talks` (
+  `ted_talks_id` int(11) NOT NULL,
+  `autor` varchar(255) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `data` varchar(255) NOT NULL,
+  `tempo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `ted_talks`
+--
+
+INSERT INTO `ted_talks` (`ted_talks_id`, `autor`, `titulo`, `data`, `tempo`) VALUES
+(1, 'Andrew Solomon', 'Depression, the secret we share', 'Outubro 2013', '29:07 min');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `texto_artigo`
 --
 
@@ -418,6 +529,14 @@ ALTER TABLE `juncao_perturbacoes`
   ADD KEY `fk_grupos_perturbacoes_id` (`grupos_perturbacoes_id`);
 
 --
+-- Índices para tabela `juncao_pert_personalidade`
+--
+ALTER TABLE `juncao_pert_personalidade`
+  ADD PRIMARY KEY (`juncao_pert_pers_id`),
+  ADD KEY `FK_perturbacoes_personalidade_id` (`perturbacoes_personalidade_id`),
+  ADD KEY `FK_grupos_perturbacoes_id2` (`grupos_perturbacoes_id`);
+
+--
 -- Índices para tabela `mensagens`
 --
 ALTER TABLE `mensagens`
@@ -428,6 +547,12 @@ ALTER TABLE `mensagens`
 --
 ALTER TABLE `perturbacoes`
   ADD PRIMARY KEY (`perturbacoes_id`);
+
+--
+-- Índices para tabela `perturbacoes_personalidade`
+--
+ALTER TABLE `perturbacoes_personalidade`
+  ADD PRIMARY KEY (`perturbacoes_personalidade_id`);
 
 --
 -- Índices para tabela `quizzes`
@@ -465,6 +590,12 @@ ALTER TABLE `quiz_preocupacao`
   ADD PRIMARY KEY (`quiz_preocupacao_id`);
 
 --
+-- Índices para tabela `ted_talks`
+--
+ALTER TABLE `ted_talks`
+  ADD PRIMARY KEY (`ted_talks_id`);
+
+--
 -- Índices para tabela `texto_artigo`
 --
 ALTER TABLE `texto_artigo`
@@ -491,7 +622,7 @@ ALTER TABLE `10_factos`
 -- AUTO_INCREMENT de tabela `artigos`
 --
 ALTER TABLE `artigos`
-  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `conteudo_artigo`
@@ -503,25 +634,37 @@ ALTER TABLE `conteudo_artigo`
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
-  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_perturbacoes`
-  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de tabela `juncao_pert_personalidade`
+--
+ALTER TABLE `juncao_pert_personalidade`
+  MODIFY `juncao_pert_pers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
 --
 ALTER TABLE `mensagens`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes`
 --
 ALTER TABLE `perturbacoes`
   MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `perturbacoes_personalidade`
+--
+ALTER TABLE `perturbacoes_personalidade`
+  MODIFY `perturbacoes_personalidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `quizzes`
@@ -552,6 +695,12 @@ ALTER TABLE `quiz_energia`
 --
 ALTER TABLE `quiz_preocupacao`
   MODIFY `quiz_preocupacao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `ted_talks`
+--
+ALTER TABLE `ted_talks`
+  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `texto_artigo`
@@ -593,6 +742,13 @@ ALTER TABLE `conteudo_artigo`
 ALTER TABLE `juncao_perturbacoes`
   ADD CONSTRAINT `fk_grupos_perturbacoes_id` FOREIGN KEY (`grupos_perturbacoes_id`) REFERENCES `grupos_perturbacoes` (`grupos_perturbacoes_id`),
   ADD CONSTRAINT `fk_perturbacoes_id` FOREIGN KEY (`perturbacoes_id`) REFERENCES `perturbacoes` (`perturbacoes_id`);
+
+--
+-- Limitadores para a tabela `juncao_pert_personalidade`
+--
+ALTER TABLE `juncao_pert_personalidade`
+  ADD CONSTRAINT `FK_grupos_perturbacoes_id2` FOREIGN KEY (`grupos_perturbacoes_id`) REFERENCES `grupos_perturbacoes` (`grupos_perturbacoes_id`),
+  ADD CONSTRAINT `FK_perturbacoes_personalidade_id` FOREIGN KEY (`perturbacoes_personalidade_id`) REFERENCES `perturbacoes_personalidade` (`perturbacoes_personalidade_id`);
 
 --
 -- Limitadores para a tabela `quizzes`

@@ -188,9 +188,9 @@ if (isset($_SESSION['id_utilizador'])) {
             class="first-button">Ver todas<i class="fas fa-arrow-up"></i></a>
     </div>
 
-    <!--Texto de cada grupo de Perturbações-->
-    <section class="grupo-perturbacoes" id="grupo-perturbacoes">
-        <div class="grupo-perturbacoes-card">
+    <!--Explicação do que são TED Talks-->
+    <section class="ted-talks" id="ted-talks">
+        <div class="ted-talks-card">
             <p>Stands for <span class="color">Technology, Entertainment, Design</span> — three broad subject areas that
                 are collectively
                 shaping our world. But a TED conference is broader still, showcasing important research and ideas
@@ -202,15 +202,29 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
 
 
-        <!--Factos e artigos-->
-        <div class="card2-container">
-            <div class="card2">
-                <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
-                    target="_blank">
-                    <img src="https://images.pexels.com/photos/20854385/pexels-photo-20854385/free-photo-of-gato.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="Perturbacoes">
-                </a>
-                <div class="card2-content">
+        <!--Backgrounds-->
+        <div class="background1">
+            <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
+        </div>
+
+        <div class="background2">
+            <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
+        </div>
+
+        <!--Ted Talks-->
+        <div class="card-container">
+            <div class="card1">
+                <div class="card-background">
+                    <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                        target="_blank">
+                        <div class="card-background2">
+                            <i class="fas fa-play">
+                            </i>
+                            <img src="imgs/1.webp" alt="Depressão">
+                        </div>
+                    </a>
+                </div>
+                <div class="card1-content">
                     <h3>Andrew Solomon
                     </h3>
                     <h1>Depression, the secret we share
@@ -223,71 +237,87 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
 
 
-            <div class="card4-container">
+            <div class="card2-container">
 
-                <div class="card4">
-                    <div class="card4-background">
-
-                        <a href="#">
-                            <div class="card4-background2">
+                <div class="card2">
+                    <div class="card-background">
+                        <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                            target="_blank">
+                            <div class="card-background2">
                                 <i class="fas fa-play">
                                 </i>
                                 <img src="imgs/1.webp" alt="Depressão">
                             </div>
                         </a>
                     </div>
-                    <div class="card4-content">
-                        <h3>Andrew Solomon
+                    <div class="card2-content">
+                        <h3>Kevin Breel
                         </h3>
-                        <h1>Depression, the secret we share
+                        <h1>Confessions of a depressed comic
                         </h1>
                         <div class="info">
-                            <p><span class="text-sm">29:07 min</span><span class="separator">|</span><span
-                                    class="text-sm">Outubro 2013</span></p>
+                            <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
+                                    class="text-sm">Maio 2013</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-background">
+                        <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                            target="_blank">
+                            <div class="card-background2">
+                                <i class="fas fa-play">
+                                </i>
+                                <img src="imgs/1.webp" alt="Depressão">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card2-content">
+                        <h3>Kevin Breel
+                        </h3>
+                        <h1>Confessions of a depressed comic
+                        </h1>
+                        <div class="info">
+                            <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
+                                    class="text-sm">Maio 2013</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-background">
+                        <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                            target="_blank">
+                            <div class="card-background2">
+                                <i class="fas fa-play">
+                                </i>
+                                <img src="imgs/1.webp" alt="Depressão">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card2-content">
+                        <h3>Kevin Breel
+                        </h3>
+                        <h1>Confessions of a depressed comic
+                        </h1>
+                        <div class="info">
+                            <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
+                                    class="text-sm">Maio 2013</span></p>
                         </div>
                     </div>
                 </div>
 
 
-                <!--<div class="card4">
-                    <a href="#">
-                        <img src="imgs/1.webp" alt="Depressão">
-                    </a>
-                    <div class="card4-content">
-                        <h3>Andrew Solomon
-                        </h3>
-                        <h1>Depression, the secret we share
-                        </h1>
-                        <div class="info">
-                            <p><span class="text-sm">29:07 min</span><span class="separator">|</span><span
-                                    class="text-sm">Outubro 2013</span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card4">
-                    <a href="#">
-                        <img src="imgs/1.webp" alt="Depressão">
-                    </a>
-                    <div class="card4-content">
-                        <h3>Andrew Solomon
-                        </h3>
-                        <h1>Depression, the secret we share
-                        </h1>
-                        <div class="info">
-                            <p><span class="text-sm">29:07 min</span><span class="separator">|</span><span
-                                    class="text-sm">Outubro 2013</span></p>
-                        </div>
-                    </div>
-                </div>-->
             </div>
-
         </div>
     </section>
 
-    <div class="quizzes-text-section">
-        <div class="card">
-            <div class="card-body3">
+
+    <!--Disclaimer-->
+    <div class="disclaimer">
+        <div class="disclaimer-card">
+            <div class="disclaimer-content">
                 <p>O Portal de Saúde Mental não é afiliado à TED Conferences LLC.
                     Todas as referências à TED Talks, TEDx, TED, e TED Conferences são utilizadas apenas para fins
                     informativos e de divulgação. O conteúdo disponível neste site é produzido independentemente e não

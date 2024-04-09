@@ -513,6 +513,7 @@ svg {
   /*gap: 30px;*/
   display: flex;
   justify-content: space-evenly;
+  margin-top: 100px;
 }
 
 .card2 {
@@ -523,7 +524,6 @@ svg {
 }
 
 .card2 img {
-  margin-top: 50px;
   width: 100%;
   height: 550px;
   object-fit: cover;
@@ -557,7 +557,6 @@ svg {
 }
 
 .card4 img {
-  margin-top: 50px;
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -566,14 +565,12 @@ svg {
 .card4-content {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   margin-left: 20px;
 }
 
 .card4-content h3 {
   font-size: 18px;
   color: var(--main-color);
-  margin-top: 25px;
   text-transform: uppercase;
 }
 
@@ -877,13 +874,15 @@ input:checked + .change::after {
   }
 
   .card2 {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: auto;
   }
 
   .card2 img {
     /*width: 150px;
-    height: 150px;*/
-    width: 200px;
+    height: 150px;
+    width: 200px;*/
     height: 200px;
   }
 
@@ -898,17 +897,38 @@ input:checked + .change::after {
   .card2-content {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .secondary-button {
+    margin-top: 0;
+  }
+
+  .card4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: auto;
+  }
+
+  .card4-content {
+    margin-left: 0;
   }
 
   .card4-content h1 {
     font-size: 25px;
+    margin-bottom: 0;
   }
 
-  .card4 {
-    width: auto;
+  .card4 h3 {
+    margin-top: 20px;
   }
+
+  .card4 img {
+    width: auto;
+    margin-top: 30px;
+  }
+
 
   .fontes {
     padding: 0;

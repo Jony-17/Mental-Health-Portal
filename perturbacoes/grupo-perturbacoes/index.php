@@ -264,8 +264,9 @@ if (isset($_GET['nome'])) {
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <a class="btn2"
-                        href="perturbacao-especifica/?nome=<?php echo urlencode($row["grupo_perturbacoes_nome"]); ?>"><?php echo $row['grupo_perturbacoes_nome']; ?></a>
+                    <a class="btn2" href="perturbacao-especifica/?nome=<?php echo urlencode($row["grupo_perturbacoes_nome"]); ?>">
+                        <?php echo $row['grupo_perturbacoes_nome']; ?>
+                    </a>
                     <?php
                 }
                 ?>
@@ -273,7 +274,9 @@ if (isset($_GET['nome'])) {
             <?php
         } else {
             // Se o título da perturbação não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Grupo da perturbação não especificado na URL.";
+            echo '<div style="padding-left: 100px;">
+            O grupo todo, no geral, reflete todos os outros subgrupos.
+            </div>';
         }
     }
     ?>
@@ -391,8 +394,6 @@ if (isset($_GET['nome'])) {
                     }
                 }
                 ?>
-
-        </div>
         </div>
     </section>
 

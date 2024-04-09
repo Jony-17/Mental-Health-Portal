@@ -325,6 +325,7 @@ header {
   /*max-width: 600px;*/
   text-transform: uppercase;
   letter-spacing: 5px;
+  margin-bottom: 50px;
 }
 
 .card-container {
@@ -342,7 +343,6 @@ header {
 }
 
 .card img {
-  margin-top: 50px;
   width: 100%;
   height: 230px;
   object-fit: cover;

@@ -309,6 +309,26 @@ header {
   font-size: 1.5rem;
 }
 
+
+/*--------------Backgrounds---------------------------*/
+
+.background1 {
+  position: absolute;
+  top: 400px;
+  right: 0;
+  z-index: -2;
+  max-width: 700px;
+}
+
+.background2 {
+  position: absolute;
+  top: 600px;
+  left: 0;
+  transform: rotate(180deg);
+  z-index: -2;
+  max-width: 700px;
+}
+
 /*--------------Heading---------------------------*/
 
 .heading {
@@ -348,20 +368,20 @@ header {
 
 /*------------------Tipos Perturbações Mentais------------------*/
 
-.grupo-perturbacoes-card {
+.ted-talks-card {
   /*display: flex;*/
   padding-left: 100px;
   padding-right: 100px;
   margin-top: 70px;
 }
 
-.grupo-perturbacoes-card p {
+.ted-talks-card p {
   text-align: justify;
   line-height: 2;
   font-size: 18px;
 }
 
-.grupo-perturbacoes-card::before {
+.ted-talks-card::before {
   content: "\201C";
   position: absolute;
   /*left: 0;*/
@@ -371,7 +391,7 @@ header {
   color: var(--orange3-color);
 }
 
-.grupo-perturbacoes-card::after {
+.ted-talks-card::after {
   content: "\201D";
   position: absolute;
   right: 230;
@@ -389,7 +409,7 @@ header {
 
 /*--*/
 
-.card2-container {
+.card-container {
   /*display: grid;*/
   /*grid-template-columns: repeat(3, minmax(230px, 1fr));*/ /*auto-fit*/
   /*gap: 30px;*/
@@ -399,14 +419,14 @@ header {
   margin-bottom: 100px;
 }
 
-.card2 {
+.card1 {
   /*display: flex;
   flex-direction: column;
   justify-content: center;*/
   width: 40%;
 }
 
-.card2 img {
+.card1 img {
   margin-top: 0;
   width: 100%;
   height: 550px;
@@ -414,12 +434,12 @@ header {
 }
 
 
-.card2-content {
+.card1-content {
   display: flex;
   flex-direction: column;
 }
 
-.card2-content h1 {
+.card1-content h1 {
   text-align: left;
   color: var(--grey2-color);
   text-transform: uppercase;
@@ -427,7 +447,7 @@ header {
   margin-bottom: 20px;
 }
 
-.card2-content h3 {
+.card1-content h3 {
   font-size: 18px;
   color: var(--main-color);
   margin-top: 25px;
@@ -435,12 +455,12 @@ header {
 }
 
 
-.card4-container {
+.card2-container {
   display: grid;
   grid-template-rows: repeat(3, minmax(230px, 1fr)); /*auto-fit*/
 }
 
-.card4 {
+.card2 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -451,11 +471,11 @@ header {
 
 }
 
-.card4-background {
+.card-background2 {
   position: relative;
 }
 
-.card4-background::after {
+.card-background2::after {
   content: '';
   position: absolute;
   z-index: 1;
@@ -466,7 +486,7 @@ header {
   height: auto;
 }
 
-.card4 img {
+.card2 img {
   margin-top: 0;
   width: 100%;
   height: 200px;
@@ -474,12 +494,17 @@ header {
 }
 
 
-.card4-background .fas.fa-play {
-  color: yellow; /* Defina a cor do ícone */
-  font-size: 30px; /* Ajuste o tamanho do ícone conforme necessário */
+.card-background2 .fas.fa-play {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  /* transform: translate(-50%, -50%); */
+  /* text-align: center; */
+  top: 45%;
+  left: 45%;
 }
 
-/*.card4 .fas.fa-play {
+/*.card2 .fas.fa-play {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -490,41 +515,41 @@ header {
   height: 100%;
 }*/
 
-.card4-content {
+.card2-content {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   margin-left: 20px;
 }
 
-.card4-content h3 {
+.card2-content h3 {
   font-size: 18px;
   color: var(--main-color);
-  margin-top: 25px;
+  /*margin-top: 25px;*/
   text-transform: uppercase;
 }
 
-.card4-content h2 {
+.card2-content h2 {
   font-size: 15px;
   color: var(--orange3-color);
   text-transform: uppercase;
 }
 
-.card4-content h1 {
+.card2-content h1 {
   text-align: left;
   color: var(--grey2-color);
   font-size: 27px;
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
 }
 
-.card4-content p {
+.card2-content p {
   text-align: left;
 }
 
 
 /*--TEXT--*/
 
-.quizzes-text-section {
+.disclaimer {
   flex: 1;
   /*display: flex;*/
   flex-direction: column;
@@ -534,18 +559,21 @@ header {
   padding-right: 100px;
 }
 
-.card-body3 {
+.disclaimer-content {
   background-color: #f0f0f0;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 16px;
   padding: 20px;
   margin-bottom: 20px;
   width: 100%; /* Adicionando largura de 100% */
   max-width: none; /* Removendo a limitação de largura máxima */
   border-right: 5px solid orange;
   border-bottom: 5px solid orange;
+  text-align: justify;
+  line-height: 2;
 }
 
 
@@ -827,67 +855,100 @@ ol {
   white-space: nowrap;
 }
 
-.grupo-perturbacoes {
+.ted-talks-card::after {
+  right: 30;
+}
+
+.background1,
+.background2 {
+  display: none;
+}
+
+.ted-talks {
   margin-right: 0;
 }
 
-.grupo-perturbacoes-card {
+.ted-talks-card {
   /*padding-left: 0;
   padding-right: 0;*/
   padding: 10px;
 }
 
 
-.card2-container {
+.card-container {
   /*grid-template-columns: repeat(2, 1fr);*/
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-.card2 {
-  display: flex;
-}
-
-.card2 img {
-  /*width: 150px;
-  height: 150px;*/
-  width: 200px;
-  height: 200px;
-}
-
-.card2 h1 {
-  font-size: 20px;
-}
-
-.card2 p {
-  font-size: 13px;
-}
-
-.card2-content {
-  margin-left: 20px;
-}
-
-.card4-content h1 {
-  font-size: 25px;
-}
-
-.card4 {
+.card1 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   width: auto;
 }
 
-.quizzes-text-section {
+.card1 img {
+  /*width: 150px;
+  height: 150px;
+  width: 200px;*/
+  height: 200px;
+}
+
+.card1 h1 {
+  font-size: 20px;
+}
+
+.card1 p {
+  font-size: 13px;
+}
+
+.card1-content {
+  margin-left: 0;
+}
+
+.card1-content h3 {
+  margin-top: 20px;
+}
+
+.card1-content p {
+  margin-bottom: 30px;
+}
+
+.card2-content h1 {
+  font-size: 25px;
+}
+
+.card2 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: auto;
+}
+
+.card2-content {
+  margin-left: 0;
+}
+
+.card2-content h3 {
+  margin-top: 20px;
+}
+
+.card2-container p {
+  margin-bottom: 30px;
+}
+
+.disclaimer {
   padding-right: 20px;
   padding-left: 0;
   text-align: center;
   margin-top: 40px;
 }
 
-.quizzes-text-section p {
+.disclaimer p {
   margin-left: 15px;
   text-align: left;
 }
 
-.card-body3 {
+.disclaimer-content {
   padding: 10px; /* Reduz o preenchimento */
   margin-left: 10px;
 }
@@ -937,7 +998,7 @@ ol {
 /* Tela igual ou superior a 1360 */
 @media screen and (min-width: 1360px) {
 
-  .quizzes-text-section {
+  .disclaimer {
     margin-top: 40px;
   }
 }
@@ -945,7 +1006,7 @@ ol {
 /* Tela igual ou superior a 1600 */
 @media screen and (min-width: 1600px) {
 
-  .card2 h1 {
+  .card1 h1 {
     font-size: 27px;
   }
 }

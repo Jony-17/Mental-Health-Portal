@@ -166,20 +166,21 @@ if (isset($_SESSION['id_utilizador'])) {
     if (isset($_GET['nome'])) {
         $nome_perturbacao = urldecode($_GET['nome']);
 
-        $query = "SELECT grupos_perturbacoes.nome AS grupo_perturbacoes_nome, juncao_perturbacoes.perturbacoes_id
-                  FROM grupos_perturbacoes
-                  INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                  WHERE grupos_perturbacoes.nome = '$nome_perturbacao'";
+        $query = "SELECT perturbacoes_personalidade.nome AS perturbacoes_personalidade_nome, juncao_pert_personalidade.grupos_perturbacoes_id, juncao_pert_personalidade.perturbacoes_id
+        FROM perturbacoes_personalidade
+        INNER JOIN juncao_pert_personalidade ON juncao_pert_personalidade.perturbacoes_personalidade_id = perturbacoes_personalidade.perturbacoes_personalidade_id
+        INNER JOIN perturbacoes ON juncao_pert_personalidade.perturbacoes_id = perturbacoes.perturbacoes_id
+        WHERE perturbacoes_personalidade.nome = '$nome_perturbacao' AND perturbacoes.nome = 'Perturbações de Personalidade';";
 
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            $perturbacoes_id = $row['perturbacoes_id'];
+            $grupos_perturbacoes_id = $row['grupos_perturbacoes_id'];
 
             $query_perturbacao = "SELECT nome
-                                  FROM perturbacoes
-                                  WHERE perturbacoes_id = $perturbacoes_id";
+                                  FROM grupos_perturbacoes
+                                  WHERE grupos_perturbacoes_id = $grupos_perturbacoes_id";
 
             $result_perturbacao = mysqli_query($conn, $query_perturbacao);
 
@@ -187,98 +188,73 @@ if (isset($_SESSION['id_utilizador'])) {
                 $row_perturbacao = mysqli_fetch_assoc($result_perturbacao);
             }
 
-            ?>
-            <ol role="list">
-                <li class="list">
-                    <div class="items">
-                        <a href="../.." class="text-sm">
-                            Perturbações Mentais
-                        </a>
-                        <span class="separator">/</span>
-                    </div>
-                </li>
 
-                <?php
-                if ($row_perturbacao['nome'] != $row['grupo_perturbacoes_nome']) {
-                    ?>
+
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                $row_perturbacao2 = mysqli_fetch_assoc($result);
+                $perturbacoes_id = $row['perturbacoes_id'];
+
+                $query_perturbacao2 = "SELECT nome
+                                      FROM perturbacoes
+                                      WHERE perturbacoes_id = $perturbacoes_id";
+
+                $result_perturbacao2 = mysqli_query($conn, $query_perturbacao2);
+
+                if ($result_perturbacao2 && mysqli_num_rows($result_perturbacao2) > 0) {
+                    $row_perturbacao2 = mysqli_fetch_assoc($result_perturbacao2);
+                }
+
+                ?>
+
+
+
+                <ol role="list">
                     <li class="list">
                         <div class="items">
-                            <a href="../?nome=<?php echo $row_perturbacao['nome']; ?>" class="text-sm">
+                            <a href="../.." class="text-sm">
+                                Perturbações Mentais
+                            </a>
+                            <span class="separator">/</span>
+                        </div>
+                    </li>
+
+                    <li class="list">
+                        <div class="items">
+                            <a href="../?nome=<?php echo $row_perturbacao2['nome']; ?>" class="text-sm">
+                                <?php echo $row_perturbacao2['nome']; ?>
+                            </a>
+                            <span class="separator">/</span>
+                        </div>
+                    </li>
+
+                    <li class="list">
+                        <div class="items">
+                            <a href="../perturbacao-especifica?nome=<?php echo $row_perturbacao['nome']; ?>" class="text-sm">
                                 <?php echo $row_perturbacao['nome']; ?>
                             </a>
                             <span class="separator">/</span>
                         </div>
                     </li>
-                    <?php
-                }
-                ?>
 
-                <li class="list">
-                    <div class="items-current">
-                        <span class="text-sm" aria-current="page">
-                            <?php echo $row['grupo_perturbacoes_nome']; ?>
-                        </span>
-                    </div>
-                </li>
-            </ol>
+                    <li class="list">
+                        <div class="items-current">
+                            <span class="text-sm" aria-current="page">
+                                <?php echo $row['perturbacoes_personalidade_nome']; ?>
+                            </span>
+                        </div>
+                    </li>
+                </ol>
 
-            <div class="heading">
-                <h1>
-                    <?php echo $row['grupo_perturbacoes_nome']; ?>
-                </h1>
-            </div>
-            <?php
-        } else {
-            // Se o grupo de perturbações não for encontrado, exiba uma mensagem de erro ou faça alguma outra ação
-            echo "Grupo de perturbações não encontrado.";
-        }
-    }
-    ?>
-
-
-    <!--Botões-->
-    <?php
-    if (isset($_GET['nome'])) {
-        $nome_perturbacao = urldecode($_GET['nome']);
-
-        $query = "SELECT grupos_perturbacoes_id
-                  FROM grupos_perturbacoes
-                  WHERE nome = '$nome_perturbacao'";
-
-        $result = mysqli_query($conn, $query);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $grupos_perturbacoes_id = $row['grupos_perturbacoes_id'];
-        } else {
-            $grupos_perturbacoes_id = null;
-        }
-
-
-        if ($nome_perturbacao === "Grupo A" || "Grupo B" || "Grupo C") {
-            $query = "SELECT perturbacoes_personalidade.nome AS perturbacoes_personalidade_nome
-                      FROM perturbacoes_personalidade
-                      INNER JOIN juncao_pert_personalidade ON juncao_pert_personalidade.perturbacoes_personalidade_id = perturbacoes_personalidade.perturbacoes_personalidade_id
-                      INNER JOIN grupos_perturbacoes ON juncao_pert_personalidade.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                      WHERE grupos_perturbacoes.grupos_perturbacoes_id = $grupos_perturbacoes_id";
-
-            $result = mysqli_query($conn, $query);
-
-            if ($result && mysqli_num_rows($result) > 0) {
-                ?>
-                    <div class="buttons">
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            ?>
-                            <a class="btn2"
-                                href="../perturbacao-personalidade/?nome=<?php echo urlencode($row["perturbacoes_personalidade_nome"]); ?>">
-                            <?php echo $row['perturbacoes_personalidade_nome']; ?>
-                            </a>
-                        <?php
-                        }
-                        ?>
-                    </div>
+                <div class="heading">
+                    <h1>
+                        <?php echo $row['perturbacoes_personalidade_nome']; ?>
+                    </h1>
+                </div>
                 <?php
+            } else {
+                // Se o grupo de perturbações não for encontrado, exiba uma mensagem de erro ou faça alguma outra ação
+                echo "Grupo de perturbações não encontrado.";
             }
         }
     }
@@ -313,7 +289,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
                 if (isset($_GET['nome'])) {
                     $nome_perturbacao = urldecode($_GET['nome']);
-                    $query = "SELECT texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
+                    $query = "SELECT texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
                     $result = mysqli_query($conn, $query);
                     if ($result && mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_assoc($result);
@@ -336,7 +312,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
         if (isset($_GET['nome'])) {
             $nome_perturbacao = urldecode($_GET['nome']);
-            $query = "SELECT sintomas_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
+            $query = "SELECT sintomas_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
@@ -361,7 +337,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
         if (isset($_GET['nome'])) {
             $nome_perturbacao = urldecode($_GET['nome']);
-            $query = "SELECT ajuda_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
+            $query = "SELECT ajuda_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
@@ -381,7 +357,8 @@ if (isset($_SESSION['id_utilizador'])) {
         ?>
     </div>
 
-    <!--Também nas-->
+
+    <!--Também no-->
     <div class="perturbacao-especifica-card2">
         <div class="card">
             <div class="card-body">
@@ -390,17 +367,17 @@ if (isset($_SESSION['id_utilizador'])) {
                     $nome_perturbacao = urldecode($_GET['nome']);
 
                     // Consulta para selecionar a perturbação da tabela perturbacoes
-                    $query_perturbacao = "SELECT nome AS perturbacoes_nome
-                                          FROM perturbacoes
-                                          WHERE perturbacoes_id = $perturbacoes_id";
+                    $query_perturbacao = "SELECT nome
+                                          FROM grupos_perturbacoes
+                                          WHERE grupos_perturbacoes_id = $grupos_perturbacoes_id";
 
                     $result_perturbacao = mysqli_query($conn, $query_perturbacao);
 
                     if ($result_perturbacao && mysqli_num_rows($result_perturbacao) > 0) {
                         $row_perturbacao = mysqli_fetch_assoc($result_perturbacao);
                         ?>
-                        <p>Também nas
-                            <?php echo $row_perturbacao['perturbacoes_nome']; ?>
+                        <p>Também no
+                            <?php echo $row_perturbacao['nome']; ?>
                         </p>
                         <div class="perturbacoes-hr"></div>
                         <?php
@@ -408,11 +385,11 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "Não foi possível encontrar informações sobre a perturbação selecionada.";
                     }
 
-                    $query_grupo_perturbacoes = "SELECT grupos_perturbacoes.nome AS grupos_perturbacoes_nome
-                                                 FROM grupos_perturbacoes
-                                                 INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                                                 INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                                                 WHERE grupos_perturbacoes.nome != '$nome_perturbacao' AND perturbacoes.perturbacoes_id = $perturbacoes_id";
+                    $query_grupo_perturbacoes = "SELECT perturbacoes_personalidade.nome AS perturbacoes_personalidade_nome
+                                                 FROM perturbacoes_personalidade
+                                                 INNER JOIN juncao_pert_personalidade ON juncao_pert_personalidade.perturbacoes_personalidade_id = perturbacoes_personalidade.perturbacoes_personalidade_id
+                                                 INNER JOIN grupos_perturbacoes ON juncao_pert_personalidade.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+                                                 WHERE perturbacoes_personalidade.nome != '$nome_perturbacao' AND grupos_perturbacoes.grupos_perturbacoes_id = $grupos_perturbacoes_id";
 
 
                     $result_grupo_perturbacoes = mysqli_query($conn, $query_grupo_perturbacoes);
@@ -420,13 +397,13 @@ if (isset($_SESSION['id_utilizador'])) {
                     if ($result_grupo_perturbacoes && mysqli_num_rows($result_grupo_perturbacoes) > 0) {
                         while ($row_grupo_perturbacoes = mysqli_fetch_assoc($result_grupo_perturbacoes)) {
                             ?>
-                            <a href="?nome=<?php echo $row_grupo_perturbacoes['grupos_perturbacoes_nome']; ?>">
-                                <?php echo $row_grupo_perturbacoes['grupos_perturbacoes_nome']; ?>
+                            <a href="?nome=<?php echo $row_grupo_perturbacoes['perturbacoes_personalidade_nome']; ?>">
+                                <?php echo $row_grupo_perturbacoes['perturbacoes_personalidade_nome']; ?>
                             </a>
                             <?php
                         }
                     } else {
-                        echo "Os grupos que estão adjacentes a esta Perturbação são subentendidos como um todo.";
+                        echo "Não existem mais perturbações neste grupo.";
                     }
                 }
                 ?>
@@ -453,6 +430,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 vita. MyLife.</p>
         </div>
     </div>
+
 
     <!--Artigos relacionados-->
     <div class="artigos">
