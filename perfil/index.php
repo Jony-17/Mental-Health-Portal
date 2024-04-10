@@ -402,23 +402,10 @@ if (isset ($_SESSION['id_utilizador'])) {
               <!-- Circle Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Registos</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Registos de automonitorização</h6>
                 </div>
                 <div class="card-body">
-                  <div class="mt-4 mb-2">
-                    <p>Stress</p>
-                  </div>
-                  <br>
-
-                  <div class="mt-4 mb-2">
-                    <p>Humor</p>
-                  </div>
-                  <br>
-
-                  <div class="mt-4 mb-2">
-                    <p>Sono</p>
-                  </div>
-
+                  
                 </div>
               </div>
 
