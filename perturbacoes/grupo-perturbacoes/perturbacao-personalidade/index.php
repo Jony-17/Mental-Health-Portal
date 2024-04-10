@@ -261,23 +261,41 @@ if (isset($_SESSION['id_utilizador'])) {
     ?>
 
     <ol role="list2" class="list2">
-        <li class="list">
-            <div class="items">
-                <a href="#sintomas" class="text-sm">
-                    Sintomas
-                </a>
-                <span class="separator">|</span>
-            </div>
-        </li>
+        <?php
+        if (isset($_GET['nome'])) {
+            $nome_perturbacao = urldecode($_GET['nome']);
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                ?>
+                <li class="list">
+                    <div class="items">
+                        <a href="#sintomas" class="text-sm">
+                            Sintomas
+                        </a>
+                        <span class="separator">|</span>
+                    </div>
+                </li>
 
-        </li>
-        <li class="list">
-            <div class="items">
-                <a href="#ajuda" class="text-sm">
-                    Procurar ajuda
-                </a>
-            </div>
-        </li>
+                <li class="list">
+                    <div class="items">
+                        <a href="#prevalencias" class="text-sm">
+                            Prevalências
+                        </a>
+                        <span class="separator">|</span>
+                    </div>
+                </li>
+
+                </li>
+                <li class="list">
+                    <div class="items">
+                        <a href="#ajuda" class="text-sm">
+                            Procurar ajuda
+                        </a>
+                    </div>
+                </li>
+                <?php
+            }
+        }
+        ?>
     </ol>
 
 
@@ -309,21 +327,52 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="subheading" id="sintomas">
         <?php
-        // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
+        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
         if (isset($_GET['nome'])) {
             $nome_perturbacao = urldecode($_GET['nome']);
-            $query = "SELECT sintomas_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
-            $result = mysqli_query($conn, $query);
-            if ($result && mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                ?>
-                <h1>Sintomas</h1>
-                <p>
-                    <?php echo $row['sintomas_texto']; ?>
-                </p>
-                <?php
-            } else {
-                echo "Ainda não tem texto.";
+            // Verifica se o nome do grupo não é A, B ou C
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                $query = "SELECT sintomas_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
+                $result = mysqli_query($conn, $query);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <h1>Sintomas</h1>
+                    <p>
+                        <?php echo $row['sintomas_texto']; ?>
+                    </p>
+                    <?php
+                } else {
+                    echo "Ainda não tem texto.";
+                }
+            }
+        } else {
+            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Texto da perturbação não especificado na URL.";
+        }
+        ?>
+    </div>
+
+    <div class="subheading" id="prevalencias">
+        <?php
+        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
+        if (isset($_GET['nome'])) {
+            $nome_perturbacao = urldecode($_GET['nome']);
+            // Verifica se o nome do grupo não é A, B ou C
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                $query = "SELECT prevalencias_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
+                $result = mysqli_query($conn, $query);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <h1>Prevalências</h1>
+                    <p>
+                        <?php echo $row['prevalencias_texto']; ?>
+                    </p>
+                    <?php
+                } else {
+                    echo "Ainda não tem texto.";
+                }
             }
         } else {
             // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
@@ -334,21 +383,24 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="subheading" id="ajuda">
         <?php
-        // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
+        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
         if (isset($_GET['nome'])) {
             $nome_perturbacao = urldecode($_GET['nome']);
-            $query = "SELECT ajuda_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
-            $result = mysqli_query($conn, $query);
-            if ($result && mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                ?>
-                <h1>Procurar ajuda</h1>
-                <p>
-                    <?php echo $row['ajuda_texto']; ?>
-                </p>
-                <?php
-            } else {
-                echo "Ainda não tem texto.";
+            // Verifica se o nome do grupo não é A, B ou C
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                $query = "SELECT ajuda_texto FROM perturbacoes_personalidade WHERE nome = '$nome_perturbacao'";
+                $result = mysqli_query($conn, $query);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <h1>Procurar ajuda</h1>
+                    <p>
+                        <?php echo $row['ajuda_texto']; ?>
+                    </p>
+                    <?php
+                } else {
+                    echo "Ainda não tem texto.";
+                }
             }
         } else {
             // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
@@ -432,85 +484,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </div>
 
 
-    <!--Artigos relacionados-->
-    <div class="artigos">
-        <h2 class="artigos-text">Alguns artigos relacionados</h2>
-        <div class="perturbacoes-hr2"></div>
-
-        <?php
-        if (isset($_GET['nome'])) {
-            $nome_codificado = urldecode($_GET['nome']);
-            $query = "SELECT grupos_perturbacoes_id, nome  FROM grupos_perturbacoes WHERE nome = '$nome_codificado'";
-
-            echo '<script>console.log("' . $query . '")</script>';
-
-            $result = mysqli_query($conn, $query);
-
-            if ($result && mysqli_num_rows($result) > 0) {
-
-                $row = mysqli_fetch_assoc($result);
-
-                $grupos_perturbacoes_id = $row['grupos_perturbacoes_id'];
-
-                $query_info_adicional = "SELECT
-                                        perturbacoes.nome AS perturbacoes_nome,
-                                        grupos_perturbacoes.nome AS grupos_perturbacoes_nome,
-                                        artigos.titulo AS titulo_artigo,
-                                        artigos.img_artigo AS img_artigo,
-                                        artigos.data_publicacao AS data_artigo,
-                                        artigos.autor AS autor_artigo
-                                    FROM
-                                        grupos_perturbacoes
-                                    INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                                    INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                                    INNER JOIN artigos ON juncao_perturbacoes.juncao_perturbacoes_id = artigos.juncao_perturbacoes_id
-                                    WHERE
-                                        juncao_perturbacoes.perturbacoes_id = $perturbacoes_id AND juncao_perturbacoes.grupos_perturbacoes_id = $grupos_perturbacoes_id
-                                    LIMIT 3;";
-                $result_info_adicional = mysqli_query($conn, $query_info_adicional);
-
-
-                ?>
-                <div class="card2-container">
-                    <?php
-                    // Exibir informações adicionais sobre outras perturbações
-                    while ($row_info_adicional = mysqli_fetch_assoc($result_info_adicional)) {
-                        ?>
-                        <div class="card2">
-
-                            <a
-                                href="../../../artigos/artigo/?titulo=<?php echo urlencode($row_info_adicional["titulo_artigo"]); ?>">
-                                <img src="<?php echo $row_info_adicional["img_artigo"]; ?>" alt="Depressão">
-                            </a>
-                            <div class="card2-content">
-                                <h3>
-                                    <?php echo $row_info_adicional["perturbacoes_nome"]; ?>
-                                </h3>
-                                <h2>
-                                    <?php echo $row_info_adicional["grupos_perturbacoes_nome"]; ?>
-                                </h2>
-                                <h1>
-                                    <?php echo $row_info_adicional["titulo_artigo"]; ?>
-                                </h1>
-                                <p>
-                                    <?php echo $row_info_adicional["data_artigo"]; ?>
-                                </p>
-                                <p>
-                                    <?php echo $row_info_adicional["autor_artigo"]; ?>
-                                </p>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                    <?php
-            } else {
-                echo "Ainda não tem texto para mostrar.";
-            }
-        }
-        ?>
-        </div>
-    </div>
+    
 
 
 

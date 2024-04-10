@@ -241,7 +241,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="card2">
                     <div class="card-background">
-                        <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                        <a href="https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
                             target="_blank">
                             <div class="card-background2">
                                 <i class="fas fa-play">
@@ -264,7 +264,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="card2">
                     <div class="card-background">
-                        <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                        <a href="https://www.ted.com/talks/eleanor_longden_the_voices_in_my_head?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
                             target="_blank">
                             <div class="card-background2">
                                 <i class="fas fa-play">
@@ -274,20 +274,20 @@ if (isset($_SESSION['id_utilizador'])) {
                         </a>
                     </div>
                     <div class="card2-content">
-                        <h3>Kevin Breel
+                        <h3>Eleanor Longden
                         </h3>
-                        <h1>Confessions of a depressed comic
+                        <h1>The voices in my head
                         </h1>
                         <div class="info">
-                            <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
-                                    class="text-sm">Maio 2013</span></p>
+                            <p><span class="text-sm">14:03 min</span><span class="separator">|</span><span
+                                    class="text-sm">Fevereiro 2013</span></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="card2">
                     <div class="card-background">
-                        <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                        <a href="https://www.ted.com/talks/vikram_patel_mental_health_for_all_by_involving_all"
                             target="_blank">
                             <div class="card-background2">
                                 <i class="fas fa-play">
@@ -297,13 +297,13 @@ if (isset($_SESSION['id_utilizador'])) {
                         </a>
                     </div>
                     <div class="card2-content">
-                        <h3>Kevin Breel
+                        <h3>Vikram Patel
                         </h3>
-                        <h1>Confessions of a depressed comic
+                        <h1>Mental health for all by involving all
                         </h1>
                         <div class="info">
-                            <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
-                                    class="text-sm">Maio 2013</span></p>
+                            <p><span class="text-sm">12:05 min</span><span class="separator">|</span><span
+                                    class="text-sm">Junho 2012</span></p>
                         </div>
                     </div>
                 </div>
@@ -326,6 +326,25 @@ if (isset($_SESSION['id_utilizador'])) {
                     necessariamente as opiniões da TED Conferences LLC ou de suas afiliadas.
                 </p>
             </div>
+        </div>
+    </div>
+
+    <div class="fontes" id="fontes">
+        <div class="fontes-content">
+            <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <h3>Fontes</h3>
+        </div>
+        <div class="fontes-content2">
+            <p>1. https://www.ted.com/</p>
         </div>
     </div>
 

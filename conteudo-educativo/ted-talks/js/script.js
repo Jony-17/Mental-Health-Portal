@@ -1,3 +1,14 @@
+/*---------------Fontes---------------*/
+
+//Função fontes
+const fontes = document.querySelectorAll(".fontes");
+
+fontes.forEach(fonte => {
+    fonte.addEventListener("click", () => {
+        fonte.classList.toggle("active");
+    });
+});
+
 /*---------------Botão gotop---------------*/
 
 window.onscroll = function () {

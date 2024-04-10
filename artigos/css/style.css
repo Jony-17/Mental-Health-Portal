@@ -343,7 +343,6 @@ header {
 }
 
 .card img {
-  margin-top: 50px;
   width: 100%;
   height: 230px;
   object-fit: cover;
@@ -483,7 +482,7 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
 }
 
 .container-search {
-  margin: 50px 90px 50px 100px;
+  margin: 50px 90px 100px 100px;
 }
 
 form {
