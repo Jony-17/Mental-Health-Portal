@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Abr-2024 às 22:20
+-- Tempo de geração: 11-Abr-2024 às 03:42
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -434,15 +434,18 @@ CREATE TABLE `ted_talks` (
   `autor` varchar(255) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `data` varchar(255) NOT NULL,
-  `tempo` varchar(255) NOT NULL
+  `tempo` varchar(255) NOT NULL,
+  `img_ted_talks` mediumtext NOT NULL,
+  `link` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `ted_talks`
 --
 
-INSERT INTO `ted_talks` (`ted_talks_id`, `autor`, `titulo`, `data`, `tempo`) VALUES
-(1, 'Andrew Solomon', 'Depression, the secret we share', 'Outubro 2013', '29:07 min');
+INSERT INTO `ted_talks` (`ted_talks_id`, `autor`, `titulo`, `data`, `tempo`, `img_ted_talks`, `link`) VALUES
+(1, 'Andrew Solomon', 'Depression, the secret we share', 'Outubro 2013', '29:07 min', 'https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/511d507d-746c-4db3-8992-f01d802ca695/AndrewSolomon_2013X-embed.jpg?u%5Br%5D=2&u%5Bs%5D=0.5&u%5Ba%5D=0.8&u%5Bt%5D=0.03&quality=80&w=640', 'https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true'),
+(2, 'Kevin Breel', 'Confessions of a depressed comic', 'Maio 2013', '10:46 min', 'https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/0db75cad-bcb2-4e5e-8922-93fc63160e7e/KevinBreel_2013X-embed.jpg?u%5Br%5D=2&u%5Bs%5D=0.5&u%5Ba%5D=0.8&u%5Bt%5D=0.03&quality=80&w=640', 'https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true');
 
 -- --------------------------------------------------------
 
@@ -707,7 +710,7 @@ ALTER TABLE `quiz_preocupacao`
 -- AUTO_INCREMENT de tabela `ted_talks`
 --
 ALTER TABLE `ted_talks`
-  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `texto_artigo`

@@ -212,104 +212,74 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
 
         <!--Ted Talks-->
-        <div class="card-container">
-            <div class="card1">
-                <div class="card-background">
-                    <a href="https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
-                        target="_blank">
-                        <div class="card-background2">
-                            <i class="fas fa-play">
-                            </i>
-                            <img src="imgs/1.webp" alt="Depressão">
+        <?php
+        $query = "SELECT autor, titulo, data, tempo, img_ted_talks, link
+                              FROM ted_talks";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            /*while ($row = mysqli_fetch_assoc($result)) {*/
+            $row = mysqli_fetch_assoc($result); {
+                ?>
+                <div class="card-container">
+                    <div class="card1">
+                        <div class="card-background">
+                            <a href="<?php echo $row['link']; ?>" target="_blank">
+                                <div class="card-background2">
+                                    <i class="fas fa-play">
+                                    </i>
+                                    <img src="<?php echo $row['img_ted_talks']; ?>" alt="Depressão">
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="card1-content">
-                    <h3>Andrew Solomon
-                    </h3>
-                    <h1>Depression, the secret we share
-                    </h1>
-                    <div class="info">
-                        <p><span class="text-sm">29:07 min</span><span class="separator">|</span><span
-                                class="text-sm">Outubro 2013</span></p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card2-container">
-
-                <div class="card2">
-                    <div class="card-background">
-                        <a href="https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
-                            target="_blank">
-                            <div class="card-background2">
-                                <i class="fas fa-play">
-                                </i>
-                                <img src="imgs/1.webp" alt="Depressão">
+                        <div class="card1-content">
+                            <h3>
+                                <?php echo $row['autor']; ?>
+                            </h3>
+                            <h1>
+                                <?php echo $row['titulo']; ?>
+                            </h1>
+                            <div class="info">
+                                <p><span class="text-sm">
+                                        <?php echo $row['data']; ?>
+                                    </span><span class="separator">|</span><span class="text-sm">
+                                        <?php echo $row['tempo']; ?>
+                                    </span></p>
                             </div>
-                        </a>
-                    </div>
-                    <div class="card2-content">
-                        <h3>Kevin Breel
-                        </h3>
-                        <h1>Confessions of a depressed comic
-                        </h1>
-                        <div class="info">
-                            <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
-                                    class="text-sm">Maio 2013</span></p>
                         </div>
                     </div>
-                </div>
 
-                <div class="card2">
-                    <div class="card-background">
-                        <a href="https://www.ted.com/talks/eleanor_longden_the_voices_in_my_head?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
-                            target="_blank">
-                            <div class="card-background2">
-                                <i class="fas fa-play">
-                                </i>
-                                <img src="imgs/1.webp" alt="Depressão">
+                    <div class="card2-container">
+
+                        <div class="card2">
+                            <div class="card-background">
+                                <a href="https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
+                                    target="_blank">
+                                    <div class="card-background2">
+                                        <i class="fas fa-play">
+                                        </i>
+                                        <img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/0db75cad-bcb2-4e5e-8922-93fc63160e7e/KevinBreel_2013X-embed.jpg?u%5Br%5D=2&u%5Bs%5D=0.5&u%5Ba%5D=0.8&u%5Bt%5D=0.03&quality=80&w=640"
+                                            alt="Depressão">
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="card2-content">
-                        <h3>Eleanor Longden
-                        </h3>
-                        <h1>The voices in my head
-                        </h1>
-                        <div class="info">
-                            <p><span class="text-sm">14:03 min</span><span class="separator">|</span><span
-                                    class="text-sm">Fevereiro 2013</span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card2">
-                    <div class="card-background">
-                        <a href="https://www.ted.com/talks/vikram_patel_mental_health_for_all_by_involving_all"
-                            target="_blank">
-                            <div class="card-background2">
-                                <i class="fas fa-play">
-                                </i>
-                                <img src="imgs/1.webp" alt="Depressão">
+                            <div class="card2-content">
+                                <h3>Kevin Breel
+                                </h3>
+                                <h1>Confessions of a depressed comic
+                                </h1>
+                                <div class="info">
+                                    <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
+                                            class="text-sm">Maio 2013</span></p>
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="card2-content">
-                        <h3>Vikram Patel
-                        </h3>
-                        <h1>Mental health for all by involving all
-                        </h1>
-                        <div class="info">
-                            <p><span class="text-sm">12:05 min</span><span class="separator">|</span><span
-                                    class="text-sm">Junho 2012</span></p>
                         </div>
                     </div>
-                </div>
-
-
-            </div>
+                    <?php
+            }
+        }
+        ?>
         </div>
     </section>
 
