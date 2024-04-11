@@ -851,6 +851,10 @@ color: #8A8A8A;
 overflow: hidden;
 }
 
+.items a {
+  color: #8a8a8a;
+}
+
 .items-current {
 display: flex;
 align-items: center;
@@ -864,13 +868,9 @@ margin-left: 30px;
 }
 
 /* Estilizando o link atual */
-.items-current a[aria-current="page"] {
+.items-current div[aria-current="page"] {
 font-weight: bold;
 color: #232323;
-}
-
-.items-current a[aria-current="page"]:hover {
-color: #8A8A8A;
 }
 
 .info {

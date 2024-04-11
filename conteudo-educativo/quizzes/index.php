@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../conn/conn.php");
+require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -38,10 +38,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -166,21 +164,26 @@ if (isset($_SESSION['id_utilizador'])) {
     <ol role="list">
         <li class="list">
             <div class="items">
-                <span class="text-sm">
-                    Conteúdo Educativo
-                </span>
+                <a href=".." class="text-sm">
+                    Conteúdo Educativo</a>
                 <span class="separator">/</span>
             </div>
-
         </li>
+
         <li class="list">
             <div class="items-current">
-                <a href="#" class="text-sm" aria-current=page>
+                <div class="text-sm" aria-current=page>
                     Quizzes
-                </a>
+                </div>
             </div>
         </li>
     </ol>
+
+    <div class="heading">
+        <h1>
+            Descobre o que és
+        </h1>
+    </div>
 
 
     <!--Quizzes-->
@@ -189,9 +192,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="quizzes-bannerImage4-container">
                 <img src="imgs/imgs-backgrounds/background4.png" alt="banner background" />
             </div>
-            <h1 class="quizzes-second-heading">
-                Descobre o que és
-            </h1>
+            <h1 class="quizzes-second-heading"></h1>
         </div>
         <div class="card4-container">
             <a href="quizzes-empatia">

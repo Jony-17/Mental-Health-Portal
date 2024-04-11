@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../../conn/conn.php");
+require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -51,8 +51,8 @@ if (isset($_SESSION['id_utilizador'])) {
     <style>
         #chatbotContainer {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 50px;
+            right: -10px;
             z-index: 9999;
             /* Z-index alto para garantir que o iframe fique acima de outros elementos */
         }
@@ -64,22 +64,23 @@ if (isset($_SESSION['id_utilizador'])) {
             border: none;
         }
     </style>
+
     <header>
         <div class="navbar">
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial">Página Inicial</a></li>
+                <li><a href="../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../../perturbacoes">Perturbações</a></li>
-                <li><a href="../../artigos">Artigos</a></li>
-                <li><a href="#noticias">Notícias</a></li>
-                <li><a href="..">Conteúdo Educativo</a>
+                <li><a href="../perturbacoes">Perturbações</a></li>
+                <li><a href="../artigos">Artigos</a></li>
+                <li><a href="../noticias">Notícias</a></li>
+                <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes">Quizzes</a></li>
+                        <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
-                        <li><a href="#">TED Talks</a></li>
+                        <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -88,14 +89,14 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/">Perfil</a></li>
+                            <li><a href="../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -103,7 +104,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -113,37 +114,37 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial">Página Inicial</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="../../perturbacoes">Perturbações</a></li>
-            <li><a href="../../artigos">Artigos</a></li>
+            <li><a href="../paginainicial">Página Inicial</a></li>
+            <li><a href="../quizzes/index.php">Sobre Nós</a></li>
+            <li><a href="../perturbacoes">Perturbações</a></li>
+            <li><a href="../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes">Quizzes</a></li>
+                    <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="#">TED Talks</a></li>
+                    <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/">Perfil</a></li>
+                        <li><a href="../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -151,7 +152,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../../logout/logout.php";
+                        var url = "../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -160,20 +161,11 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </header>
 
-
     <ol role="list">
-        <li class="list">
-            <div class="items">
-                <a href=".." class="text-sm">
-                    Conteúdo Educativo</a>
-                <span class="separator">/</span>
-            </div>
-        </li>
-
         <li class="list">
             <div class="items-current">
                 <div class="text-sm" aria-current=page>
-                    TED Talks
+                    Conteúdo Educativo
                 </div>
             </div>
         </li>
@@ -181,146 +173,66 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="heading">
         <h1>
-            TED Talks
+            Conteúdo Educativo
         </h1>
-        <a href="https://www.ted.com/playlists/175/the_struggle_of_mental_health" target="_blank"
-            class="first-button">Ver todas<i class="fas fa-arrow-up"></i></a>
     </div>
 
-    <!--Explicação do que são TED Talks-->
-    <section class="ted-talks" id="ted-talks">
-        <div class="ted-talks-card">
-            <p>Stands for <span class="color">Technology, Entertainment, Design</span> — three broad subject areas that
-                are collectively
-                shaping our world. But a TED conference is broader still, showcasing important research and ideas
-                from all disciplines and exploring how they connect. The format is fast-paced: 50+ talks over the
-                course of three days to a week, in addition to interviews, debates, workshops, activities,
-                interactive exhibits, evening events and parties. The program is designed for attendees and speakers
-                from vastly different fields to connect, cross-fertilize and draw inspiration from unlikely places.
-                This is the magic of TED.</p>
-        </div>
+    <!--Conteúdo Educativo-->
+    <section class="conteudo-educativo" id="conteudo-educativo">
+        <div class="conteudo-educativo-container">
+            <div class="conteudo-educativo-card">
 
-
-        <!--Backgrounds-->
-        <div class="background1">
-            <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
-        </div>
-
-        <div class="background2">
-            <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
-        </div>
-
-        <!--Ted Talks-->
-        <?php
-        $query = "SELECT autor, titulo, data, tempo, img_ted_talks, link
-                              FROM ted_talks";
-
-        $result = mysqli_query($conn, $query);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            /*while ($row = mysqli_fetch_assoc($result)) {*/
-            $row = mysqli_fetch_assoc($result); {
-                ?>
-                <div class="card-container">
-                    <div class="card1">
-                        <div class="card-background">
-                            <a href="<?php echo $row['link']; ?>" target="_blank">
-                                <div class="card-background2">
-                                    <i class="fas fa-play">
-                                    </i>
-                                    <img src="<?php echo $row['img_ted_talks']; ?>" alt="Depressão">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card1-content">
-                            <h3>
-                                <?php echo $row['autor']; ?>
-                            </h3>
-                            <h1>
-                                <?php echo $row['titulo']; ?>
-                            </h1>
-                            <div class="info">
-                                <p><span class="text-sm">
-                                        <?php echo $row['data']; ?>
-                                    </span><span class="separator">|</span><span class="text-sm">
-                                        <?php echo $row['tempo']; ?>
-                                    </span></p>
-                            </div>
-                        </div>
+                <div class="conteudo-educativo-card1">
+                    <div class="conteudo-educativo-a">
+                        <a href="quizzes">Quizzes</a>
                     </div>
+                    <p>Os nossos CTeSP estão focados numa vertente de ensino muito prática, com estágio garantido e a
+                        possibilidade de progressão para uma das nossas licenciaturas sem exames.
+                    </p>
+                    <a class="secondary-button" href="quizzes">
+                        Sabe mais<i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
 
-                    <div class="card2-container">
-
-                        <div class="card2">
-                            <div class="card-background">
-                                <a href="https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
-                                    target="_blank">
-                                    <div class="card-background2">
-                                        <i class="fas fa-play">
-                                        </i>
-                                        <img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/0db75cad-bcb2-4e5e-8922-93fc63160e7e/KevinBreel_2013X-embed.jpg?u%5Br%5D=2&u%5Bs%5D=0.5&u%5Ba%5D=0.8&u%5Bt%5D=0.03&quality=80&w=640"
-                                            alt="Depressão">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="card2-content">
-                                <h3>Kevin Breel
-                                </h3>
-                                <h1>Confessions of a depressed comic
-                                </h1>
-                                <div class="info">
-                                    <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
-                                            class="text-sm">Maio 2013</span></p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="conteudo-educativo-card1">
+                    <div class="conteudo-educativo-a">
+                        <a href="exercicios-mindfulness">Exercícios Mindfulness</a>
                     </div>
-                    <?php
-            }
-        }
-        ?>
+                    <p>Os nossos CTeSP estão focados numa vertente de ensino muito prática, com estágio garantido e a
+                        possibilidade de progressão para uma das nossas licenciaturas sem exames.
+
+                    </p>
+                    <a class="secondary-button" href="exercicios-mindfulness">
+                        Sabe mais<i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="conteudo-educativo-card1">
+                    <div class="conteudo-educativo-a">
+                        <a href="ted-talks">TED Talks</a>
+                    </div>
+                    <p>Os nossos CTeSP estão focados numa vertente de ensino muito prática, com estágio garantido e a
+                        possibilidade de progressão para uma das nossas licenciaturas sem exames.
+
+                    </p>
+                    <a class="secondary-button" href="ted-talks">
+                        Sabe mais<i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="conteudo-educativo-img">
+                <img src="image1.png" alt="">
+            </div>
+
         </div>
     </section>
 
 
-    <!--Disclaimer-->
-    <div class="disclaimer">
-        <div class="disclaimer-card">
-            <div class="disclaimer-content">
-                <p>O Portal de Saúde Mental não é afiliado à TED Conferences LLC.
-                    Todas as referências à TED Talks, TEDx, TED, e TED Conferences são utilizadas apenas para fins
-                    informativos e de divulgação. O conteúdo disponível neste site é produzido independentemente e não
-                    foi revisado, aprovado ou endossado pela TED Conferences LLC. Qualquer opinião, informação, ou
-                    conteúdo apresentado aqui é de responsabilidade exclusiva do Portal de Saúde Mental e não reflete
-                    necessariamente as opiniões da TED Conferences LLC ou de suas afiliadas.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="fontes" id="fontes">
-        <div class="fontes-content">
-            <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                    d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
-            </svg>
-            <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                    d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
-            </svg>
-            <h3>Fontes</h3>
-        </div>
-        <div class="fontes-content2">
-            <p>1. https://www.ted.com/</p>
-        </div>
-    </div>
-
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
-
 
 
     <!--Footer-->
@@ -407,6 +319,10 @@ if (isset($_SESSION['id_utilizador'])) {
             <p class="copyright">@2024 Todos os direitos reservados</p>
             <div class="footer-links-2">
                 <a href="#">Termos & Condições</a>
+
+                <div class="vertical-hr"></div>
+
+                <a href="#">FAQ</a>
 
                 <div class="vertical-hr"></div>
 

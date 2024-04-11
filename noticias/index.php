@@ -3,7 +3,7 @@ session_start();
 require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -74,22 +74,23 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <li><a href="../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="../perturbacoes">Perturbações</a></li>
-                <li><a href="#artigos">Artigos</a></li>
+                <li><a href="#">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="#">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -104,7 +105,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -117,19 +118,20 @@ if (isset ($_SESSION['id_utilizador'])) {
             <li><a href="../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="../perturbacoes">Perturbações</a></li>
-            <li><a href="#skills">Artigos</a></li>
+            <li><a href="#">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -143,7 +145,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -166,46 +168,135 @@ if (isset ($_SESSION['id_utilizador'])) {
         <li class="list">
             <div class="items-current">
                 <span class="text-sm" aria-current=page>
-                    Artigos
+                    Notícias
                 </span>
+                <span class="separator"
+                    style="display: <?php echo (isset($_GET['filter']) && ($_GET['filter'] != 'Perturbações')) ? 'inline-block' : 'none'; ?>">/</span>
             </div>
         </li>
+
+        <?php
+        // Defina os nomes das perturbações que deseja exibir na lista
+        $perturbacoes = array(
+            'Perturbações de Ansiedade',
+            'Perturbações do Sono - Vigília',
+            'Perturbações de Humor',
+            'Perturbações Alimentares',
+            'Perturbações de Personalidade',
+            'Perturbações Obsessivo-Compulsivas',
+            'Perturbações relacionadas com Trauma e Fatores de stress'
+        );
+
+        // Percorre a lista de perturbações
+        foreach ($perturbacoes as $perturbacao) {
+            ?>
+            <li class="list-visible"
+                style="display: <?php echo (isset($_GET['filter']) && ($_GET['filter'] == urldecode($perturbacao))) ? 'inline-block' : 'none'; ?>">
+                <div class="items-current">
+                    <span class="text-sm" aria-current="page">
+                        <?php echo htmlspecialchars($perturbacao); ?>
+                    </span>
+                </div>
+            </li>
+            <?php
+        }
+        ?>
+
     </ol>
 
 
-    <!--Perturbações Mentais-->
+    <!--Artigos-->
     <section class="artigos" id="artigos">
         <div class="artigos-banner-container">
             <h1 class="artigos-primary-heading">
-                Artigos
+                Notícias
             </h1>
         </div>
 
-        <div class="buttons">
-            <a class="btn2" href="?filter=all">Todos</a>
-            <a class="btn2" href="?filter=ansiedade">Perturbações de Ansiedade</a>
-            <a class="btn2" href="#">Perturbações de Sono</a>
-            <a class="btn2" href="#">Perturbações de Humor</a>
-            <a class="btn2" href="#">Perturbações Alimentares</a>
-            <a class="btn2" href="#">Perturbações de Personalidade</a>
-            <a class="btn2" href="#">Perturbações Obsessivo-Compulsivas</a>
-            <a class="btn2" href="#">Perturbações relacionadas com Trauma e Fatores de stress</a>
-        </div>
+        <?php
 
-        <div class="search">Pesquisar um artigo<i class="fas fa-search"></i></div>
+        $query = "SELECT nome, perturbacoes_id FROM perturbacoes";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            ?>
+            <div class="buttons">
+                <a class="btn2" href="?filter=Perturbações">Todos</a>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <a class="btn2" href="?filter=<?php echo urlencode($row['nome']); ?>">
+                        <?php echo $row['nome']; ?>
+                    </a>
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+
+        <!--Pesquisa-->
+        <div class="container-search">
+            <form method="GET">
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input id="input-search" type="text" name="search_query" placeholder="Pesquisa o nome de uma notícia">
+                </div>
+                <button type="submit">Pesquisa</button>
+            </form>
+        </div>
 
         <?php
 
-        if (isset ($_GET['filter']) && $_GET['filter'] == 'ansiedade') {
-            $query = "SELECT artigos.perturbacoes_id, perturbacoes.nome AS nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+        if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+            $search_query = $_GET['search_query'];
+            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
             FROM artigos 
-            INNER JOIN perturbacoes ON artigos.perturbacoes_id = perturbacoes.perturbacoes_id
-            WHERE artigos.perturbacoes_id = 1"; // Filtra artigos relacionados à perturbação de ansiedade
+            INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+            INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+            INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+            WHERE artigos.titulo LIKE '%$search_query%'";
+        } else if (isset($_GET['filter']) && $_GET['filter'] !== '') {
+            // Verificar se o filtro não está vazio
+            $filtro_nome = urldecode($_GET['filter']); // Decodificar o nome do filtro, se necessário
+        
+            if ($filtro_nome === 'Perturbações') {
+                // Se o filtro for 'perturbacoes', não aplicar filtro, mostrar todos os artigos
+                $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+                FROM artigos 
+                INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
+            } else {
+                // Consultar o banco de dados para obter o ID do filtro com base no nome fornecido
+                $query_id = "SELECT perturbacoes_id FROM perturbacoes WHERE nome = '$filtro_nome'";
+                $result_id = mysqli_query($conn, $query_id);
+
+                if ($result_id && mysqli_num_rows($result_id) > 0) {
+                    $row_id = mysqli_fetch_assoc($result_id);
+                    $perturbacao_id = $row_id['perturbacoes_id'];
+
+                    // Ajustar a consulta SQL para selecionar os artigos relacionados ao filtro
+                    $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+                    FROM artigos 
+                    INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                    INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                    INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+                    WHERE perturbacoes.perturbacoes_id = $perturbacao_id";
+                } else {
+                    // Se o filtro não for encontrado, você pode lidar com isso aqui
+                    // Por exemplo, redirecionar para uma página de erro ou mostrar uma mensagem de erro
+                    echo "Filtro não encontrado.";
+                }
+            }
         } else {
-            // Consulta padrão para recuperar todos os artigos
-            $query = "SELECT artigos.perturbacoes_id, perturbacoes.nome AS nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-            FROM artigos 
-            INNER JOIN perturbacoes ON artigos.perturbacoes_id = perturbacoes.perturbacoes_id";
+            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+                FROM artigos 
+                INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
         }
 
         $result = mysqli_query($conn, $query);
@@ -218,13 +309,21 @@ if (isset ($_SESSION['id_utilizador'])) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <div class="card">
-                        <a href="#">
+                        <?php
+                        // Codificar o título do artigo para torná-lo seguro para a URL
+                        $titulo_codificado = urlencode($row["titulo"]);
+                        ?>
+                        <a href="artigo/?titulo=<?php echo $titulo_codificado; ?>">
+
                             <img src="<?php echo $row["img_artigo"] ?>" width="100%" alt="<?php echo $row["titulo"] ?>">
                         </a>
                         <div class="card4-content">
                             <h3>
-                                <?php echo $row["nome"] ?>
+                                <?php echo $row["perturbacao_nome"] ?>
                             </h3>
+                            <h2>
+                                <?php echo $row["grupo_nome"] ?>
+                            </h2>
                             <h1>
                                 <?php echo $row["titulo"] ?>
                             </h1>
@@ -245,9 +344,58 @@ if (isset ($_SESSION['id_utilizador'])) {
             </div>
             <?php
         } else {
-            echo "Nenhum artigo encontrado.";
+            echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhum artigo encontrado.</div>';
         }
         ?>
+
+        <?php
+        // Define o número de itens por página
+        $itens_por_pagina = 3;
+
+        // Página atual. Se não for fornecido na URL, assume a primeira página (1)
+        $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+        // Calcula o offset para a consulta SQL com base na página atual
+        $offset = ($pagina_atual - 1) * $itens_por_pagina;
+
+        // Sua consulta SQL com limitação para paginação
+        $query_paginacao = "SELECT * FROM artigos LIMIT $itens_por_pagina OFFSET $offset";
+
+        // Executa a consulta SQL
+        $result_paginacao = mysqli_query($conn, $query_paginacao);
+
+        // Verifica o número total de resultados
+        $total_resultados = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM artigos"));
+
+        // Calcula o número total de páginas
+        $total_paginas = ceil($total_resultados / $itens_por_pagina);
+
+        // Exibe os resultados da página atual
+        while ($row = mysqli_fetch_assoc($result_paginacao)) {
+            // Exiba os resultados conforme necessário
+        }
+
+        echo "<div class='paginacao'>";
+
+        // Link para a página anterior
+        if ($pagina_atual > 1) {
+            echo "<a href='?pagina=" . ($pagina_atual - 1) . "'>Anterior</a> ";
+        }
+
+        // Exibe os números das páginas
+        for ($pagina = 1; $pagina <= $total_paginas; $pagina++) {
+            $classe_pagina_atual = ($pagina == $pagina_atual) ? "pagina-atual" : "";
+            echo "<a class='$classe_pagina_atual' href='?pagina=$pagina'>$pagina</a> ";
+        }
+
+        // Link para a próxima página
+        if ($pagina_atual < $total_paginas) {
+            echo "<a href='?pagina=" . ($pagina_atual + 1) . "'>Seguinte</a>";
+        }
+
+        echo "</div>";
+        ?>
+
     </section>
 
 
