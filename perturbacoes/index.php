@@ -38,10 +38,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -173,16 +171,20 @@ if (isset($_SESSION['id_utilizador'])) {
         </li>
     </ol>
 
+    <div class="heading">
+        <h1>
+            Perturbações Mentais
+        </h1>
+    </div>
+
     <!--Perturbações Mentais-->
     <section class="perturbacoes" id="perturbacoes">
         <div class="perturbacoes-banner-container">
-            <h1 class="perturbacoes-primary-heading">
-                Perturbações Mentais
-            </h1>
+            <h1 class="perturbacoes-primary-heading"></h1>
         </div>
 
         <?php
-        
+
         $query = "SELECT nome, img_perturbacao FROM perturbacoes";
         $result = mysqli_query($conn, $query);
 
@@ -200,13 +202,15 @@ if (isset($_SESSION['id_utilizador'])) {
                         $img_perturbacao = $row["img_perturbacao"];
 
                         ?>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
+                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
+                            <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
                             <img src="<?php echo $row["img_perturbacao"] ?>" alt="Perturbacoes">
                         </a>
                         <h1>
                             <?php echo $row["nome"] ?>
                         </h1>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>" class="first-button"> <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
+                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>" class="first-button">
+                            <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
                             Sabe mais<i class="fas fa-arrow-right"></i>
                         </a>
                     </div>

@@ -75,8 +75,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="../perturbacoes">Perturbações</a></li>
                 <li><a href="../artigos">Artigos</a></li>
-                <li><a href="#noticias">Notícias</a></li>
-                <li><a href="#">Conteúdo Educativo</a>
+                <li><a href="../noticias">Notícias</a></li>
+                <li><a href="../conteudo-educativo">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
@@ -118,8 +118,8 @@ if (isset ($_SESSION['id_utilizador'])) {
             <li><a href="../quizzes/index.php">Sobre Nós</a></li>
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
-            <li><a href="#portfolio">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li><a href="../noticias">Notícias</a></li>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
