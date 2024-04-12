@@ -38,10 +38,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -205,11 +203,16 @@ if (isset($_SESSION['id_utilizador'])) {
     </ol>
 
 
+    <div class="heading">
+        <h1>
+            Artigos
+        </h1>
+    </div>
+
     <!--Artigos-->
     <section class="artigos" id="artigos">
         <div class="artigos-banner-container">
             <h1 class="artigos-primary-heading">
-                Artigos
             </h1>
         </div>
 
@@ -249,7 +252,28 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
 
         <?php
+        // Define o número de itens por página
+        $itens_por_pagina = 3;
 
+        // Página atual. Se não for fornecido na URL, assume a primeira página (1)
+        $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+        // Calcula o offset para a consulta SQL com base na página atual
+        $offset = ($pagina_atual - 1) * $itens_por_pagina;
+
+        // Sua consulta SQL com limitação para paginação
+        $query_paginacao = "SELECT * FROM artigos LIMIT $itens_por_pagina OFFSET $offset";
+
+        // Executa a consulta SQL
+        $result_paginacao = mysqli_query($conn, $query_paginacao);
+
+        // Verifica o número total de resultados
+        $total_resultados = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM artigos"));
+
+        // Calcula o número total de páginas
+        $total_paginas = ceil($total_resultados / $itens_por_pagina);
+
+        
         if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
             $search_query = $_GET['search_query'];
             $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
@@ -333,9 +357,6 @@ if (isset($_SESSION['id_utilizador'])) {
                             <p>
                                 <?php echo $row['autor'] ?>
                             </p>
-                            <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>-->
                         </div>
                     </div>
                     <?php
@@ -348,53 +369,29 @@ if (isset($_SESSION['id_utilizador'])) {
         }
         ?>
 
-<?php
-    // Define o número de itens por página
-    $itens_por_pagina = 3;
+        <?php
+        
 
-    // Página atual. Se não for fornecido na URL, assume a primeira página (1)
-    $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+        echo "<div class='paginacao'>";
 
-    // Calcula o offset para a consulta SQL com base na página atual
-    $offset = ($pagina_atual - 1) * $itens_por_pagina;
+        // Link para a página anterior
+        if ($pagina_atual > 1) {
+            echo "<a href='?pagina=" . ($pagina_atual - 1) . "'>Anterior</a> ";
+        }
 
-    // Sua consulta SQL com limitação para paginação
-    $query_paginacao = "SELECT * FROM artigos LIMIT $itens_por_pagina OFFSET $offset";
+        // Exibe os números das páginas
+        for ($pagina = 1; $pagina <= $total_paginas; $pagina++) {
+            $classe_pagina_atual = ($pagina == $pagina_atual) ? "pagina-atual" : "";
+            echo "<a class='$classe_pagina_atual' href='?pagina=$pagina'>$pagina</a> ";
+        }
 
-    // Executa a consulta SQL
-    $result_paginacao = mysqli_query($conn, $query_paginacao);
+        // Link para a próxima página
+        if ($pagina_atual < $total_paginas) {
+            echo "<a href='?pagina=" . ($pagina_atual + 1) . "'>Seguinte</a>";
+        }
 
-    // Verifica o número total de resultados
-    $total_resultados = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM artigos"));
-
-    // Calcula o número total de páginas
-    $total_paginas = ceil($total_resultados / $itens_por_pagina);
-
-    // Exibe os resultados da página atual
-    while ($row = mysqli_fetch_assoc($result_paginacao)) {
-        // Exiba os resultados conforme necessário
-    }
-
-    echo "<div class='paginacao'>";
-    
-    // Link para a página anterior
-    if ($pagina_atual > 1) {
-        echo "<a href='?pagina=".($pagina_atual - 1)."'>Anterior</a> ";
-    }
-
-    // Exibe os números das páginas
-    for ($pagina = 1; $pagina <= $total_paginas; $pagina++) {
-        $classe_pagina_atual = ($pagina == $pagina_atual) ? "pagina-atual" : "";
-        echo "<a class='$classe_pagina_atual' href='?pagina=$pagina'>$pagina</a> ";
-    }
-
-    // Link para a próxima página
-    if ($pagina_atual < $total_paginas) {
-        echo "<a href='?pagina=".($pagina_atual + 1)."'>Seguinte</a>";
-    }
-
-    echo "</div>";
-?>
+        echo "</div>";
+        ?>
 
     </section>
 
