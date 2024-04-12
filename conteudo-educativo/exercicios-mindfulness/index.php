@@ -78,7 +78,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../quizzes">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="../exercicios-mindfulness">Exercícios Mindfulness</a></li>
                         <li><a href="../ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
@@ -121,7 +121,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <li class="dropdown-trigger"><a href="..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="../exercicios-mindfulness">Exercícios Mindfulness</a></li>
                     <li><a href="../ted-talks">TED Talks</a></li>
                 </ul>
             </li>
