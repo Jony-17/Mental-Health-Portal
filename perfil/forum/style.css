@@ -15,11 +15,13 @@
 }*/
 .wrapper{
   background: /*#fff*/ #ebeaea;
-  max-width: 450px;
+  max-width: 700px;
   width: 100%;
   border-radius: 16px;
   box-shadow: 0 0 0px 0 rgba(0,0,0,0.1),
               0 32px 64px -48px rgba(0,0,0,0.5);
+  justify-content: center;
+  display: flex;
 }
 
 /* Login & Signup Form CSS Start */

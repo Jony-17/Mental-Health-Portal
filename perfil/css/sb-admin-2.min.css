@@ -349,17 +349,19 @@ h6 {
 h1 {
   font-size: 2.5rem;
 }
-.h2,
-h2 {
+h2, .h2 {
   font-size: 2rem;
+  font-family: "Libre Baskerville", sans-serif;
 }
-.h3,
-h3 {
-  font-size: 1.75rem;
-}
-.h4,
-h4 {
+
+h3, .h3 {
   font-size: 1.5rem;
+  font-family: "Libre Baskerville", sans-serif;
+}
+
+h4, .h4 {
+  font-size: 1.3rem;
+  font-family: "Libre Baskerville", sans-serif;
 }
 .h5,
 h5 {
@@ -1898,6 +1900,8 @@ pre code {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  justify-content: center;
+  display: flex;
 }
 .table-responsive > .table-bordered {
   border: 0;
@@ -4581,7 +4585,7 @@ input[type="submit"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
-  display: flex;
+  /*display: flex;*/
   gap: 150px;
   /*align-self: center;*/
 }
@@ -9798,6 +9802,7 @@ a:focus {
   width: 2.75rem;
   height: 2.75rem;
   text-align: center;
+  align-content: center;
   color: #fff;
   background: rgba(90, 92, 105, 0.5);
   line-height: 46px;

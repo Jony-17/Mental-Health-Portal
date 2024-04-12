@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../conn/conn.php");
+require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -43,9 +43,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -85,63 +90,26 @@ if (isset($_SESSION['id_utilizador'])) {
         Interface
       </div>
 
+      <!-- Nav Item - Registos de automonitorização -->
+      <li class="nav-item">
+        <a class="nav-link" href="../registos-automonitorizacao"> <!--Alterar HREF -->
+          <i class="fas fa-clipboard"></i>
+          <span>Registos de automonitorização</span></a>
+      </li>
+
       <!-- Nav Item - Fórum -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#"> <!--Alterar HREF -->
           <i class="fas fa-comments"></i>
           <span>Fórum</span></a>
       </li>
 
-      <!-- Nav Item - Inserir Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInserir"
-          aria-expanded="true" aria-controls="collapseInserir">
-          <i class="fas fa-folder-plus"></i>
-          <span>Inserir</span>
-        </a>
-        <div id="collapseInserir" class="collapse" aria-labelledby="headingInserir" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
-            <a class="collapse-item" href="inserir/artigos/inserir_artigos.php">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
-      </li>
 
-
-      <!-- Nav Item - Editar Collapse Menu -->
+      <!-- Nav Item - GAP -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEditar" aria-expanded="true"
-          aria-controls="collapseEditar">
-          <i class="fas fa-edit"></i>
-          <span>Editar</span>
-        </a>
-        <div id="collapseEditar" class="collapse" aria-labelledby="headingEditar" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Login Screens:</h6>-->
-            <a class="collapse-item" href="#">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Eliminar Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEliminar"
-          aria-expanded="true" aria-controls="collapseEliminar">
-          <i class="fas fa-trash"></i>
-          <span>Eliminar</span>
-        </a>
-        <div id="collapseEliminar" class="collapse" aria-labelledby="headingEliminar" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Login Screens:</h6>-->
-            <a class="collapse-item" href="#">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
+        <a class="nav-link" href="../gap"> <!--Alterar HREF -->
+          <i class="fas fa-users"></i>
+          <span>Gabinete de Apoio Psicológico</span></a>
       </li>
 
 
@@ -212,13 +180,16 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          
-        <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Aqui podes partilhar todos os teus conhecimentos e experiências com todos os alunos.</h1>
+
+          <!-- Page Heading -->
+          <div class="align-items-center justify-content-between mb-4">
+            <h2 class="h2 mb-0 text-gray-800">Fórum</h2>
+            <br>
+            <h4 class="h4 mb-0 text-gray-800">Aqui podes partilhar todos os teus conhecimentos e experiências com todos
+              os alunos.</h4>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-lg-12">
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">

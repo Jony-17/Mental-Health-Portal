@@ -11,23 +11,35 @@ if (isset($_SESSION['id_utilizador'])) {
   // Variável para rastrear se houve alguma edição nos campos
   $edicao_realizada = false;
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "<script>console.log('Formulário enviado');</script>";
+  $query = "SELECT nome, email, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
-    if (isset($_POST["novo_nome"]) && !empty($_POST["novo_nome"])) {
-      $novo_nome = $_POST["novo_nome"];
-      echo "<script>console.log('Novo nome: $novo_nome');</script>";
+  $result = mysqli_query($conn, $query);
 
-      // Query para atualizar apenas o nome no banco de dados
-      $sql = "UPDATE utilizadores SET nome='$novo_nome' WHERE utilizador_id = $utilizador_id";
+  if ($result) {
+    // Extrair o resultado da consulta
+    $row = mysqli_fetch_assoc($result);
 
-      if ($conn->query($sql) === TRUE) {
-        $_SESSION['success_nome_message'] = "Nome atualizado com sucesso!";
-        $edicao_realizada = true;
-      } else {
-        echo "<p class='text-danger'>Erro ao atualizar o nome: " . $conn->error . "</p>";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      echo "<script>console.log('Formulário enviado');</script>";
+
+      if (isset($_POST["novo_nome"]) && !empty($_POST["novo_nome"])) {
+        $novo_nome = $_POST["novo_nome"];
+        echo "<script>console.log('Novo nome: $novo_nome');</script>";
+
+        if ($novo_nome !== $row['nome']) {
+          // Query para atualizar apenas o nome no banco de dados
+          $sql = "UPDATE utilizadores SET nome='$novo_nome' WHERE utilizador_id = $utilizador_id";
+
+          if ($conn->query($sql) === TRUE) {
+            $_SESSION['success_nome_message'] = "Nome atualizado com sucesso!";
+            $edicao_realizada = true;
+          }
+        } else {
+          $_SESSION['danger_nome_message'] = "Nome utilizado anteriormente. Insere outro!";
+        }
       }
     }
+
 
     // Verifica se o novo email foi enviado no formulário
     if (isset($_POST["novo_email"]) && !empty($_POST["novo_email"])) {
@@ -38,25 +50,32 @@ if (isset($_SESSION['id_utilizador'])) {
       $result_check_email = mysqli_query($conn, $query_check_email);
       $row_check_email = mysqli_fetch_assoc($result_check_email);
 
-      if ($row_check_email['total'] > 0) {
-        $_SESSION['danger_email_message'] = "O email fornecido já está em uso. Por favor, escolha outro email.</p>";
-      } else {
-        // Query para atualizar apenas o email no banco de dados
-        $sql = "UPDATE utilizadores SET email='$novo_email' WHERE utilizador_id = $utilizador_id";
-
-        if ($conn->query($sql) === TRUE) {
-          $_SESSION['success_email_message'] = "Email atualizado com sucesso!";
-          unset($_SESSION['success_nome_message']);
+      if ($novo_email !== $row['email']) {
+        if ($row_check_email['total'] > 0) {
+          $_SESSION['danger_email_message'] = "O email fornecido já está em uso. Por favor, escolha outro email.</p>";
         } else {
-          echo "<p class='text-danger'>Erro ao atualizar o email: " . $conn->error . "</p>";
+          // Query para atualizar apenas o email no banco de dados
+          $sql = "UPDATE utilizadores SET email='$novo_email' WHERE utilizador_id = $utilizador_id";
+
+          if ($conn->query($sql) === TRUE) {
+            $_SESSION['success_email_message'] = "Email atualizado com sucesso!";
+            $edicao_realizada = true;
+            //unset($_SESSION['success_email_message']);
+          } else {
+            $_SESSION['danger_email_message'] = "Erro ao atualizar o email: " . $conn->error;
+          }
         }
+      } else {
+        $_SESSION['danger_email_message'] = "Email utilizado anteriormente. Insere outro!";
       }
     }
+
+
 
     // Verifica se a nova senha foi enviada no formulário
     if (isset($_POST["nova_password"]) && !empty($_POST["nova_password"])) {
       $nova_password = $_POST["nova_password"];
-
+      
       $senha_hash = password_hash($nova_password, PASSWORD_DEFAULT);
 
       // Verifica a senha atual no banco de dados
@@ -71,29 +90,28 @@ if (isset($_SESSION['id_utilizador'])) {
       }
     }
 
-    // Verifica se a nova imagem foi enviada no formulário
-    /*if ($_FILES['nova_img_perfil']['error'] == UPLOAD_ERR_OK && !empty($_FILES['nova_img_perfil']['tmp_name'])) {
-      echo "<script>console.log('testeste');</script>";
-      $nova_img_perfil_temp = $_FILES['nova_img_perfil']['tmp_name'];
-      $nova_img_perfil_nome = $_FILES['nova_img_perfil']['name'];
-      echo "<script>console.log('Nova imagem de perfil: $nova_img_perfil');</script>";
 
-      // Move o arquivo para o diretório de destino
-      $destino = "../areacliente/registo/imgs/" . $nova_img_perfil;
-      if (move_uploaded_file($_FILES["nova_img_perfil"]["tmp_name"], $destino)) {
-        // Atualiza o nome do arquivo no banco de dados
-        $sql = "UPDATE utilizadores SET img_perfil='$nova_img_perfil' WHERE utilizador_id = $utilizador_id";
+    // Verifica se a nova imagem de perfil foi enviada no formulário
+    if (isset($_FILES["nova_imagemperfil"]) && !empty($_FILES["nova_imagemperfil"]["name"])) {
+      $nome_arquivo = $_FILES["nova_imagemperfil"]["name"];
+      $nome_temporario = $_FILES["nova_imagemperfil"]["tmp_name"];
+      $caminho_destino = "../areacliente/registo/imgs" . $nome_arquivo;
+
+      if (move_uploaded_file($nome_temporario, $caminho_destino)) {
+        // Atualize o campo de imagem de perfil no banco de dados com o novo caminho da imagem
+        $sql = "UPDATE utilizadores SET img_perfil='$nome_arquivo' WHERE utilizador_id = $utilizador_id";
 
         if ($conn->query($sql) === TRUE) {
-          $_SESSION['success_img_message'] = "Imagem de perfil atualizada com sucesso!";
+          $_SESSION['success_imagemperfil_message'] = "Foto de perfil atualizada com sucesso!";
+          $edicao_realizada = true;
         } else {
-          echo "<p class='text-danger'>Erro ao atualizar a imagem de perfil: " . $conn->error . "</p>";
+          $_SESSION['danger_imagemperfil_message'] = "Erro ao atualizar a foto de perfil: " . $conn->error;
         }
       } else {
-        // Ocorreu um erro ao mover o arquivo
-        echo "Erro ao fazer upload da imagem.";
+        $_SESSION['danger_imagemperfil_message'] = "Erro ao fazer o upload da foto de perfil.";
       }
-    }*/
+    }
+
 
   }
 
@@ -133,9 +151,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -177,7 +200,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Registos de automonitorização -->
       <li class="nav-item">
-        <a class="nav-link" href="#"> <!--Alterar HREF -->
+        <a class="nav-link" href="registos-automonitorizacao"> <!--Alterar HREF -->
           <i class="fas fa-clipboard"></i>
           <span>Registos de automonitorização</span></a>
       </li>
@@ -192,61 +215,9 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - GAP -->
       <li class="nav-item">
-        <a class="nav-link" href="#"> <!--Alterar HREF -->
+        <a class="nav-link" href="gap"> <!--Alterar HREF -->
           <i class="fas fa-users"></i>
           <span>Gabinete de Apoio Psicológico</span></a>
-      </li>
-
-      <!-- Nav Item - Inserir Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInserir"
-          aria-expanded="true" aria-controls="collapseInserir">
-          <i class="fas fa-folder-plus"></i>
-          <span>Inserir</span>
-        </a>
-        <div id="collapseInserir" class="collapse" aria-labelledby="headingInserir" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
-            <a class="collapse-item" href="inserir/artigos/inserir_artigos.php">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
-      </li>
-
-
-      <!-- Nav Item - Editar Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEditar" aria-expanded="true"
-          aria-controls="collapseEditar">
-          <i class="fas fa-edit"></i>
-          <span>Editar</span>
-        </a>
-        <div id="collapseEditar" class="collapse" aria-labelledby="headingEditar" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Login Screens:</h6>-->
-            <a class="collapse-item" href="#">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Eliminar Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEliminar"
-          aria-expanded="true" aria-controls="collapseEliminar">
-          <i class="fas fa-trash"></i>
-          <span>Eliminar</span>
-        </a>
-        <div id="collapseEliminar" class="collapse" aria-labelledby="headingEliminar" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Login Screens:</h6>-->
-            <a class="collapse-item" href="#">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
       </li>
 
 
@@ -334,71 +305,99 @@ if (isset($_SESSION['id_utilizador'])) {
                   <h6 class="m-0 font-weight-bold text-primary">Edição de dados</h6>
                 </div>
                 <div class="card-body">
-                  <div class="mt-4 mb-2">
-                    <p>NOME</p>
-                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                      <input type="text" name="novo_nome" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;" value="<?php echo $row["nome"] ?>">
-                      <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
-                        <span class="text">Atualizar</span>
-                      </button>
-                      <?php
-                      // Verifica se existe uma mensagem de sucesso na sessão
-                      if (isset($_SESSION['success_nome_message'])) {
-                        echo "<p class='text-success'>" . $_SESSION['success_nome_message'] . "</p>";
-                        // Limpa a mensagem da sessão
-                        unset($_SESSION['success_nome_message']);
-                      }
-                      ?>
-                    </form>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <p>NOME</p>
+                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <input type="text" name="novo_nome"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;"
+                          value="<?php echo $row["nome"] ?>">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                          <span class="text">Atualizar</span>
+                        </button>
+                        <?php
+                        // Verifica se existe uma mensagem de sucesso na sessão
+                        if (isset($_SESSION['success_nome_message'])) {
+                          echo "<p class='text-success'>" . $_SESSION['success_nome_message'] . "</p>";
+                          // Limpa a mensagem da sessão
+                          unset($_SESSION['success_nome_message']);
+                        }
+                        if (isset($_SESSION['danger_nome_message'])) {
+                          echo "<p class='text-danger'>" . $_SESSION['danger_nome_message'] . "</p>";
+                          // Limpa a mensagem da sessão
+                          unset($_SESSION['danger_nome_message']);
+                        }
+                        ?>
+                      </form>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <p>EMAIL</p>
+                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <input type="email" name="novo_email"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;"
+                          value="<?php echo $row["email"] ?>">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                          <span class="text">Atualizar</span>
+                        </button>
+                        <?php
+                        // Verifica se existe uma mensagem de sucesso na sessão
+                        if (isset($_SESSION['success_email_message'])) {
+                          echo "<p class='text-success'>" . $_SESSION['success_email_message'] . "</p>";
+                          // Limpa a mensagem da sessão
+                          unset($_SESSION['success_email_message']);
+                        }
+                        if (isset($_SESSION['danger_email_message'])) {
+                          echo "<p class='text-danger'>" . $_SESSION['danger_email_message'] . "</p>";
+                          // Limpa a mensagem da sessão
+                          unset($_SESSION['danger_email_message']);
+                        }
+                        ?>
+                      </form>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <p>PASSWORD</p>
+                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>
+                        <input type="password" name="nova_password" id="password" placeholder="Insere a password"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                          <span class="text">Atualizar</span>
+                        </button>
+                        <?php
+                        // Verifica se existe uma mensagem de sucesso na sessão
+                        if (isset($_SESSION['success_password_message'])) {
+                          echo "<p class='text-success'>" . $_SESSION['success_password_message'] . "</p>";
+                          // Limpa a mensagem da sessão
+                          unset($_SESSION['success_password_message']);
+                        }
+                        ?>
+                      </form>
+                    </div>
+
+
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <p>FOTO DE PERFIL</p>
+                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+                        <!--<i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>-->
+                        <input type="file" name="nova_imagemperfil" id="imagemperfil"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                          <span class="text">Atualizar</span>
+                        </button>
+                        <?php
+                        // Verifica se existe uma mensagem de sucesso na sessão
+                        if (isset($_SESSION['success_imagemperfil_message'])) {
+                          echo "<p class='text-success'>" . $_SESSION['success_imagemperfil_message'] . "</p>";
+                          // Limpa a mensagem da sessão
+                          unset($_SESSION['success_imagemperfil_message']);
+                        }
+                        ?>
+                      </form>
+                    </div>
+
                   </div>
-
-                  <div class="mt-4 mb-2">
-                    <p>EMAIL</p>
-                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                      <input type="email" name="novo_email" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;"
-                        value="<?php echo $row["email"] ?>">
-                      <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
-                        <span class="text">Atualizar</span>
-                      </button>
-                      <?php
-                      // Verifica se existe uma mensagem de sucesso na sessão
-                      if (isset($_SESSION['success_email_message'])) {
-                        echo "<p class='text-success'>" . $_SESSION['success_email_message'] . "</p>";
-                        // Limpa a mensagem da sessão
-                        unset($_SESSION['success_email_message']);
-                      }
-                      if (isset($_SESSION['danger_email_message'])) {
-                        echo "<p class='text-danger'>" . $_SESSION['danger_email_message'] . "</p>";
-                        // Limpa a mensagem da sessão
-                        unset($_SESSION['danger_email_message']);
-                      }
-                      ?>
-                    </form>
-                  </div>
-
-                  <div class="mt-4 mb-2">
-                    <p>PASSWORD</p>
-                    <p>Esta encontra-se encriptada</p>
-                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                      <i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>
-                      <input type="password" name="nova_password" id="password"
-                        style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;" value="<?php echo $row["password"] ?>">
-                      <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
-                        <span class="text">Atualizar</span>
-                      </button>
-                      <?php
-                      // Verifica se existe uma mensagem de sucesso na sessão
-                      if (isset($_SESSION['success_password_message'])) {
-                        echo "<p class='text-success'>" . $_SESSION['success_password_message'] . "</p>";
-                        // Limpa a mensagem da sessão
-                        unset($_SESSION['success_password_message']);
-                      }
-                      ?>
-                    </form>
-                  </div>
-
-
-
                 </div>
               </div>
 
@@ -435,7 +434,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       ?>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <i class="fas fa-handshake fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -462,7 +461,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       ?>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <i class="far fa-comments fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -489,7 +488,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       ?>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <i class="fas fa-bolt fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -517,7 +516,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       ?>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <i class="far fa-smile-wink fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
