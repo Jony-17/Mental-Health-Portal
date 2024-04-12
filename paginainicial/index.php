@@ -3,7 +3,7 @@ session_start();
 require_once ("../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -80,17 +80,17 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
                         <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -119,18 +119,19 @@ if (isset ($_SESSION['id_utilizador'])) {
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="..conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
                     <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
@@ -251,32 +252,39 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <a href="../perturbacoes" class="third-button">Ver mais</a>
             </div>
         </div>
-        <div class="card2-container">
-            <div class="card2">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-perso-circle.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Personalidade</h1>
+        <?php
+
+        $query = "SELECT nome, img_perturbacao FROM perturbacoes LIMIT 4";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            ?>
+            <div class="card2-container">
+                <?php
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="card2">
+                        <?php
+
+                        $nome_codificado = urlencode($row["nome"]);
+
+                        ?>
+                        <a href="../perturbacoes/grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
+                            <img src="imgs/imgs-perturbacoes/pert-perso-circle.png" alt="Perturbações Mentais">
+                            <!--<?php echo $row["img_perturbacao"] ?>-->
+                        </a>
+                        <h1><?php echo $row["nome"] ?></h1>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
-            <div class="card2">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-humor-circle.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Humor</h1>
-            </div>
-            <div class="card2">
-                <a href="#">
-                    <img src="imgs/imgs-perturbacoes/pert-sono-circle.png" alt="Depressão">
-                </a>
-                <h1>Perturbações do Sono</h1>
-            </div>
-            <div class="card2">
-                <a href="../perturbacoes/perturbacoes-ansiedade/">
-                    <img src="imgs/imgs-perturbacoes/pert-ansie-circle.png" alt="Depressão">
-                </a>
-                <h1>Perturbações de Ansiedade</h1>
-            </div>
-        </div>
+            <?php
+        } else {
+            echo 'deu';
+        }
+        ?>
     </section>
 
 
@@ -291,38 +299,43 @@ if (isset ($_SESSION['id_utilizador'])) {
                 Últimas publicações
             </h1>
         </div>
-        <div class="card3-container">
-            <div class="card3">
-                <a href="#">
-                    <img src="imgs/imgs-artigos/artigo1.webp" alt="O que é a saúde mental?">
-                </a>
-                <div class="card3-content">
-                    <h1>O que é a saúde mental?</h1>
-                    <p>Publicado: 20 de fevereiro de 2024</p>
-                    <p>Autor: João Araújo</p>
-                </div>
+        <?php
+
+        $query = "SELECT titulo, data_publicacao, autor, img_artigo FROM artigos LIMIT 3";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            ?>
+            <div class="card3-container">
+
+                <?php
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="card3">
+                        <?php
+
+                        $titulo_codificado = urlencode($row["titulo"]);
+
+                        ?>
+                        <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
+                            <img src="<?php echo $row["img_artigo"] ?>" alt="Artigos científicos">
+                        </a>
+                        <div class="card3-content">
+                            <h1><?php echo $row["titulo"] ?></h1>
+                            <p><?php echo $row["data_publicacao"] ?></p>
+                            <p><?php echo $row["autor"] ?></p>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
-            <div class="card3">
-                <a href="#">
-                    <img src="imgs/imgs-artigos/artigo2.webp" alt="Os traumas e consequências">
-                </a>
-                <div class="card3-content">
-                    <h1>Os traumas e consequências</h1>
-                    <p>Publicado: 20 de fevereiro de 2024</p>
-                    <p>Autor: João Araújo</p>
-                </div>
-            </div>
-            <div class="card3">
-                <a href="#">
-                    <img src="imgs/imgs-artigos/artigo2.webp" alt="Os traumas e consequências">
-                </a>
-                <div class="card3-content">
-                    <h1>Os traumas e consequências</h1>
-                    <p>Publicado: 20 de fevereiro de 2024</p>
-                    <p>Autor: João Araújo</p>
-                </div>
-            </div>
-        </div>
+            <?php
+        } else {
+            echo "deu";
+        }
+        ?>
         <a href="../artigos" class="fourth-button">Ver mais</a>
     </section>
 
@@ -339,7 +352,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             </h1>
         </div>
         <div class="card4-container">
-            <a href="../quizzes/quizzes-empatia">
+            <a href="../conteudo-educativo/quizzes/quizzes-empatia">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>O quão empática/o és?</h1>
@@ -349,7 +362,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </a>
-            <a href="../quizzes/quizzes-emocao">
+            <a href="../conteudo-educativo/quizzes/quizzes-emocao">
                 <div class="card4">
                     <div class="card4-content">
                         <h1>O quão livre és, emocionalmente?</h1>
@@ -360,7 +373,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </div>
             </a>
         </div>
-        <a href="../quizzes" class="fifth-button">Ver mais</a>
+        <a href="../conteudo-educativo/quizzes" class="fifth-button">Ver mais</a>
     </section>
 
 
@@ -375,59 +388,85 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <h1 class="noticias-second-heading">
                     Saúde Mental
                 </h1>
-                <a href="#" class="sixth-button">Ver mais</a>
+                <a href="../noticias" class="sixth-button">Ver mais</a>
             </div>
         </div>
 
 
-        <div class="image-grid">
+        <?php
 
-            <div class="image-grid-container1">
-                <a href="#">
-                    <div class="image-grid-container1text">
-                        <h2>Vamos falar de saúde mental</h2>
-                        <p>João Araújo</p>
+        $query = "SELECT titulo, autor, img_artigo FROM artigos LIMIT 1";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            ?>
+
+            <div class="image-grid">
+                <?php
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+
+                    <div class="image-grid-container1">
+                        <?php
+
+                        $titulo_codificado = urlencode($row["titulo"]);
+
+                        ?>
+                        <a href="#">
+                            <div class="image-grid-container1text">
+                                <h2><?php echo $row["titulo"] ?></h2>
+                                <p><?php echo $row["autor"] ?></p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
+                    <?php
+                }
+                ?>
 
-            <div class="image-grid-container2">
-                <a href="#">
-                    <div class="image-grid-container2text">
-                        <h2>Vamos falar de saúde mental</h2>
-                        <p>João Araújo</p>
-                    </div>
-                </a>
-            </div>
 
-            <div class="image-grid-container3">
-                <a href="#">
-                    <div class="image-grid-container2text">
-                        <h2>Vamos falar de saúde mental</h2>
-                        <p>João Araújo</p>
-                    </div>
-                </a>
-            </div>
+                <div class="image-grid-container2">
+                    <a href="#">
+                        <div class="image-grid-container2text">
+                            <h2>Vamos falar de saúde mental</h2>
+                            <p>João Araújo</p>
+                        </div>
+                    </a>
+                </div>
 
-            <div class="image-grid-container4">
-                <a href="#">
-                    <div class="image-grid-container2text">
-                        <h2>Vamos falar de saúde mental</h2>
-                        <p>João Araújo</p>
-                    </div>
-                </a>
-            </div>
+                <div class="image-grid-container3">
+                    <a href="#">
+                        <div class="image-grid-container2text">
+                            <h2>Vamos falar de saúde mental</h2>
+                            <p>João Araújo</p>
+                        </div>
+                    </a>
+                </div>
 
-            <div class="image-grid-container5">
-                <a href="#">
-                    <div class="image-grid-container2text">
-                        <h2>Vamos falar de saúde mental</h2>
-                        <p>João Araújo</p>
-                    </div>
-                </a>
-            </div>
+                <div class="image-grid-container4">
+                    <a href="#">
+                        <div class="image-grid-container2text">
+                            <h2>Vamos falar de saúde mental</h2>
+                            <p>João Araújo</p>
+                        </div>
+                    </a>
+                </div>
 
-        </div>
+                <div class="image-grid-container5">
+                    <a href="#">
+                        <div class="image-grid-container2text">
+                            <h2>Vamos falar de saúde mental</h2>
+                            <p>João Araújo</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <?php
+        } else {
+            echo "deu";
+        }
+        ?>
     </section>
 
     <!--Perguntas Frequentes-->
@@ -443,7 +482,7 @@ if (isset ($_SESSION['id_utilizador'])) {
         </div>
         <div class="faq">
             <div class="question">
-                <h3>What is</h3>
+                <h3>What isWhat isWhat isWhat is</h3>
                 <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
@@ -451,7 +490,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </svg>
             </div>
             <div class="answer">
-                <p>testetestestestetetetetetetetetete</p>
+                <p>testetestestestetetetetetetetetetetestetestestestetetetetetetetetetetestetestestestetetetetetetetetete
+                </p>
             </div>
         </div>
 
@@ -465,7 +505,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </svg>
             </div>
             <div class="answer">
-                <p>testetestestestetetetetetetetetete</p>
+                <p>testetestestestetetetetetetetetetetestetestestestetetetetetetetetetetestetestestestetetetetetetetetete
+                </p>
             </div>
         </div>
 
@@ -479,14 +520,15 @@ if (isset ($_SESSION['id_utilizador'])) {
                 </svg>
             </div>
             <div class="answer">
-                <p>testetestestestetetetetetetetetete</p>
+                <p>testetestestestetetetetetetetetetetestetestestestetetetetetetetetetetestetestestestetetetetetetetetete
+                </p>
             </div>
         </div>
     </section>
 
 
     <!--Newsletter-->
-    <?php if (empty ($_SESSION['id_utilizador'])): ?>
+    <?php if (empty($_SESSION['id_utilizador'])): ?>
         <section class="newsletter" id="newsletter">
             <div class="newsletter-container">
                 <div class="box-newsletter">
@@ -514,48 +556,101 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <p>Tu mereces ser feliz.</p>
             </div>
 
-            <div class="footer-col">
-                <h3>Perturbações</h3>
-                <ul>
-                    <li><a href="../perturbacoes/perturbacoes-ansiedade/">Perturbações de Ansiedade</a></li>
-                    <li><a href="#">Perturbações do Sono - Vigília</a></li>
-                    <li><a href="#">Perturbações de Humor</a></li>
-                    <li><a href="#">Perturbações Alimentares</a></li>
-                    <li><a href="#">Perturbações Obsessivo-Compulsivas</a></li>
-                    <li><a href="#">Perturbações de Personalidade</a></li>
-                    <li><a href="#">Perturbações relacionadas com trauma<br>e fatores de stress</a></li>
-                </ul>
-            </div>
+            <?php
 
-            <div class="footer-col">
-                <h3>Artigos</h3>
-                <ul>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                </ul>
-            </div>
+            $query = "SELECT nome, img_perturbacao FROM perturbacoes";
+            $result = mysqli_query($conn, $query);
 
-            <div class="footer-col">
-                <h3>Notícias</h3>
-                <ul>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                </ul>
-            </div>
+            if ($result && mysqli_num_rows($result) > 0) {
+                ?>
+                <div class="footer-col">
+                    <h3>Perturbações</h3>
+                    <?php
 
-            <div class="footer-col">
-                <h3>Conteúdo Educativo</h3>
-                <ul>
-                    <li><a href="../quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="#">TED Talks</a></li>
-                </ul>
-            </div>
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <ul>
+                            <?php
 
+                            $nome_codificado = urlencode($row["nome"]);
+                            ?>
+                            <li><a
+                                    href="../perturbacoes/grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"><?php echo $row["nome"] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!--Artigos-->
+            <?php
+
+            $query = "SELECT titulo FROM artigos LIMIT 3";
+            $result = mysqli_query($conn, $query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                ?>
+
+                <div class="footer-col">
+                    <h3>Artigos</h3>
+                    <?php
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+
+                        <ul>
+                            <?php
+                            $titulo_codificado = urlencode($row["titulo"]);
+                            ?>
+                            <li><a
+                                    href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!--Notícias-->
+            <?php
+
+            $query = "SELECT titulo FROM artigos LIMIT 3";
+            $result = mysqli_query($conn, $query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                ?>
+
+                <div class="footer-col">
+                    <h3>Notícias</h3>
+                    <?php
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+
+                        <ul>
+                            <?php
+                            $titulo_codificado = urlencode($row["titulo"]);
+                            ?>
+                            <li><a
+                                    href="../noticias/noticia/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!--Contactos-->
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
