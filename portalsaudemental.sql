@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Abr-2024 às 03:42
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 12-Abr-2024 às 18:52
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -126,9 +126,9 @@ CREATE TABLE `grupos_perturbacoes` (
   `grupos_perturbacoes_id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `texto` mediumtext NOT NULL,
-  `sintomas_texto` mediumtext NOT NULL,
-  `prevalencias_texto` mediumtext NOT NULL,
-  `ajuda_texto` mediumtext NOT NULL
+  `sintomas_texto` mediumtext DEFAULT NULL,
+  `prevalencias_texto` mediumtext DEFAULT NULL,
+  `ajuda_texto` mediumtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -149,9 +149,9 @@ INSERT INTO `grupos_perturbacoes` (`grupos_perturbacoes_id`, `nome`, `texto`, `s
 (11, 'Bulimia Nervosa', 'teste', 'teste', 'teste', 'teste'),
 (12, 'Perturbação de Ingestão Alimentar Compulsiva', 'teste', 'teste', 'teste', 'teste'),
 (13, 'Perturbações Obsessivo-Compulsivas', 'teste', 'teste', 'teste', 'teste'),
-(14, 'Grupo A', 'teste', '', '', ''),
-(15, 'Grupo B', 'teste', '', '', ''),
-(16, 'Grupo C', 'teste', '', '', ''),
+(14, 'Grupo A', 'teste', NULL, NULL, NULL),
+(15, 'Grupo B', 'teste', NULL, NULL, NULL),
+(16, 'Grupo C', 'teste', NULL, NULL, NULL),
 (17, 'Perturbação de Stress Pós-Traumático', 'teste', 'teste', 'teste', 'teste'),
 (18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste');
 
@@ -262,7 +262,21 @@ INSERT INTO `mensagens` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) 
 (22, 1703689628, 1703689423, 'Olá!'),
 (23, 1703689423, 1703689628, 'Como estás?'),
 (24, 1703689628, 1703689423, 'bem e tu?'),
-(25, 1703689423, 1703689628, 'também, obg por perguntares');
+(25, 1703689423, 1703689628, 'também, obg por perguntares'),
+(26, 1035944128, 1703689423, 'ol');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `noticias`
+--
+
+CREATE TABLE `noticias` (
+  `noticias_id` int(11) NOT NULL,
+  `titulo` varchar(1000) NOT NULL,
+  `data_publicacao` varchar(1000) NOT NULL,
+  `autor` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -426,6 +440,31 @@ INSERT INTO `quiz_preocupacao` (`quiz_preocupacao_id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `registos`
+--
+
+CREATE TABLE `registos` (
+  `registos_id` int(11) NOT NULL,
+  `pensamento` varchar(1000) DEFAULT NULL,
+  `comportamento` varchar(1000) DEFAULT NULL,
+  `sentimentos` varchar(1000) DEFAULT NULL,
+  `quando` varchar(1000) DEFAULT NULL,
+  `pensamento_alternativo` varchar(1000) DEFAULT NULL,
+  `comportamento_alternativo` varchar(1000) DEFAULT NULL,
+  `nota` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `registos`
+--
+
+INSERT INTO `registos` (`registos_id`, `pensamento`, `comportamento`, `sentimentos`, `quando`, `pensamento_alternativo`, `comportamento_alternativo`, `nota`) VALUES
+(22, 'a', 'b', 'c', 'd', 'e', 'f', NULL),
+(23, 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `ted_talks`
 --
 
@@ -493,7 +532,7 @@ CREATE TABLE `utilizadores` (
 INSERT INTO `utilizadores` (`utilizador_id`, `unique_id`, `nome`, `email`, `password`, `genero`, `img_perfil`, `admin`, `data_criacao`) VALUES
 (10, 0, 'Admin2', 'admin2@gmail.com', '$2y$10$/VvdG5/dxdJXeUa/ockQFeiuQtyPZPuIr0aZHd3u7QJVGa9Bg2ZKC', 2, 'user2.png', 1, '0000-00-00 00:00:00'),
 (12, 0, 'Admin', 'admin@gmail.com', '$2y$10$qhuOmrEAp7dt2CkDG.RAiOqrT.Ief55PRldhZjDpzDuVejQv002k.', 1, 'user.png', 1, '2024-02-25 20:17:56'),
-(18, 1703689423, 'João', 'teste@gmail.com', '$2y$10$7Hf76z0PQaMFE.hBKGE7vur5e1OkdxEVsWD1CYFlddpt/CjfQs1ey', 1, 'user2.png', 0, '2024-03-11 15:13:13'),
+(18, 1703689423, 'João', 'teste@gmail.com', '$2y$10$8qMhwftCElzhnpLEedY0q.J41n3Qda0CufK.1c/TOFJVC8eGdBmQK', 1, 'user.png', 0, '2024-03-11 15:13:13'),
 (26, 1703689628, 'Fernando', 'teste2@gmail.com', '$2y$10$yAkDfepI6ubbkl0tHBluPOO6FOdJ6N6ODgi0/JZp8GZ6IwUfFrgzu', 3, 'user.png', 0, '2024-03-12 10:26:14'),
 (27, 1035944128, 'Miguel', 'teste3@gmail.com', '$2y$10$i2zHS8WBb0bgvZDzkSgE7./3LGOfUa2lGKJjhli9sOEmzlCk8fwRu', 1, 'pin booking.jpg', 0, '2024-03-12 16:38:55');
 
@@ -553,6 +592,12 @@ ALTER TABLE `mensagens`
   ADD PRIMARY KEY (`msg_id`);
 
 --
+-- Índices para tabela `noticias`
+--
+ALTER TABLE `noticias`
+  ADD PRIMARY KEY (`noticias_id`);
+
+--
 -- Índices para tabela `perturbacoes`
 --
 ALTER TABLE `perturbacoes`
@@ -598,6 +643,12 @@ ALTER TABLE `quiz_energia`
 --
 ALTER TABLE `quiz_preocupacao`
   ADD PRIMARY KEY (`quiz_preocupacao_id`);
+
+--
+-- Índices para tabela `registos`
+--
+ALTER TABLE `registos`
+  ADD PRIMARY KEY (`registos_id`);
 
 --
 -- Índices para tabela `ted_talks`
@@ -662,7 +713,13 @@ ALTER TABLE `juncao_pert_personalidade`
 -- AUTO_INCREMENT de tabela `mensagens`
 --
 ALTER TABLE `mensagens`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de tabela `noticias`
+--
+ALTER TABLE `noticias`
+  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes`
@@ -705,6 +762,12 @@ ALTER TABLE `quiz_energia`
 --
 ALTER TABLE `quiz_preocupacao`
   MODIFY `quiz_preocupacao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `registos`
+--
+ALTER TABLE `registos`
+  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `ted_talks`
