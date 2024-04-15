@@ -22,6 +22,47 @@ if (isset($_SESSION['id_utilizador'])) {
 } else {
     echo "NÃO DEU";
 }
+
+
+$row_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
+
+// Consulta SQL para buscar o banner da perturbação pelo nome
+$query_banner = "SELECT artigo_id, img_artigo FROM artigos LIMIT 1";
+
+// Executar a consulta para obter o banner da perturbação
+$result_banner = mysqli_query($conn, $query_banner);
+
+// Criar um array associativo para armazenar os banners de cada artigo
+$artigo_banners = array();
+
+// Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+if ($result_banner) {
+    // Extrair os resultados da consulta e armazenar no array $artigo_banners
+    while ($row_banner = mysqli_fetch_assoc($result_banner)) {
+        $artigo_id = $row_banner['artigo_id'];
+        $artigo_banners[$artigo_id] = $row_banner['img_artigo'];
+    }
+}
+
+$row2_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
+
+// Consulta SQL para buscar o banner da perturbação pelo nome
+$query2_banner = "SELECT artigo_id, img_artigo FROM artigos LIMIT 1";
+
+// Executar a consulta para obter o banner da perturbação
+$result2_banner = mysqli_query($conn, $query2_banner);
+
+// Criar um array associativo para armazenar os banners de cada artigo
+$artigo2_banners = array();
+
+// Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+if ($result2_banner) {
+    // Extrair os resultados da consulta e armazenar no array $artigo_banners
+    while ($row2_banner = mysqli_fetch_assoc($result2_banner)) {
+        $artigo_id = $row2_banner['artigo_id'];
+        $artigo2_banners[$artigo_id] = $row2_banner['img_artigo'];
+    }
+}
 ?>
 
 
@@ -65,6 +106,12 @@ if (isset($_SESSION['id_utilizador'])) {
             height: 600px;
             border: none;
         }
+
+        <?php foreach ($artigo_banners as $artigo_id => $banner_url) { ?>
+            .image-grid-container1 {
+                background-image: url("<?php echo $banner_url; ?>");
+            }
+        <?php } ?>
     </style>
 
     <header>
@@ -254,7 +301,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
         <?php
 
-        $query = "SELECT nome, img_perturbacao FROM perturbacoes LIMIT 4";
+        $query = "SELECT nome, img_perturbacao, img_perturbacao_circ FROM perturbacoes LIMIT 4";
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -271,8 +318,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                         ?>
                         <a href="../perturbacoes/grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
-                            <img src="imgs/imgs-perturbacoes/pert-perso-circle.png" alt="Perturbações Mentais">
-                            <!--<?php echo $row["img_perturbacao"] ?>-->
+                            <img src="<?php echo $row["img_perturbacao_circ"] ?>" alt="Perturbações Mentais">
                         </a>
                         <h1><?php echo $row["nome"] ?></h1>
                     </div>
@@ -392,81 +438,89 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
         </div>
 
+        <div class="image-grid">
+            <?php
 
-        <?php
+            $query = "SELECT titulo, autor, img_artigo FROM artigos LIMIT 1";
+            $result = mysqli_query($conn, $query);
 
-        $query = "SELECT titulo, autor, img_artigo FROM artigos LIMIT 1";
-        $result = mysqli_query($conn, $query);
+            if ($result && mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                ?>
 
-        if ($result && mysqli_num_rows($result) > 0) {
+                <div class="image-grid-container1">
+                    <?php
+
+                    $titulo_codificado = urlencode($row["titulo"]);
+
+                    ?>
+                    <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
+                        <div class="image-grid-container1text">
+                            <h2><?php echo $row["titulo"] ?></h2>
+                            <p><?php echo $row["autor"] ?></p>
+                        </div>
+                    </a>
+                </div>
+                
+                <?php
+            }
             ?>
 
-            <div class="image-grid">
+
+            <div class="image-grid-container2">
                 <?php
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
+                $query2 = "SELECT titulo, autor, img_artigo FROM artigos LIMIT 1, 2";
+                $result2 = mysqli_query($conn, $query2);
 
-                    <div class="image-grid-container1">
+                while ($row2 = mysqli_fetch_assoc($result2)) {
+                    ?>
+                    <div class="image-grid-container22">
                         <?php
 
                         $titulo_codificado = urlencode($row["titulo"]);
 
                         ?>
-                        <a href="#">
-                            <div class="image-grid-container1text">
-                                <h2><?php echo $row["titulo"] ?></h2>
-                                <p><?php echo $row["autor"] ?></p>
+                        <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
+                            <div class="image-grid-container22text">
+                                <h2><?php echo $row2["titulo"] ?></h2>
+                                <p><?php echo $row2["autor"] ?></p>
                             </div>
                         </a>
                     </div>
+
                     <?php
                 }
                 ?>
-
-
-                <div class="image-grid-container2">
-                    <a href="#">
-                        <div class="image-grid-container2text">
-                            <h2>Vamos falar de saúde mental</h2>
-                            <p>João Araújo</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="image-grid-container3">
-                    <a href="#">
-                        <div class="image-grid-container2text">
-                            <h2>Vamos falar de saúde mental</h2>
-                            <p>João Araújo</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="image-grid-container4">
-                    <a href="#">
-                        <div class="image-grid-container2text">
-                            <h2>Vamos falar de saúde mental</h2>
-                            <p>João Araújo</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="image-grid-container5">
-                    <a href="#">
-                        <div class="image-grid-container2text">
-                            <h2>Vamos falar de saúde mental</h2>
-                            <p>João Araújo</p>
-                        </div>
-                    </a>
-                </div>
-
             </div>
-            <?php
-        } else {
-            echo "deu";
-        }
-        ?>
+
+            <div class="image-grid-container2">
+                <?php
+
+                $query3 = "SELECT titulo, autor, img_artigo FROM artigos WHERE artigo_id IN (4, 5);";
+                $result3 = mysqli_query($conn, $query3);
+
+                while ($row3 = mysqli_fetch_assoc($result3)) {
+                    ?>
+                    <div class="image-grid-container22">
+                        <?php
+
+                        $titulo_codificado = urlencode($row["titulo"]);
+
+                        ?>
+                        <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
+                            <div class="image-grid-container22text">
+                                <h2><?php echo $row3["titulo"] ?></h2>
+                                <p><?php echo $row3["autor"] ?></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
     </section>
 
     <!--Perguntas Frequentes-->
