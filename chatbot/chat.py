@@ -28,6 +28,11 @@ model.eval()
 bot_name = "António"
 
 def get_response(msg):
+    for intent in intents['intents']:
+        for pattern in intent['patterns']:
+            if msg.lower() == pattern.lower():
+                return random.choice(intent['responses'])
+    
     sentence = tokenize(msg)
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
@@ -58,4 +63,3 @@ if __name__ == "__main__":
 
         resp = get_response(sentence)
         print(resp)
-

@@ -12,7 +12,9 @@ def index_get():
 @app.post("/predict")
 def predict():
     text = request.get_json().get("message")
+    print("Input Text:", text)  # Adicione esta linha para verificar a entrada de texto
     response = get_response(text)
+    print("Predicted Response:", response)  # Adicione esta linha para verificar a resposta prevista
     message = {"answer": response}
     return jsonify(message)
 
