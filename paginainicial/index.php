@@ -44,10 +44,11 @@ if ($result_banner) {
     }
 }
 
+
 $row2_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
 
 // Consulta SQL para buscar o banner da perturbação pelo nome
-$query2_banner = "SELECT artigo_id, img_artigo FROM artigos LIMIT 1";
+$query2_banner = "SELECT artigo_id, img_artigo FROM artigos LIMIT 1, 2";
 
 // Executar a consulta para obter o banner da perturbação
 $result2_banner = mysqli_query($conn, $query2_banner);
@@ -107,11 +108,27 @@ if ($result2_banner) {
             border: none;
         }
 
-        <?php foreach ($artigo_banners as $artigo_id => $banner_url) { ?>
+        <?php
+        foreach ($artigo_banners as $artigo_id => $banner_url) {
+            ?>
             .image-grid-container1 {
                 background-image: url("<?php echo $banner_url; ?>");
             }
-        <?php } ?>
+
+            <?php
+        }
+        ?>
+
+        <?php
+        foreach ($artigo2_banners as $artigo_id => $banner_url) {
+            ?>
+            .image-grid-container22 {
+                background-image: url("<?php echo $banner_url; ?>");
+            }
+
+            <?php
+        }
+        ?>
     </style>
 
     <header>
@@ -347,7 +364,11 @@ if ($result2_banner) {
         </div>
         <?php
 
-        $query = "SELECT titulo, data_publicacao, autor, img_artigo FROM artigos LIMIT 3";
+        $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+        FROM artigos 
+        INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+        INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+        INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id LIMIT 3";
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -368,9 +389,21 @@ if ($result2_banner) {
                             <img src="<?php echo $row["img_artigo"] ?>" alt="Artigos científicos">
                         </a>
                         <div class="card3-content">
-                            <h1><?php echo $row["titulo"] ?></h1>
-                            <p><?php echo $row["data_publicacao"] ?></p>
-                            <p><?php echo $row["autor"] ?></p>
+                            <h3>
+                                <?php echo $row["perturbacao_nome"] ?>
+                            </h3>
+                            <h2>
+                                <?php echo $row["grupo_nome"] ?>
+                            </h2>
+                            <h1>
+                                <?php echo $row["titulo"] ?>
+                            </h1>
+                            <p>
+                                <?php echo $row['data_publicacao'] ?>
+                            </p>
+                            <p>
+                                <?php echo $row['autor'] ?>
+                            </p>
                         </div>
                     </div>
                     <?php
@@ -461,7 +494,7 @@ if ($result2_banner) {
                         </div>
                     </a>
                 </div>
-                
+
                 <?php
             }
             ?>
@@ -478,7 +511,7 @@ if ($result2_banner) {
                     <div class="image-grid-container22">
                         <?php
 
-                        $titulo_codificado = urlencode($row["titulo"]);
+                        $titulo_codificado = urlencode($row2["titulo"]);
 
                         ?>
                         <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
@@ -505,7 +538,7 @@ if ($result2_banner) {
                     <div class="image-grid-container22">
                         <?php
 
-                        $titulo_codificado = urlencode($row["titulo"]);
+                        $titulo_codificado = urlencode($row3["titulo"]);
 
                         ?>
                         <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">

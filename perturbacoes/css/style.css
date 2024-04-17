@@ -626,6 +626,13 @@ li:not(:last-child) .separator {
     cursor: pointer;
   }
 
+  .heading {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px 0 20px 15px;
+    padding: 0;
+  }
+
   .perturbacoes-banner-container {
     width: auto;
   }
