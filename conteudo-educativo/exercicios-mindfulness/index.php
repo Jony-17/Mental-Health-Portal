@@ -95,7 +95,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/">Perfil</a></li>
+                            <li><a href="../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -103,7 +103,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -136,14 +136,14 @@ if (isset($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/">Perfil</a></li>
+                        <li><a href="../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -183,6 +183,9 @@ if (isset($_SESSION['id_utilizador'])) {
         <h1>
             Exercícios Mindfulness
         </h1>
+        <p>Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual,
+            intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar
+            absorvido por ela</p>
     </div>
 
     <!--Exercícios Mindfulness-->
@@ -192,48 +195,30 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <div class="card-container">
             <div class="card">
-                <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
-                    <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                    <img src="" alt="Bem-estar">
+                <a href="relaxamento">
+                    <img src="relaxamento.png" alt="Bem-estar">
                 </a>
                 <h1>
-                    Teste
+                    Relaxamento
                 </h1>
-                <a href="#" class="first-button">
-                    <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
+                <a href="relaxamento" class="first-button">
                     Sabe mais<i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
             <div class="card">
                 <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
-                    <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                    <img src="" alt="Relaxamento">
+                    <img src="bem-estar.png" alt="Relaxamento">
                 </a>
                 <h1>
-                    Teste
+                    Bem-estar
                 </h1>
                 <a href="#" class="first-button">
-                    <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <div class="card">
-                <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
-                    <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                    <img src="" alt="Bem-estar emocional">
-                </a>
-                <h1>
-                    Teste
-                </h1>
-                <a href="#" class="first-button">
-                    <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
                     Sabe mais<i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
-        
+
     </section>
 
     <!--Scroll to top-->

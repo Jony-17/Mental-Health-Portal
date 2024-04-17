@@ -186,8 +186,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <div class="conteudo-educativo-a">
                         <a href="quizzes">Quizzes</a>
                     </div>
-                    <p>Os nossos CTeSP estão focados numa vertente de ensino muito prática, com estágio garantido e a
-                        possibilidade de progressão para uma das nossas licenciaturas sem exames.
+                    <p>TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
                     </p>
                     <a class="secondary-button" href="quizzes">
                         Sabe mais<i class="fas fa-arrow-right"></i>
@@ -198,9 +197,9 @@ if (isset($_SESSION['id_utilizador'])) {
                     <div class="conteudo-educativo-a">
                         <a href="exercicios-mindfulness">Exercícios Mindfulness</a>
                     </div>
-                    <p>Os nossos CTeSP estão focados numa vertente de ensino muito prática, com estágio garantido e a
-                        possibilidade de progressão para uma das nossas licenciaturas sem exames.
-
+                    <p>Mindfulness é definida como uma forma específica de atenção plena – concentração
+                        no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a
+                        vivência do momento, sem estar absorvido por ela.
                     </p>
                     <a class="secondary-button" href="exercicios-mindfulness">
                         Sabe mais<i class="fas fa-arrow-right"></i>
@@ -211,9 +210,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <div class="conteudo-educativo-a">
                         <a href="ted-talks">TED Talks</a>
                     </div>
-                    <p>Os nossos CTeSP estão focados numa vertente de ensino muito prática, com estágio garantido e a
-                        possibilidade de progressão para uma das nossas licenciaturas sem exames.
-
+                    <p>TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
                     </p>
                     <a class="secondary-button" href="ted-talks">
                         Sabe mais<i class="fas fa-arrow-right"></i>
@@ -223,7 +220,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
 
             <div class="conteudo-educativo-img">
-                <img src="image1.png" alt="">
+                <img src="conteudo-educativo.png" alt="">
             </div>
 
         </div>

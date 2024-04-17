@@ -210,76 +210,83 @@ if (isset($_SESSION['id_utilizador'])) {
             <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
         </div>
 
+        
         <!--Ted Talks-->
-        <?php
-        $query = "SELECT autor, titulo, data, tempo, img_ted_talks, link
-                              FROM ted_talks";
+        <div class="card-container">
+            <?php
+            $query = "SELECT autor, titulo, data, tempo, img_ted_talks, link
+                              FROM ted_talks LIMIT 1";
 
-        $result = mysqli_query($conn, $query);
+            $result = mysqli_query($conn, $query);
 
-        if ($result && mysqli_num_rows($result) > 0) {
-            /*while ($row = mysqli_fetch_assoc($result)) {*/
-            $row = mysqli_fetch_assoc($result); {
+            if ($result && mysqli_num_rows($result) > 0) {
+                /*while ($row = mysqli_fetch_assoc($result)) {*/
+                $row = mysqli_fetch_assoc($result);
                 ?>
-                <div class="card-container">
-                    <div class="card1">
+
+                <div class="card1">
+                    <div class="card-background">
+                        <a href="<?php echo $row['link']; ?>" target="_blank">
+                            <div class="card-background2">
+                                <i class="fas fa-play">
+                                </i>
+                                <img src="<?php echo $row['img_ted_talks']; ?>" alt="Depressão">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card1-content">
+                        <h3>
+                            <?php echo $row['autor']; ?>
+                        </h3>
+                        <h1>
+                            <?php echo $row['titulo']; ?>
+                        </h1>
+                        <div class="info">
+                            <p><span class="text-sm">
+                                    <?php echo $row['data']; ?>
+                                </span><span class="separator">|</span><span class="text-sm">
+                                    <?php echo $row['tempo']; ?>
+                                </span></p>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!-- Container para as outras três TED Talks -->
+            <div class="card2-container">
+                <?php
+                $query2 = "SELECT autor, titulo, data, tempo, img_ted_talks, link FROM ted_talks LIMIT 1, 3";
+                $result2 = mysqli_query($conn, $query2);
+
+                while ($row2 = mysqli_fetch_assoc($result2)) {
+                    ?>
+                    <div class="card2">
                         <div class="card-background">
-                            <a href="<?php echo $row['link']; ?>" target="_blank">
+                            <a href="<?php echo $row2['link']; ?>" target="_blank">
                                 <div class="card-background2">
-                                    <i class="fas fa-play">
-                                    </i>
-                                    <img src="<?php echo $row['img_ted_talks']; ?>" alt="Depressão">
+                                    <i class="fas fa-play"></i>
+                                    <img src="<?php echo $row2['img_ted_talks']; ?>" alt="Depressão">
                                 </div>
                             </a>
                         </div>
-                        <div class="card1-content">
-                            <h3>
-                                <?php echo $row['autor']; ?>
-                            </h3>
-                            <h1>
-                                <?php echo $row['titulo']; ?>
-                            </h1>
+                        <div class="card2-content">
+                            <h3><?php echo $row2['autor']; ?></h3>
+                            <h1><?php echo $row2['titulo']; ?></h1>
                             <div class="info">
-                                <p><span class="text-sm">
-                                        <?php echo $row['data']; ?>
-                                    </span><span class="separator">|</span><span class="text-sm">
-                                        <?php echo $row['tempo']; ?>
-                                    </span></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card2-container">
-
-                        <div class="card2">
-                            <div class="card-background">
-                                <a href="https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true"
-                                    target="_blank">
-                                    <div class="card-background2">
-                                        <i class="fas fa-play">
-                                        </i>
-                                        <img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/0db75cad-bcb2-4e5e-8922-93fc63160e7e/KevinBreel_2013X-embed.jpg?u%5Br%5D=2&u%5Bs%5D=0.5&u%5Ba%5D=0.8&u%5Bt%5D=0.03&quality=80&w=640"
-                                            alt="Depressão">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="card2-content">
-                                <h3>Kevin Breel
-                                </h3>
-                                <h1>Confessions of a depressed comic
-                                </h1>
-                                <div class="info">
-                                    <p><span class="text-sm">10:46 min</span><span class="separator">|</span><span
-                                            class="text-sm">Maio 2013</span></p>
-                                </div>
+                                <p>
+                                    <span class="text-sm"><?php echo $row2['data']; ?></span>
+                                    <span class="separator">|</span>
+                                    <span class="text-sm"><?php echo $row2['tempo']; ?></span>
+                                </p>
                             </div>
                         </div>
                     </div>
                     <?php
-            }
-        }
-        ?>
-        </div>
+                }
+                ?>
+            </div>
     </section>
 
 

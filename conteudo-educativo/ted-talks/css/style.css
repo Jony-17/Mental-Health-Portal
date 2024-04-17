@@ -539,6 +539,7 @@ header {
   text-align: left;
   color: var(--grey2-color);
   font-size: 27px;
+  max-width: 350px;
   /*margin-bottom: 50px;*/
 }
 
@@ -1020,7 +1021,7 @@ ol {
 
 .disclaimer-content {
   padding: 10px; /* Reduz o preenchimento */
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 .fontes {

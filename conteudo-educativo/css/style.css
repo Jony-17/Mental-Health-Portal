@@ -364,8 +364,12 @@ header {
 
 .conteudo-educativo-card1 p {
   font-size: 18px;
+  /*font-size: 15px;*/
   text-align: justify;
   margin-bottom: 10px;
+  word-wrap: break-word;
+  /*font-family: "Libre Baskerville", sans-serif;
+  color: var(--title-color);*/
 }
 
 .conteudo-educativo-img {
@@ -669,8 +673,12 @@ ol {
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .conteudo-educativo-card1 {
+    width: 100%;
+  }
+
   .conteudo-educativo-card1 p {
-    width: auto;
+    word-break: break-word;
   }
 
   /*Footer*/
