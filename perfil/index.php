@@ -249,6 +249,44 @@ if (isset($_SESSION['id_utilizador'])) {
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
+          <!-- Nav Item - Alerts -->
+          <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">+2</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Notificações
+                </h6>
+                <a class="dropdown-item d-flex align-items-center">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-secondary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">16 de abril de 2024</div>
+                    <span class="font-weight-bold">Não te esqueças de realizar o conteúdo educativo de hoje!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-secondary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">16 de abril de 2024</div>
+                    <span class="font-weight-bold">Se pretenderes, podes registar o que estás a sentir ao longo dia!</span>
+                  </div>
+                </a>
+                <!--<a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>-->
+              </div>
+            </li>
+
 
             <div class="topbar-divider d-none d-sm-block"></div>
 

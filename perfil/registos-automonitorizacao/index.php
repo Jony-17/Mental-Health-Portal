@@ -218,6 +218,10 @@ if (isset($_SESSION['id_utilizador'])) {
                     <label>Comportamento Alternativo</label>
                     <input type="text" name="Comportamento_Alternativo" class="form-control" placeholder="Inserir...">
                   </div>
+                  <div class="form-group">
+                    <label>Nota</label>
+                    <input type="text" name="Nota" class="form-control" placeholder="Inserir...">
+                  </div>
 
                 </div>
                 <div class="modal-footer">
@@ -271,6 +275,7 @@ if (isset($_SESSION['id_utilizador'])) {
                           <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
                           <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
                           <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
+                          <th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>
                           <th>Ação</th>
                         </tr>
                       </thead>
@@ -283,6 +288,7 @@ if (isset($_SESSION['id_utilizador'])) {
                               <td><?php echo $row['quando']; ?></td>
                               <td><?php echo $row['pensamento_alternativo']; ?></td>
                               <td><?php echo $row['comportamento_alternativo']; ?></td>
+                              <td><?php echo $row['nota']; ?></td>
                               <td></td>
                             </tr> <?php }
                       } ?>
