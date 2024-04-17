@@ -868,8 +868,10 @@ li:not(:last-child) .separator {
   }
 
   form {
-    height: auto; /* Altere a altura para 'auto' para acomodar o conteúdo conforme necessário */
-    flex-direction: column; /* Empilhe os elementos verticalmente em dispositivos móveis */
+    height: auto;
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 30px;
   }
 
   .search-wrapper {

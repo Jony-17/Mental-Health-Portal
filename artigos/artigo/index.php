@@ -180,12 +180,15 @@ if (isset($_SESSION['id_utilizador'])) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
             $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
-    
+            $perturbacoes_id = $row['perturbacoes_id'];
+
             // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao 
-                        FROM juncao_perturbacoes jp 
-                        INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id 
-                        WHERE jp.juncao_perturbacoes_id = $artigo_id";
+            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao
+                            FROM juncao_perturbacoes jp
+                            INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id
+                            WHERE jp.juncao_perturbacoes_id =
+                            (SELECT juncao_perturbacoes_id
+                            FROM artigos WHERE artigo_id = $artigo_id)";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
@@ -229,7 +232,11 @@ if (isset($_SESSION['id_utilizador'])) {
             $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
                         FROM juncao_perturbacoes jp 
                         INNER JOIN grupos_perturbacoes p ON jp.grupos_perturbacoes_id = p.grupos_perturbacoes_id 
-                        WHERE jp.juncao_perturbacoes_id = $artigo_id";
+                        WHERE jp.juncao_perturbacoes_id =
+                        (SELECT juncao_perturbacoes_id
+                        FROM artigos
+                        WHERE artigo_id = $artigo_id)";
+
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
@@ -402,17 +409,17 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script>
-    window.addEventListener('DOMContentLoaded', function () {
-        var dropdownToggle = document.querySelector('.dropdown-toggle');
-        var dropdownMenu = document.querySelector('.dropdown-menu');
+        window.addEventListener('DOMContentLoaded', function () {
+            var dropdownToggle = document.querySelector('.dropdown-toggle');
+            var dropdownMenu = document.querySelector('.dropdown-menu');
 
-        if (window.innerWidth <= 768) {
-            dropdownToggle.addEventListener('click', function () {
-                dropdownMenu.classList.toggle('show');
-            });
-        }
-    });
-</script>
+            if (window.innerWidth <= 768) {
+                dropdownToggle.addEventListener('click', function () {
+                    dropdownMenu.classList.toggle('show');
+                });
+            }
+        });
+    </script>
 
     <div class="fontes" id="fontes">
         <div class="fontes-content">
