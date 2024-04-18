@@ -66,11 +66,11 @@ if (isset($_SESSION['id_utilizador'])) {
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <div class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">
         </div>
         <div class="sidebar-brand-text mx-3">Portal de Saúde Mental</div>
-      </a>
+      </div>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">

@@ -78,6 +78,49 @@ body {
   background-color: #fff;
 }
 
+.content-notificacoes {
+  display: flex;
+  justify-content: center;
+}
+
+.content-notificacoes-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  align-items: center;
+}
+
+i.fas.fa-clipboard-list {
+  font-size: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  i.fas.fa-clipboard-list {
+    display: none;
+  }
+  }
+
+i.fas.fa-trash-alt {
+  font-size: 30px;
+  cursor: pointer;
+  color: #d34646;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content-notificacoes-1 {
+  /*display: flex;*/
+  gap: 15px;
+  align-items: center;
+}
+
+.content-notificacoes-1 h3 {
+  font-size: 15px;
+}
+
+.content-notificacoes-1 h1 {
+  font-size: 40px;
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important;
@@ -351,17 +394,18 @@ h6 {
 h1 {
   font-size: 2.5rem;
 }
-h2, .h2 {
+.h2,
+h2 {
   font-size: 2rem;
   font-family: "Libre Baskerville", sans-serif;
 }
-
-h3, .h3 {
+.h3,
+h3 {
   font-size: 1.5rem;
   font-family: "Libre Baskerville", sans-serif;
 }
-
-h4, .h4 {
+.h4,
+h4 {
   font-size: 1.3rem;
   font-family: "Libre Baskerville", sans-serif;
 }
@@ -507,6 +551,14 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+
+.th-textos {
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-start;
+  color: #FE9E0D;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -1902,8 +1954,8 @@ pre code {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  justify-content: center;
-  display: flex;
+  /*justify-content: center;
+  display: flex;*/
 }
 .table-responsive > .table-bordered {
   border: 0;
@@ -1916,7 +1968,7 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #6e707e;
+  color: #b9babf;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #d1d3e2;
@@ -4612,6 +4664,10 @@ input[type="submit"].btn-block {
   margin-bottom: 0;
   background-color: #f8f9fc;
   border-bottom: 1px solid #e3e6f0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 .card-header:first-child {
   border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;

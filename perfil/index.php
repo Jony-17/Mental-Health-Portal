@@ -75,7 +75,7 @@ if (isset($_SESSION['id_utilizador'])) {
     // Verifica se a nova senha foi enviada no formulário
     if (isset($_POST["nova_password"]) && !empty($_POST["nova_password"])) {
       $nova_password = $_POST["nova_password"];
-      
+
       $senha_hash = password_hash($nova_password, PASSWORD_DEFAULT);
 
       // Verifica a senha atual no banco de dados
@@ -174,11 +174,11 @@ if (isset($_SESSION['id_utilizador'])) {
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <div class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">
         </div>
         <div class="sidebar-brand-text mx-3">Portal de Saúde Mental</div>
-      </a>
+      </div>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -220,6 +220,22 @@ if (isset($_SESSION['id_utilizador'])) {
           <span>Gabinete de Apoio Psicológico</span></a>
       </li>
 
+      <!-- Nav Item - Notificações Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotificações"
+          aria-expanded="true" aria-controls="collapseNotificações">
+          <i class="fas fa-bell"></i>
+          <span>Notificações</span>
+        </a>
+        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <!--<h6 class="collapse-header">Login Screens:</h6>-->
+            <a class="collapse-item" href="notificacoes">Todas as notificações</a>
+            <a class="collapse-item" href="notificacoes/lembrete">Lembrete</a>
+          </div>
+        </div>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -249,15 +265,17 @@ if (isset($_SESSION['id_utilizador'])) {
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-          <!-- Nav Item - Alerts -->
-          <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">+2</span>
               </a>
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Notificações
                 </h6>
@@ -280,10 +298,11 @@ if (isset($_SESSION['id_utilizador'])) {
                   </div>
                   <div>
                     <div class="small text-gray-500">16 de abril de 2024</div>
-                    <span class="font-weight-bold">Se pretenderes, podes registar o que estás a sentir ao longo dia!</span>
+                    <span class="font-weight-bold">Se pretenderes, podes registar o que estás a sentir ao longo
+                      dia!</span>
                   </div>
                 </a>
-                <!--<a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>-->
+                <a class="dropdown-item text-center small text-gray-500" href="notificacoes">Ver todas as notificações</a>
               </div>
             </li>
 
@@ -348,9 +367,9 @@ if (isset($_SESSION['id_utilizador'])) {
                       <p>NOME</p>
                       <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" name="novo_nome"
-                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;"
                           value="<?php echo $row["nome"] ?>">
-                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-top: 10px;">
                           <span class="text">Atualizar</span>
                         </button>
                         <?php
@@ -373,9 +392,9 @@ if (isset($_SESSION['id_utilizador'])) {
                       <p>EMAIL</p>
                       <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="email" name="novo_email"
-                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;"
                           value="<?php echo $row["email"] ?>">
-                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-top: 10px;">
                           <span class="text">Atualizar</span>
                         </button>
                         <?php
@@ -399,8 +418,8 @@ if (isset($_SESSION['id_utilizador'])) {
                       <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>
                         <input type="password" name="nova_password" id="password" placeholder="Insere a password"
-                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;">
-                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; margin-left: 5px; width: 85%;">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-top: 10px;">
                           <span class="text">Atualizar</span>
                         </button>
                         <?php
@@ -420,8 +439,8 @@ if (isset($_SESSION['id_utilizador'])) {
                       <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
                         <!--<i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>-->
                         <input type="file" name="nova_imagemperfil" id="imagemperfil"
-                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px;">
-                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-left: 20px">
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;">
+                        <button type="submit" class="btn btn-primary btn-icon-split" style="margin-top: 10px;">
                           <span class="text">Atualizar</span>
                         </button>
                         <?php
@@ -611,6 +630,8 @@ if (isset($_SESSION['id_utilizador'])) {
         <script src="js/sb-admin-2.min.js"></script>
 
         <script src="toggle-password.js"></script>
+
+        <script src="js/script.js"></script>
 
 </body>
 

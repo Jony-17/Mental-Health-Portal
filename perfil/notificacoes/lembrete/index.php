@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -78,7 +78,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="..">
+        <a class="nav-link" href="../..">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -93,14 +93,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Registos de automonitorização -->
       <li class="nav-item">
-        <a class="nav-link" href="#"> <!--Alterar HREF -->
+        <a class="nav-link" href="../../registos-automonitorizacao"> <!--Alterar HREF -->
           <i class="fas fa-clipboard"></i>
           <span>Registos de automonitorização</span></a>
       </li>
 
       <!-- Nav Item - Fórum -->
       <li class="nav-item">
-        <a class="nav-link" href="../forum/users.php"> <!--Alterar HREF -->
+        <a class="nav-link" href="../../forum/users.php"> <!--Alterar HREF -->
           <i class="fas fa-comments"></i>
           <span>Fórum</span></a>
       </li>
@@ -111,6 +111,24 @@ if (isset($_SESSION['id_utilizador'])) {
         <a class="nav-link" href="gap"> <!--Alterar HREF -->
           <i class="fas fa-users"></i>
           <span>Gabinete de Apoio Psicológico</span></a>
+      </li>
+
+
+      <!-- Nav Item - Notificações Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotificações"
+          aria-expanded="true" aria-controls="collapseNotificações">
+          <i class="fas fa-bell"></i>
+          <span>Notificações</span>
+        </a>
+        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações"
+          data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <!--<h6 class="collapse-header">Login Screens:</h6>-->
+            <a class="collapse-item" href="..">Todas as notificações</a>
+            <a class="collapse-item" href="lembrete">Lembrete</a>
+          </div>
+        </div>
       </li>
 
 
@@ -143,6 +161,47 @@ if (isset($_SESSION['id_utilizador'])) {
           <ul class="navbar-nav ml-auto">
 
 
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">+2</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Notificações
+                </h6>
+                <a class="dropdown-item d-flex align-items-center">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-secondary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">16 de abril de 2024</div>
+                    <span class="font-weight-bold">Não te esqueças de realizar o conteúdo educativo de hoje!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-secondary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">16 de abril de 2024</div>
+                    <span class="font-weight-bold">Se pretenderes, podes registar o que estás a sentir ao longo
+                      dia!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="..">Ver todas as notificações</a>
+              </div>
+            </li>
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -152,7 +211,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                   <?php echo $row["nome"] ?>
                 </span>
-                <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (
+                <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (
                   !empty($row["img_perfil"])
                 ) {
                   echo $row["img_perfil"];
@@ -162,7 +221,7 @@ if (isset($_SESSION['id_utilizador'])) {
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../../paginainicial/">
+                <a class="dropdown-item" href="../../../paginainicial/">
                   <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                   Voltar à Página Inicial
                 </a>
@@ -190,46 +249,6 @@ if (isset($_SESSION['id_utilizador'])) {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form action="insercao.php" method="POST">
-
-                <div class="modal-body">
-
-                  <div class="form-group">
-                    <label>Pensamento</label>
-                    <input type="text" name="Pensamento" class="form-control" placeholder="Inserir...">
-                  </div>
-                  <div class="form-group">
-                    <label>Comportamento</label>
-                    <input type="text" name="Comportamento" class="form-control" placeholder="Inserir...">
-                  </div>
-                  <div class="form-group">
-                    <label>Sentimentos</label>
-                    <input type="text" name="Sentimentos" class="form-control" placeholder="Inserir...">
-                  </div>
-                  <div class="form-group">
-                    <label>Quando</label>
-                    <input type="text" name="Quando" class="form-control" placeholder="Inserir...">
-                  </div>
-                  <div class="form-group">
-                    <label>Pensamento Alternativo</label>
-                    <input type="text" name="Pensamento_Alternativo" class="form-control" placeholder="Inserir...">
-                  </div>
-                  <div class="form-group">
-                    <label>Comportamento Alternativo</label>
-                    <input type="text" name="Comportamento_Alternativo" class="form-control" placeholder="Inserir...">
-                  </div>
-                  <div class="form-group">
-                    <label>Nota</label>
-                    <input type="text" name="Nota" class="form-control" placeholder="Inserir...">
-                  </div>
-
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="submit" name="inserirbtn" class="btn btn-primary">Guardar</button>
-                </div>
-              </form>
-
             </div>
           </div>
         </div>
@@ -240,12 +259,11 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="align-items-center justify-content-between mb-4">
-            <h2 class="h2 mb-0 text-gray-800">Registo de automonitorização.</h2>
+          <!--<div class="align-items-center justify-content-between mb-4">
+            <h2 class="h2 mb-0 text-gray-800">Lembrete de notificações</h2>
             <br>
-            <h4 class="h4 mb-0 text-gray-800">Poderás fazê-lo ao longo do
-              dia, ou até mesmo não o fazeres todos os dias. O importante é compreenderes como tens andado.</h4>
-          </div>
+            <h4 class="h4 mb-0 text-gray-800">Poderás colocar um lembrete para te recordares do conteúdo educativo</h4>
+          </div>-->
 
           <!-- Content Row -->
           <div class="row">
@@ -255,47 +273,33 @@ if (isset($_SESSION['id_utilizador'])) {
               <!-- Circle Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Registos de automonitorização
-                  </h6><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-                    Inserir
-                  </button>
+                  <h6 class="m-0 font-weight-bold text-primary">Lembrete de notificações
+                  </h6>
 
                 </div>
+                <form action="insercao.php" method="POST">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-12 mb-4">
+                        <p>DATA</p>
+                        <input type="date" name="data"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;">
+                      </div>
 
-                <div class="card-body">
-                  <fieldset class="table-responsive">
-                    <?php $query = "SELECT * FROM registos";
-                    $result = mysqli_query($conn, $query); ?>
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th><a href="#pontos"><span class="th-textos">[1]</span></a>Pensamento</th>
-                          <th><a href="#pontos"><span class="th-textos">[2]</span></a>Comportamento</th>
-                          <th><a href="#pontos"><span class="th-textos">[3]</span></a>Sentimentos</th>
-                          <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
-                          <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
-                          <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
-                          <th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>
-                          <th>Ação</th>
-                        </tr>
-                      </thead>
-                      <tbody> <?php if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                            <tr>
-                              <td><?php echo $row['pensamento']; ?></td>
-                              <td><?php echo $row['comportamento']; ?></td>
-                              <td><?php echo $row['sentimentos']; ?></td>
-                              <td><?php echo $row['quando']; ?></td>
-                              <td><?php echo $row['pensamento_alternativo']; ?></td>
-                              <td><?php echo $row['comportamento_alternativo']; ?></td>
-                              <td><?php echo $row['nota']; ?></td>
-                              <td></td>
-                            </tr> <?php }
-                      } ?>
-                      </tbody>
-                    </table>
-                  </fieldset>
-                </div>
+                      <div class="col-lg-6 col-md-12 mb-4">
+                        <p>TEMPO</p>
+                        <input type="time" name="horario"
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;">
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 mb-4">
+                        <p>MENSAGEM</p>
+                        <textarea id="subject" name="mensagem" placeholder="Escreve algo..."
+                          style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;"></textarea>
+                      </div>
+                    </div>
+                    <button type="submit" name="inserirbtn" class="btn btn-primary">Submeter</button>
+                </form>
               </div>
 
             </div>
@@ -303,16 +307,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
           </div>
           <!-- End of Content Wrapper -->
-
-          <div class="th-textos-pontos" id="pontos">
-            <h4>Em que consiste cada registo</h4>
-                <p>1. O que pensei, o que me veio à cabeça, o que mexeu comigo</p>
-                <p>2. O que fiz relativamente a esse pensamento, que atitude tomei</p>
-                <p>3. O que senti relativamente a isso, de que forma fiquei</p>
-                <p>4. Quando aconteceu, o que estava a fazer no momento que aconteceu</p>
-                <p>5. O que poderia ter pensado de forma diferente</p>
-                <p>6. O que poderia ter feito de diferente face à situação/pensamento que tive</p>
-          </div>
 
           <!-- Scroll to Top Button-->
           <a class="scroll-to-top rounded" href="#page-top">
@@ -340,18 +334,18 @@ if (isset($_SESSION['id_utilizador'])) {
           </div>
 
           <!-- Bootstrap core JavaScript-->
-          <script src="../vendor/jquery/jquery.min.js"></script>
-          <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+          <script src="../../vendor/jquery/jquery.min.js"></script>
+          <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
           <!-- Core plugin JavaScript-->
-          <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+          <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
           <!-- Custom scripts for all pages-->
-          <script src="../js/sb-admin-2.min.js"></script>
+          <script src="../../js/sb-admin-2.min.js"></script>
 
-          <script src="../toggle-password.js"></script>
+          <script src="../../toggle-password.js"></script>
 
-          <script src="../includes/scripts.php"></script>
+          <script src="../../includes/scripts.php"></script>
 
 
 </body>
