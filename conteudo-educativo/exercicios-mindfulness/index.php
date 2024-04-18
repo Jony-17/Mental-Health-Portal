@@ -199,7 +199,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <img src="relaxamento.png" alt="Bem-estar">
                 </a>
                 <h1>
-                    Relaxamento
+                    Atividades de Relaxamento
                 </h1>
                 <a href="relaxamento" class="first-button">
                     Sabe mais<i class="fas fa-arrow-right"></i>
@@ -211,12 +211,25 @@ if (isset($_SESSION['id_utilizador'])) {
                     <img src="bem-estar.png" alt="Relaxamento">
                 </a>
                 <h1>
-                    Bem-estar
+                    Atividades de Bem-estar
                 </h1>
                 <a href="#" class="first-button">
                     Sabe mais<i class="fas fa-arrow-right"></i>
                 </a>
             </div>
+
+            <div class="card">
+                <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
+                    <img src="" alt="Relaxamento">
+                </a>
+                <h1>
+                    Atividades de Alongamento/Yoga
+                </h1>
+                <a href="#" class="first-button">
+                    Sabe mais<i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
         </div>
 
     </section>

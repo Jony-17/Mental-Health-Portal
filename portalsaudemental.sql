@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Abr-2024 às 00:29
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 18-Abr-2024 às 18:01
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -220,6 +220,26 @@ INSERT INTO `juncao_pert_personalidade` (`juncao_pert_pers_id`, `perturbacoes_pe
 (8, 8, 16, 6),
 (9, 9, 16, 6),
 (10, 10, 16, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `lembrete`
+--
+
+CREATE TABLE `lembrete` (
+  `lembrete_id` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `horario` time NOT NULL,
+  `mensagem` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `lembrete`
+--
+
+INSERT INTO `lembrete` (`lembrete_id`, `data`, `horario`, `mensagem`) VALUES
+(6, '2024-04-13', '16:30:00', 'Teste');
 
 -- --------------------------------------------------------
 
@@ -590,6 +610,12 @@ ALTER TABLE `juncao_pert_personalidade`
   ADD KEY `FK_perturbacoes_id2` (`perturbacoes_id`);
 
 --
+-- Índices para tabela `lembrete`
+--
+ALTER TABLE `lembrete`
+  ADD PRIMARY KEY (`lembrete_id`);
+
+--
 -- Índices para tabela `mensagens`
 --
 ALTER TABLE `mensagens`
@@ -712,6 +738,12 @@ ALTER TABLE `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_pert_personalidade`
   MODIFY `juncao_pert_pers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `lembrete`
+--
+ALTER TABLE `lembrete`
+  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
