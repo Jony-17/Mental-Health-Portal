@@ -70,6 +70,23 @@ body {
   background-color: #fff;
 }
 
+i.fas.fa-ellipsis-v {
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1;
+  background-color: #FE9E0D;
+  border-color: #FE9E0D;
+  color: #fff;
+  cursor: pointer;
+}
+
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
@@ -4941,6 +4958,14 @@ input[type="button"].btn-block {
   align-items: center;
   justify-content: space-between;
 }
+
+/* Tela igual ou inferior a 768 */
+@media screen and (max-width: 768px) {
+  .card-header2 {
+    display: grid;
+    gap: 10px;
+  }
+  }
 
 .card-header:first-child {
   border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;

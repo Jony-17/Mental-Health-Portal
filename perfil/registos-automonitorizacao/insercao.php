@@ -32,13 +32,12 @@ if (isset($_SESSION['id_utilizador'])) {
         $Quando = $_POST['Quando'];
         $Pensamento_Alternativo = $_POST['Pensamento_Alternativo'];
         $Comportamento_Alternativo = $_POST['Comportamento_Alternativo'];
-        $Nota = $_POST['Nota'];
 
         $nome_query = "SELECT * FROM registos WHERE pensamento='$Pensamento' AND comportamento='$Comportamento'
-                       AND sentimentos='$Sentimentos' AND quando='$Quando' AND pensamento_alternativo='$Pensamento_Alternativo' AND comportamento_alternativo='$Comportamento_Alternativo' AND nota='$Nota'";
+                       AND sentimentos='$Sentimentos' AND quando='$Quando' AND pensamento_alternativo='$Pensamento_Alternativo' AND comportamento_alternativo='$Comportamento_Alternativo'";
         $nome_query_run = mysqli_query($conn, $nome_query);
         if (!empty($Pensamento) && !empty($Comportamento)) {
-            $query = "INSERT INTO registos (pensamento, comportamento, sentimentos, quando, pensamento_alternativo, comportamento_alternativo, nota) VALUES ('$Pensamento','$Comportamento', '$Sentimentos', '$Quando', '$Pensamento_Alternativo', '$Comportamento_Alternativo', '$Nota')";
+            $query = "INSERT INTO registos (pensamento, comportamento, sentimentos, quando, pensamento_alternativo, comportamento_alternativo) VALUES ('$Pensamento','$Comportamento', '$Sentimentos', '$Quando', '$Pensamento_Alternativo', '$Comportamento_Alternativo')";
             $query_run = mysqli_query($conn, $query);
 
             if ($query_run) {

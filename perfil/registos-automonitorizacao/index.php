@@ -218,10 +218,6 @@ if (isset($_SESSION['id_utilizador'])) {
                     <label>Comportamento Alternativo</label>
                     <input type="text" name="Comportamento_Alternativo" class="form-control" placeholder="Inserir...">
                   </div>
-                  <div class="form-group">
-                    <label>Nota</label>
-                    <input type="text" name="Nota" class="form-control" placeholder="Inserir...">
-                  </div>
 
                 </div>
                 <div class="modal-footer">
@@ -253,106 +249,187 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="col-lg-12">
 
               <!-- Circle Buttons -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Registos de automonitorização
-                  </h6><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-                    Inserir
-                  </button>
+              <form action="generate_pdf.php" method="POST">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Registos de automonitorização</h6>
+                    <div class="card-header2">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
+                        Inserir
+                      </button>
+                      <?php
+                      $query = "SELECT * FROM registos";
+                      $result = mysqli_query($conn, $query);
+                      if (mysqli_num_rows($result) > 0) {
+                        ?>
+                        <button type="submit" class="btn btn-primary" name="export_pdf">
+                          Exportar para PDF
+                        </button>
+                        <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
 
-                </div>
 
-                <div class="card-body">
-                  <fieldset class="table-responsive">
-                    <?php $query = "SELECT * FROM registos";
-                    $result = mysqli_query($conn, $query); ?>
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th><a href="#pontos"><span class="th-textos">[1]</span></a>Pensamento</th>
-                          <th><a href="#pontos"><span class="th-textos">[2]</span></a>Comportamento</th>
-                          <th><a href="#pontos"><span class="th-textos">[3]</span></a>Sentimentos</th>
-                          <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
-                          <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
-                          <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
-                          <th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>
-                          <th>Ação</th>
-                        </tr>
-                      </thead>
-                      <tbody> <?php if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                            <tr>
-                              <td><?php echo $row['pensamento']; ?></td>
-                              <td><?php echo $row['comportamento']; ?></td>
-                              <td><?php echo $row['sentimentos']; ?></td>
-                              <td><?php echo $row['quando']; ?></td>
-                              <td><?php echo $row['pensamento_alternativo']; ?></td>
-                              <td><?php echo $row['comportamento_alternativo']; ?></td>
-                              <td><?php echo $row['nota']; ?></td>
-                              <td></td>
-                            </tr> <?php }
-                      } ?>
-                      </tbody>
-                    </table>
-                  </fieldset>
-                </div>
-              </div>
+                  <div class="card-body">
+                    <fieldset class="table-responsive">
+                      <?php $query = "SELECT * FROM registos";
+                      $result = mysqli_query($conn, $query); ?>
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th><a href="#pontos"><span class="th-textos">[1]</span></a>Pensamento</th>
+                            <th><a href="#pontos"><span class="th-textos">[2]</span></a>Comportamento</th>
+                            <th><a href="#pontos"><span class="th-textos">[3]</span></a>Sentimentos</th>
+                            <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
+                            <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
+                            <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
+                            <th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>
+                            <th>Ação</th>
+                          </tr>
+                        </thead>
+                        <tbody> <?php if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_assoc($result)) { ?>
+                              <tr>
+                                <td><?php echo $row['pensamento']; ?></td>
+                                <td><?php echo $row['comportamento']; ?></td>
+                                <td><?php echo $row['sentimentos']; ?></td>
+                                <td><?php echo $row['quando']; ?></td>
+                                <td><?php echo $row['pensamento_alternativo']; ?></td>
+                                <td><?php echo $row['comportamento_alternativo']; ?></td>
+                                <td><?php echo $row['nota']; ?></td>
+                                <td>
+                                  <i class="fas fa-ellipsis-v editar-icone" onclick="togglePopup(this)"></i>
+                                  <div class="popup" style="display: none;">
+                                    <span class="popup-text" data-toggle="modal" data-target="#teste">Editar</span>
+                                  </div>
+                                </td>
 
+                              </tr> <?php }
+                        } ?>
+                        </tbody>
+                      </table>
+                    </fieldset>
+                  </div>
+
+                  <!-- Modal para edição -->
+                  <div id="modalEditar" class="modal" style="display: none;">
+                    <div class="modal-content">
+                      <span class="close" onclick="closeModal()">&times;</span>
+                      <p>Aqui você pode editar o registro.</p>
+                    </div>
+                  </div>
+
+                  <!-- Modal para inserir nota -->
+                  <div class="modal fade" id="teste" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Inserir nota</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="edicao.php" method="POST">
+
+                          <div class="modal-body">
+
+                            <div class="form-group">
+                              <label>Nota</label>
+                              <input type="text" name="Nota" class="form-control" placeholder="Inserir...">
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" name="inserirbtn_edicao" class="btn btn-primary">Guardar</button>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+
+              </form>
             </div>
 
-
-          </div>
-          <!-- End of Content Wrapper -->
-
-          <div class="th-textos-pontos" id="pontos">
-            <h4>Em que consiste cada registo</h4>
-                <p>1. O que pensei, o que me veio à cabeça, o que mexeu comigo</p>
-                <p>2. O que fiz relativamente a esse pensamento, que atitude tomei</p>
-                <p>3. O que senti relativamente a isso, de que forma fiquei</p>
-                <p>4. Quando aconteceu, o que estava a fazer no momento que aconteceu</p>
-                <p>5. O que poderia ter pensado de forma diferente</p>
-                <p>6. O que poderia ter feito de diferente face à situação/pensamento que tive</p>
           </div>
 
-          <!-- Scroll to Top Button-->
-          <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-          </a>
 
-          <!-- Logout Modal-->
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Terminar Sessão</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-                </div>
-                <div class="modal-body">Tens a certeza que queres sair?</div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                  <a class="btn btn-primary" href="../../areacliente/login/">Logout</a>
-                </div>
+        </div>
+        <!-- End of Content Wrapper -->
+
+        <div class="th-textos-pontos" id="pontos">
+          <h4>Em que consiste cada registo</h4>
+          <p>1. O que pensei, o que me veio à cabeça, o que mexeu comigo</p>
+          <p>2. O que fiz relativamente a esse pensamento, que atitude tomei</p>
+          <p>3. O que senti relativamente a isso, de que forma fiquei</p>
+          <p>4. Quando aconteceu, o que estava a fazer no momento que aconteceu</p>
+          <p>5. O que poderia ter pensado de forma diferente</p>
+          <p>6. O que poderia ter feito de diferente face à situação/pensamento que tive</p>
+        </div>
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+          <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Terminar Sessão</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">Tens a certeza que queres sair?</div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary" href="../../areacliente/login/">Logout</a>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Bootstrap core JavaScript-->
-          <script src="../vendor/jquery/jquery.min.js"></script>
-          <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-          <!-- Core plugin JavaScript-->
-          <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-          <!-- Custom scripts for all pages-->
-          <script src="../js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.min.js"></script>
 
-          <script src="../toggle-password.js"></script>
+        <script src="../toggle-password.js"></script>
 
-          <script src="../includes/scripts.php"></script>
+        <script src="../includes/scripts.php"></script>
 
+        <script>
+    function togglePopup(icon) {
+        var popup = icon.nextElementSibling;
+        if (popup.style.display === "block") {
+            popup.style.display = "none";
+        } else {
+            popup.style.display = "block";
+        }
+    }
+
+    function openModal() {
+        var modal = document.getElementById('modalEditar');
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('modalEditar');
+        modal.style.display = "none";
+    }
+</script>
 
 </body>
 
