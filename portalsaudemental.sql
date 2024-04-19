@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Abr-2024 às 18:01
+-- Tempo de geração: 19-Abr-2024 às 18:00
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.3.31
 
@@ -482,8 +482,7 @@ CREATE TABLE `registos` (
 --
 
 INSERT INTO `registos` (`registos_id`, `pensamento`, `comportamento`, `sentimentos`, `quando`, `pensamento_alternativo`, `comportamento_alternativo`, `nota`) VALUES
-(22, 'a', 'b', 'c', 'd', 'e', 'f', NULL),
-(23, 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', 'TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste', NULL);
+(24, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', '');
 
 -- --------------------------------------------------------
 
@@ -803,7 +802,7 @@ ALTER TABLE `quiz_preocupacao`
 -- AUTO_INCREMENT de tabela `registos`
 --
 ALTER TABLE `registos`
-  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `ted_talks`
