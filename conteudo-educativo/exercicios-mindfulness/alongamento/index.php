@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -44,7 +44,9 @@ if (isset($_SESSION['id_utilizador'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body>
@@ -69,17 +71,17 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../../perturbacoes">Perturbações</a></li>
-                <li><a href="../../artigos">Artigos</a></li>
-                <li><a href="../../noticias">Notícias</a></li>
-                <li><a href="..">Conteúdo Educativo</a>
+                <li><a href="../../../perturbacoes">Perturbações</a></li>
+                <li><a href="../../../artigos">Artigos</a></li>
+                <li><a href="../../../noticias">Notícias</a></li>
+                <li><a href="../..">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes">Quizzes</a></li>
-                        <li><a href="../exercicios-mindfulness">Exercícios Mindfulness</a></li>
-                        <li><a href="../ted-talks">TED Talks</a></li>
+                        <li><a href="../../quizzes">Quizzes</a></li>
+                        <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                        <li><a href="../../ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -88,14 +90,14 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -113,37 +115,37 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial">Página Inicial</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="../../perturbacoes">Perturbações</a></li>
-            <li><a href="../../artigos">Artigos</a></li>
-            <li><a href="../../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li><a href="../../../perturbacoes">Perturbações</a></li>
+            <li><a href="../../../artigos">Artigos</a></li>
+            <li><a href="../../../noticias">Notícias</a></li>
+            <li class="dropdown-trigger"><a href="../..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes">Quizzes</a></li>
-                    <li><a href="../exercicios-mindfulness">Exercícios Mindfulness</a></li>
-                    <li><a href="../ted-talks">TED Talks</a></li>
+                    <li><a href="../../quizzes">Quizzes</a></li>
+                    <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                    <li><a href="../../ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -151,7 +153,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../logout/logout.php";
+                        var url = "../../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -164,8 +166,16 @@ if (isset($_SESSION['id_utilizador'])) {
     <ol role="list">
         <li class="list">
             <div class="items">
-                <a href=".." class="text-sm">
+                <a href="../.." class="text-sm">
                     Conteúdo Educativo</a>
+                <span class="separator">/</span>
+            </div>
+        </li>
+
+        <li class="list">
+            <div class="items">
+                <a href=".." class="text-sm">
+                    Exercícios Mindfulness</a>
                 <span class="separator">/</span>
             </div>
         </li>
@@ -173,7 +183,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <li class="list">
             <div class="items-current">
                 <div class="text-sm" aria-current=page>
-                    Exercícios Mindfulness
+                    Atividades de Alongamento
                 </div>
             </div>
         </li>
@@ -181,70 +191,51 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="heading">
         <h1>
-            Exercícios Mindfulness
+            Atividades de Alongamento
         </h1>
         <p>Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual,
+            intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar
+            absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento
+            atual,
             intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar
             absorvido por ela</p>
     </div>
 
-    <!--Exercícios Mindfulness-->
-    <section class="perturbacoes" id="perturbacoes">
-        <div class="perturbacoes-banner-container">
+    <!--Bem-Estar-->
+    <div class="owl-carousel owl-theme">
+        <div class="item">
+            <p>Rodar a cabeça</p>
+            <img src="https://media.post.rvohealth.io/wp-content/uploads/sites/2/2021/01/GRT-2.03.HeadRolls.gif" alt="">
         </div>
-
-        <div class="card-container">
-            <div class="card">
-                <a href="relaxamento">
-                    <img src="imgs/relaxamento.png" alt="Atividades de Relaxamento">
-                </a>
-                <h1>
-                    Atividades de Relaxamento
-                </h1>
-                <a href="relaxamento" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="bem-estar">
-                    <img src="imgs/bem-estar.png" alt="Atividades de Bem-Estar">
-                </a>
-                <h1>
-                    Atividades de Bem-estar
-                </h1>
-                <a href="bem-estar" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="yoga">
-                    <img src="imgs/yoga.png" alt="Atividades de Yoga">
-                </a>
-                <h1>
-                    Atividades de Yoga
-                </h1>
-                <a href="yoga" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="alongamento">
-                    <img src="imgs/alongamento.png" alt="Atividades de Alongamento">
-                </a>
-                <h1>
-                    Atividades de Alongamento
-                </h1>
-                <a href="alongamento" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
+        <div class="item">
+            <p>Rodar os ombros</p>
+            <img src="https://media.post.rvohealth.io/wp-content/uploads/sites/2/2021/10/GRT-03.04.ShoulderRoll.gif" alt="">
         </div>
+        <div class="item">
+            <p>Alongamento de braços e abdominais</p>
+            <img src="https://media.post.rvohealth.io/wp-content/uploads/sites/2/2021/12/GRT-04.02.ArmsAndAbsStretch.gif" alt="">
+        </div>
+    </div>
 
-    </section>
+    <div class="fontes" id="fontes">
+        <div class="fontes-content">
+            <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <h3>Fontes</h3>
+        </div>
+        <div class="fontes-content2">
+            <p>1. https://greatist.com/fitness/daily-stretching-routine#Benefits-of-daily-stretching</p>
+        </div>
+    </div>
+
 
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
@@ -362,6 +353,9 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <script src="js/script.js"></script>
 

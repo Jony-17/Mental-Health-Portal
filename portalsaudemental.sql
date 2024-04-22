@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Abr-2024 às 18:00
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.3.31
+-- Tempo de geração: 22-Abr-2024 às 17:57
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -229,6 +229,7 @@ INSERT INTO `juncao_pert_personalidade` (`juncao_pert_pers_id`, `perturbacoes_pe
 
 CREATE TABLE `lembrete` (
   `lembrete_id` int(11) NOT NULL,
+  `utilizador_id` int(11) NOT NULL,
   `data` date NOT NULL,
   `horario` time NOT NULL,
   `mensagem` varchar(1000) NOT NULL
@@ -238,8 +239,9 @@ CREATE TABLE `lembrete` (
 -- Extraindo dados da tabela `lembrete`
 --
 
-INSERT INTO `lembrete` (`lembrete_id`, `data`, `horario`, `mensagem`) VALUES
-(6, '2024-04-13', '16:30:00', 'Teste');
+INSERT INTO `lembrete` (`lembrete_id`, `utilizador_id`, `data`, `horario`, `mensagem`) VALUES
+(21, 18, '2024-04-21', '17:30:00', 'teste'),
+(22, 18, '2024-04-22', '16:15:00', 'teste de notificação');
 
 -- --------------------------------------------------------
 
@@ -284,7 +286,8 @@ INSERT INTO `mensagens` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) 
 (23, 1703689423, 1703689628, 'Como estás?'),
 (24, 1703689628, 1703689423, 'bem e tu?'),
 (25, 1703689423, 1703689628, 'também, obg por perguntares'),
-(26, 1035944128, 1703689423, 'ol');
+(26, 1035944128, 1703689423, 'ol'),
+(27, 1035944128, 1703689423, 'ola');
 
 -- --------------------------------------------------------
 
@@ -468,6 +471,7 @@ INSERT INTO `quiz_preocupacao` (`quiz_preocupacao_id`, `nome`) VALUES
 
 CREATE TABLE `registos` (
   `registos_id` int(11) NOT NULL,
+  `utilizador_id` int(11) NOT NULL,
   `pensamento` varchar(1000) DEFAULT NULL,
   `comportamento` varchar(1000) DEFAULT NULL,
   `sentimentos` varchar(1000) DEFAULT NULL,
@@ -481,8 +485,9 @@ CREATE TABLE `registos` (
 -- Extraindo dados da tabela `registos`
 --
 
-INSERT INTO `registos` (`registos_id`, `pensamento`, `comportamento`, `sentimentos`, `quando`, `pensamento_alternativo`, `comportamento_alternativo`, `nota`) VALUES
-(24, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', '');
+INSERT INTO `registos` (`registos_id`, `utilizador_id`, `pensamento`, `comportamento`, `sentimentos`, `quando`, `pensamento_alternativo`, `comportamento_alternativo`, `nota`) VALUES
+(28, 26, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', NULL),
+(29, 18, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste2', NULL);
 
 -- --------------------------------------------------------
 
@@ -612,7 +617,8 @@ ALTER TABLE `juncao_pert_personalidade`
 -- Índices para tabela `lembrete`
 --
 ALTER TABLE `lembrete`
-  ADD PRIMARY KEY (`lembrete_id`);
+  ADD PRIMARY KEY (`lembrete_id`),
+  ADD KEY `FK_utilizador_id3` (`utilizador_id`);
 
 --
 -- Índices para tabela `mensagens`
@@ -677,7 +683,8 @@ ALTER TABLE `quiz_preocupacao`
 -- Índices para tabela `registos`
 --
 ALTER TABLE `registos`
-  ADD PRIMARY KEY (`registos_id`);
+  ADD PRIMARY KEY (`registos_id`),
+  ADD KEY `FK_utilizador_id2` (`utilizador_id`);
 
 --
 -- Índices para tabela `ted_talks`
@@ -742,13 +749,13 @@ ALTER TABLE `juncao_pert_personalidade`
 -- AUTO_INCREMENT de tabela `lembrete`
 --
 ALTER TABLE `lembrete`
-  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
 --
 ALTER TABLE `mensagens`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `noticias`
@@ -802,7 +809,7 @@ ALTER TABLE `quiz_preocupacao`
 -- AUTO_INCREMENT de tabela `registos`
 --
 ALTER TABLE `registos`
-  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `ted_talks`
@@ -860,6 +867,12 @@ ALTER TABLE `juncao_pert_personalidade`
   ADD CONSTRAINT `FK_perturbacoes_personalidade_id` FOREIGN KEY (`perturbacoes_personalidade_id`) REFERENCES `perturbacoes_personalidade` (`perturbacoes_personalidade_id`);
 
 --
+-- Limitadores para a tabela `lembrete`
+--
+ALTER TABLE `lembrete`
+  ADD CONSTRAINT `FK_utilizador_id3` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
+
+--
 -- Limitadores para a tabela `quizzes`
 --
 ALTER TABLE `quizzes`
@@ -868,6 +881,12 @@ ALTER TABLE `quizzes`
   ADD CONSTRAINT `fk_quiz_energia_id` FOREIGN KEY (`quiz_energia_id`) REFERENCES `quiz_energia` (`quiz_energia_id`),
   ADD CONSTRAINT `fk_quiz_preocupacao_id` FOREIGN KEY (`quiz_preocupacao_id`) REFERENCES `quiz_preocupacao` (`quiz_preocupacao_id`),
   ADD CONSTRAINT `fk_utilizador_id` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
+
+--
+-- Limitadores para a tabela `registos`
+--
+ALTER TABLE `registos`
+  ADD CONSTRAINT `FK_utilizador_id2` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
 
 --
 -- Limitadores para a tabela `texto_artigo`

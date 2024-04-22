@@ -44,7 +44,9 @@ if (isset($_SESSION['id_utilizador'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body>
@@ -200,31 +202,38 @@ if (isset($_SESSION['id_utilizador'])) {
     </div>
 
     <!--Relaxamento-->
-    <p>Mindfulness – Atenção à Respiração</p>
-    <audio controls muted loop>
-        <source src="Mindfulness – Atenção à Respiração.mp3" type="audio/mpeg">
-    </audio>
-
-    <p>Mindfulness – Body Scan</p>
-    <audio controls muted loop>
-        <source src="Mindfulness – Body Scan.mp3">
-    </audio>
-
-    <p>Mindfulness – Explorar Sensações e Pensamentos Difíceis</p>
-    <audio controls muted loop>
-        <source src="Mindfulness – Explorar Sensações e Pensamentos Difíceis.mp3">
-    </audio>
-    
-    <p>Relaxamento Muscular Progressivo</p>
-    <audio controls muted loop>
-        <source src="Relaxamento Muscular Progressivo.mp3">
-    </audio>
-    
-    <p>Respiração Diafragmática</p>
-    <audio controls muted loop>
-        <source src="Respiração Diafragmática.mp3">
-    </audio>
-
+    <div class="owl-carousel owl-theme">
+        <div class="item">
+            <p>Mindfulness – Atenção à Respiração</p>
+            <audio controls muted loop>
+                <source src="Mindfulness – Atenção à Respiração.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="item">
+            <p>Mindfulness – Body Scan</p>
+            <audio controls muted loop>
+                <source src="Mindfulness – Body Scan.mp3">
+            </audio>
+        </div>
+        <div class="item">
+            <p>Mindfulness – Explorar Sensações e Pensamentos Difíceis</p>
+            <audio controls muted loop>
+                <source src="Mindfulness – Explorar Sensações e Pensamentos Difíceis.mp3">
+            </audio>
+        </div>
+        <div class="item">
+            <p>Relaxamento Muscular Progressivo</p>
+            <audio controls muted loop>
+                <source src="Relaxamento Muscular Progressivo.mp3">
+            </audio>
+        </div>
+        <div class="item">
+            <p>Respiração Diafragmática</p>
+            <audio controls muted loop>
+                <source src="Respiração Diafragmática.mp3">
+            </audio>
+        </div>
+    </div>
 
     <div class="fontes" id="fontes">
         <div class="fontes-content">
@@ -362,6 +371,9 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <script src="js/script.js"></script>
 
