@@ -105,14 +105,22 @@ if (isset($_SESSION['id_utilizador'])) {
           <span>Fórum</span></a>
       </li>
 
-
-      <!-- Nav Item - GAP -->
+      <!-- Nav Item - Notificações Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="gap"> <!--Alterar HREF -->
-          <i class="fas fa-users"></i>
-          <span>Gabinete de Apoio Psicológico</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotificações"
+          aria-expanded="true" aria-controls="collapseNotificações">
+          <i class="fas fa-bell"></i>
+          <span>Notificações</span>
+        </a>
+        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações"
+          data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <!--<h6 class="collapse-header">Login Screens:</h6>-->
+            <a class="collapse-item" href="../notificacoes">Todas as notificações</a>
+            <a class="collapse-item" href="../notificacoes/lembrete">Lembrete</a>
+          </div>
+        </div>
       </li>
-
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -141,6 +149,55 @@ if (isset($_SESSION['id_utilizador'])) {
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Notificações
+                </h6>
+                <?php
+                $data_atual = date('Y-m-d');
+                $horario_atual = date('H:i:s');
+
+                // Selecionar lembretes com data igual à data atual e hora do lembrete menor ou igual à hora atual
+                $sql_lembretes = "SELECT * FROM lembrete WHERE data = '$data_atual' AND horario <= '$horario_atual' AND utilizador_id = $utilizador_id";
+                $result_lembretes = mysqli_query($conn, $sql_lembretes);
+
+                if (mysqli_num_rows($result_lembretes) > 0) {
+                  // Exibir os lembretes
+                  while ($row_lembrete = mysqli_fetch_assoc($result_lembretes)) {
+                    $data_lembrete = new DateTime($row_lembrete['data']);
+
+                    ?>
+                    <a class="dropdown-item d-flex align-items-center">
+                      <div class="mr-3">
+                        <div class="icon-circle bg-secondary">
+                          <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="small text-gray-500">
+                          <?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?>
+                        </div>
+                        <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
+                      </div>
+                    </a>
+                    <?php
+                  }
+                }
+
+                ?>
+                <a class="dropdown-item text-center small text-gray-500" href="../notificacoes">Ver todas as
+                  notificações</a>
+              </div>
+            </li>
 
 
             <div class="topbar-divider d-none d-sm-block"></div>
@@ -258,7 +315,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         Inserir
                       </button>
                       <?php
-                      $query = "SELECT * FROM registos";
+                      $query = "SELECT * FROM registos WHERE utilizador_id = $utilizador_id";
                       $result = mysqli_query($conn, $query);
                       if (mysqli_num_rows($result) > 0) {
                         ?>
@@ -270,89 +327,75 @@ if (isset($_SESSION['id_utilizador'])) {
                       ?>
                     </div>
                   </div>
+              </form>
 
-
-                  <div class="card-body">
-                    <fieldset class="table-responsive">
-                      <?php $query = "SELECT * FROM registos";
-                      $result = mysqli_query($conn, $query); ?>
-                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
+              <div class="card-body">
+                <fieldset class="table-responsive">
+                  <?php $query = "SELECT * FROM registos WHERE utilizador_id = $utilizador_id";
+                  $result = mysqli_query($conn, $query); ?>
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th><a href="#pontos"><span class="th-textos">[1]</span></a>Pensamento</th>
+                        <th><a href="#pontos"><span class="th-textos">[2]</span></a>Comportamento</th>
+                        <th><a href="#pontos"><span class="th-textos">[3]</span></a>Sentimentos</th>
+                        <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
+                        <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
+                        <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
+                        <!--<th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>-->
+                      </tr>
+                    </thead>
+                    <tbody> <?php if (mysqli_num_rows($result) > 0) {
+                      while ($row = mysqli_fetch_assoc($result)) { ?>
                           <tr>
-                            <th><a href="#pontos"><span class="th-textos">[1]</span></a>Pensamento</th>
-                            <th><a href="#pontos"><span class="th-textos">[2]</span></a>Comportamento</th>
-                            <th><a href="#pontos"><span class="th-textos">[3]</span></a>Sentimentos</th>
-                            <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
-                            <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
-                            <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
-                            <th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>
-                            <th>Ação</th>
-                          </tr>
-                        </thead>
-                        <tbody> <?php if (mysqli_num_rows($result) > 0) {
-                          while ($row = mysqli_fetch_assoc($result)) { ?>
-                              <tr>
-                                <td><?php echo $row['pensamento']; ?></td>
-                                <td><?php echo $row['comportamento']; ?></td>
-                                <td><?php echo $row['sentimentos']; ?></td>
-                                <td><?php echo $row['quando']; ?></td>
-                                <td><?php echo $row['pensamento_alternativo']; ?></td>
-                                <td><?php echo $row['comportamento_alternativo']; ?></td>
-                                <td><?php echo $row['nota']; ?></td>
-                                <td>
-                                  <i class="fas fa-ellipsis-v editar-icone" onclick="togglePopup(this)"></i>
-                                  <div class="popup" style="display: none;">
-                                    <span class="popup-text" data-toggle="modal" data-target="#teste">Editar</span>
-                                  </div>
-                                </td>
+                            <td><?php echo $row['pensamento']; ?></td>
+                            <td><?php echo $row['comportamento']; ?></td>
+                            <td><?php echo $row['sentimentos']; ?></td>
+                            <td><?php echo $row['quando']; ?></td>
+                            <td><?php echo $row['pensamento_alternativo']; ?></td>
+                            <td><?php echo $row['comportamento_alternativo']; ?></td>
+                            </form>
 
-                              </tr> <?php }
-                        } ?>
-                        </tbody>
-                      </table>
-                    </fieldset>
-                  </div>
+                          </tr> <?php }
+                    } ?>
+                    </tbody>
+                  </table>
+                </fieldset>
+              </div>
 
-                  <!-- Modal para edição -->
-                  <div id="modalEditar" class="modal" style="display: none;">
-                    <div class="modal-content">
-                      <span class="close" onclick="closeModal()">&times;</span>
-                      <p>Aqui você pode editar o registro.</p>
+              <!-- Modal para inserir nota -->
+              <!--<div class="modal fade" id="teste" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Inserir nota</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
-                  </div>
+                    <form action="edicao.php" method="POST">
 
-                  <!-- Modal para inserir nota -->
-                  <div class="modal fade" id="teste" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Inserir nota</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                      <div class="modal-body">
+
+                        <div class="form-group">
+                          <label>Nota</label>
+                          <input type="text" name="Nota" class="form-control" placeholder="Inserir...">
                         </div>
-                        <form action="edicao.php" method="POST">
-
-                          <div class="modal-body">
-
-                            <div class="form-group">
-                              <label>Nota</label>
-                              <input type="text" name="Nota" class="form-control" placeholder="Inserir...">
-                            </div>
-
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="submit" name="inserirbtn_edicao" class="btn btn-primary">Guardar</button>
-                          </div>
-                        </form>
 
                       </div>
-                    </div>
-                  </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" name="inserirbtn_edicao" class="btn btn-primary">Guardar</button>
 
-              </form>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>-->
+
+
             </div>
 
           </div>
@@ -409,27 +452,6 @@ if (isset($_SESSION['id_utilizador'])) {
         <script src="../toggle-password.js"></script>
 
         <script src="../includes/scripts.php"></script>
-
-        <script>
-    function togglePopup(icon) {
-        var popup = icon.nextElementSibling;
-        if (popup.style.display === "block") {
-            popup.style.display = "none";
-        } else {
-            popup.style.display = "block";
-        }
-    }
-
-    function openModal() {
-        var modal = document.getElementById('modalEditar');
-        modal.style.display = "block";
-    }
-
-    function closeModal() {
-        var modal = document.getElementById('modalEditar');
-        modal.style.display = "none";
-    }
-</script>
 
 </body>
 

@@ -10,7 +10,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $registos_id = $_GET['registos_id'];
 
         // Aqui você deve obter os dados do registro a ser editado do banco de dados
-        $query = "SELECT * FROM registos WHERE registos_id = $registos_id";
+        $query = "SELECT * FROM registos WHERE registos_id = $registos_id AND utilizador_id = $utilizador_id";
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -29,7 +29,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $Nota = $_POST['Nota'];
 
         // Aqui você deve atualizar os dados do registro existente no banco de dados
-        $query = "UPDATE registos SET nota = '$Nota' WHERE registos_id = $registos_id";
+        $query = "UPDATE registos SET nota = '$Nota' WHERE registos_id = $registos_id AND utilizador_id = $utilizador_id";
         $query_run = mysqli_query($conn, $query);
 
         if ($query_run) {

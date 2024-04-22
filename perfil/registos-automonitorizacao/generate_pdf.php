@@ -37,7 +37,7 @@ if (isset($_POST['export_pdf'])) {
                 </tr>
                 <?php
                 // Consulta SQL para buscar os registros
-                $query = "SELECT * FROM registos";
+                $query = "SELECT * FROM registos WHERE utilizador_id = $utilizador_id";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {

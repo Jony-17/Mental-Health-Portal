@@ -37,7 +37,7 @@ if (isset($_SESSION['id_utilizador'])) {
                        AND sentimentos='$Sentimentos' AND quando='$Quando' AND pensamento_alternativo='$Pensamento_Alternativo' AND comportamento_alternativo='$Comportamento_Alternativo'";
         $nome_query_run = mysqli_query($conn, $nome_query);
         if (!empty($Pensamento) && !empty($Comportamento)) {
-            $query = "INSERT INTO registos (pensamento, comportamento, sentimentos, quando, pensamento_alternativo, comportamento_alternativo) VALUES ('$Pensamento','$Comportamento', '$Sentimentos', '$Quando', '$Pensamento_Alternativo', '$Comportamento_Alternativo')";
+            $query = "INSERT INTO registos (utilizador_id, pensamento, comportamento, sentimentos, quando, pensamento_alternativo, comportamento_alternativo) VALUES ('$utilizador_id', '$Pensamento','$Comportamento', '$Sentimentos', '$Quando', '$Pensamento_Alternativo', '$Comportamento_Alternativo')";
             $query_run = mysqli_query($conn, $query);
 
             if ($query_run) {
