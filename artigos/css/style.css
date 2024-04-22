@@ -499,7 +499,11 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
 }
 
 .container-search {
-  margin: 50px 90px 100px 100px;
+  margin: 50px 90px 50px 100px;
+}
+
+.container-order {
+  margin: 0 90px 100px 100px;
 }
 
 form {
@@ -838,6 +842,10 @@ li:not(:last-child) .separator {
   }
 
   .container-search {
+    margin: 0;
+  }
+  
+  .container-order {
     margin: 0;
   }
 

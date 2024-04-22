@@ -64,6 +64,26 @@ if ($result2_banner) {
         $artigo2_banners[$artigo_id] = $row2_banner['img_artigo'];
     }
 }
+
+$row3_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
+
+// Consulta SQL para buscar o banner da perturbação pelo nome
+$query3_banner = "SELECT artigo_id, img_artigo FROM artigos WHERE artigo_id IN (4, 5);";
+
+// Executar a consulta para obter o banner da perturbação
+$result3_banner = mysqli_query($conn, $query3_banner);
+
+// Criar um array associativo para armazenar os banners de cada artigo
+$artigo3_banners = array();
+
+// Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+if ($result3_banner) {
+    // Extrair os resultados da consulta e armazenar no array $artigo_banners
+    while ($row3_banner = mysqli_fetch_assoc($result3_banner)) {
+        $artigo_id = $row3_banner['artigo_id'];
+        $artigo3_banners[$artigo_id] = $row3_banner['img_artigo'];
+    }
+}
 ?>
 
 
@@ -123,6 +143,17 @@ if ($result2_banner) {
         foreach ($artigo2_banners as $artigo_id => $banner_url) {
             ?>
             .image-grid-container22 {
+                background-image: url("<?php echo $banner_url; ?>");
+            }
+
+            <?php
+        }
+        ?>
+
+        <?php
+        foreach ($artigo3_banners as $artigo_id => $banner_url) {
+            ?>
+            .image-grid-container33 {
                 background-image: url("<?php echo $banner_url; ?>");
             }
 
@@ -535,7 +566,7 @@ if ($result2_banner) {
 
                 while ($row3 = mysqli_fetch_assoc($result3)) {
                     ?>
-                    <div class="image-grid-container22">
+                    <div class="image-grid-container33">
                         <?php
 
                         $titulo_codificado = urlencode($row3["titulo"]);

@@ -252,6 +252,13 @@ if (isset($_SESSION['id_utilizador'])) {
             </form>
         </div>
 
+        <!--Ordenação-->
+        <div class="container-order">
+            <form method="get">
+                <button type="submit" name="ordem" value="data_recente">Ordenar por publicação mais recente</button>
+            </form>
+        </div>
+
         <?php
         // Define o número de itens por página
         $itens_por_pagina = 6;
@@ -281,6 +288,10 @@ if (isset($_SESSION['id_utilizador'])) {
             if ($filtro_nome !== 'Perturbações') {
                 $query .= " WHERE perturbacoes.nome = '$filtro_nome'";
             }
+        }
+
+        if (isset($_GET['ordem']) && $_GET['ordem'] === 'data_recente') {
+            $query .= " ORDER BY artigos.data_publicacao DESC";
         }
 
         // Conta o número total de artigos com base nos filtros aplicados
@@ -348,6 +359,10 @@ if (isset($_SESSION['id_utilizador'])) {
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
+
+                    if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
+                        echo "&ordem=" . urlencode($_GET['ordem']);
+                    }
                     echo "'>Anterior</a> ";
                 }
 
@@ -362,6 +377,10 @@ if (isset($_SESSION['id_utilizador'])) {
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
+
+                    if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
+                        echo "&ordem=" . urlencode($_GET['ordem']);
+                    }
                     echo "'>$pagina</a> ";
                 }
 
@@ -374,6 +393,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
+                    }
+
+                    if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
+                        echo "&ordem=" . urlencode($_GET['ordem']);
                     }
                     echo "'>Seguinte</a>";
                 }
