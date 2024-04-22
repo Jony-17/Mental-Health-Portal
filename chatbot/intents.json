@@ -11,9 +11,6 @@
         "Boa noite"
       ],
       "responses": [
-        "Ola :-)",
-        "Ola, obrigado por visitar",
-        "Ola, o que posso fazer por ti?",
         "Ola, como te posso ajudar?"
       ]
     },
@@ -32,17 +29,24 @@
       ]
     },
     {
-      "tag": "items",
+      "tag": "sintomas",
       "patterns": [
-        "O que vendes",
-        "O que tens",
-        "O que possuis"
+        "Nao me sinto bem",
+        "Estou com um problema",
+        "Nao me estou a sentir bem"
       ],
       "responses": [
-        "Roupa",
-        "Comida",
-        "Livros",
-        "Textos"
+        "Que sintoma tens?"
+      ]
+    },
+    {
+      "tag": "cabeca",
+      "patterns": [
+        "Dor de cabeça",
+        "Dor de cabeca"
+      ],
+      "responses": [
+        "Tendo em conta esse sintoma, recomendo que vás à secção das Perturbações -> Perturbações de Ansiedade -> Ansiedade Social e leias sobre isso. O ideal será contactares com um profissional de saúde."
       ]
     }
   ]
