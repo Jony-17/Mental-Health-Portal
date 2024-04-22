@@ -33,7 +33,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $data_formatada = date('Y-m-d', strtotime($data));
 
         if (!empty($horario) && !empty($mensagem)) {
-            $query = "INSERT INTO lembrete (data, horario, mensagem) VALUES ('$data_formatada','$horario', '$mensagem')";
+            $query = "INSERT INTO lembrete (utilizador_id, data, horario, mensagem) VALUES ('$utilizador_id', '$data_formatada','$horario', '$mensagem')";
             $query_run = mysqli_query($conn, $query);
 
             if ($query_run) {

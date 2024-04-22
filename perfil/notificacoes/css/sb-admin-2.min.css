@@ -80,12 +80,12 @@ body {
 
 .content-notificacoes {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .content-notificacoes-card {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding: 20px;
   align-items: center;
 }
@@ -101,7 +101,7 @@ i.fas.fa-clipboard-list {
   }
 
 i.fas.fa-trash-alt {
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
   color: #d34646;
   display: flex;
@@ -120,6 +120,21 @@ i.fas.fa-trash-alt {
 
 .content-notificacoes-1 h1 {
   font-size: 40px;
+}
+
+.content-nao-notificacoes {
+  display: grid;
+  justify-items: center;
+  gap: 30px;
+}
+
+i.fas.fa-bell-slash {
+  font-size: 50px;
+  margin-top: 30px;
+}
+
+.content-nao-notificacoes p {
+  font-size: 20px;
 }
 
 [tabindex="-1"]:focus {

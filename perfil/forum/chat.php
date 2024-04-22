@@ -90,61 +90,33 @@ if (isset($_SESSION['id_utilizador'])) {
         Interface
       </div>
 
-      <!-- Nav Item - Perfis dos Alunos -->
+      <!-- Nav Item - Registos de automonitorização -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="../registos-automonitorizacao"> <!--Alterar HREF -->
+          <i class="fas fa-clipboard"></i>
+          <span>Registos de automonitorização</span></a>
+      </li>
+
+      <!-- Nav Item - Fórum -->
+      <li class="nav-item">
+        <a class="nav-link" href="#"> <!--Alterar HREF -->
           <i class="fas fa-comments"></i>
           <span>Fórum</span></a>
       </li>
 
-      <!-- Nav Item - Inserir Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInserir"
-          aria-expanded="true" aria-controls="collapseInserir">
-          <i class="fas fa-folder-plus"></i>
-          <span>Inserir</span>
-        </a>
-        <div id="collapseInserir" class="collapse" aria-labelledby="headingInserir" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
-            <a class="collapse-item" href="../inserir/artigos/inserir_artigos.php">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
-      </li>
 
-
-      <!-- Nav Item - Editar Collapse Menu -->
+      <!-- Nav Item - Notificações Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEditar" aria-expanded="true"
-          aria-controls="collapseEditar">
-          <i class="fas fa-edit"></i>
-          <span>Editar</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotificações"
+          aria-expanded="true" aria-controls="collapseNotificações">
+          <i class="fas fa-bell"></i>
+          <span>Notificações</span>
         </a>
-        <div id="collapseEditar" class="collapse" aria-labelledby="headingEditar" data-parent="#accordionSidebar">
+        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Login Screens:</h6>-->
-            <a class="collapse-item" href="#">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Eliminar Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEliminar"
-          aria-expanded="true" aria-controls="collapseEliminar">
-          <i class="fas fa-trash"></i>
-          <span>Eliminar</span>
-        </a>
-        <div id="collapseEliminar" class="collapse" aria-labelledby="headingEliminar" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <!--<h6 class="collapse-header">Login Screens:</h6>-->
-            <a class="collapse-item" href="#">Artigos</a>
-            <a class="collapse-item" href="#">Notícias</a>
-            <a class="collapse-item" href="#">Conteúdo educativo</a>
+            <a class="collapse-item" href="../notificacoes">Todas as notificações</a>
+            <a class="collapse-item" href="../notificacoes/lembrete">Lembrete</a>
           </div>
         </div>
       </li>
@@ -177,6 +149,52 @@ if (isset($_SESSION['id_utilizador'])) {
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
+          <!-- Nav Item - Alerts -->
+          <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Notificações
+                </h6>
+                <?php
+                $data_atual = date('Y-m-d');
+                $horario_atual = date('H:i:s');
+
+                // Selecionar lembretes com data igual à data atual e hora do lembrete menor ou igual à hora atual
+                $sql_lembretes = "SELECT * FROM lembrete WHERE data = '$data_atual' AND horario <= '$horario_atual' AND utilizador_id = $utilizador_id";
+                $result_lembretes = mysqli_query($conn, $sql_lembretes);
+
+                if (mysqli_num_rows($result_lembretes) > 0) {
+                  // Exibir os lembretes
+                  while ($row_lembrete = mysqli_fetch_assoc($result_lembretes)) {
+                    $data_lembrete = new DateTime($row_lembrete['data']);
+
+                    ?>
+                    <a class="dropdown-item d-flex align-items-center">
+                      <div class="mr-3">
+                        <div class="icon-circle bg-secondary">
+                          <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="small text-gray-500"><?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?></div>
+                        <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
+                      </div>
+                    </a>
+                    <?php
+                  }
+                }
+
+                ?>
+                <a class="dropdown-item text-center small text-gray-500" href="../notificacoes">Ver todas as notificações</a>
+              </div>
+            </li>
 
 
             <div class="topbar-divider d-none d-sm-block"></div>

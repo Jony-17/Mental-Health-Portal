@@ -106,14 +106,6 @@ if (isset($_SESSION['id_utilizador'])) {
       </li>
 
 
-      <!-- Nav Item - GAP -->
-      <li class="nav-item">
-        <a class="nav-link" href="gap"> <!--Alterar HREF -->
-          <i class="fas fa-users"></i>
-          <span>Gabinete de Apoio Psicológico</span></a>
-      </li>
-
-
       <!-- Nav Item - Notificações Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNotificações"
@@ -126,7 +118,7 @@ if (isset($_SESSION['id_utilizador'])) {
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Login Screens:</h6>-->
             <a class="collapse-item" href="..">Todas as notificações</a>
-            <a class="collapse-item" href="lembrete">Lembrete</a>
+            <a class="collapse-item" href="">Lembrete</a>
           </div>
         </div>
       </li>
@@ -166,8 +158,6 @@ if (isset($_SESSION['id_utilizador'])) {
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">+2</span>
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -175,29 +165,36 @@ if (isset($_SESSION['id_utilizador'])) {
                 <h6 class="dropdown-header">
                   Notificações
                 </h6>
-                <a class="dropdown-item d-flex align-items-center">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-secondary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">16 de abril de 2024</div>
-                    <span class="font-weight-bold">Não te esqueças de realizar o conteúdo educativo de hoje!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-secondary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">16 de abril de 2024</div>
-                    <span class="font-weight-bold">Se pretenderes, podes registar o que estás a sentir ao longo
-                      dia!</span>
-                  </div>
-                </a>
+                <?php
+                $data_atual = date('Y-m-d');
+                $horario_atual = date('H:i:s');
+
+                // Selecionar lembretes com data igual à data atual e hora do lembrete menor ou igual à hora atual
+                $sql_lembretes = "SELECT * FROM lembrete WHERE data = '$data_atual' AND horario <= '$horario_atual' AND utilizador_id = $utilizador_id";
+                $result_lembretes = mysqli_query($conn, $sql_lembretes);
+
+                if (mysqli_num_rows($result_lembretes) > 0) {
+                  // Exibir os lembretes
+                  while ($row_lembrete = mysqli_fetch_assoc($result_lembretes)) {
+                    $data_lembrete = new DateTime($row_lembrete['data']);
+
+                    ?>
+                    <a class="dropdown-item d-flex align-items-center">
+                      <div class="mr-3">
+                        <div class="icon-circle bg-secondary">
+                          <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="small text-gray-500"><?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?></div>
+                        <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
+                      </div>
+                    </a>
+                    <?php
+                  }
+                }
+
+                ?>
                 <a class="dropdown-item text-center small text-gray-500" href="..">Ver todas as notificações</a>
               </div>
             </li>
@@ -346,6 +343,17 @@ if (isset($_SESSION['id_utilizador'])) {
           <script src="../../toggle-password.js"></script>
 
           <script src="../../includes/scripts.php"></script>
+
+          <script>
+            // Código JavaScript para receber notificações em tempo real
+            var evtSource = new EventSource("insercao.php");
+
+            evtSource.onmessage = function (event) {
+              var notificacoes = JSON.parse(event.data);
+              // Manipule as notificações recebidas aqui
+              console.log(notificacoes);
+            };
+          </script>
 
 
 </body>
