@@ -170,7 +170,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $titulo_artigo = urldecode($_GET['titulo']);
 
         // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
+        $query = "SELECT noticias_id, titulo FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
         $result = mysqli_query($conn, $query);
@@ -179,32 +179,26 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $artigo_id = $row['artigo_id'];
+            $noticias_id = $row['noticias_id'];
 
             // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao
-                            FROM juncao_perturbacoes jp
-                            INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id
-                            WHERE jp.juncao_perturbacoes_id =
-                            (SELECT juncao_perturbacoes_id
-                            FROM artigos WHERE artigo_id = $artigo_id)";
+            $query_grupo = "SELECT noticias_id, titulo FROM noticias";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
 
             // Exibir os resultados
             echo '<ol role="list">';
-            echo '<li class="list"><div class="items"><a href=".." class="text-sm">Artigos</a><span class="separator">/</span></div></li>';
-            echo '<li class="list"><div class="items"><span class="text-sm">' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</span><span class="separator">/</span></div></li>';
+            echo '<li class="list"><div class="items"><a href=".." class="text-sm">Notícias</a><span class="separator">/</span></div></li>';
             echo '<li class="list"><div class="items-current"><span class="text-sm" aria-current="page">' . $row['titulo'] . '</span></div></li>';
             echo '</ol>';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Artigo não encontrado.";
+            echo "Notícia não encontrada.";
         }
     } else {
         // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "Título do artigo não especificado na URL.";
+        echo "Título da notícia não especificado na URL.";
     }
     ?>
 
@@ -216,6 +210,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <img src="../background2.png" alt="banner background" />
     </div>
 
+
     <!--Títulos-->
     <?php
     if (isset($_GET['titulo'])) {
@@ -223,7 +218,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $titulo_artigo = urldecode($_GET['titulo']);
 
         // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
+        $query = "SELECT noticias_id, titulo FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
         $result = mysqli_query($conn, $query);
@@ -232,16 +227,10 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
+            $noticias_id = $row['noticias_id']; // Acessar o artigo_id associado ao artigo
     
             // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
-                        FROM juncao_perturbacoes jp 
-                        INNER JOIN grupos_perturbacoes p ON jp.grupos_perturbacoes_id = p.grupos_perturbacoes_id 
-                        WHERE jp.juncao_perturbacoes_id =
-                        (SELECT juncao_perturbacoes_id
-                        FROM artigos
-                        WHERE artigo_id = $artigo_id)";
+            $query_grupo = "SELECT noticias_id, titulo FROM noticias";
 
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
@@ -249,16 +238,15 @@ if (isset($_SESSION['id_utilizador'])) {
 
             // Exibir os resultados
             echo '<div class="heading">';
-            echo '<h4>' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</h4>';
             echo '<h1>' . $row['titulo'] . '</h1>';
             echo '</div>';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "<div class='heading'><h4>Artigo não encontrado.</h4></div>";
+            echo "<div class='heading'><h4>Notícia não encontrada.</h4></div>";
         }
     } else {
         // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-        echo "<div class='heading'><h4>Título do artigo não especificado na URL.</h4></div>";
+        echo "<div class='heading'><h4>Título da notícia não especificado na URL.</h4></div>";
     }
     ?>
 
@@ -271,7 +259,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $titulo_artigo = urldecode($_GET['titulo']);
 
         // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT autor, data_publicacao FROM artigos WHERE titulo = '$titulo_artigo'";
+        $query = "SELECT autor, data_publicacao FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
         $result = mysqli_query($conn, $query);
@@ -302,7 +290,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $titulo_artigo = urldecode($_GET['titulo']);
 
         // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT img_artigo FROM artigos WHERE titulo = '$titulo_artigo'";
+        $query = "SELECT img_noticia FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
         $result = mysqli_query($conn, $query);
@@ -312,7 +300,7 @@ if (isset($_SESSION['id_utilizador'])) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
             // Exibir o autor e a data de publicação do artigo
-            echo '<img class="img-artigo" src="' . $row['img_artigo'] . '">';
+            echo '<img class="img-artigo" src="' . $row['img_noticia'] . '">';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
             echo "Autor ou data de publicação não encontrados.";
@@ -333,7 +321,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         // Se o título do artigo estiver definido na URL, exibir o conteúdo do artigo
                         if (isset($_GET['titulo'])) {
                             $titulo_artigo = urldecode($_GET['titulo']);
-                            $query = "SELECT conteudo_texto FROM artigos WHERE titulo = '$titulo_artigo'";
+                            $query = "SELECT conteudo_texto FROM noticias WHERE titulo = '$titulo_artigo'";
                             $result = mysqli_query($conn, $query);
                             if ($result && mysqli_num_rows($result) > 0) {
                                 $row = mysqli_fetch_assoc($result);
@@ -353,7 +341,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <!--Pontos-->
             <?php
             // Consulta SQL para selecionar os pontos do artigo atual apenas
-            $query = "SELECT artigo_id, ponto, conteudo_artigo_id FROM conteudo_artigo WHERE artigo_id = $artigo_id";
+            $query = "SELECT noticias_id, ponto, conteudo_noticia_id FROM conteudo_noticia WHERE noticias_id = $noticias_id";
 
             // Executar a consulta
             $result = mysqli_query($conn, $query);
@@ -366,8 +354,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     echo '<div class="subheading" id="ponto_' . $row['ponto'] . '">';
                     echo '<h1>' . $row['ponto'] . '</h1>';
 
-                    $conteudo_artigo_id = $row['conteudo_artigo_id'];
-                    $query_conteudo = "SELECT texto FROM texto_artigo WHERE conteudo_artigo_id = $conteudo_artigo_id";
+                    $conteudo_noticia_id = $row['conteudo_noticia_id'];
+                    $query_conteudo = "SELECT texto FROM texto_noticia WHERE conteudo_noticia_id = $conteudo_noticia_id";
 
                     // Executar a consulta de conteúdo
                     $result_conteudo = mysqli_query($conn, $query_conteudo);
@@ -395,7 +383,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <section class="tabela-conteudo">
             <?php
             // Consulta SQL para selecionar os pontos da tabela conteudo_artigo
-            $query = "SELECT ponto FROM conteudo_artigo WHERE artigo_id = $artigo_id";
+            $query = "SELECT ponto FROM conteudo_noticia WHERE noticias_id = $noticias_id";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_num_rows($result) > 0) {
                 echo '<div class="card-body2">';

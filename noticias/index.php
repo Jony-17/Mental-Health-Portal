@@ -38,10 +38,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -170,172 +168,112 @@ if (isset($_SESSION['id_utilizador'])) {
                 <span class="text-sm" aria-current=page>
                     Notícias
                 </span>
-                <span class="separator"
-                    style="display: <?php echo (isset($_GET['filter']) && ($_GET['filter'] != 'Perturbações')) ? 'inline-block' : 'none'; ?>">/</span>
             </div>
         </li>
 
-        <?php
-        // Defina os nomes das perturbações que deseja exibir na lista
-        $perturbacoes = array(
-            'Perturbações de Ansiedade',
-            'Perturbações do Sono - Vigília',
-            'Perturbações de Humor',
-            'Perturbações Alimentares',
-            'Perturbações de Personalidade',
-            'Perturbações Obsessivo-Compulsivas',
-            'Perturbações relacionadas com Trauma e Fatores de stress'
-        );
-
-        // Percorre a lista de perturbações
-        foreach ($perturbacoes as $perturbacao) {
-            ?>
-            <li class="list-visible"
-                style="display: <?php echo (isset($_GET['filter']) && ($_GET['filter'] == urldecode($perturbacao))) ? 'inline-block' : 'none'; ?>">
-                <div class="items-current">
-                    <span class="text-sm" aria-current="page">
-                        <?php echo htmlspecialchars($perturbacao); ?>
-                    </span>
-                </div>
-            </li>
-            <?php
-        }
-        ?>
-
     </ol>
 
+    <div class="background1">
+        <img src="background1.png" alt="banner background" />
+    </div>
 
-    <!--Artigos-->
+    <div class="background2">
+        <img src="background2.png" alt="banner background" />
+    </div>
+
+    <div class="heading">
+        <h1>
+            Notícias
+        </h1>
+    </div>
+
+    <!--Notícias-->
     <section class="artigos" id="artigos">
         <div class="artigos-banner-container">
             <h1 class="artigos-primary-heading">
-                Notícias
+                <!-- Adicione seu título aqui -->
             </h1>
         </div>
-
-        <?php
-
-        $query = "SELECT nome, perturbacoes_id FROM perturbacoes";
-
-        $result = mysqli_query($conn, $query);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            ?>
-            <div class="buttons">
-                <a class="btn2" href="?filter=Perturbações">Todos</a>
-                <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <a class="btn2" href="?filter=<?php echo urlencode($row['nome']); ?>">
-                        <?php echo $row['nome']; ?>
-                    </a>
-                    <?php
-                }
-                ?>
-            </div>
-            <?php
-        }
-        ?>
 
         <!--Pesquisa-->
         <div class="container-search">
             <form method="GET">
                 <div class="search-wrapper">
                     <i class="fas fa-search"></i>
-                    <input id="input-search" type="text" name="search_query" placeholder="Pesquisa o nome de uma notícia">
+                    <input id="input-search" type="text" name="search_query"
+                        placeholder="Pesquisar o nome de uma notícia">
                 </div>
-                <button type="submit">Pesquisa</button>
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+
+        <!--Ordenação-->
+        <div class="container-order">
+            <form method="get">
+                <button type="submit" name="ordem" value="data_recente">Ordenar por publicação mais recente</button>
             </form>
         </div>
 
         <?php
+        // Define o número de itens por página
+        $itens_por_pagina = 6;
 
+        // Página atual. Se não for fornecido na URL, assume a primeira página (1)
+        $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+        // Calcula o offset para a consulta SQL com base na página atual
+        $offset = ($pagina_atual - 1) * $itens_por_pagina;
+
+        // Consulta SQL para recuperar os artigos
+        $query = "SELECT * FROM noticias";
+
+        // Adiciona filtro de pesquisa, se fornecido
         if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
-            $search_query = $_GET['search_query'];
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-            FROM artigos 
-            INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-            INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-            INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-            WHERE artigos.titulo LIKE '%$search_query%'";
-        } else if (isset($_GET['filter']) && $_GET['filter'] !== '') {
-            // Verificar se o filtro não está vazio
-            $filtro_nome = urldecode($_GET['filter']); // Decodificar o nome do filtro, se necessário
-        
-            if ($filtro_nome === 'Perturbações') {
-                // Se o filtro for 'perturbacoes', não aplicar filtro, mostrar todos os artigos
-                $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-                FROM artigos 
-                INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-                INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
-            } else {
-                // Consultar o banco de dados para obter o ID do filtro com base no nome fornecido
-                $query_id = "SELECT perturbacoes_id FROM perturbacoes WHERE nome = '$filtro_nome'";
-                $result_id = mysqli_query($conn, $query_id);
-
-                if ($result_id && mysqli_num_rows($result_id) > 0) {
-                    $row_id = mysqli_fetch_assoc($result_id);
-                    $perturbacao_id = $row_id['perturbacoes_id'];
-
-                    // Ajustar a consulta SQL para selecionar os artigos relacionados ao filtro
-                    $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-                    FROM artigos 
-                    INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-                    INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                    INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                    WHERE perturbacoes.perturbacoes_id = $perturbacao_id";
-                } else {
-                    // Se o filtro não for encontrado, você pode lidar com isso aqui
-                    // Por exemplo, redirecionar para uma página de erro ou mostrar uma mensagem de erro
-                    echo "Filtro não encontrado.";
-                }
-            }
-        } else {
-            $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
-                FROM artigos 
-                INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-                INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id";
+            $search_query = mysqli_real_escape_string($conn, $_GET['search_query']);
+            $query .= " WHERE titulo LIKE '%$search_query%'";
         }
 
+        if (isset($_GET['ordem']) && $_GET['ordem'] === 'data_recente') {
+            $query .= " ORDER BY data_publicacao DESC";
+        }
+
+        // Conta o número total de artigos com base nos filtros aplicados
+        $query_count = "SELECT COUNT(*) AS total FROM ($query) AS count_query";
+        $result_count = mysqli_query($conn, $query_count);
+        $total_resultados = 0;
+
+        if ($result_count) {
+            $row_count = mysqli_fetch_assoc($result_count);
+            $total_resultados = $row_count['total'];
+        }
+
+        // Calcula o número total de páginas com base nos resultados encontrados
+        $total_paginas = ceil($total_resultados / $itens_por_pagina);
+
+        // Adiciona limitação para paginação
+        $query .= " LIMIT $itens_por_pagina OFFSET $offset";
+
+        // Executa a consulta SQL
         $result = mysqli_query($conn, $query);
 
+        // Exibe os resultados
         if ($result && mysqli_num_rows($result) > 0) {
             ?>
             <div class="card-container">
                 <?php
-
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <div class="card">
                         <?php
-                        // Codificar o título do artigo para torná-lo seguro para a URL
                         $titulo_codificado = urlencode($row["titulo"]);
                         ?>
-                        <a href="artigo/?titulo=<?php echo $titulo_codificado; ?>">
-
-                            <img src="<?php echo $row["img_artigo"] ?>" width="100%" alt="<?php echo $row["titulo"] ?>">
+                        <a href="noticia/?titulo=<?php echo $titulo_codificado; ?>">
+                            <img src="<?php echo $row["img_noticia"] ?>" width="100%" alt="<?php echo $row["titulo"] ?>">
                         </a>
                         <div class="card4-content">
-                            <h3>
-                                <?php echo $row["perturbacao_nome"] ?>
-                            </h3>
-                            <h2>
-                                <?php echo $row["grupo_nome"] ?>
-                            </h2>
-                            <h1>
-                                <?php echo $row["titulo"] ?>
-                            </h1>
-                            <p>
-                                <?php echo $row['data_publicacao'] ?>
-                            </p>
-                            <p>
-                                <?php echo $row['autor'] ?>
-                            </p>
-                            <!--<a href="perturbacoes-ansiedade/index.php" class="secondary-button">
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>-->
+                            <h1><?php echo $row["titulo"] ?></h1>
+                            <p><?php echo $row['data_publicacao'] ?></p>
+                            <p><?php echo $row['autor'] ?></p>
                         </div>
                     </div>
                     <?php
@@ -344,59 +282,63 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
             <?php
         } else {
-            echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhum artigo encontrado.</div>';
+            echo '<div style="margin: 100px 100px 50px 100px; font-size: 20px;">Nenhuma notícia encontrada.</div>';
+        }
+
+        // Exibe a paginação
+        if ($total_paginas > 1) {
+            ?>
+            <div class='paginacao'>
+                <?php
+                // Link para a página anterior
+                if ($pagina_atual > 1) {
+                    echo "<a href='?pagina=" . ($pagina_atual - 1);
+
+                    if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+                        echo "&search_query=" . urlencode($_GET['search_query']);
+                    }
+
+                    if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
+                        echo "&ordem=" . urlencode($_GET['ordem']);
+                    }
+                    echo "'>Anterior</a> ";
+                }
+
+                // Exibe os números das páginas
+                for ($pagina = 1; $pagina <= $total_paginas; $pagina++) {
+                    $classe_pagina_atual = ($pagina == $pagina_atual) ? "pagina-atual" : "";
+                    echo "<a class='$classe_pagina_atual' href='?pagina=$pagina";
+
+                    if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+                        echo "&search_query=" . urlencode($_GET['search_query']);
+                    }
+
+                    if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
+                        echo "&ordem=" . urlencode($_GET['ordem']);
+                    }
+                    echo "'>$pagina</a> ";
+                }
+
+                // Link para a próxima página
+                if ($pagina_atual < $total_paginas) {
+                    echo "<a href='?pagina=" . ($pagina_atual + 1);
+
+                    if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+                        echo "&search_query=" . urlencode($_GET['search_query']);
+                    }
+
+                    if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
+                        echo "&ordem=" . urlencode($_GET['ordem']);
+                    }
+                    echo "'>Seguinte</a>";
+                }
+                ?>
+            </div>
+            <?php
         }
         ?>
-
-        <?php
-        // Define o número de itens por página
-        $itens_por_pagina = 3;
-
-        // Página atual. Se não for fornecido na URL, assume a primeira página (1)
-        $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
-
-        // Calcula o offset para a consulta SQL com base na página atual
-        $offset = ($pagina_atual - 1) * $itens_por_pagina;
-
-        // Sua consulta SQL com limitação para paginação
-        $query_paginacao = "SELECT * FROM artigos LIMIT $itens_por_pagina OFFSET $offset";
-
-        // Executa a consulta SQL
-        $result_paginacao = mysqli_query($conn, $query_paginacao);
-
-        // Verifica o número total de resultados
-        $total_resultados = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM artigos"));
-
-        // Calcula o número total de páginas
-        $total_paginas = ceil($total_resultados / $itens_por_pagina);
-
-        // Exibe os resultados da página atual
-        while ($row = mysqli_fetch_assoc($result_paginacao)) {
-            // Exiba os resultados conforme necessário
-        }
-
-        echo "<div class='paginacao'>";
-
-        // Link para a página anterior
-        if ($pagina_atual > 1) {
-            echo "<a href='?pagina=" . ($pagina_atual - 1) . "'>Anterior</a> ";
-        }
-
-        // Exibe os números das páginas
-        for ($pagina = 1; $pagina <= $total_paginas; $pagina++) {
-            $classe_pagina_atual = ($pagina == $pagina_atual) ? "pagina-atual" : "";
-            echo "<a class='$classe_pagina_atual' href='?pagina=$pagina'>$pagina</a> ";
-        }
-
-        // Link para a próxima página
-        if ($pagina_atual < $total_paginas) {
-            echo "<a href='?pagina=" . ($pagina_atual + 1) . "'>Seguinte</a>";
-        }
-
-        echo "</div>";
-        ?>
-
     </section>
+
 
 
     <div class="fontes" id="fontes">

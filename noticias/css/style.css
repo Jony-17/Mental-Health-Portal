@@ -309,6 +309,37 @@ header {
 }
   
 
+/*--------------Heading---------------------------*/
+
+.background1 {
+  position: absolute;
+  top: 280px;
+  right: 0;
+  z-index: -2;
+}
+
+.background2 {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  z-index: -2;
+}
+
+.heading {
+  padding-left: 100px;
+  padding-right: 100px;
+  font-size: 25px;
+  color: var(--title-color);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.heading h1 {
+  font-family: "Libre Baskerville", sans-serif;
+}
+
+
 
 /*------------------Tipos Perturbações Mentais------------------*/
 
@@ -317,7 +348,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .artigos-primary-heading {
@@ -482,7 +513,11 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
 }
 
 .container-search {
-  margin: 50px 90px 100px 100px;
+  margin: 50px 90px 50px 100px;
+}
+
+.container-order {
+  margin: 0 90px 100px 100px;
 }
 
 form {
@@ -744,7 +779,7 @@ input:checked + .change::after {
 
 ol {
   list-style-type: none;
-  margin: 100px 100px 30px 100px;
+  margin: 100px 100px 50px 100px;
   padding: 0;
 }
 
@@ -806,6 +841,18 @@ li:not(:last-child) .separator {
     margin-right: 10px;
   }
 
+  .heading {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px 0 20px 15px;
+    padding: 0;
+  }
+
+  .background1,
+  .background2 {
+    display: none;
+  }
+
   .buttons {
     display: flex;
     justify-content: flex-start;
@@ -814,6 +861,10 @@ li:not(:last-child) .separator {
   }
 
   .container-search {
+    margin: 0;
+  }
+  
+  .container-order {
     margin: 0;
   }
 
@@ -844,8 +895,10 @@ li:not(:last-child) .separator {
   }
 
   form {
-    height: auto; /* Altere a altura para 'auto' para acomodar o conteúdo conforme necessário */
-    flex-direction: column; /* Empilhe os elementos verticalmente em dispositivos móveis */
+    height: auto;
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 30px;
   }
 
   .search-wrapper {
@@ -909,9 +962,6 @@ li:not(:last-child) .separator {
 
 /* Tela igual ou superior a 1600 */
 @media screen and (min-width: 1600px) {
-  .artigos-banner-container {
-      margin-top: 100px;
-    }
   
     .artigos-primary-heading {
       font-size: clamp(12px, 5vw, 52px);
