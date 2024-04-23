@@ -11,13 +11,8 @@ if (isset($_SESSION['id_utilizador'])) {
     $data = json_decode(file_get_contents('php://input'), true);
     $result = $data['result'];
 
-    $quiz_empatia_id = null; // Você precisa fornecer o ID correto aqui
-    $quiz_preocupacao_id = null; // Define como NULL, já que não queremos inserir um ID de quiz de preocupação
-    $quiz_energia_id = null; // Define como NULL, já que não queremos inserir um ID de quiz de preocupação
-    $quiz_emocao_id = 1; // Define como NULL, já que não queremos inserir um ID de quiz de preocupação
-
     // Insere os resultados do quiz no banco de dados, incluindo apenas o quiz_empatia_id
-    $query = "INSERT INTO quizzes (utilizador_id, quiz_empatia_id, quiz_preocupacao_id, quiz_energia_id, quiz_emocao_id) VALUES ('$utilizador_id', NULL, NULL, NULL, '$quiz_emocao_id')";
+    $query = "INSERT INTO quizzes (utilizador_id, quiz_nome_id) VALUES ('$utilizador_id', '4')";
 
     $result = mysqli_query($conn, $query);
 

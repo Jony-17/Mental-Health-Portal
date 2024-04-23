@@ -24,7 +24,7 @@ const quizData = [
         c: "2"
     },
     {
-        question: "5. Raramente fico ríspido ou tenho uma atitude arrogante se as pessoas me frustram.",
+        question: "5. Raramente fico ríspido ou tenho uma atitude arrogante se as pessoas me chateiam.",
         a: "0",
         b: "1",
         c: "2"
@@ -36,7 +36,7 @@ const quizData = [
         c: "2"
     },
     {
-        question: "7. Eu verifico a minha intuição - meus instintos - ao fazer escolhas.",
+        question: "7. Eu verifico a minha intuição - os meus instintos - ao fazer escolhas.",
         a: "0",
         b: "1",
         c: "2"
@@ -60,7 +60,7 @@ const quizData = [
         c: "2"
     },
     {
-        question: "11. Sou uma pessoa positiva e não transformo pequenos problemas em grandes.",
+        question: "11. Sou uma pessoa positiva e não transformo pequenos problemas em grandes problemas.",
         a: "0",
         b: "1",
         c: "2"
@@ -90,7 +90,7 @@ const quizData = [
         c: "2"
     },
     {
-        question: "16. Eu não me comparo com os outros.",
+        question: "16. Não me comparo com os outros.",
         a: "0",
         b: "1",
         c: "2"
@@ -156,11 +156,15 @@ function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false);
 }
 
+let selectedAnswers = []; // Array para armazenar as respostas selecionadas
+
 function getSelected() {
     let answer;
     answerEls.forEach(answerEl => {
-        if(answerEl.checked) {
-            answer = answerEl.id;
+        if (answerEl.checked) {
+            answer = answerEl.value; // Não é necessário converter para inteiro
+            selectedAnswers.push(answer); // Adiciona a resposta ao array
+            console.log("Resposta selecionada:", answer);
         }
     });
     return answer;
@@ -178,17 +182,11 @@ function nextQuestion() {
 
 
 function submitQuiz() {
-    let totalScore = [];
+    let totalScore = selectedAnswers.reduce((acc, curr) => acc + curr, 0);
+
     answerEls.forEach(answerEl => {
         if (answerEl.checked) {
-            const answerValue = answerEl.id;
-            if (answerValue === 'a') {
-                totalScore += 0;
-            } else if (answerValue === 'b') {
-                totalScore += 1;
-            } else if (answerValue === 'c') {
-                totalScore += 2;
-            }
+            totalScore += parseInt(answerEl.value); // Acumula o valor da resposta selecionada
         }
     });
 
@@ -202,6 +200,12 @@ function submitQuiz() {
     } else {
         result = "nao deu";
     }
+
+    console.log("Resultado:", result);
+
+    // Restante do código permanece inalterado
+
+
 
     // Exibe os resultados do quiz
     quiz.innerHTML = `

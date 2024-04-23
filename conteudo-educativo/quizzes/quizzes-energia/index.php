@@ -3,7 +3,7 @@ session_start();
 require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -71,33 +71,33 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../../perturbacoes">Perturbações</a></li>
-                <li><a href="#artigos">Artigos</a></li>
+                <li><a href="../../../perturbacoes">Perturbações</a></li>
+                <li><a href="../../../artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
-                <li><a href="#">Conteúdo Educativo</a>
+                <li><a href="../..">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../index.php">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
-                        <li><a href="#">TED Talks</a></li>
+                        <li><a href="..">Quizzes</a></li>
+                        <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                        <li><a href="../../ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -105,7 +105,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -115,37 +115,37 @@ if (isset ($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial">Página Inicial</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="../../perturbacoes">Perturbações</a></li>
-            <li><a href="#skills">Artigos</a></li>
+            <li><a href="../../../perturbacoes">Perturbações</a></li>
+            <li><a href="../../../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../index.php">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="#">TED Talks</a></li>
+                    <li><a href="..">Quizzes</a></li>
+                    <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                    <li><a href="../../ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -153,7 +153,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../../logout/logout.php";
+                        var url = "../../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -166,13 +166,12 @@ if (isset ($_SESSION['id_utilizador'])) {
     <ol role="list">
         <li class="list">
             <div class="items">
-                <span class="text-sm">
-                    Conteúdo Educativo
-                </span>
+                <a href="../.." class="text-sm">
+                    Conteúdo Educativo</a>
                 <span class="separator">/</span>
             </div>
-
         </li>
+
         <li class="list">
             <div class="items">
                 <a href=".." class="text-sm" aria-current=page>
@@ -186,7 +185,7 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="items-current">
                 <span class="text-sm" aria-current=page>
                     Tens uma energia positiva?
-            </span>
+                </span>
             </div>
         </li>
     </ol>
@@ -258,7 +257,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                                     </li>
                                 </ul>
                                 <button class="button-quiz" id="nextButton" onclick="nextQuestion()">Próxima</button>
-                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter resultados</button>
+                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter
+                                    resultados</button>
                             </div>
                         </div>
                     </div>

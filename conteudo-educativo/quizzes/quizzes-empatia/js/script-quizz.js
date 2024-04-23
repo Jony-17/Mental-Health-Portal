@@ -9,8 +9,8 @@ const quizData = [
         a: "Sim",
         b: "Não"
     },
-    /*{
-        question: "3. Discussões ou gritos me deixam doente?",
+    {
+        question: "3. Discussões ou gritos deixam-me doente?",
         a: "Sim",
         b: "Não"
     },
@@ -35,12 +35,12 @@ const quizData = [
         b: "Não"
     },
     {
-        question: "8. Prefiro levar meu próprio carro para poder sair mais cedo se precisar?",
+        question: "8. Prefiro levar o meu próprio carro para poder sair mais cedo se precisar?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "9. Como demais para lidar com o estresse?",
+        question: "9. Como demais para lidar com o stress?",
         a: "Sim",
         b: "Não"
     },
@@ -50,7 +50,7 @@ const quizData = [
         b: "Não"
     },
     {
-        question: "11. Eu me assusto facilmente?",
+        question: "11. Assusto-me facilmente?",
         a: "Sim",
         b: "Não"
     },
@@ -65,12 +65,12 @@ const quizData = [
         b: "Não"
     },
     {
-        question: "14. Tenho tendência a me isolar socialmente?",
+        question: "14. Tenho tendência a isolar-me socialmente?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "15. Absorvo o estresse, as emoções ou os sintomas de outras pessoas?",
+        question: "15. Absorvo o stress, as emoções ou os sintomas de outras pessoas?",
         a: "Sim",
         b: "Não"
     },
@@ -80,17 +80,17 @@ const quizData = [
         b: "Não"
     },
     {
-        question: "17. Eu me reabasteço na natureza?",
+        question: "17. Reabasteço-me na natureza?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "18. Preciso de muito tempo para me recuperar depois de estar com pessoas difíceis ou vampiros energéticos?",
+        question: "18. Preciso de muito tempo para me recuperar depois de estar com pessoas difíceis?",
         a: "Sim",
         b: "Não"
     },
     {
-        question: "19. Sinto-me melhor nas cidades pequenas ou no campo do que nas grandes?",
+        question: "19. Sinto-me melhor nas cidades pequenas ou no campo, do que nas grandes cidades?",
         a: "Sim",
         b: "Não"
     },
@@ -98,7 +98,7 @@ const quizData = [
         question: "20. Prefiro interações individuais ou pequenos grupos em vez de grandes reuniões?",
         a: "Sim",
         b: "Não"
-    }*/
+    }
 ];
 
 const quiz = document.getElementById('quiz');

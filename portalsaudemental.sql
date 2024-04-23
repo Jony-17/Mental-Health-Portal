@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Abr-2024 às 17:57
+-- Tempo de geração: 23-Abr-2024 às 18:35
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -116,6 +116,25 @@ INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`) VALUE
 (2, 1, 'Desenvolvimento'),
 (3, 1, 'Conclusão'),
 (4, 2, 'Conteúdo');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `conteudo_noticia`
+--
+
+CREATE TABLE `conteudo_noticia` (
+  `conteudo_noticia_id` int(11) NOT NULL,
+  `noticias_id` int(11) NOT NULL,
+  `ponto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `conteudo_noticia`
+--
+
+INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`) VALUES
+(1, 1, 'ee');
 
 -- --------------------------------------------------------
 
@@ -241,7 +260,8 @@ CREATE TABLE `lembrete` (
 
 INSERT INTO `lembrete` (`lembrete_id`, `utilizador_id`, `data`, `horario`, `mensagem`) VALUES
 (21, 18, '2024-04-21', '17:30:00', 'teste'),
-(22, 18, '2024-04-22', '16:15:00', 'teste de notificação');
+(22, 18, '2024-04-22', '16:15:00', 'teste de notificação'),
+(23, 18, '2024-04-23', '11:09:00', 'ççç');
 
 -- --------------------------------------------------------
 
@@ -299,8 +319,19 @@ CREATE TABLE `noticias` (
   `noticias_id` int(11) NOT NULL,
   `titulo` varchar(1000) NOT NULL,
   `data_publicacao` varchar(1000) NOT NULL,
-  `autor` varchar(1000) NOT NULL
+  `autor` varchar(1000) NOT NULL,
+  `img_noticia` mediumtext NOT NULL,
+  `conteudo_texto` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `noticias`
+--
+
+INSERT INTO `noticias` (`noticias_id`, `titulo`, `data_publicacao`, `autor`, `img_noticia`, `conteudo_texto`) VALUES
+(1, 'Dar uma casa a doentes mentais que vivem na rua', '13 de abril de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:2500:1667:nowe:0:0/rs:fill:1440/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/04/11124230/154a2870.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(2, 'O que são perturbações da personalidade?', '20 de abril de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:2302:1302:nowe:0:0/rs:fill:560/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/04/19202213/istock-1125680650.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(3, 'O projeto que ajuda a prevenir o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste');
 
 -- --------------------------------------------------------
 
@@ -370,98 +401,95 @@ INSERT INTO `perturbacoes_personalidade` (`perturbacoes_personalidade_id`, `nome
 CREATE TABLE `quizzes` (
   `quiz_id` int(11) NOT NULL,
   `utilizador_id` int(11) NOT NULL,
-  `quiz_empatia_id` int(11) DEFAULT NULL,
-  `quiz_preocupacao_id` int(11) DEFAULT NULL,
-  `quiz_energia_id` int(11) DEFAULT NULL,
-  `quiz_emocao_id` int(11) DEFAULT NULL
+  `quiz_nome_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `quizzes`
 --
 
-INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_empatia_id`, `quiz_preocupacao_id`, `quiz_energia_id`, `quiz_emocao_id`) VALUES
-(88, 18, 1, 1, NULL, NULL),
-(93, 18, 1, 1, NULL, NULL),
-(94, 18, 1, NULL, NULL, NULL),
-(95, 18, NULL, 1, NULL, NULL),
-(96, 18, 1, NULL, NULL, NULL),
-(97, 18, 1, NULL, NULL, NULL),
-(98, 18, NULL, 1, NULL, NULL),
-(99, 18, NULL, NULL, 1, NULL),
-(100, 18, NULL, 1, NULL, NULL);
+INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_nome_id`) VALUES
+(88, 18, 1),
+(93, 18, 1),
+(94, 18, 1),
+(95, 18, 2),
+(96, 18, 1),
+(97, 18, 1),
+(98, 18, 2),
+(99, 18, 3),
+(100, 18, 2),
+(101, 18, 4),
+(102, 18, 4),
+(103, 18, 4),
+(104, 18, 4),
+(105, 18, 4),
+(106, 18, 4),
+(107, 18, 4),
+(108, 18, 4),
+(109, 18, 4),
+(110, 18, 4),
+(111, 18, 4),
+(112, 18, 4),
+(113, 18, 4),
+(114, 18, 4),
+(115, 18, 4),
+(116, 18, 4),
+(117, 18, 4),
+(118, 18, 4),
+(119, 18, 4),
+(120, 18, 4),
+(121, 18, 4),
+(122, 18, 4),
+(123, 18, 4),
+(124, 18, 4),
+(125, 18, 4),
+(126, 18, 4),
+(127, 18, 4),
+(128, 18, 4),
+(129, 18, 4),
+(130, 18, 4),
+(131, 18, 4),
+(132, 18, 4),
+(133, 18, 4),
+(134, 18, 4),
+(135, 18, 4),
+(136, 18, 4),
+(137, 18, 4),
+(138, 18, 4),
+(139, 18, 4),
+(140, 18, 4),
+(141, 18, 4),
+(142, 18, 4),
+(143, 18, 4),
+(144, 18, 4),
+(145, 18, 4),
+(146, 18, 4),
+(147, 18, 4),
+(148, 18, 4),
+(149, 18, 4),
+(150, 18, 4),
+(151, 18, 4);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `quiz_emocao`
+-- Estrutura da tabela `quiz_nome`
 --
 
-CREATE TABLE `quiz_emocao` (
-  `quiz_emocao_id` int(11) NOT NULL,
+CREATE TABLE `quiz_nome` (
+  `quiz_nome_id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `quiz_emocao`
+-- Extraindo dados da tabela `quiz_nome`
 --
 
-INSERT INTO `quiz_emocao` (`quiz_emocao_id`, `nome`) VALUES
-(1, 'O quão livre emocionalmente, és?');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `quiz_empatia`
---
-
-CREATE TABLE `quiz_empatia` (
-  `quiz_empatia_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `quiz_empatia`
---
-
-INSERT INTO `quiz_empatia` (`quiz_empatia_id`, `nome`) VALUES
-(1, 'O quão empática/o és?');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `quiz_energia`
---
-
-CREATE TABLE `quiz_energia` (
-  `quiz_energia_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `quiz_energia`
---
-
-INSERT INTO `quiz_energia` (`quiz_energia_id`, `nome`) VALUES
-(1, 'Tens uma energia positiva?');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `quiz_preocupacao`
---
-
-CREATE TABLE `quiz_preocupacao` (
-  `quiz_preocupacao_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `quiz_preocupacao`
---
-
-INSERT INTO `quiz_preocupacao` (`quiz_preocupacao_id`, `nome`) VALUES
-(1, 'O quão preocupada/o és?');
+INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`) VALUES
+(1, 'Quizz - O quão empática/o és?'),
+(2, 'Quizz - O quão preocupada/o és?'),
+(3, 'Quizz - Tens uma energia positiva'),
+(4, 'Quizz - O quão livre és, emocionalmente?');
 
 -- --------------------------------------------------------
 
@@ -539,6 +567,25 @@ INSERT INTO `texto_artigo` (`texto_artigo_id`, `conteudo_artigo_id`, `texto`) VA
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `texto_noticia`
+--
+
+CREATE TABLE `texto_noticia` (
+  `texto_noticia_id` int(11) NOT NULL,
+  `conteudo_noticia_id` int(11) NOT NULL,
+  `texto` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `texto_noticia`
+--
+
+INSERT INTO `texto_noticia` (`texto_noticia_id`, `conteudo_noticia_id`, `texto`) VALUES
+(1, 1, 'aaa');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `utilizadores`
 --
 
@@ -589,6 +636,13 @@ ALTER TABLE `artigos`
 ALTER TABLE `conteudo_artigo`
   ADD PRIMARY KEY (`conteudo_artigo_id`),
   ADD KEY `fk_artigo_id` (`artigo_id`);
+
+--
+-- Índices para tabela `conteudo_noticia`
+--
+ALTER TABLE `conteudo_noticia`
+  ADD PRIMARY KEY (`conteudo_noticia_id`),
+  ADD KEY `FK_noticias_id` (`noticias_id`);
 
 --
 -- Índices para tabela `grupos_perturbacoes`
@@ -650,34 +704,13 @@ ALTER TABLE `perturbacoes_personalidade`
 ALTER TABLE `quizzes`
   ADD PRIMARY KEY (`quiz_id`),
   ADD KEY `fk_utilizador_id` (`utilizador_id`),
-  ADD KEY `fk_quiz_empatia_id` (`quiz_empatia_id`),
-  ADD KEY `fk_quiz_preocupacao_id` (`quiz_preocupacao_id`),
-  ADD KEY `fk_quiz_energia_id` (`quiz_energia_id`),
-  ADD KEY `fk_quiz_emocao_id` (`quiz_emocao_id`);
+  ADD KEY `FK_quiz_nome_id` (`quiz_nome_id`);
 
 --
--- Índices para tabela `quiz_emocao`
+-- Índices para tabela `quiz_nome`
 --
-ALTER TABLE `quiz_emocao`
-  ADD PRIMARY KEY (`quiz_emocao_id`);
-
---
--- Índices para tabela `quiz_empatia`
---
-ALTER TABLE `quiz_empatia`
-  ADD PRIMARY KEY (`quiz_empatia_id`);
-
---
--- Índices para tabela `quiz_energia`
---
-ALTER TABLE `quiz_energia`
-  ADD PRIMARY KEY (`quiz_energia_id`);
-
---
--- Índices para tabela `quiz_preocupacao`
---
-ALTER TABLE `quiz_preocupacao`
-  ADD PRIMARY KEY (`quiz_preocupacao_id`);
+ALTER TABLE `quiz_nome`
+  ADD PRIMARY KEY (`quiz_nome_id`);
 
 --
 -- Índices para tabela `registos`
@@ -698,6 +731,13 @@ ALTER TABLE `ted_talks`
 ALTER TABLE `texto_artigo`
   ADD PRIMARY KEY (`texto_artigo_id`),
   ADD KEY `fk_conteudo_artigo_id` (`conteudo_artigo_id`);
+
+--
+-- Índices para tabela `texto_noticia`
+--
+ALTER TABLE `texto_noticia`
+  ADD PRIMARY KEY (`texto_noticia_id`),
+  ADD KEY `FK_conteudo_noticia_id` (`conteudo_noticia_id`);
 
 --
 -- Índices para tabela `utilizadores`
@@ -728,6 +768,12 @@ ALTER TABLE `conteudo_artigo`
   MODIFY `conteudo_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de tabela `conteudo_noticia`
+--
+ALTER TABLE `conteudo_noticia`
+  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
@@ -749,7 +795,7 @@ ALTER TABLE `juncao_pert_personalidade`
 -- AUTO_INCREMENT de tabela `lembrete`
 --
 ALTER TABLE `lembrete`
-  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
@@ -761,7 +807,7 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes`
@@ -779,31 +825,13 @@ ALTER TABLE `perturbacoes_personalidade`
 -- AUTO_INCREMENT de tabela `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
--- AUTO_INCREMENT de tabela `quiz_emocao`
+-- AUTO_INCREMENT de tabela `quiz_nome`
 --
-ALTER TABLE `quiz_emocao`
-  MODIFY `quiz_emocao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `quiz_empatia`
---
-ALTER TABLE `quiz_empatia`
-  MODIFY `quiz_empatia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `quiz_energia`
---
-ALTER TABLE `quiz_energia`
-  MODIFY `quiz_energia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `quiz_preocupacao`
---
-ALTER TABLE `quiz_preocupacao`
-  MODIFY `quiz_preocupacao_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `quiz_nome`
+  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `registos`
@@ -822,6 +850,12 @@ ALTER TABLE `ted_talks`
 --
 ALTER TABLE `texto_artigo`
   MODIFY `texto_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `texto_noticia`
+--
+ALTER TABLE `texto_noticia`
+  MODIFY `texto_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
@@ -852,6 +886,12 @@ ALTER TABLE `conteudo_artigo`
   ADD CONSTRAINT `fk_artigo_id` FOREIGN KEY (`artigo_id`) REFERENCES `artigos` (`artigo_id`);
 
 --
+-- Limitadores para a tabela `conteudo_noticia`
+--
+ALTER TABLE `conteudo_noticia`
+  ADD CONSTRAINT `FK_noticias_id` FOREIGN KEY (`noticias_id`) REFERENCES `noticias` (`noticias_id`);
+
+--
 -- Limitadores para a tabela `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_perturbacoes`
@@ -876,10 +916,7 @@ ALTER TABLE `lembrete`
 -- Limitadores para a tabela `quizzes`
 --
 ALTER TABLE `quizzes`
-  ADD CONSTRAINT `fk_quiz_emocao_id` FOREIGN KEY (`quiz_emocao_id`) REFERENCES `quiz_emocao` (`quiz_emocao_id`),
-  ADD CONSTRAINT `fk_quiz_empatia_id` FOREIGN KEY (`quiz_empatia_id`) REFERENCES `quiz_empatia` (`quiz_empatia_id`),
-  ADD CONSTRAINT `fk_quiz_energia_id` FOREIGN KEY (`quiz_energia_id`) REFERENCES `quiz_energia` (`quiz_energia_id`),
-  ADD CONSTRAINT `fk_quiz_preocupacao_id` FOREIGN KEY (`quiz_preocupacao_id`) REFERENCES `quiz_preocupacao` (`quiz_preocupacao_id`),
+  ADD CONSTRAINT `FK_quiz_nome_id` FOREIGN KEY (`quiz_nome_id`) REFERENCES `quiz_nome` (`quiz_nome_id`),
   ADD CONSTRAINT `fk_utilizador_id` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
 
 --
@@ -893,6 +930,12 @@ ALTER TABLE `registos`
 --
 ALTER TABLE `texto_artigo`
   ADD CONSTRAINT `fk_conteudo_artigo_id` FOREIGN KEY (`conteudo_artigo_id`) REFERENCES `conteudo_artigo` (`conteudo_artigo_id`);
+
+--
+-- Limitadores para a tabela `texto_noticia`
+--
+ALTER TABLE `texto_noticia`
+  ADD CONSTRAINT `FK_conteudo_noticia_id` FOREIGN KEY (`conteudo_noticia_id`) REFERENCES `conteudo_noticia` (`conteudo_noticia_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -352,21 +352,26 @@ z-index: -2;
 }
 
 .card4-container {
-display: flex;
+/*display: flex;
 justify-content: center;
 flex-wrap: wrap;
-/*margin-top: 70px;*/
+margin-top: 70px;*/
+display: grid;
+grid-template-columns: repeat(3, minmax(100px, 1fr));
+margin-left: 100px;
+margin-right: 100px;
+gap: 30px;
 }
 
 .card4 {
 display: flex;
-width: 90%;
-max-width: 400px;
+/*width: 90%;
+max-width: 400px;*/
 background-color: #fcfcfc;
 border-radius: 8px;
 overflow: hidden;
 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-margin: 0 30px 70px 30px;
+/*margin: 0 30px 70px 30px;*/
 }
 
 .card4 img {
@@ -660,6 +665,12 @@ ol {
 
 .quizzes-second-heading {
   font-size: 25px;
+}
+
+.card4-container {
+  grid-template-columns: repeat(1, 1fr);
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .card4-content h1 {

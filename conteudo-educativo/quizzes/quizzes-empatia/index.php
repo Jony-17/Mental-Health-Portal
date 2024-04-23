@@ -3,7 +3,7 @@ session_start();
 require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
-if (isset ($_SESSION['id_utilizador'])) {
+if (isset($_SESSION['id_utilizador'])) {
 
     // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
@@ -71,33 +71,33 @@ if (isset ($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../../perturbacoes">Perturbações</a></li>
-                <li><a href="#artigos">Artigos</a></li>
+                <li><a href="../../../perturbacoes">Perturbações</a></li>
+                <li><a href="../../../artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
-                <li><a href="#">Conteúdo Educativo</a>
+                <li><a href="../..">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../index.php">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
-                        <li><a href="#">TED Talks</a></li>
+                        <li><a href="..">Quizzes</a></li>
+                        <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                        <li><a href="../../ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
             </ul>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -105,7 +105,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -115,37 +115,37 @@ if (isset ($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../../paginainicial">Página Inicial</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="../../perturbacoes">Perturbações</a></li>
-            <li><a href="#skills">Artigos</a></li>
+            <li><a href="../../../perturbacoes">Perturbações</a></li>
+            <li><a href="../../../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../index.php">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="#">TED Talks</a></li>
+                    <li><a href="..">Quizzes</a></li>
+                    <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                    <li><a href="../../ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
-            <?php if (!empty ($_SESSION['id_utilizador'])): ?>
+            <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty ($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -153,7 +153,7 @@ if (isset ($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../../logout/logout.php";
+                        var url = "../../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -166,13 +166,12 @@ if (isset ($_SESSION['id_utilizador'])) {
     <ol role="list">
         <li class="list">
             <div class="items">
-                <span class="text-sm">
-                    Conteúdo Educativo
-                </span>
+                <a href="../.." class="text-sm">
+                    Conteúdo Educativo</a>
                 <span class="separator">/</span>
             </div>
-
         </li>
+
         <li class="list">
             <div class="items">
                 <a href=".." class="text-sm" aria-current=page>
@@ -200,44 +199,33 @@ if (isset ($_SESSION['id_utilizador'])) {
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title">O quão empática/o és?</h1>
-                        <p>É um empata? Já lhe disseram que você é “muito sensível” ou precisa se fortalecer? Você
-                            se sente exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
-                            pessoas? Você tem sensibilidade à luz, som e cheiros? Ou talvez você demore mais para
-                            relaxar depois de um longo dia de trabalho? Se você respondeu “sim” a essas perguntas, você
-                            pode ser um empata.</p>
+                        <p>É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer?
+                            Sente-se
+                            exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
+                            pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo
+                            dia de
+                            trabalho?</p>
                         <h2 class="card-title2">Informações acerca da empatia</h2>
-                        <p>Ser empático é diferente de ser empático. Ser empático é quando seu coração está com outra
-                            pessoa. Ser empático significa que você pode realmente sentir a felicidade ou a tristeza de
-                            outra pessoa em seu próprio corpo.
+                        <p>Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo
+                            especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as
+                            pessoas empáticas
+                            podem absorver as energias de outras pessoas (positivas e negativas) nos seus
+                            próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias
+                            emoções ou as de outra pessoa.<br>
 
-                            Nos empatas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo
-                            especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, os
-                            empatas podem absorver as energias de outras pessoas (positivas e negativas) em seus
-                            próprios corpos. Às vezes pode até ser difícil saber se você está sentindo suas próprias
-                            emoções ou as de outra pessoa.
+                            Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As
+                            pessoas empáticas
+                            físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras
+                            pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as
+                            emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas
+                            alimentares
+                            estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos
+                            alimentos.<br>
 
-                            Existem diferentes tipos de sensibilidades que um empata pode experimentar. Os empatas
-                            físicos, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras
-                            pessoas e absorvem-nos nos seus próprios corpos. Os empatas emocionais captam as emoções das
-                            pessoas e tornam-se uma esponja para os seus sentimentos, tanto felizes como tristes. Os
-                            empatas alimentares são outro tipo de empata que está sintonizado com a energia dos
-                            alimentos e pode até sentir sensibilidade a certos alimentos.
-
-                            Ser empático traz benefícios incríveis, como maior intuição, compaixão, criatividade e uma
-                            conexão mais profunda com outras pessoas. Mas viver neste estado de alta sensibilidade
+                            Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma
+                            conexão mais profunda com outras pessoas, contudo, viver neste estado de alta sensibilidade
                             também traz consigo desafios, como ficar facilmente sobrecarregado, superestimulado, exausto
-                            ou absorver o estresse e a negatividade dos outros.
-
-                            Se uma pessoa não está ciente de que é empática, as interações cotidianas que os outros
-                            consideram toleráveis ​​podem estar causando estresse empático. Aqueles que não estão
-                            conscientes de suas habilidades empáticas podem estar inclinados a usar alimentos, álcool e
-                            drogas para entorpecer inconscientemente suas emoções.
-
-                            Os empatas são o remédio que o mundo precisa e podem ter um impacto profundo na humanidade
-                            com a sua compaixão e compreensão. Ao aprender a identificar seus talentos especiais, você
-                            descobrirá que não apenas enriquecerá sua vida, mas também poderá enriquecer a vida de
-                            outras pessoas. A habilidade principal é aprender como controlar suas sensibilidades e
-                            aprender estratégias específicas para evitar a sobrecarga de empatia.
+                            ou absorver o stress e a negatividade dos outros.
                         </p>
                         <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
                             entretenimento. De forma alguma
@@ -271,7 +259,8 @@ if (isset ($_SESSION['id_utilizador'])) {
                                     </li>
                                 </ul>
                                 <button class="button-quiz" id="nextButton" onclick="nextQuestion()">Próxima</button>
-                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter resultados</button>
+                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter
+                                    resultados</button>
                             </div>
                         </div>
                     </div>

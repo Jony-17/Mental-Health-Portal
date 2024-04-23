@@ -201,17 +201,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h1>O quão empática/o és?</h1>
                     </div>
                     <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/emocao.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="quizzes-emocao">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão livre és, emocionalmente?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
+                        <img src="imgs/imgs-quizzes/empatia.png" alt="O que é a saúde mental?">
                     </div>
                 </div>
             </a>
@@ -221,7 +211,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h1>O quão preocupada/o és?</h1>
                     </div>
                     <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
+                        <img src="imgs/imgs-quizzes/preocupado.png" alt="O que é a saúde mental?">
                     </div>
                 </div>
             </a>
@@ -231,7 +221,17 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h1>Tens uma energia positiva?</h1>
                     </div>
                     <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
+                        <img src="imgs/imgs-quizzes/energia.png" alt="O que é a saúde mental?">
+                    </div>
+                </div>
+            </a>
+            <a href="quizzes-emocao">
+                <div class="card4">
+                    <div class="card4-content">
+                        <h1>O quão livre és, emocionalmente?</h1>
+                    </div>
+                    <div class="card4-content2">
+                        <img src="imgs/imgs-quizzes/livre.png" alt="O que é a saúde mental?">
                     </div>
                 </div>
             </a>
