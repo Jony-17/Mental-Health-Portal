@@ -248,22 +248,24 @@ if (isset($_SESSION['id_utilizador'])) {
         ?>
 
         <!--Pesquisa-->
-        <div class="container-search">
-            <form method="GET">
-                <div class="search-wrapper">
-                    <i class="fas fa-search"></i>
-                    <input id="input-search" type="text" name="search_query"
-                        placeholder="Pesquisar o nome de um artigo">
-                </div>
-                <button type="submit">Pesquisar</button>
-            </form>
-        </div>
+        <div class="container">
+            <div class="container-search">
+                <form method="GET">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input id="input-search" type="text" name="search_query"
+                            placeholder="Pesquisar o nome de um artigo">
+                    </div>
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </div>
 
-        <!--Ordenação-->
-        <div class="container-order">
-            <form method="get">
-                <button type="submit" name="ordem" value="data_recente">Ordenar por publicação mais recente</button>
-            </form>
+            <!--Ordenação-->
+            <div class="container-order">
+                <form method="get">
+                    <button type="submit" name="ordem" value="data_recente">Ordenar por publicação mais recente</button>
+                </form>
+            </div>
         </div>
 
         <?php

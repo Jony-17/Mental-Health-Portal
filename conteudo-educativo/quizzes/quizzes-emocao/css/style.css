@@ -27,6 +27,22 @@
   
     --buttons: 1.1rem;
   }
+
+  /*Scroll bar*/
+
+::-webkit-scrollbar {
+  width: 0.70em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(41 100% 50% / 1);
+    /*border: 0.25rem solid hsl(120 75% 50% / 1);*/
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(41 100% 35% / 1);
+}
   
   * {
     margin: 0;
