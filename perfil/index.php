@@ -34,9 +34,9 @@ if (isset($_SESSION['id_utilizador'])) {
             $_SESSION['success_nome_message'] = "Nome atualizado com sucesso!";
             $edicao_realizada = true;
           }
-        } else {
+        } /*else {
           $_SESSION['danger_nome_message'] = "Nome utilizado anteriormente. Insere outro!";
-        }
+        }*/
       }
     }
 
@@ -362,7 +362,7 @@ if (isset($_SESSION['id_utilizador'])) {
                   <div class="row">
                     <div class="col-lg-6 col-md-12 mb-4">
                       <p>NOME</p>
-                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                      <form method="post" action="">
                         <input type="text" name="novo_nome"
                           style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;"
                           value="<?php echo $row["nome"] ?>">
@@ -387,7 +387,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     <div class="col-lg-6 col-md-12 mb-4">
                       <p>EMAIL</p>
-                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                      <form method="post" action="">
                         <input type="email" name="novo_email"
                           style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;"
                           value="<?php echo $row["email"] ?>">
@@ -412,7 +412,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     <div class="col-lg-6 col-md-12 mb-4">
                       <p>PASSWORD</p>
-                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                      <form method="post" action="">
                         <i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>
                         <input type="password" name="nova_password" id="password" placeholder="Insere a password"
                           style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; margin-left: 5px; width: 85%;">
@@ -433,7 +433,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     <div class="col-lg-6 col-md-12 mb-4">
                       <p>FOTO DE PERFIL</p>
-                      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+                      <form method="post" action="" enctype="multipart/form-data">
                         <!--<i class="fas fa-eye toggle-password" style="cursor: pointer" ;></i>-->
                         <input type="file" name="nova_imagemperfil" id="imagemperfil"
                           style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;">
@@ -478,7 +478,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         empática/o és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_empatia_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 1 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
 
                       $query_run = mysqli_query($conn, $query);
 
@@ -505,7 +505,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         preocupada/o és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_preocupacao_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 2 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
 
                       $query_run = mysqli_query($conn, $query);
 
@@ -532,7 +532,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         energia positiva?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_energia_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 3 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
 
                       $query_run = mysqli_query($conn, $query);
 
@@ -560,7 +560,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         livre emocionalmente, és?
                       </div>
                       <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_emocao_id IS NOT NULL AND utilizador_id = $utilizador_id ORDER BY quiz_id";
+                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 4 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
 
                       $query_run = mysqli_query($conn, $query);
 
