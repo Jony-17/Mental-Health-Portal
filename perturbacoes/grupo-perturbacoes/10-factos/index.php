@@ -291,11 +291,17 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script>
-        window.addEventListener('scroll', function () {
-            const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
-            const timelineAfter = document.querySelector('.timeline::after');
-            timelineAfter.style.height = scrollPercentage + '%';
-        });
+        // Função para ajustar a altura do pseudo-elemento ::after com base no scroll
+        function adjustTimelineHeight() {
+            const timeline = document.querySelector('.timeline');
+
+            // Ajusta a altura conforme a posição do scroll
+            timeline.style.setProperty('--timeline-height', `${window.scrollY}px`);
+        }
+
+        // Adiciona um listener para o evento de rolagem da página
+        window.addEventListener('scroll', adjustTimelineHeight);
+
     </script>
 
     <!--Fontes-->

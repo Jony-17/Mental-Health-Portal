@@ -28,6 +28,22 @@
   --buttons: 1.1rem;
 }
 
+/*Scroll bar*/
+
+::-webkit-scrollbar {
+  width: 0.70em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(41 100% 50% / 1);
+    /*border: 0.25rem solid hsl(120 75% 50% / 1);*/
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(41 100% 35% / 1);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -512,14 +528,15 @@ svg {
   content: '';
   position: absolute;
   width: 6px;
-  height: 100%;
+  height: var(--timeline-height, 0); /* Define a altura conforme a variável --timeline-height */
   background: var(--main-color);
   top: 0;
   left: 50%;
   margin-left: -3px;
   z-index: -1;
-  /*animation: moveline 6s linear forwards;*/
+  transition: height 0.5s; /* Adiciona uma transição suave */
 }
+
 
 @keyframes moveline {
   0% {

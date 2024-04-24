@@ -28,6 +28,22 @@
   --buttons: 1.1rem;
 }
 
+/*Scroll bar*/
+
+::-webkit-scrollbar {
+  width: 0.70em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(41 100% 50% / 1);
+    /*border: 0.25rem solid hsl(120 75% 50% / 1);*/
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(41 100% 35% / 1);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -512,13 +528,19 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
   color: var(--white-color);
 }
 
-.container-search {
-  margin: 50px 90px 50px 100px;
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 50px 100px;
+}
+
+/*.container-search {
+  margin: 0 90px 50px 100px;
 }
 
 .container-order {
   margin: 0 90px 100px 100px;
-}
+}*/
 
 form {
   background: #fff;
