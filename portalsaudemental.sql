@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Abr-2024 às 18:35
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 26-Abr-2024 às 11:21
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -515,7 +515,9 @@ CREATE TABLE `registos` (
 
 INSERT INTO `registos` (`registos_id`, `utilizador_id`, `pensamento`, `comportamento`, `sentimentos`, `quando`, `pensamento_alternativo`, `comportamento_alternativo`, `nota`) VALUES
 (28, 26, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', NULL),
-(29, 18, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste2', NULL);
+(29, 18, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste2', NULL),
+(30, 18, 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'testeteste', NULL),
+(31, 18, 'testetesteteste', 'testetesteteste', 'testetesteteste', 'testetesteteste', 'testetesteteste', 'testetesteteste', NULL);
 
 -- --------------------------------------------------------
 
@@ -608,7 +610,7 @@ CREATE TABLE `utilizadores` (
 INSERT INTO `utilizadores` (`utilizador_id`, `unique_id`, `nome`, `email`, `password`, `genero`, `img_perfil`, `admin`, `data_criacao`) VALUES
 (10, 0, 'Admin2', 'admin2@gmail.com', '$2y$10$/VvdG5/dxdJXeUa/ockQFeiuQtyPZPuIr0aZHd3u7QJVGa9Bg2ZKC', 2, 'user2.png', 1, '0000-00-00 00:00:00'),
 (12, 0, 'Admin', 'admin@gmail.com', '$2y$10$qhuOmrEAp7dt2CkDG.RAiOqrT.Ief55PRldhZjDpzDuVejQv002k.', 1, 'user.png', 1, '2024-02-25 20:17:56'),
-(18, 1703689423, 'João', 'teste@gmail.com', '$2y$10$8qMhwftCElzhnpLEedY0q.J41n3Qda0CufK.1c/TOFJVC8eGdBmQK', 1, 'user.png', 0, '2024-03-11 15:13:13'),
+(18, 1703689423, 'João', 'teste@gmail.com', '$2y$10$c9VNDLhd/qGIVewjjY63.OPp7RPHuxseY2ZbFO9xwDIyv7L4z6qgK', 1, 'user.png', 0, '2024-03-11 15:13:13'),
 (26, 1703689628, 'Fernando', 'teste2@gmail.com', '$2y$10$yAkDfepI6ubbkl0tHBluPOO6FOdJ6N6ODgi0/JZp8GZ6IwUfFrgzu', 3, 'user.png', 0, '2024-03-12 10:26:14'),
 (27, 1035944128, 'Miguel', 'teste3@gmail.com', '$2y$10$i2zHS8WBb0bgvZDzkSgE7./3LGOfUa2lGKJjhli9sOEmzlCk8fwRu', 1, 'pin booking.jpg', 0, '2024-03-12 16:38:55');
 
@@ -837,7 +839,7 @@ ALTER TABLE `quiz_nome`
 -- AUTO_INCREMENT de tabela `registos`
 --
 ALTER TABLE `registos`
-  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `registos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `ted_talks`
