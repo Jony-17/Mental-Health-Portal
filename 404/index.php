@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -34,7 +34,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imgs/logo.png">
 
-    <link rel="stylesheet" type="text/css" href="/Projeto-Portal-Saude-Mental-main/404/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/PortalSaudeMental/404/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,17 +70,17 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="/Projeto-Portal-Saude-Mental-main/paginainicial">Página Inicial</a></li>
+                <li><a href="/PortalSaudeMental/paginainicial">Página Inicial</a></li>
                 <li><a href="#">Sobre Nós</a></li>
-                <li><a href="/Projeto-Portal-Saude-Mental-main/perturbacoes">Perturbações</a></li>
-                <li><a href="/Projeto-Portal-Saude-Mental-main/artigos">Artigos</a></li>
-                <li><a href="/Projeto-Portal-Saude-Mental-main/noticias">Notícias</a></li>
-                <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo">Conteúdo Educativo</a>
+                <li><a href="/PortalSaudeMental/perturbacoes">Perturbações</a></li>
+                <li><a href="/PortalSaudeMental/artigos">Artigos</a></li>
+                <li><a href="/PortalSaudeMental/noticias">Notícias</a></li>
+                <li><a href="/PortalSaudeMental/conteudo-educativo">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo/quizzes">Quizzes</a></li>
-                        <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
-                        <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo/ted-talks">TED Talks</a></li>
+                        <li><a href="/PortalSaudeMental/conteudo-educativo/quizzes">Quizzes</a></li>
+                        <li><a href="/PortalSaudeMental/conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                        <li><a href="/PortalSaudeMental/conteudo-educativo/ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -89,14 +89,14 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="/Projeto-Portal-Saude-Mental-main/areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="/PortalSaudeMental/areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="/Projeto-Portal-Saude-Mental-main/perfil/">Perfil</a></li>
+                            <li><a href="/PortalSaudeMental/perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -104,7 +104,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="/Projeto-Portal-Saude-Mental-main/areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="/PortalSaudeMental/areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -114,37 +114,37 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="/Projeto-Portal-Saude-Mental-main/paginainicial">Página Inicial</a></li>
+            <li><a href="/PortalSaudeMental/paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="/Projeto-Portal-Saude-Mental-main/perturbacoes">Perturbações</a></li>
-            <li><a href="/Projeto-Portal-Saude-Mental-main/artigos">Artigos</a></li>
-            <li><a href="/Projeto-Portal-Saude-Mental-main/noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li><a href="/PortalSaudeMental/perturbacoes">Perturbações</a></li>
+            <li><a href="/PortalSaudeMental/artigos">Artigos</a></li>
+            <li><a href="/PortalSaudeMental/noticias">Notícias</a></li>
+            <li class="dropdown-trigger"><a href="/PortalSaudeMental/conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo/quizzes">Quizzes</a></li>
-                    <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
-                    <li><a href="/Projeto-Portal-Saude-Mental-main/conteudo-educativo/ted-talks">TED Talks</a></li>
+                    <li><a href="/PortalSaudeMental/conteudo-educativo/quizzes">Quizzes</a></li>
+                    <li><a href="/PortalSaudeMental/conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                    <li><a href="/PortalSaudeMental/conteudo-educativo/ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="/Projeto-Portal-Saude-Mental-main/areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="/PortalSaudeMental/areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="/Projeto-Portal-Saude-Mental-main/perfil/">Perfil</a></li>
+                        <li><a href="/PortalSaudeMental/perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="/Projeto-Portal-Saude-Mental-main/areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="/PortalSaudeMental/areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -152,7 +152,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "/Projeto-Portal-Saude-Mental-main/logout/logout.php";
+                        var url = "/PortalSaudeMental/logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -164,14 +164,14 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--Error 404-->
     <div class="container">
         <div class="container-img">
-            <img src="https://images.pexels.com/photos/21371176/pexels-photo-21371176/free-photo-of-leve-luz-light-arte.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            <img src="/PortalSaudeMental/404/404.png"
                 alt="">
         </div>
         <div class="erro-404">
             <h1>404</h1>
             <h3>Página não encontrada!</h3>
             <p>Pedimos desculpa, não nos estamos a sentir muito bem.</p>
-            <a href="/Projeto-Portal-Saude-Mental-main/paginainicial"><button>Página Inicial</button></a>
+            <a href="/PortalSaudeMental/paginainicial"><button>Página Inicial</button></a>
         </div>
     </div>
 

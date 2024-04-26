@@ -23,72 +23,11 @@ if (isset($_SESSION['id_utilizador'])) {
     echo "NÃO DEU";
 }
 
-
-$row_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
-
-// Consulta SQL para buscar o banner da perturbação pelo nome
-$query_banner = "SELECT artigo_id, img_artigo FROM artigos LIMIT 1";
-
-// Executar a consulta para obter o banner da perturbação
-$result_banner = mysqli_query($conn, $query_banner);
-
-// Criar um array associativo para armazenar os banners de cada artigo
-$artigo_banners = array();
-
-// Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-if ($result_banner) {
-    // Extrair os resultados da consulta e armazenar no array $artigo_banners
-    while ($row_banner = mysqli_fetch_assoc($result_banner)) {
-        $artigo_id = $row_banner['artigo_id'];
-        $artigo_banners[$artigo_id] = $row_banner['img_artigo'];
-    }
-}
-
-
-$row2_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
-
-// Consulta SQL para buscar o banner da perturbação pelo nome
-$query2_banner = "SELECT artigo_id, img_artigo FROM artigos LIMIT 1, 2";
-
-// Executar a consulta para obter o banner da perturbação
-$result2_banner = mysqli_query($conn, $query2_banner);
-
-// Criar um array associativo para armazenar os banners de cada artigo
-$artigo2_banners = array();
-
-// Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-if ($result2_banner) {
-    // Extrair os resultados da consulta e armazenar no array $artigo_banners
-    while ($row2_banner = mysqli_fetch_assoc($result2_banner)) {
-        $artigo_id = $row2_banner['artigo_id'];
-        $artigo2_banners[$artigo_id] = $row2_banner['img_artigo'];
-    }
-}
-
-$row3_banner = ""; // Definindo $row_banner como uma string vazia inicialmente
-
-// Consulta SQL para buscar o banner da perturbação pelo nome
-$query3_banner = "SELECT artigo_id, img_artigo FROM artigos WHERE artigo_id IN (4, 5);";
-
-// Executar a consulta para obter o banner da perturbação
-$result3_banner = mysqli_query($conn, $query3_banner);
-
-// Criar um array associativo para armazenar os banners de cada artigo
-$artigo3_banners = array();
-
-// Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
-if ($result3_banner) {
-    // Extrair os resultados da consulta e armazenar no array $artigo_banners
-    while ($row3_banner = mysqli_fetch_assoc($result3_banner)) {
-        $artigo_id = $row3_banner['artigo_id'];
-        $artigo3_banners[$artigo_id] = $row3_banner['img_artigo'];
-    }
-}
 ?>
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -127,39 +66,6 @@ if ($result3_banner) {
             height: 600px;
             border: none;
         }
-
-        <?php
-        foreach ($artigo_banners as $artigo_id => $banner_url) {
-            ?>
-            .image-grid-container1 {
-                background-image: url("<?php echo $banner_url; ?>");
-            }
-
-            <?php
-        }
-        ?>
-
-        <?php
-        foreach ($artigo2_banners as $artigo_id => $banner_url) {
-            ?>
-            .image-grid-container22 {
-                background-image: url("<?php echo $banner_url; ?>");
-            }
-
-            <?php
-        }
-        ?>
-
-        <?php
-        foreach ($artigo3_banners as $artigo_id => $banner_url) {
-            ?>
-            .image-grid-container33 {
-                background-image: url("<?php echo $banner_url; ?>");
-            }
-
-            <?php
-        }
-        ?>
     </style>
 
     <header>
@@ -167,7 +73,7 @@ if ($result3_banner) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="../sobre-nos">Sobre Nós</a></li>
                 <li><a href="../perturbacoes">Perturbações</a></li>
                 <li><a href="../artigos">Artigos</a></li>
                 <li><a href="../noticias">Notícias</a></li>
@@ -468,7 +374,7 @@ if ($result3_banner) {
                         <h1>O quão empática/o és?</h1>
                     </div>
                     <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/emocao.png" alt="O que é a saúde mental?">
+                        <img src="imgs/imgs-quizzes/empatia.png" alt="O que é a saúde mental?">
                     </div>
                 </div>
             </a>
@@ -478,7 +384,7 @@ if ($result3_banner) {
                         <h1>O quão livre és, emocionalmente?</h1>
                     </div>
                     <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/lider.png" alt="O que é a saúde mental?">
+                        <img src="imgs/imgs-quizzes/livre.png" alt="O que é a saúde mental?">
                     </div>
                 </div>
             </a>
@@ -502,89 +408,77 @@ if ($result3_banner) {
             </div>
         </div>
 
-        <div class="image-grid">
-            <?php
 
-            $query = "SELECT titulo, autor, img_artigo FROM artigos LIMIT 1";
+        <div class="card5-container">
+            <?php
+            $query = "SELECT autor, titulo, img_noticia
+                              FROM noticias LIMIT 1";
+
             $result = mysqli_query($conn, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {
+                /*while ($row = mysqli_fetch_assoc($result)) {*/
                 $row = mysqli_fetch_assoc($result);
                 ?>
 
-                <div class="image-grid-container1">
-                    <?php
-
-                    $titulo_codificado = urlencode($row["titulo"]);
-
-                    ?>
-                    <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
-                        <div class="image-grid-container1text">
-                            <h2><?php echo $row["titulo"] ?></h2>
-                            <p><?php echo $row["autor"] ?></p>
+                <div class="card5">
+                    <a href="#">
+                        <div class="card5-background2">
+                            <h1><?php echo $row['titulo']; ?></h1>
+                            <h3><?php echo $row['autor']; ?></h3>
+                            <img src="<?php echo $row['img_noticia']; ?>" alt="Depressão">
                         </div>
                     </a>
                 </div>
-
                 <?php
             }
             ?>
 
-
-            <div class="image-grid-container2">
-                <?php
-
-                $query2 = "SELECT titulo, autor, img_artigo FROM artigos LIMIT 1, 2";
-                $result2 = mysqli_query($conn, $query2);
-
-                while ($row2 = mysqli_fetch_assoc($result2)) {
-                    ?>
-                    <div class="image-grid-container22">
-                        <?php
-
-                        $titulo_codificado = urlencode($row2["titulo"]);
-
-                        ?>
-                        <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
-                            <div class="image-grid-container22text">
-                                <h2><?php echo $row2["titulo"] ?></h2>
-                                <p><?php echo $row2["autor"] ?></p>
-                            </div>
-                        </a>
-                    </div>
-
+            <div class="card6-container">
+                <div class="card-group">
                     <?php
-                }
-                ?>
+                    $query2 = "SELECT autor, titulo, img_noticia
+                                FROM noticias LIMIT 1, 2";
+                    $result2 = mysqli_query($conn, $query2);
+
+                    while ($row2 = mysqli_fetch_assoc($result2)) {
+                        ?>
+                        <div class="card6">
+                            <a href="#">
+                                <div class="card6-background2">
+                                    <img src="<?php echo $row2['img_noticia']; ?>" alt="Depressão">
+                                    <h1><?php echo $row2['titulo']; ?></h1>
+                                    <h3><?php echo $row2['autor']; ?></h3>
+                                </div>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <div class="card-group">
+                    <?php
+                    $query3 = "SELECT autor, titulo, img_noticia
+                                 FROM noticias LIMIT 2 OFFSET 3";
+                    $result3 = mysqli_query($conn, $query3);
+
+                    while ($row3 = mysqli_fetch_assoc($result3)) {
+                        ?>
+                        <div class="card6">
+                            <a href="#">
+                                <div class="card6-background2">
+                                    <img src="<?php echo $row3['img_noticia']; ?>" alt="Depressão">
+                                    <h1><?php echo $row3['titulo']; ?></h1>
+                                    <h3><?php echo $row3['autor']; ?></h3>
+                                </div>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
             </div>
 
-            <div class="image-grid-container2">
-                <?php
-
-                $query3 = "SELECT titulo, autor, img_artigo FROM artigos WHERE artigo_id IN (4, 5);";
-                $result3 = mysqli_query($conn, $query3);
-
-                while ($row3 = mysqli_fetch_assoc($result3)) {
-                    ?>
-                    <div class="image-grid-container33">
-                        <?php
-
-                        $titulo_codificado = urlencode($row3["titulo"]);
-
-                        ?>
-                        <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
-                            <div class="image-grid-container22text">
-                                <h2><?php echo $row3["titulo"] ?></h2>
-                                <p><?php echo $row3["autor"] ?></p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <?php
-                }
-                ?>
-            </div>
-        </div>
     </section>
 
     <!--Perguntas Frequentes-->
@@ -739,7 +633,7 @@ if ($result3_banner) {
             <!--Notícias-->
             <?php
 
-            $query = "SELECT titulo FROM artigos LIMIT 3";
+            $query = "SELECT titulo FROM noticias LIMIT 3";
             $result = mysqli_query($conn, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {
