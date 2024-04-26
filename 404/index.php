@@ -171,7 +171,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <h1>404</h1>
             <h3>Página não encontrada!</h3>
             <p>Pedimos desculpa, não nos estamos a sentir muito bem.</p>
-            <a href="../paginainicial"><button>Página Inicial</button></a>
+            <a href="/Projeto-Portal-Saude-Mental-main/paginainicial"><button>Página Inicial</button></a>
         </div>
     </div>
 
