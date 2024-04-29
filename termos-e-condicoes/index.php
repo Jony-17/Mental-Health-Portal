@@ -70,17 +70,17 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial">Página Inicial</a></li>
-                <li><a href="">Sobre Nós</a></li>
-                <li><a href="../perturbacoes">Perturbações</a></li>
-                <li><a href="../artigos">Artigos</a></li>
-                <li><a href="../noticias">Notícias</a></li>
-                <li><a href="../conteudo-educativo">Conteúdo Educativo</a>
+                <li class="list"><a href="../paginainicial">Página Inicial</a></li>
+                <li class="list"><a href="../sobre-nos">Sobre Nós</a></li>
+                <li class="list"><a href="../perturbacoes">Perturbações</a></li>
+                <li class="list"><a href="../artigos">Artigos</a></li>
+                <li class="list"><a href="../noticias">Notícias</a></li>
+                <li class="list"><a href="../conteudo-educativo">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
-                        <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
+                        <li class="list"><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
+                        <li class="list"><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                        <li class="list"><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -96,7 +96,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/">Perfil</a></li>
+                            <li class="list"><a href="../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -104,7 +104,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li class="list"><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -114,16 +114,17 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial">Página Inicial</a></li>
-            <li><a href="">Sobre Nós</a></li>
-            <li><a href="../perturbacoes">Perturbações</a></li>
-            <li><a href="../artigos">Artigos</a></li>
-            <li><a href="../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="list"><a href="../paginainicial">Página Inicial</a></li>
+            <li class="list"><a href="../sobre-nos">Sobre Nós</a></li>
+            <li class="list"><a href="../perturbacoes">Perturbações</a></li>
+            <li class="list"><a href="../artigos">Artigos</a></li>
+            <li class="list"><a href="../noticias">Notícias</a></li>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
+                    <li class="list"><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
+                    <li class="list"><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                    <li class="list"><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
@@ -137,14 +138,14 @@ if (isset($_SESSION['id_utilizador'])) {
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/">Perfil</a></li>
+                        <li class="list"><a href="../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
-                <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
+                <li class="list"><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li class="list"><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -161,16 +162,6 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </header>
 
-    <ol role="list">
-        <li class="list">
-            <div class="items-current">
-                <div class="text-sm" aria-current=page>
-                    Sobre nós
-                </div>
-            </div>
-        </li>
-    </ol>
-
     <div class="background1">
         <img src="background1.png" alt="banner background" />
     </div>
@@ -181,62 +172,81 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="heading">
         <h1>
-            Quem somos
+            Termos e Condições
         </h1>
         <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to someone
             else.  Being an empath means you can actually feel another person’s happiness or sadness in your own body.
         </p>
+        <ol class="decimal">
+            <li>
+                <p>
+                    O ISPGAYA não garante que o acesso ao website não sofra interrupções ou perturbações
+                    resultantes de problemas técnicos. Também não assume qualquer responsabilidade
+                    pelos prejuízos decorrentes de eventuais situações de impossibilidade, atraso,
+                    suspensão ou interrupção no acesso ao website acima referido;
+                </p>
+            </li>
+            <li>
+                <p>
+                    O ISPGAYA não garante a total imunidade do website acima referido a ataques de
+                    hackers e vírus ou outros softwares de intrusão;
+                </p>
+            </li>
+            <li>
+                <p>
+                    As informações prestadas são de caráter geral e meramente indicativas, destinando-se,
+                    em exclusivo, a permitir ao Utilizador uma adequada ponderação do leque de produtos
+                    e serviços disponibilizados, pelo que o Utilizador assume todos os riscos resultantes da
+                    utilização da informação a que tem acesso no website acima referido, sendo o único e
+                    exclusivo responsável por todas as decisões tomadas com base na mesma;
+                </p>
+            </li>
+            <li>
+                <p>
+                    O ISPGAYA não se responsabiliza por faltas de veracidade, falhas de qualidade,
+                    incorreções, erros e imprecisões que possam verificar-se em conteúdos presentes neste
+                    website, muito embora envide todos os esforços para os corrigir, quando detetados;
+                </p>
+            </li>
+            <li>
+                <p>
+                    O ISPGAYA declina qualquer responsabilidade por prejuízos ou danos materiais ou
+                    pessoais que possam advir direta ou indiretamente da indevida utilização do seu
+                    website;
+                </p>
+            </li>
+            <li>
+                <p>
+                    O presente website pode conter links para outros sites externos que não são
+                    controlados pelo ISPGAYA;
+                </p>
+                <p>
+                    O nosso relacionamento com os referidos sites não implica um endosso dos produtos
+                    e/ou serviços vendidos ou anunciados e não nos responsabilizamos por faltas de
+                    veracidade, falhas de qualidade, incorreções, erros e imprecisões que possam verificar-
+                    se em conteúdos de outros portais ou websites, e sobre os quais o ISPGAYA não exerce
+                    qualquer controlo, para onde remetem as ligações de hipertexto, também denominadas
+                    “hyperlinks” ou “links” presentes neste website;
+                </p>
+                <p>
+                    Uma vez que esses sites não são de propriedade da empresa, não podemos garantir a
+                    qualidade, adequação ou operação dos mesmos, podendo existir recolha de dados de
+                    acordo com a política de privacidade dos sites externos;
+                </p>
+                <p>
+                    Recomendamos que nunca forneça os seus dados a qualquer entidade sem consultar
+                    previamente a respetiva política de privacidade dessa entidade;
+                </p>
+            </li>
+            <li>
+                <p>
+                    O ISPGAYA reserva-se o direito de alterar as informações e, em geral, o conteúdo do
+                    website acima referido, sem qualquer aviso prévio, com exceção daqueles a que a lei
+                    expressamente o obrigue;
+                </p>
+            </li>
+        </ol>
     </div>
-
-    <!--Sobre nós-->
-    <section class="sobre-nos" id="sobre-nos">
-        <div class="sobre-nos-texto">
-            <h2>“O que é necessário para mudar uma pessoa é mudar a consciência de si mesma.”</h2>
-            <p>— Abraham Maslow</p>
-        </div>
-        <div class="sobre-nos-container">
-            <img src="sobre-nos.png" alt="">
-            <p>O ISPGAYA pretende promover o pleno desenvolvimento dos seus estudantes através duma formação integrada
-                técnico-científica, sociocultural e humana.
-                Baseado nos valores humanos, o ISPGAYA dá importante relevo à dimensão pessoal e comunitária, formando
-                os
-                seus estudantes para a liberdade responsável, a abertura ao futuro, a flexibilidade na mudança, a
-                solidariedade com o mundo em que está inserido, a responsabilidade participativa, o respeito pelas
-                ideias e
-                pela consciência dos demais e o compromisso na construção da fraternidade humana.
-                O ISPGAYA procura também estimular a criação, difusão da cultura e da ciência através do CID - Centro de
-                Investigação e Desenvolvimento, nomeadamente, a revista Politécnica, a revista PEC - Psicologia,
-                Educação e
-                Cultura e outras publicações científicas relevantes.</p>
-        </div>
-
-        <div class="nossa-missao">
-            <h1>
-                A nossa missão
-            </h1>
-            <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-            </p>
-        </div>
-    </section>
 
 
     <!--Scroll to top-->

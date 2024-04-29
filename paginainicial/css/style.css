@@ -1173,6 +1173,10 @@ footer {
   padding: 10px;
 }
 
+.footer-col ul:hover {
+  text-decoration: underline;
+}
+
 .footer-col h1 {
   font-size: 35px;
   line-height: 35px;

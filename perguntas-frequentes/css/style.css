@@ -358,6 +358,7 @@ header {
   font-size: 25px;
   color: var(--title-color);
   width: 100%;
+  margin-top: 100px;
 }
 
 .heading h1 {
@@ -618,58 +619,6 @@ input:checked + .change::after {
 .dropdown-trigger-f:hover .dropdown-f {
   display: block;
 }
-
-
-/*--------------Navbar hrefs---------------------------*/
-
-ol {
-  list-style-type: none; /* Remove os marcadores da lista */
-  margin: 100px 100px 50px 100px;
-  padding: 0;
-  }
-  
-  .list {
-  display: inline-block; /* Exibe os itens da lista em linha */
-  }
-  
-  .items {
-  display: flex;
-  align-items: center;
-  color: #8A8A8A;
-  overflow: hidden;
-  }
-  
-  .items a {
-    color: #8a8a8a;
-  }
-  
-  .items-current {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  }
-  
-  /* Estilizando o separador '/' */
-  li:not(:last-child) .separator {
-  margin-right: 30px;
-  margin-left: 30px;
-  }
-  
-  /* Estilizando o link atual */
-  .items-current div[aria-current="page"] {
-  font-weight: bold;
-  color: #232323;
-  }
-  
-  .info {
-    color: #8A8A8A;
-  }
-  
-  .separator {
-  margin-right: 30px;
-  margin-left: 30px;
-  }
-
 
 
 /*---------------MEDIA QUERIES-------------------------*/

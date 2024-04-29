@@ -116,7 +116,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../quizzes/index.php">Sobre Nós</a></li>
+            <li><a href="../sobre-nos">Sobre Nós</a></li>
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
@@ -422,7 +422,12 @@ if (isset($_SESSION['id_utilizador'])) {
                 ?>
 
                 <div class="card5">
-                    <a href="#">
+                    <?php
+
+                    $titulo_codificado = urlencode($row["titulo"]);
+
+                    ?>
+                    <a href="../noticias/noticia/?titulo=<?php echo $titulo_codificado; ?>">
                         <div class="card5-background2">
                             <h1><?php echo $row['titulo']; ?></h1>
                             <h3><?php echo $row['autor']; ?></h3>
@@ -444,7 +449,12 @@ if (isset($_SESSION['id_utilizador'])) {
                     while ($row2 = mysqli_fetch_assoc($result2)) {
                         ?>
                         <div class="card6">
-                            <a href="#">
+                            <?php
+
+                            $titulo_codificado2 = urlencode($row2["titulo"]);
+
+                            ?>
+                            <a href="../noticias/noticia/?titulo=<?php echo $titulo_codificado2; ?>">
                                 <div class="card6-background2">
                                     <img src="<?php echo $row2['img_noticia']; ?>" alt="Depressão">
                                     <h1><?php echo $row2['titulo']; ?></h1>
@@ -465,7 +475,12 @@ if (isset($_SESSION['id_utilizador'])) {
                     while ($row3 = mysqli_fetch_assoc($result3)) {
                         ?>
                         <div class="card6">
-                            <a href="#">
+                            <?php
+
+                            $titulo_codificado3 = urlencode($row3["titulo"]);
+
+                            ?>
+                            <a href="../noticias/noticia/?titulo=<?php echo $titulo_codificado3; ?>">
                                 <div class="card6-background2">
                                     <img src="<?php echo $row3['img_noticia']; ?>" alt="Depressão">
                                     <h1><?php echo $row3['titulo']; ?></h1>
@@ -671,16 +686,22 @@ if (isset($_SESSION['id_utilizador'])) {
                             <li style="color: #DADADA;">24h/dia</li>
                         </ul>
                     </li>
+                </ul>
+                <ul>
                     <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
                         <ul>
                             <li style="color: #DADADA;">Todos os dias das 08h00 às 00h00</li>
                         </ul>
                     </li>
+                </ul>
+                <ul>
                     <li><a href="#" target="_blank">SOS Voz Amiga</a>
                         <ul>
                             <li style="color: #DADADA;">Todos os dias das 15:30h às 00:30h</li>
                         </ul>
                     </li>
+                </ul>
+                <ul>
                     <li><a href="#" target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li style="color: #DADADA;">Dias úteis das 15h00 às 22h00</li>
@@ -696,11 +717,11 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="footer-links">
             <p class="copyright">@2024 Todos os direitos reservados</p>
             <div class="footer-links-2">
-                <a href="#">Termos & Condições</a>
+                <a href="../termos-e-condicoes">Termos e Condições</a>
 
                 <div class="vertical-hr"></div>
 
-                <a href="#">FAQ</a>
+                <a href="../perguntas-frequentes">Perguntas Frequentes</a>
 
                 <div class="vertical-hr"></div>
 

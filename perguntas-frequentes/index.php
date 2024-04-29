@@ -161,16 +161,6 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </header>
 
-    <ol role="list">
-        <li class="list">
-            <div class="items-current">
-                <div class="text-sm" aria-current=page>
-                    Sobre nós
-                </div>
-            </div>
-        </li>
-    </ol>
-
     <div class="background1">
         <img src="background1.png" alt="banner background" />
     </div>
@@ -181,64 +171,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="heading">
         <h1>
-            Quem somos
+            Perguntas Frequentes
         </h1>
         <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to someone
             else.  Being an empath means you can actually feel another person’s happiness or sadness in your own body.
         </p>
     </div>
 
-    <!--Sobre nós-->
-    <section class="sobre-nos" id="sobre-nos">
-        <div class="sobre-nos-texto">
-            <h2>“O que é necessário para mudar uma pessoa é mudar a consciência de si mesma.”</h2>
-            <p>— Abraham Maslow</p>
-        </div>
-        <div class="sobre-nos-container">
-            <img src="sobre-nos.png" alt="">
-            <p>O ISPGAYA pretende promover o pleno desenvolvimento dos seus estudantes através duma formação integrada
-                técnico-científica, sociocultural e humana.
-                Baseado nos valores humanos, o ISPGAYA dá importante relevo à dimensão pessoal e comunitária, formando
-                os
-                seus estudantes para a liberdade responsável, a abertura ao futuro, a flexibilidade na mudança, a
-                solidariedade com o mundo em que está inserido, a responsabilidade participativa, o respeito pelas
-                ideias e
-                pela consciência dos demais e o compromisso na construção da fraternidade humana.
-                O ISPGAYA procura também estimular a criação, difusão da cultura e da ciência através do CID - Centro de
-                Investigação e Desenvolvimento, nomeadamente, a revista Politécnica, a revista PEC - Psicologia,
-                Educação e
-                Cultura e outras publicações científicas relevantes.</p>
-        </div>
-
-        <div class="nossa-missao">
-            <h1>
-                A nossa missão
-            </h1>
-            <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-            </p>
-        </div>
-    </section>
-
-
+    
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
