@@ -373,69 +373,69 @@ header {
   line-height: 2;
 }
 
-/*------------------Sobre nós------------------*/
+/*------------------Perguntas Frequentes------------------*/
 
-.sobre-nos-texto h2 {
-  text-align: center;
-  font-size: 35px;
-  color: var(--title-color);
-  font-family: "Libre Baskerville", sans-serif;
-  margin-top: 20px;
-}
-
-.sobre-nos-texto p {
-  text-align: center;
-  font-size: 15px;
-  color: var(--title-color);
-  font-family: "Libre Baskerville", sans-serif;
-  margin-top: 15px;
-  line-height: 2;
-}
-
-.sobre-nos-container {
-  overflow: hidden;
+.perguntas {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 150px 0;
-  height: auto;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sobre-nos-container img {
-  width: 45%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  /*margin-left: 50px;*/
-}
-
-.sobre-nos-container p {
-  width: 40%;
-  height: auto;
-  line-height: 2;
-  text-align: justify;
-  font-family: "Libre Baskerville", sans-serif;
-  color: var(--title-color);
-}
-
-.nossa-missao {
-  font-size: 25px;
-  color: var(--title-color);
+.faq {
+  /*max-width: 700px;*/
   width: 100%;
+  /*margin-top: 2rem;
+  padding: 20px 10px 20px 0px;
+  background-color: var(--white-color);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);*/
+  cursor: pointer;
+  /*margin-left: auto;*/
+  margin-right: auto;
+  border-radius: 12px;
 }
 
-.nossa-missao h1 {
-  font-family: "Libre Baskerville", sans-serif;
+.divider {
+  width: 100%;
+  margin-left: 20px;
 }
 
-.nossa-missao p {
-  font-size: 18px;
-  margin-top: 15px;
-  text-align: justify;
-  line-height: 2;
-  font-family: "Libre Baskerville", sans-serif;
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.question h3 {
+  color: var(--title-color);
+  font-size: 1.8rem;
+  margin-left: 20px;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.4s ease;
+}
+
+.answer p {
+  color: var(--title-color);
+  padding: 20px 10px 0px 20px;
+  line-height: 1.6;
+  font-size: 1.4rem;
+  overflow-wrap: break-word;
+}
+
+.faq.active .answer {
+  max-height: 300px;
+}
+
+.faq.active svg {
+  transform: rotate(180deg);
+}
+
+svg {
+  transition: transform 0.5s ease-in;
+}
 
 /*----------------FOOTER------------------------*/
 
@@ -667,22 +667,15 @@ input:checked + .change::after {
     text-align: left;
   }
 
-  .sobre-nos-container {
-    display: grid;
+  .question h3,
+  .divider {
+    margin-left: 0;
   }
 
-  .sobre-nos-container img {
-    width: 100%;
+  .answer p {
+    padding-left: 0;
   }
 
-  .sobre-nos-container p {
-    width: 100%;
-    text-align: left;
-  }
-
-  .nossa-missao p {
-    text-align: left;
-  }
 
   /*Footer*/
   .footer-col {

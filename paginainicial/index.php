@@ -507,50 +507,30 @@ if (isset($_SESSION['id_utilizador'])) {
                 Perguntas Frequentes
             </h1>
         </div>
-        <div class="faq">
-            <div class="question">
-                <h3>What isWhat isWhat isWhat is</h3>
-                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                        d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
-                </svg>
-            </div>
-            <div class="answer">
-                <p>testetestestestetetetetetetetetetetestetestestestetetetetetetetetetetestetestestestetetetetetetetetete
-                </p>
-            </div>
-        </div>
+        <?php
+        $query = "SELECT pergunta, resposta FROM perguntas";
+        $result = mysqli_query($conn, $query);
 
-        <div class="faq">
-            <div class="question">
-                <h3>It is</h3>
-                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                        d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
-                </svg>
-            </div>
-            <div class="answer">
-                <p>testetestestestetetetetetetetetetetestetestestestetetetetetetetetetetestetestestestetetetetetetetetete
-                </p>
-            </div>
-        </div>
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="faq">
+                <div class="question">
+                    <h3><?php echo $row['pergunta']; ?></h3>
+                    <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p><?php echo $row['resposta']; ?>
+                    </p>
+                </div>
 
-        <div class="faq">
-            <div class="question">
-                <h3>Why the</h3>
-                <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                        d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
-                </svg>
             </div>
-            <div class="answer">
-                <p>testetestestestetetetetetetetetetetestetestestestetetetetetetetetetetestetestestestetetetetetetetetete
-                </p>
-            </div>
-        </div>
+            <?php
+        }
+        ?>
     </section>
 
 

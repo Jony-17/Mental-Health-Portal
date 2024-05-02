@@ -119,7 +119,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
@@ -173,12 +174,43 @@ if (isset($_SESSION['id_utilizador'])) {
         <h1>
             Perguntas Frequentes
         </h1>
-        <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to someone
-            else.  Being an empath means you can actually feel another person’s happiness or sadness in your own body.
+        <p>Nesta área obtém a resposta às perguntas mais frequentes. Queremos ajudar da melhor forma, não hesites em
+            falar connosco.
         </p>
     </div>
 
-    
+    <!--Perguntas Frequentes-->
+    <section class="perguntas" id="perguntas">
+    <?php
+        $query = "SELECT pergunta, resposta FROM perguntas";
+        $result = mysqli_query($conn, $query);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="faq">
+                <div class="question">
+                    <h3><?php echo $row['pergunta']; ?></h3>
+                    <svg width="15" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M207 381.5L12.7 187.1c-9.4-9.4-9.4-24.6 0-33.9l22.7-22.7c9.4-9.4 24.5-9.4 33.9 0L224 284.5l154.7-154c9.4-9.3 24.5-9.3 33.9 0l22.7 22.7c9.4 9.4 9.4 24.6 0 33.9L241 381.5c-9.4 9.4-24.6 9.4-33.9 0z" />
+                    </svg>
+                </div>
+                <div class="answer">
+                    <p><?php echo $row['resposta']; ?>
+                    </p>
+                </div>
+
+            </div>
+            <hr class="divider">
+            <?php
+        }
+        ?>
+    </section>
+
+
+
+
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
