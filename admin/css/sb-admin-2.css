@@ -4922,8 +4922,18 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   background-color: #f8f9fc;
   border-bottom: 1px solid #e3e6f0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
-
+/* Tela igual ou inferior a 768 */
+@media screen and (max-width: 768px) {
+  .card-header2 {
+    display: grid;
+    gap: 10px;
+  }
+  }
 .card-header:first-child {
   border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
 }

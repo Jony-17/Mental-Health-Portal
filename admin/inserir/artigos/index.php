@@ -1,0 +1,506 @@
+<?php
+session_start();
+require_once ("../../../conn/conn.php");
+
+// Verifica se a sessão do usuário está definida
+if (isset($_SESSION['id_utilizador'])) {
+    // Obtém o ID do usuário da sessão
+    $utilizador_id = $_SESSION['id_utilizador'];
+
+    // Consulta SQL para buscar o campo img_perfil
+    $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
+
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        // Extrair o resultado da consulta
+        $row = mysqli_fetch_assoc($result);
+
+        // Exibir o valor da sessão
+        //var_dump($_SESSION['id_utilizador']);
+    } else {
+        echo "Erro na consulta SQL: " . mysqli_error($conn);
+    }
+} else {
+    echo "Sessão do utilizador não está definida.";
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Painel Admin | Portal de Saúde Mental</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <div class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon rotate-n-15">
+                </div>
+                <div class="sidebar-brand-text mx-3">Portal de Saúde Mental</div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../..">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Perfis dos Alunos -->
+            <li class="nav-item">
+                <a class="nav-link" href="../../perfis/">
+                    <i class="fas fa-users"></i>
+                    <span>Perfis dos Alunos</span></a>
+            </li>
+
+            <!-- Nav Item - Inserir Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInserir"
+                    aria-expanded="true" aria-controls="collapseInserir">
+                    <i class="fas fa-folder-plus"></i>
+                    <span>Inserir</span>
+                </a>
+                <div id="collapseInserir" class="collapse" aria-labelledby="headingInserir"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
+                        <a class="collapse-item" href="#">Artigos</a>
+                        <a class="collapse-item" href="#">Notícias</a>
+                        <a class="collapse-item" href="#">Conteúdo educativo</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Editar Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEditar"
+                    aria-expanded="true" aria-controls="collapseEditar">
+                    <i class="fas fa-edit"></i>
+                    <span>Editar</span>
+                </a>
+                <div id="collapseEditar" class="collapse" aria-labelledby="headingEditar"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--<h6 class="collapse-header">Login Screens:</h6>-->
+                        <a class="collapse-item" href="#">Artigos</a>
+                        <a class="collapse-item" href="#">Notícias</a>
+                        <a class="collapse-item" href="#">Conteúdo educativo</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Eliminar Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEliminar"
+                    aria-expanded="true" aria-controls="collapseEliminar">
+                    <i class="fas fa-trash"></i>
+                    <span>Eliminar</span>
+                </a>
+                <div id="collapseEliminar" class="collapse" aria-labelledby="headingEliminar"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!--<h6 class="collapse-header">Login Screens:</h6>-->
+                        <a class="collapse-item" href="#">Artigos</a>
+                        <a class="collapse-item" href="#">Notícias</a>
+                        <a class="collapse-item" href="#">Conteúdo educativo</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <?php echo $row["nome"] ?>
+                                </span>
+                                <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (
+                                    !empty($row["img_perfil"])
+                                ) {
+                                    echo $row["img_perfil"];
+                                } else {
+                                    echo "../../teste.jpeg";
+                                } ?>">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <!--<div class="dropdown-divider"></div>-->
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Inserir dados do artigo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="artigos.php" method="POST">
+
+                                <div class="modal-body">
+
+                                    <div class="form-group">
+                                        <label>Título</label>
+                                        <input type="text" name="titulo" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Descrição</label>
+                                        <input type="text" name="descricao" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Data da publicação</label>
+                                        <input type="text" name="data_publicacao" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Autor</label>
+                                        <input type="text" name="autor" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Imagem do artigo</label>
+                                        <input type="file" name="img_artigo" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Conteúdo do texto</label>
+                                        <input type="text" name="conteudo_texto" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ponto 1</label>
+                                        <div class="input-group">
+                                            <input type="text" name="ponto[]" class="form-control ponto-dinamico">
+                                            <button type="button"
+                                                class="btn btn-outline-secondary btn-add-ponto">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label>Texto do ponto 1</label>
+                                            <input type="text" name="texto[]" class="form-control texto-dinamico">
+                                            <button type="button"
+                                                class="btn btn-outline-secondary btn-add-texto">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Perturbação</label>
+                                        <select name="perturbacao" class="form-control">
+                                            <?php
+                                            $query_perturbacoes = "SELECT perturbacoes_id, nome FROM perturbacoes";
+                                            $result_perturbacoes = mysqli_query($conn, $query_perturbacoes);
+
+                                            while ($row = mysqli_fetch_assoc($result_perturbacoes)): ?>
+                                                <option value="<?php echo $row['perturbacoes_id']; ?>">
+                                                    <?php echo $row['nome']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Grupo de Perturbação</label>
+                                        <select name="grupo_perturbacao" class="form-control">
+                                            <?php
+                                            $selected_grupo_perturbacao_id = isset($_POST['perturbacao']) ? $_POST['perturbacao'] : null;
+
+                                            $query_grupos_perturbacoes = "SELECT grupos_perturbacoes_id, nome FROM grupos_perturbacoes";
+
+                                            if ($selected_grupo_perturbacao_id) {
+                                                $query_grupos_perturbacoes .= " WHERE grupos_perturbacoes_id IN (SELECT grupos_perturbacoes_id FROM juncao_perturbacoes WHERE perturbacoes_id = $selected_grupo_perturbacao_id)";
+                                            }
+
+                                            $result_grupos_perturbacoes = mysqli_query($conn, $query_grupos_perturbacoes);
+
+                                            while ($row = mysqli_fetch_assoc($result_grupos_perturbacoes)): ?>
+                                                <option value="<?php echo $row['grupos_perturbacoes_id']; ?>">
+                                                    <?php echo $row['nome']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" name="inserirbtn" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    const btnAddPonto = document.querySelector('.btn-add-ponto');
+                    const btnAddTexto = document.querySelector('.btn-add-texto');
+                    let pontoCount = 1; // Começa em 1
+                    let textoCount = 1; // Começa em 1
+
+                    btnAddPonto.addEventListener('click', function () {
+                        const pontoGroup = this.closest('.form-group');
+                        const newPontoGroup = pontoGroup.cloneNode(true);
+                        pontoCount++; // Incrementar após a clonagem
+
+                        // Atualizar o identificador, nome e rótulo do campo
+                        const newInput = newPontoGroup.querySelector('.ponto-dinamico');
+                        newInput.name = `ponto[${pontoCount}]`;
+                        newInput.value = ''; // Limpar o valor do campo clonado
+                        const newLabel = newPontoGroup.querySelector('label');
+                        newLabel.textContent = `Ponto ${pontoCount}`; // Atualizar o rótulo
+
+                        pontoGroup.parentNode.insertBefore(newPontoGroup, pontoGroup.nextSibling);
+                    });
+
+                    btnAddTexto.addEventListener('click', function () {
+                        const textoGroup = this.closest('.form-group');
+                        const newTextoGroup = textoGroup.cloneNode(true);
+                        textoCount++; // Incrementar após a clonagem
+
+                        // Atualizar o identificador, nome e rótulo do campo
+                        const newInput = newTextoGroup.querySelector('.texto-dinamico');
+                        newInput.name = `texto[${textoCount}]`;
+                        newInput.value = ''; // Limpar o valor do campo clonado
+                        const newLabel = newTextoGroup.querySelector('label');
+                        newLabel.textContent = `Texto do ponto ${textoCount}`; // Atualizar o rótulo
+
+                        textoGroup.parentNode.insertBefore(newTextoGroup, textoGroup.nextSibling);
+                    });
+
+                </script>
+
+
+
+                <div class="container-fluid">
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Perguntas e respostas</h6>
+                            <div class="card-header2">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#addadminprofile">
+                                    Inserir
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <?php
+                                $query = "SELECT 
+                                artigos.*, 
+                                perturbacoes.nome AS perturbacao, 
+                                grupos_perturbacoes.nome AS grupo_perturbacao, 
+                                GROUP_CONCAT(conteudo_artigo.ponto SEPARATOR '--- ') AS ponto,
+                                GROUP_CONCAT(conteudo_artigo.texto SEPARATOR '--- ') AS texto
+                            FROM 
+                                artigos
+                            JOIN 
+                                juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                            JOIN 
+                                perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                            JOIN 
+                                grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+                            LEFT JOIN 
+                                conteudo_artigo ON artigos.artigo_id = conteudo_artigo.artigo_id
+                            GROUP BY 
+                                artigos.artigo_id;";
+                                $query_run = mysqli_query($conn, $query);
+                                ?>
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nº Artigo</th>
+                                            <th>Título</th>
+                                            <th>Descrição</th>
+                                            <th>Data de publicação</th>
+                                            <th>Autor</th>
+                                            <th>Imagem</th>
+                                            <th>Conteúdo</th>
+                                            <th>Perturbação e respetivo grupo</th>
+                                            <th>Pontos</th>
+                                            <th>Texto dos pontos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            while ($row = mysqli_fetch_assoc($query_run)) {
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php echo $row['artigo_id']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['titulo']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['descricao']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['data_publicacao']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['autor']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['img_artigo']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['conteudo_texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['perturbacao'] . ' - ' . $row['grupo_perturbacao']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['ponto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['texto']; ?>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        } else {
+                                            echo "No Record Found";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                <!-- End of Main Content -->
+
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Terminar Sessão</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Tens a certeza que queres sair?</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-primary" href="../../../areacliente/login/">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bootstrap core JavaScript-->
+            <script src="../../vendor/jquery/jquery.min.js"></script>
+            <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Core plugin JavaScript-->
+            <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="../../js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

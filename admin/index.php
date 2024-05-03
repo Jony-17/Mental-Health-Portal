@@ -61,18 +61,18 @@ if (isset($_SESSION['id_utilizador'])) {
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <div class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">
         </div>
         <div class="sidebar-brand-text mx-3">Portal de Saúde Mental</div>
-      </a>
-
+      </div>
+      
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -87,7 +87,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Perfis dos Alunos -->
       <li class="nav-item">
-        <a class="nav-link" href="perfis/perfisalunos.php">
+        <a class="nav-link" href="perfis">
           <i class="fas fa-users"></i>
           <span>Perfis dos Alunos</span></a>
       </li>
@@ -102,7 +102,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <div id="collapseInserir" class="collapse" aria-labelledby="headingInserir" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
-            <a class="collapse-item" href="inserir/artigos/inserir_artigos.php">Artigos</a>
+            <a class="collapse-item" href="inserir/artigos/inserir_artigos">Artigos</a>
             <a class="collapse-item" href="#">Notícias</a>
             <a class="collapse-item" href="#">Conteúdo educativo</a>
           </div>
