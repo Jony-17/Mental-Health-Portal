@@ -35,8 +35,8 @@ if (isset($_SESSION['id_utilizador'])) {
             $edicao_realizada = true;
           }
         } /*else {
-          $_SESSION['danger_nome_message'] = "Nome utilizado anteriormente. Insere outro!";
-        }*/
+        $_SESSION['danger_nome_message'] = "Nome utilizado anteriormente. Insere outro!";
+      }*/
       }
     }
 
@@ -137,7 +137,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="selection:text-white selection:bg-orange-400">
 
 <head>
 
@@ -219,7 +219,8 @@ if (isset($_SESSION['id_utilizador'])) {
           <i class="fas fa-bell"></i>
           <span>Notificações</span>
         </a>
-        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações" data-parent="#accordionSidebar">
+        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações"
+          data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Login Screens:</h6>-->
             <a class="collapse-item" href="notificacoes">Todas as notificações</a>
@@ -258,7 +259,7 @@ if (isset($_SESSION['id_utilizador'])) {
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Alerts -->
-          <li class="nav-item dropdown no-arrow mx-1">
+            <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
@@ -290,16 +291,24 @@ if (isset($_SESSION['id_utilizador'])) {
                         </div>
                       </div>
                       <div>
-                        <div class="small text-gray-500"><?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?></div>
+                        <div class="small text-gray-500">
+                          <?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?>
+                        </div>
                         <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
                       </div>
                     </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="notificacoes">Ver todas as
+                      notificações</a>
                     <?php
                   }
+                } else {
+                  ?>
+                  <a class="dropdown-item text-center small text-gray-500">Não existem
+                    notificações</a>
+                  <?php
                 }
-
                 ?>
-                <a class="dropdown-item text-center small text-gray-500" href="notificacoes">Ver todas as notificações</a>
+
               </div>
             </li>
 

@@ -29,7 +29,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="selection:text-white selection:bg-orange-400">
 
 <head>
 
@@ -183,16 +183,24 @@ if (isset($_SESSION['id_utilizador'])) {
                         </div>
                       </div>
                       <div>
-                        <div class="small text-gray-500"><?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?></div>
+                        <div class="small text-gray-500">
+                          <?php echo $data_lembrete->format('d/m/Y') . ' - ' . $row_lembrete['horario']; ?>
+                        </div>
                         <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
                       </div>
                     </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="notificacoes">Ver todas as
+                      notificações</a>
                     <?php
                   }
+                } else {
+                  ?>
+                  <a class="dropdown-item text-center small text-gray-500">Não existem
+                    notificações</a>
+                  <?php
                 }
-
                 ?>
-                <a class="dropdown-item text-center small text-gray-500" href="../notificacoes">Ver todas as notificações</a>
+
               </div>
             </li>
 
