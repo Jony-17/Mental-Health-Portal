@@ -48,7 +48,7 @@ if (isset($_GET['nome'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -318,7 +318,7 @@ if (isset($_GET['nome'])) {
                     if ($result && mysqli_num_rows($result) > 0) {
                         $row = mysqli_fetch_assoc($result);
                         ?>
-                        <a href="10-factos/?nome=<?php echo $nome_codificado; ?>">
+                        <a href="factos_10/?nome=<?php echo $nome_codificado; ?>">
                             <img src="<?php echo $row["img_perturbacao"]; ?>" alt="Perturbacoes">
                         </a>
                         <div class="card2-content">
@@ -327,7 +327,7 @@ if (isset($_GET['nome'])) {
                             </h1>
                             <p>TesteTesteTesteTeste</p>
                             <p>TesteTesteTeste</p>
-                            <a class="secondary-button" href="10-factos/?nome=<?php echo $nome_codificado; ?>">
+                            <a class="secondary-button" href="factos_10/?nome=<?php echo $nome_codificado; ?>">
                                 Sabe mais<i class="fas fa-arrow-right"></i>
                             </a>
                         </div>

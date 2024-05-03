@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html class="selection:text-white selection:bg-orange-400">
+<html>
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -38,8 +38,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -69,15 +71,15 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="#">Perturbações</a></li>
-                <li><a href="../artigos">Artigos</a></li>
+                <li><a href="../..">Perturbações</a></li>
+                <li><a href="../../../artigos">Artigos</a></li>
                 <li><a href="#noticias">Notícias</a></li>
                 <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../quizzes">Quizzes</a></li>
+                        <li><a href="../../../quizzes">Quizzes</a></li>
                         <li><a href="#">Exercícios Mindfulness</a></li>
                         <li><a href="#">TED Talks</a></li>
                     </ul>
@@ -88,14 +90,14 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -103,7 +105,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -113,14 +115,14 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial">Página Inicial</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Perturbações</a></li>
-            <li><a href="../artigos">Artigos</a></li>
+            <li><a href="../..">Perturbações</a></li>
+            <li><a href="../../../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
             <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../quizzes">Quizzes</a></li>
+                    <li><a href="../../../quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
                     <li><a href="#">TED Talks</a></li>
                 </ul>
@@ -129,21 +131,21 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -161,69 +163,168 @@ if (isset($_SESSION['id_utilizador'])) {
     </header>
 
 
-    <ol role="list">
-        <li class="list">
-            <div class="items-current">
-                <span class="text-sm" aria-current=page>
-                    Perturbações Mentais
-                </span>
-            </div>
-        </li>
-    </ol>
 
-    <div class="heading">
-        <h1>
-            Perturbações Mentais
-        </h1>
-    </div>
+    <!--Separadores-->
+    <?php
+    if (isset($_GET['nome'])) {
+        // Obter o título do artigo da URL e decodificar
+        $nome_codificado = urldecode($_GET['nome']);
 
-    <!--Perturbações Mentais-->
-    <section class="perturbacoes" id="perturbacoes">
-        <div class="perturbacoes-banner-container">
-            <h1 class="perturbacoes-primary-heading"></h1>
-        </div>
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_codificado'";
 
-        <?php
-
-        $query = "SELECT nome, img_perturbacao FROM perturbacoes";
+        // Executar a consulta
         $result = mysqli_query($conn, $query);
 
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
         if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
+    
+            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            $query_grupo = "SELECT nome FROM perturbacoes WHERE perturbacoes_id = $perturbacoes_id";
+
+            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            $result_grupo = mysqli_query($conn, $query_grupo);
             ?>
-            <div class="card-container">
-                <?php
-
-                while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <div class="card">
-                        <?php
-
-                        $nome_codificado = urlencode($row["nome"]);
-                        $img_perturbacao = $row["img_perturbacao"];
-
-                        ?>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
-                            <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                            <img src="<?php echo $row["img_perturbacao"] ?>" alt="Perturbacoes">
-                        </a>
-                        <h1>
-                            <?php echo $row["nome"] ?>
-                        </h1>
-                        <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>" class="first-button">
-                            <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                            Sabe mais<i class="fas fa-arrow-right"></i>
-                        </a>
+            <ol role="list">
+                <li class="list">
+                    <div class="items"><a href="../.." class="text-sm">Perturbações Mentais</a><span class="separator">/</span>
                     </div>
-                    <?php
-                }
-                ?>
+                </li>
+                <li class="list">
+                    <div class="items"><a href="../?nome=<?php echo $nome_codificado; ?>" class="text-sm">
+                            <?php echo $row['nome'] ?>
+                        </a><span class="separator">/</span></div>
+                </li>
+                <li class="list">
+                    <div class="items-current"><span class="text-sm" aria-current="page">
+                            10 Factos sobre
+                            <?php echo $row['nome'] ?>
+                        </span></div>
+                </li>
+            </ol>
+            <div class="heading">
+                <h1>10 factos sobre
+                    <?php echo $row['nome'] ?>
+                </h1>
+                <div class="div-hr"></div>
             </div>
             <?php
         } else {
-            echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhuma perturbação encontrada.</div>';
+            // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Artigo não encontrado.";
         }
-        ?>
-    </section>
+    } else {
+        // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+        echo "Título do artigo não especificado na URL.";
+    }
+    ?>
+
+
+
+
+
+    <?php
+    if (isset($_GET['nome'])) {
+        // Obter o título do artigo da URL e decodificar
+        $nome_codificado = urldecode($_GET['nome']);
+
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_codificado'";
+
+        // Executar a consulta
+        $result = mysqli_query($conn, $query);
+
+        // Verificar se a consulta foi bem-sucedida e se retornou pelo menos uma linha
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Extrair o resultado da consulta
+            $row = mysqli_fetch_assoc($result);
+            $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
+    
+            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            $query_grupo = "SELECT nº, factos, descricao 
+        FROM factos_10 
+        WHERE perturbacoes_id = $perturbacoes_id";
+
+            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            $result_grupo = mysqli_query($conn, $query_grupo);
+
+            if ($result_grupo && mysqli_num_rows($result_grupo) > 0) {
+                ?>
+                <!--Factos-->
+                <div class="timeline">
+                    <div class="factos-bannerImage-container">
+                        <img src="imgs/background2.png" alt="banner background" />
+                    </div>
+
+                    <?php
+                    $left = true;
+                    // Exibir informações adicionais sobre outras perturbações
+                    while ($row_info_adicional = mysqli_fetch_assoc($result_grupo)) {
+                        ?>
+                        <div class="container <?php echo $left ? 'left-container' : 'right-container'; ?>">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="text-box">
+                                <h1><span class="number">
+                                        <?php echo $row_info_adicional['nº'] == 10 ? 10 : sprintf('%02d', $row_info_adicional['nº']); ?>
+                                    </span>
+                                    <?php echo $row_info_adicional['factos']; ?>
+                                </h1>
+                                <p>
+                                    <?php echo $row_info_adicional['descricao']; ?>
+                                </p>
+                                <span class="<?php echo $left ? 'left-container-arrow' : 'right-container-arrow'; ?>"></span>
+                            </div>
+                        </div>
+                        <?php
+                        $left = !$left;
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+        }
+    }
+    ?>
+
+
+    <script>
+        // Função para ajustar a altura do pseudo-elemento ::after com base no scroll
+        function adjustTimelineHeight() {
+            const timeline = document.querySelector('.timeline');
+
+            // Ajusta a altura conforme a posição do scroll
+            timeline.style.setProperty('--timeline-height', `${window.scrollY}px`);
+        }
+
+        // Adiciona um listener para o evento de rolagem da página
+        window.addEventListener('scroll', adjustTimelineHeight);
+
+    </script>
+
+    <!--Fontes-->
+    <div class="fontes" id="fontes">
+        <div class="fontes-content">
+            <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+            </svg>
+            <h3>Fontes</h3>
+        </div>
+        <div class="fontes-content2">
+            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
+                vita. MyLife.</p>
+        </div>
+    </div>
+
 
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
@@ -341,6 +442,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
+
 
     <script src="js/script.js"></script>
 

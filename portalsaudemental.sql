@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Abr-2024 às 11:21
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.3.31
+-- Tempo de geração: 04-Maio-2024 às 00:08
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,36 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `portalsaudemental`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `10_factos`
---
-
-CREATE TABLE `10_factos` (
-  `10_factos_id` int(11) NOT NULL,
-  `perturbacoes_id` int(11) NOT NULL,
-  `nº` int(11) NOT NULL,
-  `factos` text NOT NULL,
-  `descricao` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `10_factos`
---
-
-INSERT INTO `10_factos` (`10_factos_id`, `perturbacoes_id`, `nº`, `factos`, `descricao`) VALUES
-(1, 1, 1, 'Symptoms', 'While symptoms anxiety can be debilitating, with proper treatment—including medication and psychotherapy—people can learn to manage their symptoms and live a more productive life.'),
-(2, 1, 2, 'Introdução', 'While symptoms anxiety can be debilitating, with proper treatment—including medication and psychotherapy—people.'),
-(3, 1, 3, 'Testeteste', 'TestetesteTestetesteTestetesteTestetesteTesteteste'),
-(4, 1, 4, 'Teste4', 'TesteTesteTesteTesteTesteTesteTeste'),
-(5, 1, 5, 'Teste5', 'TesteTesteTesteTesteTesteTesteTeste'),
-(6, 1, 6, 'Teste6', 'TesteTesteTesteTesteTesteTesteTeste'),
-(7, 1, 7, 'Teste7', 'TesteTesteTesteTesteTesteTesteTeste'),
-(8, 1, 8, 'Teste8', 'TesteTesteTesteTesteTesteTesteTeste'),
-(9, 1, 9, 'Teste9', 'TesteTesteTesteTesteTesteTesteTeste'),
-(10, 1, 10, 'Teste10', 'TesteTesteTesteTesteTesteTesteTeste');
 
 -- --------------------------------------------------------
 
@@ -93,7 +63,8 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 (18, 18, 'Este coro ajud', 'No Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (19, 18, 'Testetesteteste', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (20, 1, 'TesteEQEQEQ', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://images.impresa.pt/sicnot/2020-09-27-saude-mental--2-.jpg/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
-(21, 2, 'plplpl', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  ');
+(21, 2, 'plplpl', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(22, 2, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -104,18 +75,19 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 CREATE TABLE `conteudo_artigo` (
   `conteudo_artigo_id` int(11) NOT NULL,
   `artigo_id` int(11) NOT NULL,
-  `ponto` varchar(255) NOT NULL
+  `ponto` varchar(255) DEFAULT NULL,
+  `texto` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `conteudo_artigo`
 --
 
-INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`) VALUES
-(1, 1, 'Introdução'),
-(2, 1, 'Desenvolvimento'),
-(3, 1, 'Conclusão'),
-(4, 2, 'Conteúdo');
+INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`, `texto`) VALUES
+(1, 1, 'Introdução', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
+(2, 1, 'Desenvolvimento', '2 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
+(3, 1, 'Conclusão', '3 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
+(4, 2, 'Conteúdo', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about');
 
 -- --------------------------------------------------------
 
@@ -126,15 +98,46 @@ INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`) VALUE
 CREATE TABLE `conteudo_noticia` (
   `conteudo_noticia_id` int(11) NOT NULL,
   `noticias_id` int(11) NOT NULL,
-  `ponto` varchar(255) NOT NULL
+  `ponto` varchar(255) NOT NULL,
+  `texto` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `conteudo_noticia`
 --
 
-INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`) VALUES
-(1, 1, 'ee');
+INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
+(1, 1, 'ee', 'aaa');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `factos_10`
+--
+
+CREATE TABLE `factos_10` (
+  `10_factos_id` int(11) NOT NULL,
+  `perturbacoes_id` int(11) NOT NULL,
+  `nº` int(11) NOT NULL,
+  `factos` text NOT NULL,
+  `descricao` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `factos_10`
+--
+
+INSERT INTO `factos_10` (`10_factos_id`, `perturbacoes_id`, `nº`, `factos`, `descricao`) VALUES
+(1, 1, 1, 'Symptoms', 'While symptoms anxiety can be debilitating, with proper treatment—including medication and psychotherapy—people can learn to manage their symptoms and live a more productive life.'),
+(2, 1, 2, 'Introdução', 'While symptoms anxiety can be debilitating, with proper treatment—including medication and psychotherapy—people.'),
+(3, 1, 3, 'Testeteste', 'TestetesteTestetesteTestetesteTestetesteTesteteste'),
+(4, 1, 4, 'Teste4', 'TesteTesteTesteTesteTesteTesteTeste'),
+(5, 1, 5, 'Teste5', 'TesteTesteTesteTesteTesteTesteTeste'),
+(6, 1, 6, 'Teste6', 'TesteTesteTesteTesteTesteTesteTeste'),
+(7, 1, 7, 'Teste7', 'TesteTesteTesteTesteTesteTesteTeste'),
+(8, 1, 8, 'Teste8', 'TesteTesteTesteTesteTesteTesteTeste'),
+(9, 1, 9, 'Teste9', 'TesteTesteTesteTesteTesteTesteTeste'),
+(10, 1, 10, 'Teste10', 'TesteTesteTesteTesteTesteTesteTeste');
 
 -- --------------------------------------------------------
 
@@ -254,15 +257,6 @@ CREATE TABLE `lembrete` (
   `mensagem` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `lembrete`
---
-
-INSERT INTO `lembrete` (`lembrete_id`, `utilizador_id`, `data`, `horario`, `mensagem`) VALUES
-(21, 18, '2024-04-21', '17:30:00', 'teste'),
-(22, 18, '2024-04-22', '16:15:00', 'teste de notificação'),
-(23, 18, '2024-04-23', '11:09:00', 'ççç');
-
 -- --------------------------------------------------------
 
 --
@@ -331,7 +325,36 @@ CREATE TABLE `noticias` (
 INSERT INTO `noticias` (`noticias_id`, `titulo`, `data_publicacao`, `autor`, `img_noticia`, `conteudo_texto`) VALUES
 (1, 'Dar uma casa a doentes mentais que vivem na rua', '13 de abril de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:2500:1667:nowe:0:0/rs:fill:1440/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/04/11124230/154a2870.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
 (2, 'O que são perturbações da personalidade?', '20 de abril de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:2302:1302:nowe:0:0/rs:fill:560/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/04/19202213/istock-1125680650.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
-(3, 'O projeto que ajuda a prevenir o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste');
+(3, 'O projeto que ajuda a prevenir o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(4, 'O projeto que ajuda o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:2121:1414:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/22132437/istock-1491758415.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(5, 'O po que ajuda o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:4096:2731:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/08152454/gettyimages-1204607778-scaled.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(6, 'O po que ajuda o juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(7, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `perguntas`
+--
+
+CREATE TABLE `perguntas` (
+  `perguntas_id` int(11) NOT NULL,
+  `pergunta` varchar(1000) NOT NULL,
+  `resposta` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `perguntas`
+--
+
+INSERT INTO `perguntas` (`perguntas_id`, `pergunta`, `resposta`) VALUES
+(1, 'Pergunta 1', 'Resposta à pergunta 1'),
+(2, 'Pergunta 2', 'Resposta à pergunta 2'),
+(3, 'Pergunta 3', 'Resposta à pergunta 3'),
+(4, 'teste', 'teste'),
+(5, 'teste2', 'teste2'),
+(6, 'teste3', 'teste3'),
+(7, 'teste4', 'teste4');
 
 -- --------------------------------------------------------
 
@@ -478,18 +501,20 @@ INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_nome_id`) VALUES
 
 CREATE TABLE `quiz_nome` (
   `quiz_nome_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL
+  `nome` varchar(255) NOT NULL,
+  `explicacao_quiz` varchar(1000) NOT NULL,
+  `texto_informacao` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `quiz_nome`
 --
 
-INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`) VALUES
-(1, 'Quizz - O quão empática/o és?'),
-(2, 'Quizz - O quão preocupada/o és?'),
-(3, 'Quizz - Tens uma energia positiva'),
-(4, 'Quizz - O quão livre és, emocionalmente?');
+INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `explicacao_quiz`, `texto_informacao`) VALUES
+(1, 'Quizz - O quão empática/o és?', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra'),
+(2, 'Quizz - O quão preocupada/o és?', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
+(3, 'Quizz - Tens uma energia positiva', 'Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative attitudes impair it. Take this quiz to determine your positivity score and the energy impact you have on yourself and others.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
+(4, 'Quizz - O quão livre és, emocionalmente?', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m');
 
 -- --------------------------------------------------------
 
@@ -548,46 +573,6 @@ INSERT INTO `ted_talks` (`ted_talks_id`, `autor`, `titulo`, `data`, `tempo`, `im
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `texto_artigo`
---
-
-CREATE TABLE `texto_artigo` (
-  `texto_artigo_id` int(11) NOT NULL,
-  `conteudo_artigo_id` int(11) NOT NULL,
-  `texto` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `texto_artigo`
---
-
-INSERT INTO `texto_artigo` (`texto_artigo_id`, `conteudo_artigo_id`, `texto`) VALUES
-(1, 1, '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about\r\n            their health, job, money, or family, but people with GAD experience anxiety about these things and more, in\r\n            a way that is persistent, excessive, and intrusive. [1]\r\n\r\nEverybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental '),
-(2, 2, '2 Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.\r\n\r\n                 '),
-(3, 3, '3 Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.\r\n\r\n                 ');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `texto_noticia`
---
-
-CREATE TABLE `texto_noticia` (
-  `texto_noticia_id` int(11) NOT NULL,
-  `conteudo_noticia_id` int(11) NOT NULL,
-  `texto` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `texto_noticia`
---
-
-INSERT INTO `texto_noticia` (`texto_noticia_id`, `conteudo_noticia_id`, `texto`) VALUES
-(1, 1, 'aaa');
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `utilizadores`
 --
 
@@ -619,13 +604,6 @@ INSERT INTO `utilizadores` (`utilizador_id`, `unique_id`, `nome`, `email`, `pass
 --
 
 --
--- Índices para tabela `10_factos`
---
-ALTER TABLE `10_factos`
-  ADD PRIMARY KEY (`10_factos_id`),
-  ADD KEY `fk_perturbacoes_id_factos` (`perturbacoes_id`);
-
---
 -- Índices para tabela `artigos`
 --
 ALTER TABLE `artigos`
@@ -645,6 +623,13 @@ ALTER TABLE `conteudo_artigo`
 ALTER TABLE `conteudo_noticia`
   ADD PRIMARY KEY (`conteudo_noticia_id`),
   ADD KEY `FK_noticias_id` (`noticias_id`);
+
+--
+-- Índices para tabela `factos_10`
+--
+ALTER TABLE `factos_10`
+  ADD PRIMARY KEY (`10_factos_id`),
+  ADD KEY `fk_perturbacoes_id_factos` (`perturbacoes_id`);
 
 --
 -- Índices para tabela `grupos_perturbacoes`
@@ -689,6 +674,12 @@ ALTER TABLE `noticias`
   ADD PRIMARY KEY (`noticias_id`);
 
 --
+-- Índices para tabela `perguntas`
+--
+ALTER TABLE `perguntas`
+  ADD PRIMARY KEY (`perguntas_id`);
+
+--
 -- Índices para tabela `perturbacoes`
 --
 ALTER TABLE `perturbacoes`
@@ -728,20 +719,6 @@ ALTER TABLE `ted_talks`
   ADD PRIMARY KEY (`ted_talks_id`);
 
 --
--- Índices para tabela `texto_artigo`
---
-ALTER TABLE `texto_artigo`
-  ADD PRIMARY KEY (`texto_artigo_id`),
-  ADD KEY `fk_conteudo_artigo_id` (`conteudo_artigo_id`);
-
---
--- Índices para tabela `texto_noticia`
---
-ALTER TABLE `texto_noticia`
-  ADD PRIMARY KEY (`texto_noticia_id`),
-  ADD KEY `FK_conteudo_noticia_id` (`conteudo_noticia_id`);
-
---
 -- Índices para tabela `utilizadores`
 --
 ALTER TABLE `utilizadores`
@@ -752,16 +729,10 @@ ALTER TABLE `utilizadores`
 --
 
 --
--- AUTO_INCREMENT de tabela `10_factos`
---
-ALTER TABLE `10_factos`
-  MODIFY `10_factos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT de tabela `artigos`
 --
 ALTER TABLE `artigos`
-  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `conteudo_artigo`
@@ -776,10 +747,16 @@ ALTER TABLE `conteudo_noticia`
   MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `factos_10`
+--
+ALTER TABLE `factos_10`
+  MODIFY `10_factos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
-  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
@@ -797,7 +774,7 @@ ALTER TABLE `juncao_pert_personalidade`
 -- AUTO_INCREMENT de tabela `lembrete`
 --
 ALTER TABLE `lembrete`
-  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `lembrete_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
@@ -809,13 +786,19 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `perguntas`
+--
+ALTER TABLE `perguntas`
+  MODIFY `perguntas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes`
 --
 ALTER TABLE `perturbacoes`
-  MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes_personalidade`
@@ -845,19 +828,7 @@ ALTER TABLE `registos`
 -- AUTO_INCREMENT de tabela `ted_talks`
 --
 ALTER TABLE `ted_talks`
-  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `texto_artigo`
---
-ALTER TABLE `texto_artigo`
-  MODIFY `texto_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de tabela `texto_noticia`
---
-ALTER TABLE `texto_noticia`
-  MODIFY `texto_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
@@ -868,12 +839,6 @@ ALTER TABLE `utilizadores`
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `10_factos`
---
-ALTER TABLE `10_factos`
-  ADD CONSTRAINT `fk_perturbacoes_id_factos` FOREIGN KEY (`perturbacoes_id`) REFERENCES `perturbacoes` (`perturbacoes_id`);
 
 --
 -- Limitadores para a tabela `artigos`
@@ -892,6 +857,12 @@ ALTER TABLE `conteudo_artigo`
 --
 ALTER TABLE `conteudo_noticia`
   ADD CONSTRAINT `FK_noticias_id` FOREIGN KEY (`noticias_id`) REFERENCES `noticias` (`noticias_id`);
+
+--
+-- Limitadores para a tabela `factos_10`
+--
+ALTER TABLE `factos_10`
+  ADD CONSTRAINT `fk_perturbacoes_id_factos` FOREIGN KEY (`perturbacoes_id`) REFERENCES `perturbacoes` (`perturbacoes_id`);
 
 --
 -- Limitadores para a tabela `juncao_perturbacoes`
@@ -926,18 +897,6 @@ ALTER TABLE `quizzes`
 --
 ALTER TABLE `registos`
   ADD CONSTRAINT `FK_utilizador_id2` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
-
---
--- Limitadores para a tabela `texto_artigo`
---
-ALTER TABLE `texto_artigo`
-  ADD CONSTRAINT `fk_conteudo_artigo_id` FOREIGN KEY (`conteudo_artigo_id`) REFERENCES `conteudo_artigo` (`conteudo_artigo_id`);
-
---
--- Limitadores para a tabela `texto_noticia`
---
-ALTER TABLE `texto_noticia`
-  ADD CONSTRAINT `FK_conteudo_noticia_id` FOREIGN KEY (`conteudo_noticia_id`) REFERENCES `conteudo_noticia` (`conteudo_noticia_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

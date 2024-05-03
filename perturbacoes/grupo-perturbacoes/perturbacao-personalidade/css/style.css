@@ -28,34 +28,6 @@
   --buttons: 1.1rem;
 }
 
-/*Texto sublinhado*/
-
-.selection\:text-white ::selection {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255/var(--tw-text-opacity))
-}
-
-.selection\:bg-orange-400 ::selection {
-  --tw-bg-opacity: 1;
-    background-color: rgb(251 146 60/var(--tw-bg-opacity))
-}
-
-/*Scroll bar*/
-
-::-webkit-scrollbar {
-  width: 0.70em;
-}
-
-::-webkit-scrollbar-thumb {
-    background: hsl(41 100% 50% / 1);
-    /*border: 0.25rem solid hsl(120 75% 50% / 1);*/
-    border-radius: 100vw;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(41 100% 35% / 1);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -72,9 +44,13 @@ body {
   margin: 0rem auto;
 }
 
+html {
+  scroll-padding-top: 90px;
+}
+
 /*section {
-  padding: 50px 5%;
-}*/
+    padding: 50px 5%;
+  }*/
 
 li {
   list-style: none;
@@ -314,7 +290,7 @@ header {
   display: block;
 }
 
-.first-button {
+.secondary-button {
   outline: none;
   border: none;
   border-radius: 5rem;
@@ -331,22 +307,24 @@ header {
   text-decoration: none;
 }
 
-.first-button svg {
+.secondary-button svg {
   margin-left: 0.75rem;
   font-size: 1.5rem;
 }
+
+/* .secondary-button:hover {
+    background-color: var(--orange2-color);
+  }*/
+
+
 
 
 /*--------------Heading---------------------------*/
 
 .heading {
   padding-left: 100px;
-  padding-right: 100px;
   font-size: 25px;
   color: var(--title-color);
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
 }
 
 .heading h1 {
@@ -354,55 +332,312 @@ header {
 }
 
 
+/*--------------Subheading---------------------------*/
+
+.subheading {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 70px;
+  font-size: 20px;
+  color: var(--title-color);
+}
+
+.subheading p {
+  text-align: justify;
+  font-size: 18px;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+
+/*--------------Navbar hrefs---------------------------*/
+
+ol {
+  list-style-type: none; /* Remove os marcadores da lista */
+  margin: 100px 100px 50px 100px;
+  padding: 0;
+}
+
+.list {
+  display: inline-block; /* Exibe os itens da lista em linha */
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  color: #8a8a8a;
+  overflow: hidden;
+}
+
+.items a {
+  color: #8a8a8a;
+}
+
+.items-current {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Estilizando o separador '/' */
+li:not(:last-child) .separator {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+/* Estilizando o link atual */
+.items-current span[aria-current="page"] {
+    font-weight: bold;
+    color: #232323;
+}
+
+
+/*--*/
+
+.list2 {
+  margin: 10px 100px 20px 100px;
+}
+
+
+
 /*------------------Tipos Perturbações Mentais------------------*/
 
-.perturbacoes-banner-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
+.perturbacao-especifica {
+  margin-right: 20px;
 }
 
-.perturbacoes-primary-heading {
-  font-size: var(--second2-heading);
-  color: var(--title-color);
-  /*max-width: 600px;*/
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  margin-bottom: 50px;
+.perturbacao-especifica-card {
+  /*display: flex;*/
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 70px;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(230px, 1fr)); /*auto-fit*/
-  gap: 30px;
-  margin-left: 100px;
-  margin-right: 100px;
+.perturbacao-especifica-card2 {
+  /*display: flex;*/
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 70px;
+}
+
+.perturbacao-especifica-card-body {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid orange;
+}
+
+
+.perturbacao-especifica-card-body p {
+  text-align: justify;
+  line-height: 2;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border: none;
+  /*margin-bottom: 50px;*/
+  width: 100%; /* Adicionando largura de 100% */
 }
 
-.card img {
+.card-body {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%; /* Adicionando largura de 100% */
+  max-width: none; /* Removendo a limitação de largura máxima */
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.card-body a {
+  display: grid;
+  margin-bottom: 10px;
+  color: var(--orange3-color);
+}
+
+.card-body a:hover {
+  color: var(--main-color)
+}
+
+.perturbacoes-hr {
+  border: 0;
+  border-bottom: 1px solid var(--white2-color);
+  margin: 20px auto;
+}
+
+
+/*--Artigos relacionados--*/
+
+.artigos-text {
+  margin-top: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.card2-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(230px, 1fr)); /*auto-fit*/
+  gap: 60px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.perturbacoes-hr2 {
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid var(--white2-color);
+  margin: 20px auto;
+}
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
   width: 100%;
-  height: 230px;
+}
+
+.card2 img {
+  margin-top: 50px;
+  width: 100%;
+  height: 200px;
   object-fit: cover;
 }
 
-.card h1 {
-  text-align: left;
-  margin-top: 20px;
-  color: var(--grey2-color);
-  text-transform: uppercase;
-  font-size: 27px;
+.card2-content {
+  display: flex;
+  flex-direction: column;
 }
 
-.card p {
+.card2-content h3 {
+  font-size: 18px;
+  color: var(--main-color);
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+
+.card2-content h2 {
+  font-size: 15px;
+  color: var(--orange3-color);
+  text-transform: uppercase;
+}
+
+.card2-content h1 {
   text-align: left;
+  color: var(--grey2-color);
+  font-size: 27px;
+  margin-bottom: 50px;
+}
+
+.card2-content p {
+  text-align: left;
+}
+
+/*---*/
+
+.fontes {
+  width: 100%;
+  background-color: var(--white-color);
+  cursor: default;
+  flex: 1;
+  /*display: flex;*/
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.fontes-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.fontes-content h3 {
+  color: #B13E3E;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.fontes-content2 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.4s ease;
+}
+
+.fontes-content2 p {
+  color: black;
+  padding: 20px 0px 0px 25px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.fontes.active .fontes-content2 {
+  max-height: 300px;
+}
+
+.fontes.active svg {
+  transform: rotate(180deg);
+}
+
+svg {
+  /*transition: transform 0.5s ease-in;*/
+  fill: #B13E3E;
+  cursor: pointer;
+}
+
+.svg-down {
+  display: none; /* Inicialmente, esconde o SVG para baixo */
+}
+
+.fontes.active .svg-up {
+  display: none; /* Esconde o SVG para cima quando o conteúdo está ativo */
+}
+
+.fontes.active .svg-down {
+  display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo */
+}
+
+/*---*/
+
+
+
+
+
+/*-----------------Botões--------------------*/
+
+.buttons {
+  margin: 30px 0 30px 90px;
+}
+
+.btn2 {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  padding: 8px 40px;
+  border: none;
+  outline: none;
+  border-radius: 9px 9px 9px 0px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  /*margin: 50px 0 30px 100px;*/
+}
+
+.btn2:hover {
+  scale: 1.05;
+  color: var(--white-color);
 }
 
 
@@ -589,42 +824,7 @@ input:checked + .change::after {
   display: block;
 }
 
-/*--------------Navbar hrefs---------------------------*/
 
-ol {
-  list-style-type: none; /* Remove os marcadores da lista */
-  margin: 100px 100px 50px 100px;
-  padding: 0;
-}
-
-.list {
-  display: inline-block; /* Exibe os itens da lista em linha */
-}
-
-.items {
-  display: flex;
-  align-items: center;
-  color: #8a8a8a;
-  overflow: hidden;
-}
-
-.items-current {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Estilizando o separador '/' */
-li:not(:last-child) .separator {
-  margin-right: 30px;
-  margin-left: 30px;
-}
-
-/* Estilizando o link atual */
-.items-current span[aria-current="page"] {
-  font-weight: bold;
-  color: #232323;
-}
 
 /*---------------MEDIA QUERIES-------------------------*/
 
@@ -644,50 +844,78 @@ li:not(:last-child) .separator {
 
 /* Tela igual ou inferior a 768 */
 @media screen and (max-width: 768px) {
+
   ol {
     margin-left: 15px;
     margin-right: 10px;
   }
 
-  .first-button {
-    font-size: 1rem;
-    cursor: pointer;
+  .heading,
+  .subheading {
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+
+  .list2 {
+    margin: 0;
+    margin-left: 15px;
+    margin-right: 10px;
   }
 
   .heading {
-    font-size: 20px;
-    line-height: 1;
-    margin: 10px 0 20px 15px;
-    padding: 0;
-  }
-
-  .perturbacoes-banner-container {
-    width: auto;
-  }
-
-  .perturbacoes-primary-heading {
     font-size: 25px;
+    line-height: 1;
+    margin-bottom: 20px;
   }
 
-  .card-container {
-    grid-template-columns: repeat(1, 1fr);
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  .card img {
-    height: 150px;
-  }
-
-  .card h1 {
-    font-size: 20px;
-  }
-
-  .card p {
+  .subheading {
     font-size: 15px;
   }
 
+  .subheading p {
+    font-size: 15px;
+  }
+
+  .perturbacao-especifica {
+    margin-right: 0;
+  }
+
+  .perturbacao-especifica-card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .perturbacao-especifica-card2 {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 40px;
+  }
+
+  .perturbacao-especifica-card-body {
+    padding: 10px;
+  }
   
+  
+  .artigos-text {
+    font-size: 22px;
+    padding-left: 30px;
+  }
+
+  .card2-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .fontes {
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+
+  .fontes-content2 p {
+    padding: 10px 0px 0px 0px;
+  }
+
   /*Footer*/
   .footer-col {
     flex-basis: 100%;
@@ -732,21 +960,10 @@ li:not(:last-child) .separator {
 
 /* Tela igual ou superior a 1360 */
 @media screen and (min-width: 1360px) {
+  
 }
 
 /* Tela igual ou superior a 1600 */
 @media screen and (min-width: 1600px) {
-
-  /*OUTROS*/
-  .perturbacoes-banner-container {
-    margin-top: 50px;
-  }
-
-  .perturbacoes-primary-heading {
-    font-size: clamp(12px, 5vw, 52px);
-  }
-
-  .card h1 {
-    font-size: 27px;
-  }
+  
 }
