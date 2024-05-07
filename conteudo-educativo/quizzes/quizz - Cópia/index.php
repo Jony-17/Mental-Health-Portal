@@ -247,38 +247,33 @@ if (isset($_SESSION['id_utilizador'])) {
 
                         <div class="quiz-container" id="quiz">
                             <div class="quiz-header">
+                                <p class="disclaimer2">Responda a cada uma das 20 perguntas. Seja honesta/o para obter o
+                                    resultado
+                                    mais preciso
+                                </p>
                                 <?php
                                 if (isset($_GET['quiz_nome_id'])) {
+                                    echo ("<script>console.log('quiz_nome_id:', " . $_GET['quiz_nome_id'] . ");</script>");
                                     $quiz_nome_id = $_GET['quiz_nome_id'];
-                                    $query2 = "SELECT COUNT(*) AS total_perguntas FROM quiz_questoes WHERE quiz_nome_id = $quiz_nome_id";
+                                    
+
+                                    $query2 = "SELECT * FROM quiz_questoes WHERE quiz_nome_id = $quiz_nome_id";
                                     $query_run2 = mysqli_query($conn, $query2);
 
                                     if ($row2 = mysqli_fetch_assoc($query_run2)) {
-                                        $total_perguntas = $row2['total_perguntas'];
                                         ?>
-
-                                        <p class="disclaimer2">Responda a cada uma das <?php echo $total_perguntas; ?>
-                                            perguntas. Seja honesta/o para obter o resultado mais preciso.</p>
-
+                                        <h2 id="question"><?php echo $row2['questao']; ?></h2>
+                                        <ul class="ul-question">
+                                            <li class="li-question">
+                                                <input type="radio" name="answer" id="a" class="answer">
+                                                <label for="a" id="a_text"><?php echo $row2['opcao_a']; ?></label>
+                                            </li>
+                                            <li class="li-question">
+                                                <input type="radio" name="answer" id="b" class="answer">
+                                                <label for="b" id="b_text"><?php echo $row2['opcao_b']; ?></label>
+                                            </li>
+                                        </ul>
                                         <?php
-
-                                        $query_perguntas = "SELECT questao, opcao_a, opcao_b FROM quiz_questoes WHERE quiz_nome_id = $quiz_nome_id";
-                                        $query_run_perguntas = mysqli_query($conn, $query_perguntas);
-                                        if ($row_pergunta = mysqli_fetch_assoc($query_run_perguntas)) {
-                                            ?>
-                                            <h2 id="question"><?php echo $row_pergunta['questao']; ?></h2>
-                                            <ul class="ul-question">
-                                                <li class="li-question">
-                                                    <input type="radio" name="answer" id="a" class="answer">
-                                                    <label for="a" id="a_text"><?php echo $row_pergunta['opcao_a']; ?></label>
-                                                </li>
-                                                <li class="li-question">
-                                                    <input type="radio" name="answer" id="b" class="answer">
-                                                    <label for="b" id="b_text"><?php echo $row_pergunta['opcao_b']; ?></label>
-                                                </li>
-                                            </ul>
-                                            <?php
-                                        }
                                     }
                                 }
                                 ?>
@@ -292,7 +287,6 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
             </div>
-
 
             <div class="quizzes-text-section">
                 <div class="card">

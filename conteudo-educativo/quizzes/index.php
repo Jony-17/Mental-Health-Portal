@@ -196,7 +196,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
         <div class="card4-container">
             <?php
-            $query = "SELECT nome, img_quiz FROM quiz_nome";
+            $query = "SELECT * FROM quiz_nome";
             $query_run = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($query_run) > 0) {
@@ -205,13 +205,18 @@ if (isset($_SESSION['id_utilizador'])) {
                     <?php
                     $nome_codificado = urlencode($row["nome"]);
                     ?>
-                    <a href="quizz/?nome=<?php echo $nome_codificado; ?>">
+                    <a href="quizz/?nome=<?php echo $nome_codificado; ?>&quiz_nome_id=<?php echo $row['quiz_nome_id']; ?>"
+                        onclick="loadQuizData(<?php echo $row['quiz_nome_id']; ?>);">
+                        
+                        <!-- Conteúdo do link aqui -->
+
+                        <!-- Adicione o onclick aqui -->
                         <div class="card4">
                             <div class="card4-content">
                                 <h1><?php echo $row['nome']; ?></h1>
                             </div>
                             <div class="card4-content2">
-                                <img src="<?php echo $row['img_quiz']?>" alt="O que é a saúde mental?">
+                                <img src="<?php echo $row['img_quiz'] ?>" alt="O que é a saúde mental?">
                             </div>
                         </div>
                     </a>
@@ -223,6 +228,7 @@ if (isset($_SESSION['id_utilizador'])) {
             ?>
         </div>
     </section>
+
 
 
 
@@ -343,7 +349,6 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
-
 
     <script src="js/script.js"></script>
 

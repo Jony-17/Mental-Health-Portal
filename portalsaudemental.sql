@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Maio-2024 às 12:15
+-- Tempo de geração: 08-Maio-2024 às 01:39
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -595,6 +595,52 @@ INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `img_quiz`, `explicacao_quiz`, 
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `quiz_questoes`
+--
+
+CREATE TABLE `quiz_questoes` (
+  `quiz_questoes_id` int(11) NOT NULL,
+  `quiz_nome_id` int(11) NOT NULL,
+  `questao` varchar(1000) NOT NULL,
+  `opcao_a` text NOT NULL,
+  `opcao_b` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `quiz_questoes`
+--
+
+INSERT INTO `quiz_questoes` (`quiz_questoes_id`, `quiz_nome_id`, `questao`, `opcao_a`, `opcao_b`) VALUES
+(1, 2, 'Preocupo-me com muitas coisas todos os dias', 'Sim', 'Nao'),
+(2, 2, 'Fico frequentemente sobrecarregado ou ansioso', 'Sim', 'Nao'),
+(3, 1, 'Fui rotulado como excessivamente sensivel, timido ou introvertido', 'Sim', 'Nao'),
+(4, 3, 'Emanas um sentimento de apoio e compaixão pelos outros?', 'Sim', 'Não');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `quiz_respostas`
+--
+
+CREATE TABLE `quiz_respostas` (
+  `quiz_respostas_id` int(11) NOT NULL,
+  `quiz_nome_id` int(11) NOT NULL,
+  `respostas` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `quiz_respostas`
+--
+
+INSERT INTO `quiz_respostas` (`quiz_respostas_id`, `quiz_nome_id`, `respostas`) VALUES
+(1, 1, 'És uma pessoa parcialmente empática'),
+(2, 1, 'És uma pessoa com tendências empáticas moderadas'),
+(3, 1, 'És uma pessoa com tendências empáticas fortes'),
+(4, 1, 'És uma pessoa com mesmo muita empatia');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `registos`
 --
 
@@ -795,6 +841,20 @@ ALTER TABLE `quiz_nome`
   ADD PRIMARY KEY (`quiz_nome_id`);
 
 --
+-- Índices para tabela `quiz_questoes`
+--
+ALTER TABLE `quiz_questoes`
+  ADD PRIMARY KEY (`quiz_questoes_id`),
+  ADD KEY `FK_quiz_questao` (`quiz_nome_id`);
+
+--
+-- Índices para tabela `quiz_respostas`
+--
+ALTER TABLE `quiz_respostas`
+  ADD PRIMARY KEY (`quiz_respostas_id`),
+  ADD KEY `FK_quiz_nome_id2` (`quiz_nome_id`);
+
+--
 -- Índices para tabela `registos`
 --
 ALTER TABLE `registos`
@@ -920,6 +980,18 @@ ALTER TABLE `quiz_nome`
   MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de tabela `quiz_questoes`
+--
+ALTER TABLE `quiz_questoes`
+  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `quiz_respostas`
+--
+ALTER TABLE `quiz_respostas`
+  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de tabela `registos`
 --
 ALTER TABLE `registos`
@@ -998,6 +1070,18 @@ ALTER TABLE `lembrete`
 ALTER TABLE `quizzes`
   ADD CONSTRAINT `FK_quiz_nome_id` FOREIGN KEY (`quiz_nome_id`) REFERENCES `quiz_nome` (`quiz_nome_id`),
   ADD CONSTRAINT `fk_utilizador_id` FOREIGN KEY (`utilizador_id`) REFERENCES `utilizadores` (`utilizador_id`);
+
+--
+-- Limitadores para a tabela `quiz_questoes`
+--
+ALTER TABLE `quiz_questoes`
+  ADD CONSTRAINT `FK_quiz_questao` FOREIGN KEY (`quiz_nome_id`) REFERENCES `quiz_nome` (`quiz_nome_id`);
+
+--
+-- Limitadores para a tabela `quiz_respostas`
+--
+ALTER TABLE `quiz_respostas`
+  ADD CONSTRAINT `FK_quiz_nome_id2` FOREIGN KEY (`quiz_nome_id`) REFERENCES `quiz_nome` (`quiz_nome_id`);
 
 --
 -- Limitadores para a tabela `registos`
