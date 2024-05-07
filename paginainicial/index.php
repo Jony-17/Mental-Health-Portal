@@ -726,9 +726,9 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <!--Chatbot-->
-    <!--<div id="chatbotContainer">
+    <div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
-    </div>-->
+    </div>
 
 
     <script src="js/script.js"></script>
