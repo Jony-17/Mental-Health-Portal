@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -194,54 +194,31 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
 
         <div class="card-container">
-            <div class="card">
-                <a href="relaxamento">
-                    <img src="imgs/relaxamento.png" alt="Atividades de Relaxamento">
-                </a>
-                <h1>
-                    Atividades de Relaxamento
-                </h1>
-                <a href="relaxamento" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <?php
+            $query = "SELECT nome, banner FROM exercicios_mindfulness";
+            $query_run = mysqli_query($conn, $query);
 
-            <div class="card">
-                <a href="bem-estar">
-                    <img src="imgs/bem-estar.png" alt="Atividades de Bem-Estar">
-                </a>
-                <h1>
-                    Atividades de Bem-estar
-                </h1>
-                <a href="bem-estar" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="yoga">
-                    <img src="imgs/yoga.png" alt="Atividades de Yoga">
-                </a>
-                <h1>
-                    Atividades de Yoga
-                </h1>
-                <a href="yoga" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="alongamento">
-                    <img src="imgs/alongamento.png" alt="Atividades de Alongamento">
-                </a>
-                <h1>
-                    Atividades de Alongamento
-                </h1>
-                <a href="alongamento" class="first-button">
-                    Sabe mais<i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
+            if (mysqli_num_rows($query_run) > 0) {
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    ?>
+                    <?php
+                    $nome_codificado = urlencode($row["nome"]);
+                    ?>
+                    <div class="card">
+                        <a href="atividade/?nome=<?php echo $nome_codificado; ?>">
+                            <img src="<?php echo $row['banner']; ?>" alt="Atividades de Relaxamento">
+                        </a>
+                        <h1>
+                            <?php echo $row['nome']; ?>
+                        </h1>
+                        <a href="relaxamento" class="first-button">
+                            Sabe mais<i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
         </div>
 
     </section>

@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -198,39 +198,31 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="quizzes-text-section">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title">Tens uma energia positiva?</h1>
-                        <p>Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative
-                            attitudes impair it. Take this quiz to determine your positivity score and the energy impact
-                            you have on yourself and others.</p>
-                        <h2 class="card-title2">Informações acerca da empatia</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
-                            dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget
-                            nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At
-                            imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis
-                            donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam
-                            viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa.
-                            Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam
-                            tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut
-                            placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc.
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida
-                            dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget
-                            nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At
-                            imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis
-                            donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam
-                            viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa.
-                            Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam
-                            tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut
-                            placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc.
-                        </p>
-                        <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
-                            entretenimento. De forma alguma
-                            este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
-                            não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
-                            acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
-                    </div>
+                        <?php
+                        $query = "SELECT SUBSTRING(nome, 9) AS nome, explicacao_quiz, texto_informacao FROM quiz_nome WHERE quiz_nome_id = 3";
+                        $query_run = mysqli_query($conn, $query);
+                        ?>
+                        <?php
+                        if (mysqli_num_rows($query_run) > 0) {
+                            while ($row = mysqli_fetch_assoc($query_run)) {
+                                ?>
+                                <h1 class="card-title"><?php echo $row['nome']; ?></h1>
+                                <p><?php echo $row['explicacao_quiz']; ?></p>
+                                <h2 class="card-title2">Informações acerca da empatia</h2>
+                                <p><?php echo $row['texto_informacao']; ?>
+                                </p>
+                                <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
+                                    entretenimento. De forma alguma
+                                    este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith
+                                    Orloff
+                                    não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
+                                    acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a>
+                                </p>
+                            </div>
+                            <?php
+                            }
+                        }
+                        ?>
                 </div>
             </div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Maio-2024 às 00:08
+-- Tempo de geração: 07-Maio-2024 às 12:15
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -64,7 +64,8 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 (19, 18, 'Testetesteteste', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (20, 1, 'TesteEQEQEQ', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://images.impresa.pt/sicnot/2020-09-27-saude-mental--2-.jpg/original/mw-720', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (21, 2, 'plplpl', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:2000:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/02/19174904/igor-martins-hospitalmagalhaeslemos-16-025.jpg', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
-(22, 2, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste');
+(37, 22, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste'),
+(38, 22, 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'teste2.png', 'testeteste');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,11 @@ INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`, `text
 (1, 1, 'Introdução', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
 (2, 1, 'Desenvolvimento', '2 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
 (3, 1, 'Conclusão', '3 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
-(4, 2, 'Conteúdo', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about');
+(4, 2, 'Conteúdo', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
+(9, 37, 'teste1', 'teste1'),
+(10, 37, 'teste3', 'teste3'),
+(11, 37, 'teste2', 'teste2'),
+(12, 38, 'testeteste', 'testeteste');
 
 -- --------------------------------------------------------
 
@@ -107,7 +112,70 @@ CREATE TABLE `conteudo_noticia` (
 --
 
 INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
-(1, 1, 'ee', 'aaa');
+(1, 1, 'ee', 'aaa'),
+(5, 10, 'teste4', 'teste4');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `exercicios_mindfulness`
+--
+
+CREATE TABLE `exercicios_mindfulness` (
+  `exercicios_mindfulness_id` int(11) NOT NULL,
+  `nome` varchar(1000) NOT NULL,
+  `banner` mediumtext NOT NULL,
+  `definicao` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `exercicios_mindfulness`
+--
+
+INSERT INTO `exercicios_mindfulness` (`exercicios_mindfulness_id`, `nome`, `banner`, `definicao`) VALUES
+(1, 'Atividades de Relaxamento', 'https://i.ibb.co/4FDYwt9/relaxamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
+(2, 'Atividades de Bem-estar', 'https://i.ibb.co/zRH5m9C/bem-estar.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
+(3, 'Atividades de Yoga', 'https://i.ibb.co/gSH4dYj/yoga.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
+(4, 'Atividades de Alogamento', 'https://i.ibb.co/KXJ2dcb/alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
+(7, 'teste2', 'teste2', 'teste2'),
+(8, 'testeee', 'testeee', 'testeee'),
+(9, 'teste3', 'teste3', 'teste3');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `exercicios_mindfulness_ex`
+--
+
+CREATE TABLE `exercicios_mindfulness_ex` (
+  `exercicios_mindfulness_ex_id` int(11) NOT NULL,
+  `exercicios_mindfulness_id` int(11) NOT NULL,
+  `titulo` varchar(1000) DEFAULT NULL,
+  `img` mediumtext DEFAULT NULL,
+  `audio` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `exercicios_mindfulness_ex`
+--
+
+INSERT INTO `exercicios_mindfulness_ex` (`exercicios_mindfulness_ex_id`, `exercicios_mindfulness_id`, `titulo`, `img`, `audio`) VALUES
+(1, 4, 'Rodar a cabeça', 'https://media.post.rvohealth.io/wp-content/uploads/sites/2/2021/01/GRT-2.03.HeadRolls.gif', ''),
+(2, 4, 'Rodar os ombros', 'https://media.post.rvohealth.io/wp-content/uploads/sites/2/2021/10/GRT-03.04.ShoulderRoll.gif', ''),
+(3, 4, 'Alongamento de braços e abdominais', 'https://media.post.rvohealth.io/wp-content/uploads/sites/2/2021/12/GRT-04.02.ArmsAndAbsStretch.gif', ''),
+(4, 3, 'Gato-Vaca (Marjaryasana-Bitilasana)', 'https://cdn.yogajournal.com/wp-content/uploads/2022/06/Childs-Pose_Andrew-Clark.jpg?width=730', ''),
+(5, 3, 'Posição de criança (Balasana)', 'https://cdn.yogajournal.com/wp-content/uploads/2021/11/Downward-Facing-Dog-Pose-Mod-1_Andrew-Clark_1.jpg?width=730', ''),
+(6, 3, 'Posição de montanha (Tadasana)', 'https://cdn.yogajournal.com/wp-content/uploads/2021/11/Chair-Pose_Andrew-Clark.jpg?width=730', ''),
+(7, 2, 'Ver um filme ou série', 'https://i.ibb.co/ZYPHszF/teste2.png', ''),
+(8, 2, 'Assistir/acompanhar algum desporto', 'https://i.ibb.co/ZYPHszF/teste2.png', ''),
+(9, 1, 'Mindfulness – Atenção à Respiração', '', ''),
+(10, 1, 'Mindfulness – Body Scan', '', ''),
+(11, 1, 'Mindfulness – Explorar Sensações e Pensamentos Difíceis', '', ''),
+(12, 1, 'Relaxamento Muscular Progressivo', '', ''),
+(13, 1, 'Respiração Diafragmática', '', ''),
+(14, 7, 'teste2', 'teste2', ''),
+(24, 9, 'teste3', 'teste3', ''),
+(25, 8, 'testeee', 'testeee', '');
 
 -- --------------------------------------------------------
 
@@ -176,7 +244,8 @@ INSERT INTO `grupos_perturbacoes` (`grupos_perturbacoes_id`, `nome`, `texto`, `s
 (15, 'Grupo B', 'teste', NULL, NULL, NULL),
 (16, 'Grupo C', 'teste', NULL, NULL, NULL),
 (17, 'Perturbação de Stress Pós-Traumático', 'teste', 'teste', 'teste', 'teste'),
-(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste');
+(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste'),
+(20, 'testegrupo', 'testegrupo', 'testegrupo', 'testegrupo', 'testegrupo');
 
 -- --------------------------------------------------------
 
@@ -212,7 +281,9 @@ INSERT INTO `juncao_perturbacoes` (`juncao_perturbacoes_id`, `perturbacoes_id`, 
 (15, 6, 15),
 (16, 6, 16),
 (17, 7, 17),
-(18, 7, 18);
+(18, 7, 18),
+(22, 9, 20),
+(23, 6, 20);
 
 -- --------------------------------------------------------
 
@@ -241,7 +312,8 @@ INSERT INTO `juncao_pert_personalidade` (`juncao_pert_pers_id`, `perturbacoes_pe
 (7, 7, 15, 6),
 (8, 8, 16, 6),
 (9, 9, 16, 6),
-(10, 10, 16, 6);
+(10, 10, 16, 6),
+(15, 11, 20, 6);
 
 -- --------------------------------------------------------
 
@@ -329,7 +401,8 @@ INSERT INTO `noticias` (`noticias_id`, `titulo`, `data_publicacao`, `autor`, `im
 (4, 'O projeto que ajuda o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:2121:1414:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/22132437/istock-1491758415.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
 (5, 'O po que ajuda o suicídio juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:4096:2731:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/08152454/gettyimages-1204607778-scaled.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
 (6, 'O po que ajuda o juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
-(7, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste');
+(7, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'https://bordalo.observador.pt/v2/q:84/c:3000:1683:nowe:0:0/rs:fill:300/f:webp/plain/https://s3.observador.pt/wp-content/uploads/2024/03/29192448/sa-contigo-a9a06604-27-03-2024.jpg', 'testetestetestetestetestetestetestetestetesteteste'),
+(10, 'teste3', 'teste3', 'teste3', 'teste2.png', 'teste3');
 
 -- --------------------------------------------------------
 
@@ -382,7 +455,8 @@ INSERT INTO `perturbacoes` (`perturbacoes_id`, `nome`, `texto`, `img_perturbacao
 (4, 'Perturbações Alimentares', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/Mp1bqy7/pert-aliment.png', 'https://i.ibb.co/2djRPxt/pert-aliment-circle.png', 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
 (5, 'Perturbações Obsessivo-Compulsivas', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/s2gQVVf/pert-obscomp.png', NULL, 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
 (6, 'Perturbações de Personalidade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/4NyWkFy/pert-perso.png', NULL, 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-(7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/wpVRfkR/pert-stress.png', NULL, 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+(7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'https://i.ibb.co/wpVRfkR/pert-stress.png', NULL, 'https://images.unsplash.com/photo-1607214368910-d7b795724be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+(9, 'teste', 'teste', 'teste', NULL, 'teste');
 
 -- --------------------------------------------------------
 
@@ -413,7 +487,8 @@ INSERT INTO `perturbacoes_personalidade` (`perturbacoes_personalidade_id`, `nome
 (7, 'Perturbação Narcísica da Personalidade', 'teste', 'teste', 'teste', 'teste'),
 (8, 'Perturbação Evitante da Personalidade', 'teste', 'teste', 'teste', 'teste'),
 (9, 'Perturbação Dependente da Personalidade', 'teste', 'teste', 'teste', 'teste'),
-(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste', 'teste');
+(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste', 'teste'),
+(11, 'teste', 'teste', 'teste', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -502,6 +577,7 @@ INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_nome_id`) VALUES
 CREATE TABLE `quiz_nome` (
   `quiz_nome_id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
+  `img_quiz` mediumtext NOT NULL,
   `explicacao_quiz` varchar(1000) NOT NULL,
   `texto_informacao` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -510,11 +586,11 @@ CREATE TABLE `quiz_nome` (
 -- Extraindo dados da tabela `quiz_nome`
 --
 
-INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `explicacao_quiz`, `texto_informacao`) VALUES
-(1, 'Quizz - O quão empática/o és?', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra'),
-(2, 'Quizz - O quão preocupada/o és?', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
-(3, 'Quizz - Tens uma energia positiva', 'Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative attitudes impair it. Take this quiz to determine your positivity score and the energy impact you have on yourself and others.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
-(4, 'Quizz - O quão livre és, emocionalmente?', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m');
+INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `img_quiz`, `explicacao_quiz`, `texto_informacao`) VALUES
+(1, 'O quão empática/o és?', 'https://i.ibb.co/ChyjGkG/empatia.png', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra'),
+(2, 'O quão preocupada/o és?', 'https://i.ibb.co/FBKQ2H2/preocupado.png', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
+(3, 'Tens uma energia positiva', 'https://i.ibb.co/420s44t/energia.png', 'Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative attitudes impair it. Take this quiz to determine your positivity score and the energy impact you have on yourself and others.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
+(4, 'O quão livre és, emocionalmente?', 'https://i.ibb.co/wwcwfh2/livre.png', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m');
 
 -- --------------------------------------------------------
 
@@ -625,6 +701,19 @@ ALTER TABLE `conteudo_noticia`
   ADD KEY `FK_noticias_id` (`noticias_id`);
 
 --
+-- Índices para tabela `exercicios_mindfulness`
+--
+ALTER TABLE `exercicios_mindfulness`
+  ADD PRIMARY KEY (`exercicios_mindfulness_id`);
+
+--
+-- Índices para tabela `exercicios_mindfulness_ex`
+--
+ALTER TABLE `exercicios_mindfulness_ex`
+  ADD PRIMARY KEY (`exercicios_mindfulness_ex_id`),
+  ADD KEY `FK_exercicios_mindfulness_id` (`exercicios_mindfulness_id`);
+
+--
 -- Índices para tabela `factos_10`
 --
 ALTER TABLE `factos_10`
@@ -732,19 +821,31 @@ ALTER TABLE `utilizadores`
 -- AUTO_INCREMENT de tabela `artigos`
 --
 ALTER TABLE `artigos`
-  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `conteudo_artigo`
 --
 ALTER TABLE `conteudo_artigo`
-  MODIFY `conteudo_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `conteudo_artigo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `conteudo_noticia`
 --
 ALTER TABLE `conteudo_noticia`
-  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `exercicios_mindfulness`
+--
+ALTER TABLE `exercicios_mindfulness`
+  MODIFY `exercicios_mindfulness_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de tabela `exercicios_mindfulness_ex`
+--
+ALTER TABLE `exercicios_mindfulness_ex`
+  MODIFY `exercicios_mindfulness_ex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `factos_10`
@@ -756,19 +857,19 @@ ALTER TABLE `factos_10`
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
-  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_perturbacoes`
-  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_pert_personalidade`
 --
 ALTER TABLE `juncao_pert_personalidade`
-  MODIFY `juncao_pert_pers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `juncao_pert_pers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `lembrete`
@@ -786,7 +887,7 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `perguntas`
@@ -798,13 +899,13 @@ ALTER TABLE `perguntas`
 -- AUTO_INCREMENT de tabela `perturbacoes`
 --
 ALTER TABLE `perturbacoes`
-  MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes_personalidade`
 --
 ALTER TABLE `perturbacoes_personalidade`
-  MODIFY `perturbacoes_personalidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `perturbacoes_personalidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `quizzes`
@@ -816,7 +917,7 @@ ALTER TABLE `quizzes`
 -- AUTO_INCREMENT de tabela `quiz_nome`
 --
 ALTER TABLE `quiz_nome`
-  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `registos`
@@ -857,6 +958,12 @@ ALTER TABLE `conteudo_artigo`
 --
 ALTER TABLE `conteudo_noticia`
   ADD CONSTRAINT `FK_noticias_id` FOREIGN KEY (`noticias_id`) REFERENCES `noticias` (`noticias_id`);
+
+--
+-- Limitadores para a tabela `exercicios_mindfulness_ex`
+--
+ALTER TABLE `exercicios_mindfulness_ex`
+  ADD CONSTRAINT `FK_exercicios_mindfulness_id` FOREIGN KEY (`exercicios_mindfulness_id`) REFERENCES `exercicios_mindfulness` (`exercicios_mindfulness_id`);
 
 --
 -- Limitadores para a tabela `factos_10`

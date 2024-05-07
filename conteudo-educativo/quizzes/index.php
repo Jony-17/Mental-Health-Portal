@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -195,46 +195,32 @@ if (isset($_SESSION['id_utilizador'])) {
             <h1 class="quizzes-second-heading"></h1>
         </div>
         <div class="card4-container">
-            <a href="quizzes-empatia">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão empática/o és?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/empatia.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="quizzes-preocupacao">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão preocupada/o és?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/preocupado.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="quizzes-energia">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>Tens uma energia positiva?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/energia.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="quizzes-emocao">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão livre és, emocionalmente?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/livre.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
+            <?php
+            $query = "SELECT nome, img_quiz FROM quiz_nome";
+            $query_run = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    ?>
+                    <?php
+                    $nome_codificado = urlencode($row["nome"]);
+                    ?>
+                    <a href="quizz/?nome=<?php echo $nome_codificado; ?>">
+                        <div class="card4">
+                            <div class="card4-content">
+                                <h1><?php echo $row['nome']; ?></h1>
+                            </div>
+                            <div class="card4-content2">
+                                <img src="<?php echo $row['img_quiz']?>" alt="O que é a saúde mental?">
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                }
+            } else {
+                echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhuma perturbação encontrada.</div>';
+            }
+            ?>
         </div>
     </section>
 

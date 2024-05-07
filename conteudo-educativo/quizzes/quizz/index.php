@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
@@ -20,7 +20,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $row = mysqli_fetch_assoc($result);
     }
 } else {
-    echo "NÃO DEU";
+    header("Location: ../../../areacliente/login");
 }
 ?>
 
@@ -38,8 +38,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -51,8 +53,8 @@ if (isset($_SESSION['id_utilizador'])) {
     <style>
         #chatbotContainer {
             position: fixed;
-            bottom: 50px;
-            right: -10px;
+            bottom: 20px;
+            right: 20px;
             z-index: 9999;
             /* Z-index alto para garantir que o iframe fique acima de outros elementos */
         }
@@ -64,23 +66,22 @@ if (isset($_SESSION['id_utilizador'])) {
             border: none;
         }
     </style>
-
     <header>
         <div class="navbar">
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
             <ul class="links">
-                <li><a href="../paginainicial">Página Inicial</a></li>
+                <li><a href="../../../paginainicial">Página Inicial</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="../perturbacoes">Perturbações</a></li>
-                <li><a href="../artigos">Artigos</a></li>
-                <li><a href="../noticias">Notícias</a></li>
-                <li><a href="#">Conteúdo Educativo</a>
+                <li><a href="../../../perturbacoes">Perturbações</a></li>
+                <li><a href="../../../artigos">Artigos</a></li>
+                <li><a href="#noticias">Notícias</a></li>
+                <li><a href="../..">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
-                        <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
+                        <li><a href="..">Quizzes</a></li>
+                        <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                        <li><a href="../../ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -89,14 +90,14 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
-                            <li><a href="../perfil/">Perfil</a></li>
+                            <li><a href="../../../perfil/">Perfil</a></li>
                             <!--<li><a href="#">Termos e Condições</a></li>
                             <li><a href="#">Definições</a></li>-->
                         </ul>
@@ -104,7 +105,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <a class="btn" onclick="funcao1()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
             <div class="toggle_btn">
@@ -114,37 +115,37 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         <div class="dropdown_menu">
-            <li><a href="../paginainicial">Página Inicial</a></li>
-            <li><a href="../quizzes/index.php">Sobre Nós</a></li>
-            <li><a href="../perturbacoes">Perturbações</a></li>
-            <li><a href="../artigos">Artigos</a></li>
+            <li><a href="../../../paginainicial">Página Inicial</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="../../../perturbacoes">Perturbações</a></li>
+            <li><a href="../../../artigos">Artigos</a></li>
             <li><a href="#portfolio">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../..">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
+                    <li><a href="..">Quizzes</a></li>
+                    <li><a href="../../exercicios-mindfulness">Exercícios Mindfulness</a></li>
+                    <li><a href="../../ted-talks">TED Talks</a></li>
                 </ul>
             </li>
 
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
-                        <img class="img-profile rounded-circle" src="../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
+                        <img class="img-profile rounded-circle" src="../../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                             echo $row["img_perfil"];
                         } else {
                             echo "teste.jpeg";
                         } ?>" alt="Imagem de Perfil">
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="../perfil/">Perfil</a></li>
+                        <li><a href="../../../perfil/">Perfil</a></li>
                         <!--<li><a href="#">Termos e Condições</a></li>
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
             <?php else: ?>
-                <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
+                <li><a class="btn" href="../../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
@@ -152,7 +153,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../logout/logout.php";
+                        var url = "../../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -161,75 +162,151 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </header>
 
-    <ol role="list">
-        <li class="list">
-            <div class="items-current">
-                <div class="text-sm" aria-current=page>
-                    Conteúdo Educativo
+    <?php
+    if (isset($_GET['nome'])) {
+        $nome_quiz = urldecode($_GET['nome']);
+
+        $query = "SELECT nome, quiz_nome_id FROM quiz_nome WHERE nome = '$nome_quiz'";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $quiz_nome_id = $row['quiz_nome_id'];
+            
+            ?>
+            <ol role="list">
+                <li class="list">
+                    <div class="items">
+                        <a href="../.." class="text-sm">
+                            Conteúdo Educativo</a>
+                        <span class="separator">/</span>
+                    </div>
+                </li>
+
+                <li class="list">
+                    <div class="items">
+                        <a href=".." class="text-sm" aria-current=page>
+                            Quizzes
+                        </a>
+                        <span class="separator">/</span>
+                    </div>
+                </li>
+                
+                <li class="list">
+                    <div class="items-current">
+                        <span class="text-sm" aria-current=page>
+                            <?php echo $row['nome']; ?>
+                        </span>
+                    </div>
+                </li>
+            </ol>
+            <?php
+        }
+    }
+?>
+
+
+
+    <!--Quizzes-->
+    <section class="quizzes" id="quizzes">
+        <div class="quizzes-banner-container">
+
+            <div class="quizzes-text-section">
+                <div class="card">
+                    <div class="card-body">
+                        <?php
+                        $query = "SELECT nome, explicacao_quiz, texto_informacao FROM quiz_nome WHERE nome = '$nome_quiz'";
+                        $query_run = mysqli_query($conn, $query);
+                        ?>
+                        <?php
+                        if (mysqli_num_rows($query_run) > 0) {
+                            while ($row = mysqli_fetch_assoc($query_run)) {
+                                ?>
+                                <h1 class="card-title"><?php echo $row['nome']; ?></h1>
+                                <p><?php echo $row['explicacao_quiz']; ?></p>
+                                <h2 class="card-title2">Informações acerca</h2>
+                                <p><?php echo $row['texto_informacao']; ?>
+                                </p>
+                                <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
+                                    entretenimento. De forma alguma
+                                    este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
+                                    não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
+                                    acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
+                            </div>
+                            <?php
+                            }
+                        }
+                        ?>
                 </div>
             </div>
-        </li>
-    </ol>
 
-    <div class="heading">
-        <h1>
-            Conteúdo Educativo
-        </h1>
-    </div>
 
-    <!--Conteúdo Educativo-->
-    <section class="conteudo-educativo" id="conteudo-educativo">
-        <div class="conteudo-educativo-container">
-            <div class="conteudo-educativo-card">
+            <div class="quizzes-text-section">
+                <div class="card">
+                    <div class="card-body2">
 
-                <div class="conteudo-educativo-card1">
-                    <div class="conteudo-educativo-a">
-                        <a href="quizzes">Quizzes</a>
+                        <div class="quiz-container" id="quiz">
+                            <div class="quiz-header">
+                                <p class="disclaimer2">Responda a cada uma das 20 perguntas. Seja honesta/o para obter o
+                                    resultado
+                                    mais preciso
+                                </p>
+                                <h2 id="question">Question Text</h2>
+                                <ul class="ul-question">
+                                    <li class="li-question">
+                                        <input type="radio" name="answer" id="a" class="answer">
+                                        <label for="a" id="a_text">Answer</label>
+                                    </li>
+                                    <li class="li-question">
+                                        <input type="radio" name="answer" id="b" class="answer">
+                                        <label for="b" id="b_text">Answer</label>
+                                    </li>
+                                </ul>
+                                <button class="button-quiz" id="nextButton" onclick="nextQuestion()">Próxima</button>
+                                <button class="button-quiz" id="submitButton" onclick="submitQuiz()">Obter
+                                    resultados</button>
+                            </div>
+                        </div>
                     </div>
-                    <p>TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
-                    </p>
-                    <a class="secondary-button" href="quizzes">
-                        Sabe mais<i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
-
-                <div class="conteudo-educativo-card1">
-                    <div class="conteudo-educativo-a">
-                        <a href="exercicios-mindfulness">Exercícios Mindfulness</a>
-                    </div>
-                    <p>Mindfulness é definida como uma forma específica de atenção plena – concentração
-                        no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a
-                        vivência do momento, sem estar absorvido por ela.
-                    </p>
-                    <a class="secondary-button" href="exercicios-mindfulness">
-                        Sabe mais<i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="conteudo-educativo-card1">
-                    <div class="conteudo-educativo-a">
-                        <a href="ted-talks">TED Talks</a>
-                    </div>
-                    <p>TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
-                    </p>
-                    <a class="secondary-button" href="ted-talks">
-                        Sabe mais<i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
             </div>
 
-            <div class="conteudo-educativo-img">
-                <img src="conteudo-educativo.png" alt="">
+
+            <div class="quizzes-text-section">
+                <div class="card">
+                    <div class="card-body3">
+                        <p>Esta triagem online não é uma ferramenta de diagnóstico. Somente um
+                            profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
+                            a determinar os próximos passos mais adequados para você</p>
+                    </div>
+                </div>
             </div>
 
-        </div>
+            <div class="fontes" id="fontes">
+                <div class="fontes-content">
+                    <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M416 208H272V64c0-17.7-14.3-32-32-32h-32c-17.7 0-32 14.3-32 32v144H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h144v144c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V304h144c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+                    </svg>
+                    <svg class="svg-down" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M416 208H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-32c0-17.7-14.3-32-32-32z" />
+                    </svg>
+                    <h3>Fontes</h3>
+                </div>
+                <div class="fontes-content2">
+                    <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
+                        vita. MyLife.</p>
+                </div>
+            </div>
     </section>
-
 
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
+
 
 
     <!--Footer-->
@@ -319,10 +396,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <a href="#">FAQ</a>
-
-                <div class="vertical-hr"></div>
-
                 <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown-f">
                         <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
@@ -343,13 +416,16 @@ if (isset($_SESSION['id_utilizador'])) {
     </footer>
 
 
+
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
 
 
+
     <script src="js/script.js"></script>
+    <script src="js/script-quizz.js"></script>
 
 </body>
 

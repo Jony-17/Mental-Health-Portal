@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -162,33 +162,51 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </header>
 
+    <?php
+    if (isset($_GET['nome'])) {
+        $nome_quiz = urldecode($_GET['nome']);
 
-    <ol role="list">
-        <li class="list">
-            <div class="items">
-                <a href="../.." class="text-sm">
-                    Conteúdo Educativo</a>
-                <span class="separator">/</span>
-            </div>
-        </li>
+        $query = "SELECT nome, quiz_nome_id FROM quiz_nome WHERE nome = '$nome_quiz'";
+        echo "<script>console.log('" . $query . "');</script>";
+        $result = mysqli_query($conn, $query);
 
-        <li class="list">
-            <div class="items">
-                <a href=".." class="text-sm" aria-current=page>
-                    Quizzes
-                </a>
-                <span class="separator">/</span>
-            </div>
+        if ($result && mysqli_num_rows($result) > 0) {
+            echo "<script>console.log('teste');</script>";
+            $row = mysqli_fetch_assoc($result);
+            $quiz_nome_id = $row['quiz_nome_id'];
+            
+            ?>
+            <ol role="list">
+                <li class="list">
+                    <div class="items">
+                        <a href="../.." class="text-sm">
+                            Conteúdo Educativo</a>
+                        <span class="separator">/</span>
+                    </div>
+                </li>
 
-        </li>
-        <li class="list">
-            <div class="items-current">
-                <span class="text-sm" aria-current=page>
-                    O quão empática/o és?
-                </span>
-            </div>
-        </li>
-    </ol>
+                <li class="list">
+                    <div class="items">
+                        <a href=".." class="text-sm" aria-current=page>
+                            Quizzes
+                        </a>
+                        <span class="separator">/</span>
+                    </div>
+                </li>
+                
+                <li class="list">
+                    <div class="items-current">
+                        <span class="text-sm" aria-current=page>
+                            <?php echo $row['nome']; ?>
+                        </span>
+                    </div>
+                </li>
+            </ol>
+            <?php
+        }
+    }
+?>
+
 
 
     <!--Quizzes-->
@@ -198,41 +216,29 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="quizzes-text-section">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title">O quão empática/o és?</h1>
-                        <p>É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer?
-                            Sente-se
-                            exausto e ansioso depois de estar no meio de uma multidão ou perto de certas
-                            pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo
-                            dia de
-                            trabalho?</p>
-                        <h2 class="card-title2">Informações acerca da empatia</h2>
-                        <p>Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo
-                            especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as
-                            pessoas empáticas
-                            podem absorver as energias de outras pessoas (positivas e negativas) nos seus
-                            próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias
-                            emoções ou as de outra pessoa.<br>
-
-                            Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As
-                            pessoas empáticas
-                            físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras
-                            pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as
-                            emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas
-                            alimentares
-                            estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos
-                            alimentos.<br>
-
-                            Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma
-                            conexão mais profunda com outras pessoas, contudo, viver neste estado de alta sensibilidade
-                            também traz consigo desafios, como ficar facilmente sobrecarregado, superestimulado, exausto
-                            ou absorver o stress e a negatividade dos outros.
-                        </p>
-                        <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
-                            entretenimento. De forma alguma
-                            este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
-                            não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
-                            acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
-                    </div>
+                        <?php
+                        $query = "SELECT nome, explicacao_quiz, texto_informacao FROM quiz_nome WHERE nome = '$nome_quiz'";
+                        $query_run = mysqli_query($conn, $query);
+                        ?>
+                        <?php
+                        if (mysqli_num_rows($query_run) > 0) {
+                            while ($row = mysqli_fetch_assoc($query_run)) {
+                                ?>
+                                <h1 class="card-title"><?php echo $row['nome']; ?></h1>
+                                <p><?php echo $row['explicacao_quiz']; ?></p>
+                                <h2 class="card-title2">Informações acerca</h2>
+                                <p><?php echo $row['texto_informacao']; ?>
+                                </p>
+                                <p class="disclaimer">Isenção de responsabilidade: este quizz é apenas para fins de
+                                    entretenimento. De forma alguma
+                                    este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
+                                    não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
+                                    acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
+                            </div>
+                            <?php
+                            }
+                        }
+                        ?>
                 </div>
             </div>
 
