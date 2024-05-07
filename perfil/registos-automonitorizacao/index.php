@@ -30,7 +30,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="selection:text-white selection:bg-orange-400">
 
 <head>
 
@@ -189,13 +189,18 @@ if (isset($_SESSION['id_utilizador'])) {
                         <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
                       </div>
                     </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="notificacoes">Ver todas as
+                      notificações</a>
                     <?php
                   }
+                } else {
+                  ?>
+                  <a class="dropdown-item text-center small text-gray-500">Não existem
+                    notificações</a>
+                  <?php
                 }
-
                 ?>
-                <a class="dropdown-item text-center small text-gray-500" href="../notificacoes">Ver todas as
-                  notificações</a>
+
               </div>
             </li>
 
@@ -439,9 +444,19 @@ if (isset($_SESSION['id_utilizador'])) {
           </div>
         </div>
 
-        <?php
-        include ('../includes/scripts.php');
-        ?>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.min.js"></script>
+
+        <script src="../toggle-password.js"></script>
+
+        <script src="../includes/scripts.php"></script>
 
 </body>
 
