@@ -18,6 +18,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
         // Exibir o valor da sessão
         //var_dump($_SESSION['id_utilizador']);
+
     } else {
         echo "Erro na consulta SQL: " . mysqli_error($conn);
     }
@@ -273,7 +274,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             $result_perturbacoes = mysqli_query($conn, $query_perturbacoes);
 
                                             while ($row = mysqli_fetch_assoc($result_perturbacoes)): ?>
-                                                <option value="<?php echo $row['perturbacoes_id']; ?>">
+                                                <option value="<?php echo $row['nome']; ?>">
                                                     <?php echo $row['nome']; ?>
                                                 </option>
                                             <?php endwhile; ?>
@@ -284,18 +285,18 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <label>Grupo de Perturbação</label>
                                         <select name="grupo_perturbacao" class="form-control">
                                             <?php
-                                            $selected_grupo_perturbacao_id = isset($_POST['perturbacao']) ? $_POST['perturbacao'] : null;
-
+                                            //$selected_grupo_perturbacao_id = isset($_POST['perturbacao']) ? $_POST['perturbacao'] : null;
+                                            
                                             $query_grupos_perturbacoes = "SELECT grupos_perturbacoes_id, nome FROM grupos_perturbacoes";
 
-                                            if ($selected_grupo_perturbacao_id) {
+                                            /*if ($selected_grupo_perturbacao_id) {
                                                 $query_grupos_perturbacoes .= " WHERE grupos_perturbacoes_id IN (SELECT grupos_perturbacoes_id FROM juncao_perturbacoes WHERE perturbacoes_id = $selected_grupo_perturbacao_id)";
-                                            }
+                                            }*/
 
                                             $result_grupos_perturbacoes = mysqli_query($conn, $query_grupos_perturbacoes);
 
                                             while ($row = mysqli_fetch_assoc($result_grupos_perturbacoes)): ?>
-                                                <option value="<?php echo $row['grupos_perturbacoes_id']; ?>">
+                                                <option value="<?php echo $row['nome']; ?>">
                                                     <?php echo $row['nome']; ?>
                                                 </option>
                                             <?php endwhile; ?>
@@ -358,7 +359,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Perguntas e respostas</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Artigos</h6>
                             <div class="card-header2">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#addadminprofile">

@@ -104,18 +104,20 @@ if (isset($_SESSION['id_utilizador'])) {
             <h6 class="collapse-header">Perturbações Mentais</h6>
             <a class="collapse-item" href="../inserir/perturbacoes/">Perturbações</a><!--feito-->
             <a class="collapse-item" href="../inserir/grupos-perturbacoes/">Grupo de Perturbações</a><!--feito-->
-            <a class="collapse-item" href="../inserir/juncao-perturbacoes/">Junção de Perturbações</a><!--por fazer-->
+            <a class="collapse-item" href="../inserir/juncao-perturbacoes/">Junção de Perturbações</a><!--feito-->
+            <a class="collapse-item" href="../inserir/perturbacoes/personalidade/">Perturbações de Person.</a><!--feito-->
+            <a class="collapse-item" href="../inserir/juncao-perturbacoes-personalidade/">Junção de Pert. de Person.</a><!--feito-->
             <a class="collapse-item" href="../inserir/10-factos/">10 factos</a><!--feito-->
 
             <h6 class="collapse-header">Artigos</h6>
-            <a class="collapse-item" href="../inserir/artigos/">Artigos</a><!--não está a funcionar-->
+            <a class="collapse-item" href="../inserir/artigos/">Artigos</a><!--feito-->
 
             <h6 class="collapse-header">Notícias</h6>
-            <a class="collapse-item" href="../inserir/noticias/">Notícias</a><!--por fazer-->
+            <a class="collapse-item" href="../inserir/noticias/">Notícias</a><!--feito-->
 
             <h6 class="collapse-header">Conteúdo Educativo</h6>
-            <a class="collapse-item" href="../inserir/quizzes/">Quizzes</a><!--por fazer-->
-            <a class="collapse-item" href="../inserir/exercicios-mindfulness/">Exercícios Mindfulness</a><!--por fazer-->
+            <a class="collapse-item" href="../inserir/quizzes/">Quizzes</a><!--a ser feito-->
+            <a class="collapse-item" href="../inserir/exercicios-mindfulness/">Exercícios Mindfulness</a><!--feito-->
             <a class="collapse-item" href="../inserir/ted-talks/">TED Talks</a><!--feito-->
 
             <h6 class="collapse-header">Perguntas Frequentes</h6>
