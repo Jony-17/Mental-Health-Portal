@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Maio-2024 às 01:39
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 08-Maio-2024 às 15:52
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -614,7 +614,7 @@ INSERT INTO `quiz_questoes` (`quiz_questoes_id`, `quiz_nome_id`, `questao`, `opc
 (1, 2, 'Preocupo-me com muitas coisas todos os dias', 'Sim', 'Nao'),
 (2, 2, 'Fico frequentemente sobrecarregado ou ansioso', 'Sim', 'Nao'),
 (3, 1, 'Fui rotulado como excessivamente sensivel, timido ou introvertido', 'Sim', 'Nao'),
-(4, 3, 'Emanas um sentimento de apoio e compaixão pelos outros?', 'Sim', 'Não');
+(4, 2, 'Emanas um sentimento de apoio e compaixão pelos outros?', 'Sim', 'Não');
 
 -- --------------------------------------------------------
 
@@ -625,6 +625,7 @@ INSERT INTO `quiz_questoes` (`quiz_questoes_id`, `quiz_nome_id`, `questao`, `opc
 CREATE TABLE `quiz_respostas` (
   `quiz_respostas_id` int(11) NOT NULL,
   `quiz_nome_id` int(11) NOT NULL,
+  `qtd` int(11) NOT NULL,
   `respostas` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -632,11 +633,13 @@ CREATE TABLE `quiz_respostas` (
 -- Extraindo dados da tabela `quiz_respostas`
 --
 
-INSERT INTO `quiz_respostas` (`quiz_respostas_id`, `quiz_nome_id`, `respostas`) VALUES
-(1, 1, 'És uma pessoa parcialmente empática'),
-(2, 1, 'És uma pessoa com tendências empáticas moderadas'),
-(3, 1, 'És uma pessoa com tendências empáticas fortes'),
-(4, 1, 'És uma pessoa com mesmo muita empatia');
+INSERT INTO `quiz_respostas` (`quiz_respostas_id`, `quiz_nome_id`, `qtd`, `respostas`) VALUES
+(1, 1, 1, 'És uma pessoa parcialmente empática'),
+(2, 1, 2, 'És uma pessoa com tendências empáticas moderadas'),
+(3, 1, 3, 'És uma pessoa com tendências empáticas fortes'),
+(4, 1, 4, 'És uma pessoa com mesmo muita empatia'),
+(5, 2, 1, 'teste1'),
+(6, 2, 2, 'teste2');
 
 -- --------------------------------------------------------
 
@@ -989,7 +992,7 @@ ALTER TABLE `quiz_questoes`
 -- AUTO_INCREMENT de tabela `quiz_respostas`
 --
 ALTER TABLE `quiz_respostas`
-  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `registos`
