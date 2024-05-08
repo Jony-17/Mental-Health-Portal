@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -341,7 +341,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <!--Pontos-->
             <?php
             // Consulta SQL para selecionar os pontos do artigo atual apenas
-            $query = "SELECT noticias_id, ponto, conteudo_noticia_id FROM conteudo_noticia WHERE noticias_id = $noticias_id";
+            $query = "SELECT conteudo_noticia_id, noticias_id, ponto, texto FROM conteudo_noticia WHERE noticias_id = $noticias_id";
 
             // Executar a consulta
             $result = mysqli_query($conn, $query);
@@ -355,7 +355,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     echo '<h1>' . $row['ponto'] . '</h1>';
 
                     $conteudo_noticia_id = $row['conteudo_noticia_id'];
-                    $query_conteudo = "SELECT texto FROM texto_noticia WHERE conteudo_noticia_id = $conteudo_noticia_id";
+                    $query_conteudo = "SELECT texto FROM conteudo_noticia WHERE conteudo_noticia_id = $conteudo_noticia_id";
+
 
                     // Executar a consulta de conteúdo
                     $result_conteudo = mysqli_query($conn, $query_conteudo);
