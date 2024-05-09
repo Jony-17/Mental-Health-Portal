@@ -32,19 +32,23 @@ function deselectAnswers() {
 
 function getSelected() {
   let answer;
-  answerEls.forEach((answerEl) => {
-    if (answerEl.checked) {
-      answer = answerEl.id;
-    }
+  answerEls.forEach(answerEl => {
+      if(answerEl.checked) {
+          answer = answerEl.id;
+          console.log("Opção escolhida:", answerEl.checked);
+      }
   });
   return answer;
 }
 
+
 function nextQuestion() {
-  const answer = getSelected();
+  let answer = getSelected();
   if (answer) {
+    console.log("Opção selecionada:", answer); // Verifica a opção selecionada
     if (answer === "a") {
       simCount++;
+      console.log("Número de opções 'a' selecionadas:", simCount); // Verifica se o simCount está sendo incrementado corretamente
     }
     currentQuiz++;
     if (currentQuiz < quizData.length) {
@@ -53,38 +57,52 @@ function nextQuestion() {
   }
 }
 
+
 // Adiciona um evento de clique ao botão de próxima pergunta
 nextButton.addEventListener("click", nextQuestion);
 
 function submitQuiz() {
+  const answer = getSelected();
+  if (answer) {
+      if (answer === 'a') {
+          simCount++;
+      }
+      currentQuiz++;
+      if (currentQuiz < quizData.length) {
+          loadQuiz();
+      }
+  }
+  console.log("Número de opções 'a' selecionadas:", simCount);
+
   const urlParams = new URLSearchParams(window.location.search);
   const quizId = urlParams.get("quiz_nome_id");
 
   if (!quizId) {
-    console.error("ID do quiz não encontrado na URL.");
-    return;
+      console.error("ID do quiz não encontrado na URL.");
+      return;
   }
 
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        const respostas = JSON.parse(xhr.responseText); // Armazena as respostas do quiz
-        // Atualiza o conteúdo da página com os resultados do quiz
-        quiz.innerHTML = `
-        <h2 class="result-heading">OS TEUS RESULTADOS</h2>
-        <p class="quiz-heading">O quão empática/o és?</p>
-        <p class="result-text">${respostas}</p>
-        <button class="restart-btn" onclick="location.reload()">Responder novamente</button>
-      `;
-      } else {
-        console.error("Erro ao carregar as respostas do quiz:", xhr.statusText);
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+              const respostas = JSON.parse(xhr.responseText); // Armazena as respostas do quiz
+              // Atualiza o conteúdo da página com os resultados do quiz
+              quiz.innerHTML = `
+              <h2 class="result-heading">OS TEUS RESULTADOS</h2>
+              <p class="quiz-heading">O quão empática/o és?</p>
+              <p class="result-text">${respostas}</p>
+              <button class="restart-btn" onclick="location.reload()">Responder novamente</button>
+            `;
+          } else {
+              console.error("Erro ao carregar as respostas do quiz:", xhr.statusText);
+          }
       }
-    }
   };
-  xhr.open("GET", `buscar_respostas.php?quiz_nome_id=${quizId}`, true);
+  xhr.open("GET", `buscar_respostas.php?quiz_nome_id=${quizId}&simCount=${simCount}`, true);
   xhr.send();
 }
+
 
 // Carrega os dados do quiz (perguntas e respostas) do PHP quando a página é carregada
 window.onload = function () {
