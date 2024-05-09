@@ -2,49 +2,43 @@
 session_start();
 require_once ("../../../conn/conn.php");
 
-if(isset($_POST['inserirbtn']))
-{
+if (isset($_POST['inserirbtn'])) {
     $nome = $_POST['nome'];
     $imagem = $_POST['imagem'];
     $explicacao = $_POST['explicacao'];
     $texto = $_POST['texto'];
+    $questao = $_POST['questao'];
+    $opcao_a = $_POST['opcao_a'];
+    $opcao_b = $_POST['opcao_b'];
+    $respostas = $_POST['respostas'];
+    $qtd = $_POST['qtd'];
 
-    $nome_query = "SELECT * FROM quiz_nome WHERE nome='$nome' AND img_quiz='$imagem' AND explicacao_quiz='$explicacao' AND texto_informacao='$texto' ";
-    $nome_query_run = mysqli_query($conn, $nome_query);
-    if(mysqli_num_rows($nome_query_run) > 0)
-    {
-        $_SESSION['status'] = "Quizz já existente.";
+    // Inserir novo quiz_nome
+    $query = "INSERT INTO quiz_nome (nome,img_quiz,explicacao_quiz,texto_informacao) VALUES ('$nome','$imagem','$explicacao','$texto')";
+    $query_run = mysqli_query($conn, $query);
+
+    if ($query_run) {
+        $quiz_nome_id = mysqli_insert_id($conn);
+
+        // Inserir questão na tabela quiz_questoes
+        $query_conteudo = "INSERT INTO quiz_questoes (quiz_nome_id, questao, opcao_a, opcao_b) 
+                               VALUES ('$quiz_nome_id', '$questao','$opcao_a','$opcao_b')";
+        mysqli_query($conn, $query_conteudo);
+
+        // Inserir resposta na tabela quiz_respostas
+        $query_conteudo2 = "INSERT INTO quiz_respostas (quiz_nome_id, respostas, qtd)
+                                VALUES ('$quiz_nome_id', '$respostas', '$qtd')";
+        mysqli_query($conn, $query_conteudo2);
+
+        $_SESSION['status'] = "Quiz inserido com sucesso";
+        $_SESSION['status_code'] = "success";
+        header('Location: .');
+        exit();
+    } else {
+        $_SESSION['status'] = "Erro ao inserir quizz";
         $_SESSION['status_code'] = "error";
-        header('Location: .');  
-    }
-    else
-    {
-    if($nome && $imagem && $explicacao && $texto)
-    {
-        $query = "INSERT INTO quiz_nome (nome,img_quiz,explicacao_quiz,texto_informacao) VALUES ('$nome','$imagem','$explicacao','$texto')";
-        $query_run = mysqli_query($conn, $query);
-    
-        if($query_run)
-            {
-                // echo "Saved";
-                $_SESSION['status'] = "Quizz inserido com sucesso";
-                $_SESSION['status_code'] = "success";
-                header('Location: .');
-            }
-            else 
-            {
-                $_SESSION['status'] = "Admin Profile Not Added";
-                $_SESSION['status_code'] = "error";
-                header('Location: .');  
-            }
-        }
-        else 
-        {
-            $_SESSION['status'] = "Não foi inserida qualquer quizz";
-            $_SESSION['status_code'] = "warning";
-            header('Location: .');  
-        }
+        header('Location: .');
+        exit();
     }
 }
-
 ?>

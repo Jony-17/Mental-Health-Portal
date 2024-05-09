@@ -241,6 +241,26 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <label>Texto do quiz</label>
                                         <input type="text" name="texto" class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Pergunta do quiz</label>
+                                        <input type="text" name="questao" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Opção A</label>
+                                        <input type="text" name="opcao_a" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Opção B</label>
+                                        <input type="text" name="opcao_b" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Resposta do quiz</label>
+                                        <input type="text" name="respostas" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantidade (intervalo)</label>
+                                        <input type="text" name="qtd" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -269,7 +289,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
                             <div class="table-responsive">
                                 <?php
-                                $query = "SELECT * FROM quiz_nome";
+                                $query = "SELECT quiz_nome.*, quiz_questoes.questao, quiz_questoes.opcao_a, quiz_questoes.opcao_b, quiz_respostas.qtd, quiz_respostas.respostas
+                                FROM quiz_nome
+                                INNER JOIN quiz_questoes ON quiz_nome.quiz_nome_id = quiz_questoes.quiz_nome_id
+                                INNER JOIN quiz_respostas ON quiz_nome.quiz_nome_id = quiz_respostas.quiz_nome_id";
                                 $query_run = mysqli_query($conn, $query);
                                 ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -279,6 +302,11 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Imagem</th>
                                             <th>Explicação</th>
                                             <th>Texto</th>
+                                            <th>Pergunta</th>
+                                            <th>Opção A</th>
+                                            <th>Opção B</th>
+                                            <th>Resposta</th>
+                                            <th>Quantidade(intervalo)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -298,6 +326,21 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['texto_informacao']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['questao']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['opcao_a']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['opcao_b']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['respostas']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['qtd']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php
