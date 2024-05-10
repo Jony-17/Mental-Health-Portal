@@ -221,7 +221,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="exercicios-mindfulness.php" method="POST">
+                            <form action="exercicios-mindfulness.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -230,7 +230,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     </div>
                                     <div class="form-group">
                                         <label>Banner</label>
-                                        <input type="text" name="banner" class="form-control">
+                                        <input type="file" name="banner" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Definição</label>
@@ -306,7 +306,8 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <?php
                                 $query = "SELECT exercicios_mindfulness.*, 
                                 exercicios_mindfulness_ex.titulo, 
-                                exercicios_mindfulness_ex.img 
+                                exercicios_mindfulness_ex.img,
+                                exercicios_mindfulness_ex.audio
                                 FROM exercicios_mindfulness
                                 LEFT JOIN exercicios_mindfulness_ex 
                                 ON exercicios_mindfulness.exercicios_mindfulness_id = exercicios_mindfulness_ex.exercicios_mindfulness_id";
@@ -322,6 +323,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Definição</th>
                                             <th>Título da atividade</th>
                                             <th>Imagem/GIF da atividade</th>
+                                            <th>Áudio</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -353,6 +355,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo !empty($row['img']) ? $row['img'] : ''; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['audio']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

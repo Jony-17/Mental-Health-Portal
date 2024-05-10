@@ -221,7 +221,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="quizzes.php" method="POST">
+                            <form action="quizzes.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="modal-body">
 
@@ -231,7 +231,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     </div>
                                     <div class="form-group">
                                         <label>Imagem do quiz</label>
-                                        <input type="file" name="imagem" class="form-control">
+                                        <input type="file" name="imagemperfil" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Explicação do quiz</label>

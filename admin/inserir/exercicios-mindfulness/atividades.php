@@ -232,7 +232,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     $row = mysqli_fetch_assoc($query_run); // Fetch exercise data
                                     // Create form outside the loop (assuming single edit)
                                     ?>
-                                    <form action="exercicios-mindfulness-inserir.php" method="post">
+                                    <form action="exercicios-mindfulness-inserir.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="exercicios_mindfulness_id"
                                             value="<?php echo $row['exercicios_mindfulness_id'] ?>">
                                         <div class="form-group">
@@ -246,7 +246,11 @@ if (isset($_SESSION['id_utilizador'])) {
                                         </div>
                                         <div class="form-group">
                                             <label>Imagem/GIF da atividade</label>
-                                            <input type="text" name="img" class="form-control">
+                                            <input type="file" name="img" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Áudio</label>
+                                            <input type="file" name="audio" class="form-control" accept="audio/mpeg, audio/mp3">
                                         </div>
                                         <a href="index.php" class="btn btn-danger">Cancelar</a>
                                         <button type="submit" name="insertbtn" class="btn btn-primary">Inserir</button>

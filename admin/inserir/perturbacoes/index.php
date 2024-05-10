@@ -221,7 +221,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="perturbacoes.php" method="POST">
+                            <form action="perturbacoes.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="modal-body">
 
@@ -235,11 +235,11 @@ if (isset($_SESSION['id_utilizador'])) {
                                     </div>
                                     <div class="form-group">
                                         <label>Imagem</label>
-                                        <input type="text" name="imagem" class="form-control">
+                                        <input type="file" name="imagemperfil" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Banner</label>
-                                        <input type="text" name="banner" class="form-control">
+                                        <input type="file" name="banner" class="form-control">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

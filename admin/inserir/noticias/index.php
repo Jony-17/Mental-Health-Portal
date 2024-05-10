@@ -222,7 +222,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="noticias.php" method="POST">
+                            <form action="noticias.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="modal-body">
 
@@ -345,7 +345,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nº Notícia</th>
                                             <th>Título</th>
                                             <th>Data de publicação</th>
                                             <th>Autor</th>
@@ -361,9 +360,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                             while ($row = mysqli_fetch_assoc($query_run)) {
                                                 ?>
                                                 <tr>
-                                                    <td>
-                                                        <?php echo $row['noticias_id']; ?>
-                                                    </td>
                                                     <td>
                                                         <?php echo $row['titulo']; ?>
                                                     </td>

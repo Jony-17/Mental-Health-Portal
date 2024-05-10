@@ -221,7 +221,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="ted-talks.php" method="POST">
+                            <form action="ted-talks.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="modal-body">
 
@@ -243,7 +243,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     </div>
                                     <div class="form-group">
                                         <label>Imagem</label>
-                                        <input type="text" name="imagem" class="form-control">
+                                        <input type="file" name="imagem" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Link</label>
