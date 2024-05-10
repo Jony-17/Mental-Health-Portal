@@ -229,7 +229,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <?php
         if (isset($_GET['nome'])) {
             $exercicio_mindfulness_nome = urldecode($_GET['nome']);
-            $query = "SELECT exercicios_mindfulness_ex.titulo AS titulo, exercicios_mindfulness_ex.img AS img, exercicios_mindfulness.nome
+            $query = "SELECT exercicios_mindfulness_ex.titulo AS titulo, exercicios_mindfulness_ex.img AS img, exercicios_mindfulness_ex.audio AS audio, exercicios_mindfulness.nome
             FROM exercicios_mindfulness
             INNER JOIN exercicios_mindfulness_ex ON exercicios_mindfulness_ex.exercicios_mindfulness_id = exercicios_mindfulness.exercicios_mindfulness_id
             WHERE nome = '$exercicio_mindfulness_nome'";
@@ -239,7 +239,18 @@ if (isset($_SESSION['id_utilizador'])) {
                     ?>
                     <div class="item">
                         <p><?php echo $row['titulo']; ?></p>
-                        <img src="<?php echo $row['img']; ?>" alt="">
+                        <?php if (!empty($row["img"])) { ?>
+                            <img src="../../../admin/inserir/imgs/exercicios-mindfulness/atividades/<?php echo $row["img"]; ?>"
+                                alt="Exercícios Mindfulness atividades">
+                        <?php } elseif (!empty($row["audio"])) { ?>
+                            <audio controls muted loop>
+                                <source src="../../../admin/inserir/imgs/exercicios-mindfulness/audios/<?php echo $row["audio"]; ?>"
+                                    type="audio/mp3">
+                                Your browser does not support the audio element.
+                            </audio>
+                        <?php } else { ?>
+                            <p>Nenhuma imagem ou áudio disponível.</p>
+                        <?php } ?>
                     </div>
                     <?php
                 }

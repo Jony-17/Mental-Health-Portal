@@ -360,7 +360,7 @@ header {
 }
 
 
-/*----------------Relaxamento-----------------*/
+/*----------------Atividades-----------------*/
 
 .owl-item {
   padding: 10px;
@@ -390,9 +390,14 @@ header {
 
 .owl-carousel .owl-stage-outer {
   position: relative;
-  height: 600px;
   overflow: hidden;
-  /*-webkit-transform: translate3d(0, 0, 0);*/
+  /*height: 600px;
+  -webkit-transform: translate3d(0, 0, 0);*/
+}
+
+audio {
+  width: 80%;
+  margin-bottom: 10px;
 }
 
 
@@ -732,9 +737,9 @@ li:not(:last-child) .separator {
     width: 100% !important;
   }
 
-  .owl-carousel .owl-stage-outer {
+  /*.owl-carousel .owl-stage-outer {
     height: 300px;
-  }
+  }*/
 
   .fontes {
     padding: 0;

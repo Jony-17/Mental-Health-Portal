@@ -210,7 +210,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
         </div>
 
-        
+
         <!--Ted Talks-->
         <div class="card-container">
             <?php
@@ -230,7 +230,11 @@ if (isset($_SESSION['id_utilizador'])) {
                             <div class="card-background2">
                                 <i class="fas fa-play">
                                 </i>
-                                <img src="<?php echo $row['img_ted_talks']; ?>" alt="Depressão">
+                                <img src="../../admin/inserir/imgs/ted-talks/<?php if (!empty($row["img_ted_talks"])) {
+                                    echo $row["img_ted_talks"];
+                                } else {
+                                    echo "teste.jpeg";
+                                } ?>" alt="Ted Talks">
                             </div>
                         </a>
                     </div>
@@ -267,7 +271,11 @@ if (isset($_SESSION['id_utilizador'])) {
                             <a href="<?php echo $row2['link']; ?>" target="_blank">
                                 <div class="card-background2">
                                     <i class="fas fa-play"></i>
-                                    <img src="<?php echo $row2['img_ted_talks']; ?>" alt="Depressão">
+                                    <img src="../../admin/inserir/imgs/ted-talks/<?php if (!empty($row2["img_ted_talks"])) {
+                                        echo $row2["img_ted_talks"];
+                                    } else {
+                                        echo "teste.jpeg";
+                                    } ?>" alt="Ted Talks">
                                 </div>
                             </a>
                         </div>

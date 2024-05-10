@@ -207,7 +207,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     ?>
                     <a href="quizz/?nome=<?php echo $nome_codificado; ?>&quiz_nome_id=<?php echo $row['quiz_nome_id']; ?>"
                         onclick="loadQuizData(<?php echo $row['quiz_nome_id']; ?>);">
-                        
+
                         <!-- Conteúdo do link aqui -->
 
                         <!-- Adicione o onclick aqui -->
@@ -216,7 +216,11 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <h1><?php echo $row['nome']; ?></h1>
                             </div>
                             <div class="card4-content2">
-                                <img src="<?php echo $row['img_quiz'] ?>" alt="O que é a saúde mental?">
+                                <img src="../../admin/inserir/imgs/quizzes/<?php if (!empty($row["img_quiz"])) {
+                                    echo $row["img_quiz"];
+                                } else {
+                                    echo "teste.jpeg";
+                                } ?>" alt="Quizz">
                             </div>
                         </div>
                     </a>

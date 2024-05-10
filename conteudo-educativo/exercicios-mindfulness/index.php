@@ -206,7 +206,11 @@ if (isset($_SESSION['id_utilizador'])) {
                     ?>
                     <div class="card">
                         <a href="atividade/?nome=<?php echo $nome_codificado; ?>">
-                            <img src="<?php echo $row['banner']; ?>" alt="Atividades de Relaxamento">
+                            <img src="../../admin/inserir/imgs/exercicios-mindfulness/banners/<?php if (!empty($row["banner"])) {
+                                echo $row["banner"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="Exercícios Mindfulness banner">
                         </a>
                         <h1>
                             <?php echo $row['nome']; ?>
