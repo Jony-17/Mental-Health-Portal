@@ -204,7 +204,11 @@ if (isset($_SESSION['id_utilizador'])) {
                         ?>
                         <a href="grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>">
                             <!--Retirar perturbacoes-ansiedade e ajustar para perturbacoes-->
-                            <img src="<?php echo $row["img_perturbacao"] ?>" alt="Perturbacoes">
+                            <img src="../admin/inserir/imgs/perturbacoes/<?php if (!empty($row["img_perturbacao"])) {
+                                echo $row["img_perturbacao"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="Quizz">
                         </a>
                         <h1>
                             <?php echo $row["nome"] ?>

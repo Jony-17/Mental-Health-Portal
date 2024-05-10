@@ -89,7 +89,7 @@ if (isset($_GET['nome'])) {
         }
 
         .background {
-            background-image: url("<?php echo $banner_perturbacao; ?>");
+            background-image: url("../../admin/inserir/imgs/perturbacoes/banners/<?php echo $banner_perturbacao; ?>");
         }
     </style>
     <header>
@@ -319,7 +319,11 @@ if (isset($_GET['nome'])) {
                         $row = mysqli_fetch_assoc($result);
                         ?>
                         <a href="factos_10/?nome=<?php echo $nome_codificado; ?>">
-                            <img src="<?php echo $row["img_perturbacao"]; ?>" alt="Perturbacoes">
+                            <img src="../../admin/inserir/imgs/perturbacoes/<?php if (!empty($row["img_perturbacao"])) {
+                                echo $row["img_perturbacao"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="Quizz">
                         </a>
                         <div class="card2-content">
                             <h1>10 Factos sobre

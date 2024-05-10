@@ -245,8 +245,8 @@ if (isset($_SESSION['id_utilizador'])) {
     
             // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
             $query_grupo = "SELECT nº, factos, descricao 
-        FROM factos_10 
-        WHERE perturbacoes_id = $perturbacoes_id";
+                            FROM factos_10 
+                            WHERE perturbacoes_id = $perturbacoes_id";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
