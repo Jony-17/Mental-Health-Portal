@@ -270,7 +270,11 @@ if (isset($_SESSION['id_utilizador'])) {
                         $titulo_codificado = urlencode($row["titulo"]);
                         ?>
                         <a href="noticia/?titulo=<?php echo $titulo_codificado; ?>">
-                            <img src="<?php echo $row["img_noticia"] ?>" width="100%" alt="<?php echo $row["titulo"] ?>">
+                            <img src="../admin/inserir/imgs/noticias/<?php if (!empty($row["img_noticia"])) {
+                                echo $row["img_noticia"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="<?php echo $row['img_noticia'];?>">
                         </a>
                         <div class="card4-content">
                             <h1><?php echo $row["titulo"] ?></h1>

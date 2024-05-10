@@ -300,7 +300,7 @@ if (isset($_SESSION['id_utilizador'])) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
             // Exibir o autor e a data de publicação do artigo
-            echo '<img class="img-artigo" src="' . $row['img_noticia'] . '">';
+            echo '<img class="img-artigo" src="../../admin/inserir/imgs/noticias/' . (!empty($row["img_noticia"]) ? $row["img_noticia"] : "teste.jpeg") . '" alt="' . $row["img_noticia"] . '">';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
             echo "Autor ou data de publicação não encontrados.";
