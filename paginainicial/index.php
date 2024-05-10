@@ -323,7 +323,11 @@ if (isset($_SESSION['id_utilizador'])) {
 
                         ?>
                         <a href="../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>">
-                            <img src="<?php echo $row["img_artigo"] ?>" alt="Artigos científicos">
+                            <img src="../admin/inserir/imgs/artigos/<?php if (!empty($row["img_artigo"])) {
+                                echo $row["img_artigo"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="Artigos">
                         </a>
                         <div class="card3-content">
                             <h3>
@@ -431,7 +435,11 @@ if (isset($_SESSION['id_utilizador'])) {
                         <div class="card5-background2">
                             <h1><?php echo $row['titulo']; ?></h1>
                             <h3><?php echo $row['autor']; ?></h3>
-                            <img src="<?php echo $row['img_noticia']; ?>" alt="Depressão">
+                            <img src="../admin/inserir/imgs/noticias/<?php if (!empty($row["img_noticia"])) {
+                                echo $row["img_noticia"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="Notícias">
                         </div>
                     </a>
                 </div>
@@ -456,7 +464,11 @@ if (isset($_SESSION['id_utilizador'])) {
                             ?>
                             <a href="../noticias/noticia/?titulo=<?php echo $titulo_codificado2; ?>">
                                 <div class="card6-background2">
-                                    <img src="<?php echo $row2['img_noticia']; ?>" alt="Depressão">
+                                    <img src="../admin/inserir/imgs/noticias/<?php if (!empty($row2["img_noticia"])) {
+                                        echo $row2["img_noticia"];
+                                    } else {
+                                        echo "teste.jpeg";
+                                    } ?>" alt="Notícias">
                                     <h1><?php echo $row2['titulo']; ?></h1>
                                     <h3><?php echo $row2['autor']; ?></h3>
                                 </div>
@@ -482,7 +494,11 @@ if (isset($_SESSION['id_utilizador'])) {
                             ?>
                             <a href="../noticias/noticia/?titulo=<?php echo $titulo_codificado3; ?>">
                                 <div class="card6-background2">
-                                    <img src="<?php echo $row3['img_noticia']; ?>" alt="Depressão">
+                                    <img src="../admin/inserir/imgs/noticias/<?php if (!empty($row3["img_noticia"])) {
+                                        echo $row3["img_noticia"];
+                                    } else {
+                                        echo "teste.jpeg";
+                                    } ?>" alt="Notícias">
                                     <h1><?php echo $row3['titulo']; ?></h1>
                                     <h3><?php echo $row3['autor']; ?></h3>
                                 </div>
@@ -726,9 +742,9 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <!--Chatbot-->
-    <div id="chatbotContainer">
+    <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
-    </div>
+    </div>-->
 
 
     <script src="js/script.js"></script>
