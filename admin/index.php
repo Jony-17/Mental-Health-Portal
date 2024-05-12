@@ -174,23 +174,23 @@ if (isset($_SESSION['id_utilizador'])) {
         <div id="collapseEliminar" class="collapse" aria-labelledby="headingEliminar" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Perturbações Mentais</h6>
-            <a class="collapse-item" href="eliminar/perturbacoes/">Perturbações</a><!---->
-            <a class="collapse-item" href="eliminar/grupos-perturbacoes/">Grupo de Perturbações</a><!---->
-            <a class="collapse-item" href="eliminar/juncao-perturbacoes/">Junção de Perturbações</a><!---->
-            <a class="collapse-item" href="eliminar/perturbacoes/personalidade/">Perturbações de Person.</a><!---->
+            <a class="collapse-item" href="eliminar/perturbacoes/">Perturbações</a><!--feito-->
+            <a class="collapse-item" href="eliminar/grupos-perturbacoes/">Grupo de Perturbações</a><!--feito-->
+            <a class="collapse-item" href="eliminar/juncao-perturbacoes/">Junção de Perturbações</a><!--feito-->
+            <a class="collapse-item" href="eliminar/perturbacoes/personalidade/">Perturbações de Person.</a><!--feito-->
             <a class="collapse-item" href="eliminar/juncao-perturbacoes-personalidade/">Junção de Pert. de
-              Person.</a><!---->
-            <a class="collapse-item" href="eliminar/10-factos/">10 factos</a><!---->
+              Person.</a><!--feito-->
+            <a class="collapse-item" href="eliminar/10-factos/">10 factos</a><!--feito-->
 
             <h6 class="collapse-header">Artigos</h6>
-            <a class="collapse-item" href="eliminar/artigos/">Artigos</a><!---->
+            <a class="collapse-item" href="eliminar/artigos/">Artigos</a><!--feito-->
 
             <h6 class="collapse-header">Notícias</h6>
-            <a class="collapse-item" href="eliminar/noticias/">Notícias</a><!--a ser feito-->
+            <a class="collapse-item" href="eliminar/noticias/">Notícias</a><!--feito-->
 
             <h6 class="collapse-header">Conteúdo Educativo</h6>
-            <a class="collapse-item" href="eliminar/quizzes/">Quizzes</a><!---->
-            <a class="collapse-item" href="eliminar/exercicios-mindfulness/">Exercícios Mindfulness</a><!---->
+            <a class="collapse-item" href="eliminar/quizzes/">Quizzes</a><!--feito-->
+            <a class="collapse-item" href="eliminar/exercicios-mindfulness/">Exercícios Mindfulness</a><!--feito-->
             <a class="collapse-item" href="eliminar/ted-talks/">TED Talks</a><!--feito-->
 
             <h6 class="collapse-header">Perguntas Frequentes</h6>
