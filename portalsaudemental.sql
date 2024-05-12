@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Maio-2024 às 19:09
+-- Tempo de geração: 12-Maio-2024 às 23:54
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -64,10 +64,7 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 (19, 18, 'Testetesteteste', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (20, 1, 'TesteEQEQEQ', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (21, 2, 'plplpl', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
-(37, 22, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste'),
-(38, 22, 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'teste2.png', 'testeteste'),
-(40, 1, 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'teste2.png', 'testeteste'),
-(41, 1, 'testetestetesteteste', 'testetestetesteteste', 'testetestetesteteste', 'testetestetesteteste', 'teste2.png', 'testetestetesteteste');
+(40, 1, 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'teste2.png', 'testeteste');
 
 -- --------------------------------------------------------
 
@@ -91,12 +88,7 @@ INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`, `text
 (2, 1, 'Desenvolvimento', '2 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
 (3, 1, 'Conclusão', '3 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
 (4, 2, 'Conteúdo', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
-(9, 37, 'teste1', 'teste1'),
-(10, 37, 'teste3', 'teste3'),
-(11, 37, 'teste2', 'teste2'),
-(12, 38, 'testeteste', 'testeteste'),
-(40, 40, 'testeteste', 'testeteste'),
-(41, 41, 'testetestetesteteste', 'testetestetesteteste');
+(40, 40, 'testeteste', 'testeteste');
 
 -- --------------------------------------------------------
 
@@ -116,9 +108,7 @@ CREATE TABLE `conteudo_noticia` (
 --
 
 INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
-(1, 1, 'ee', 'aaa'),
-(5, 10, 'teste4', 'teste4'),
-(7, 12, 'teste', 'teste');
+(1, 1, 'ee', 'aaa');
 
 -- --------------------------------------------------------
 
@@ -141,8 +131,7 @@ INSERT INTO `exercicios_mindfulness` (`exercicios_mindfulness_id`, `nome`, `bann
 (1, 'Atividades de Relaxamento', 'relaxamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
 (2, 'Atividades de Bem-estar', 'bem-estar.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
 (3, 'Atividades de Yoga', 'yoga.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
-(4, 'Atividades de Alogamento', 'alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
-(10, 'teste', 'teste2.png', 'teste');
+(4, 'Atividades de Alogamento', 'alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n');
 
 -- --------------------------------------------------------
 
@@ -171,7 +160,6 @@ INSERT INTO `exercicios_mindfulness_ex` (`exercicios_mindfulness_ex_id`, `exerci
 (6, 3, 'Posição de montanha (Tadasana)', 'yoga3.webp', ''),
 (7, 2, 'Ver um filme ou série', 'teste2.png', ''),
 (8, 2, 'Assistir/acompanhar algum desporto', 'teste2.png', ''),
-(26, 10, 'teste2', 'teste2.png', ''),
 (29, 1, 'Mindfulness – Atenção à Respiração', '', 0x4d696e6466756c6e65737320e28093204174656ec3a7c3a36f20c3a02052657370697261c3a7c3a36f2e6d7033),
 (30, 1, 'Mindfulness – Body Scan', '', 0x4d696e6466756c6e65737320e2809320426f6479205363616e2e6d7033),
 (32, 1, 'Mindfulness – Explorar Sensações e Pensamentos Difíceis', '', 0x4d696e6466756c6e65737320e28093204578706c6f7261722053656e7361c3a7c3b5657320652050656e73616d656e746f7320446966c3ad636569732e6d7033),
@@ -245,8 +233,7 @@ INSERT INTO `grupos_perturbacoes` (`grupos_perturbacoes_id`, `nome`, `texto`, `s
 (15, 'Grupo B', 'teste', NULL, NULL, NULL),
 (16, 'Grupo C', 'teste', NULL, NULL, NULL),
 (17, 'Perturbação de Stress Pós-Traumático', 'teste', 'teste', 'teste', 'teste'),
-(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste'),
-(20, 'testegrupo', 'testegrupo', 'testegrupo', 'testegrupo', 'testegrupo');
+(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -282,9 +269,7 @@ INSERT INTO `juncao_perturbacoes` (`juncao_perturbacoes_id`, `perturbacoes_id`, 
 (15, 6, 15),
 (16, 6, 16),
 (17, 7, 17),
-(18, 7, 18),
-(22, 9, 20),
-(23, 6, 20);
+(18, 7, 18);
 
 -- --------------------------------------------------------
 
@@ -313,8 +298,7 @@ INSERT INTO `juncao_pert_personalidade` (`juncao_pert_pers_id`, `perturbacoes_pe
 (7, 7, 15, 6),
 (8, 8, 16, 6),
 (9, 9, 16, 6),
-(10, 10, 16, 6),
-(15, 11, 20, 6);
+(10, 10, 16, 6);
 
 -- --------------------------------------------------------
 
@@ -401,9 +385,7 @@ INSERT INTO `noticias` (`noticias_id`, `titulo`, `data_publicacao`, `autor`, `im
 (3, 'O projeto que ajuda a prevenir o suicídio juvenil', '30 de março de 2024', 'Observador', 'noticia3.webp', 'testetestetestetestetestetestetestetestetesteteste'),
 (4, 'O projeto que ajuda o suicídio juvenil', '30 de março de 2024', 'Observador', 'noticia4.webp', 'testetestetestetestetestetestetestetestetesteteste'),
 (6, 'O po que ajuda o juvenil', '30 de março de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste'),
-(7, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste'),
-(10, 'teste3', 'teste3', 'teste3', 'teste2.png', 'teste3'),
-(12, 'teste', 'teste', 'teste', 'teste2.png', 'teste');
+(7, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste');
 
 -- --------------------------------------------------------
 
@@ -425,8 +407,7 @@ INSERT INTO `perguntas` (`perguntas_id`, `pergunta`, `resposta`) VALUES
 (1, 'Pergunta 1', 'Resposta à pergunta 1'),
 (2, 'Pergunta 2', 'Resposta à pergunta 2'),
 (3, 'Pergunta 3', 'Resposta à pergunta 3'),
-(4, 'teste', 'teste'),
-(5, 'teste2', 'teste2');
+(4, 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -455,8 +436,7 @@ INSERT INTO `perturbacoes` (`perturbacoes_id`, `nome`, `texto`, `img_perturbacao
 (5, 'Perturbações Obsessivo-Compulsivas', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-obscomp.png', NULL, 'teste.avif'),
 (6, 'Perturbações de Personalidade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-perso.png', NULL, 'teste.avif'),
 (7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-stress.png', NULL, 'teste.avif'),
-(9, 'teste', 'teste', 'teste', NULL, 'teste'),
-(12, 'teste2', 'teste2', 'teste2.png', NULL, 'Captura de ecrã 2024-05-02 111356.jpg');
+(13, 'testepert', 'testepert', '', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -487,8 +467,7 @@ INSERT INTO `perturbacoes_personalidade` (`perturbacoes_personalidade_id`, `nome
 (7, 'Perturbação Narcísica da Personalidade', 'teste', 'teste', 'teste', 'teste'),
 (8, 'Perturbação Evitante da Personalidade', 'teste', 'teste', 'teste', 'teste'),
 (9, 'Perturbação Dependente da Personalidade', 'teste', 'teste', 'teste', 'teste'),
-(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste', 'teste'),
-(11, 'teste', 'teste', 'teste', 'teste', 'teste');
+(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste', 'teste');
 
 -- --------------------------------------------------------
 
@@ -914,25 +893,25 @@ ALTER TABLE `exercicios_mindfulness_ex`
 -- AUTO_INCREMENT de tabela `factos_10`
 --
 ALTER TABLE `factos_10`
-  MODIFY `10_factos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `10_factos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
-  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_perturbacoes`
-  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_pert_personalidade`
 --
 ALTER TABLE `juncao_pert_personalidade`
-  MODIFY `juncao_pert_pers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `juncao_pert_pers_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `lembrete`
@@ -962,7 +941,7 @@ ALTER TABLE `perguntas`
 -- AUTO_INCREMENT de tabela `perturbacoes`
 --
 ALTER TABLE `perturbacoes`
-  MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `perturbacoes_personalidade`
@@ -980,19 +959,19 @@ ALTER TABLE `quizzes`
 -- AUTO_INCREMENT de tabela `quiz_nome`
 --
 ALTER TABLE `quiz_nome`
-  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_questoes`
 --
 ALTER TABLE `quiz_questoes`
-  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_respostas`
 --
 ALTER TABLE `quiz_respostas`
-  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `registos`
@@ -1051,7 +1030,9 @@ ALTER TABLE `factos_10`
 --
 ALTER TABLE `juncao_perturbacoes`
   ADD CONSTRAINT `fk_grupos_perturbacoes_id` FOREIGN KEY (`grupos_perturbacoes_id`) REFERENCES `grupos_perturbacoes` (`grupos_perturbacoes_id`),
-  ADD CONSTRAINT `fk_perturbacoes_id` FOREIGN KEY (`perturbacoes_id`) REFERENCES `perturbacoes` (`perturbacoes_id`);
+  ADD CONSTRAINT `fk_grupos_perturbacoes_perturbacoes` FOREIGN KEY (`grupos_perturbacoes_id`) REFERENCES `grupos_perturbacoes` (`grupos_perturbacoes_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_perturbacoes_id` FOREIGN KEY (`perturbacoes_id`) REFERENCES `perturbacoes` (`perturbacoes_id`),
+  ADD CONSTRAINT `fk_perturbacoes_perturbacoes` FOREIGN KEY (`perturbacoes_id`) REFERENCES `perturbacoes` (`perturbacoes_id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `juncao_pert_personalidade`
