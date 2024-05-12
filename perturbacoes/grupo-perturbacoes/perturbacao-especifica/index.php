@@ -562,7 +562,11 @@ if (isset($_SESSION['id_utilizador'])) {
 
                             <a
                                 href="../../../artigos/artigo/?titulo=<?php echo urlencode($row_info_adicional["titulo_artigo"]); ?>">
-                                <img src="<?php echo $row_info_adicional["img_artigo"]; ?>" alt="Depressão">
+                                <img src="../../../admin/inserir/imgs/artigos/<?php if (!empty($row_info_adicional["img_artigo"])) {
+                                    echo $row_info_adicional["img_artigo"];
+                                } else {
+                                    echo "teste.jpeg";
+                                } ?>" alt="<?php echo $row_info_adicional["img_artigo"]; ?>">
                             </a>
                             <div class="card2-content">
                                 <h3>
