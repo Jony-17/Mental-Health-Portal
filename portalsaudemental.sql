@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Maio-2024 às 11:04
+-- Tempo de geração: 15-Maio-2024 às 00:33
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -43,8 +43,8 @@ CREATE TABLE `artigos` (
 --
 
 INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descricao`, `data_publicacao`, `autor`, `img_artigo`, `conteudo_texto`) VALUES
-(1, 1, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental.', '09 de outubro de 2020', 'Sandra Varandas, Bárbara Ferreira e Inês M. Borges', 'teste.webp', 'Everybody deals with anxiety als with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietfrom time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n        Everybody deals with anxiety als with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietfrom time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n        '),
-(2, 2, 'Como está a saúde mental?', 'Pedir ajuda aos amigos, aos familiares, ao médico de família ou ao psicólogo é o grande passo para a recuperação.', '13 de outubro de 2020', 'Sandra Varandas e Bárbara Ferreira', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
+(1, 1, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental...', '09 de outubro de 2020', 'Sandra Varandas, Bárbara Ferreira e Inês M. Borges', 'teste.webp', 'Everybody deals with anxiety als with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietals with anxietal'),
+(2, 2, 'Como está a saúde mental?', 'Pedir ajuda aos amigos, aos familiares, ao médico de família ou ao psicólogo é o grande passo para a recuperação.', '13 de outubro de 2020', 'Sandra Varandas e Bárbara Ferreira', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable                            anxiety disorder.                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,                            know that you are not alone. The National Institutes of Mental Health estimate that nearly                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1                            Any Anxiety Disorder, National Institutes of Mental Health                            Since anxiety is a common mental health condition (and is a condition that can be                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety                            screening.2                  '),
 (3, 3, 'A sociedade está preparada? ', 'A SIC Notícias falou com o psicoterapeuta Pedro Brás sobre o consumo de antidepressivos e ansiolíticos em Portugal.', '11 de outubro de 2020', 'Bárbara Ferreira', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (4, 4, 'Como está a saúde mental das crianças e dos jovens?', 'Vinte por cento das crianças e dos adolescentes têm, pelo menos, uma perturbação mental, de acordo com a Organização Mundial de Saúde.', '10 de outubro de 2020', 'Rita Rogado, Sandra Varandas e Diogo Sentieiro', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (5, 5, 'A sociedade está preparada para lidar com a doença mental?', 'Estima-se que 20% da população portuguesa sofra ou venha a sofrer de uma doença mental.', '10 de outubro de 2020', 'Bárbara Ferreira', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
@@ -64,7 +64,7 @@ INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `descric
 (19, 18, 'Testetesteteste', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (20, 1, 'TesteEQEQEQ', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
 (21, 2, 'plplpl', 'TNo Hospital de Magalhães Lemos, no Porto, há um grupo coral de pessoas com esquizofrenia, depressão e psicoses que encontra na música uma terapia complementar para lidar com a doença mental.', '2 de março de 2024', 'Observador', 'teste.webp', 'Everybody deals with anxiety from time to time, but when everyday feelings of nervousness\r\n                            turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable\r\n                            anxiety disorder.\r\n\r\n                            If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety,\r\n                            know that you are not alone. The National Institutes of Mental Health estimate that nearly\r\n                            one-third of US adults will deal with an anxiety disorder at some point in their lives.1\r\n                            Any Anxiety Disorder, National Institutes of Mental Health\r\n\r\n                            Since anxiety is a common mental health condition (and is a condition that can be\r\n                            debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety\r\n                            screening.2\r\n\r\n                  '),
-(40, 1, 'testeteste', 'testeteste', 'testeteste', 'testeteste', 'teste2.png', 'testeteste');
+(40, 4, 'teste1', 'teste1', 'teste1', 'teste1', 'teste2.png', 'teste1');
 
 -- --------------------------------------------------------
 
@@ -84,11 +84,10 @@ CREATE TABLE `conteudo_artigo` (
 --
 
 INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`, `texto`) VALUES
-(1, 1, 'Introdução', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
-(2, 1, 'Desenvolvimento', '2 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
-(3, 1, 'Conclusão', '3 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
+(1, 1, 'testetestete1', 'testetestete1'),
+(2, 1, 'testetestete2', 'testetestete2'),
 (4, 2, 'Conteúdo', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
-(40, 40, 'testeteste', 'testeteste');
+(40, 40, 'testeponto', 'testeTexto');
 
 -- --------------------------------------------------------
 
@@ -108,7 +107,8 @@ CREATE TABLE `conteudo_noticia` (
 --
 
 INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
-(1, 1, 'ee', 'aaa');
+(1, 1, 'ee1', 'aaa'),
+(8, 7, 'ponto1', 'texto1');
 
 -- --------------------------------------------------------
 
@@ -128,10 +128,11 @@ CREATE TABLE `exercicios_mindfulness` (
 --
 
 INSERT INTO `exercicios_mindfulness` (`exercicios_mindfulness_id`, `nome`, `banner`, `definicao`) VALUES
-(1, 'Atividades de Relaxamento', 'relaxamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
-(2, 'Atividades de Bem-estar', 'bem-estar.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
+(1, 'Atividades de Relaxamento', 'relaxamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela'),
+(2, 'Atividades de Bem-estar', 'bem-estar.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela'),
 (3, 'Atividades de Yoga', 'yoga.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
-(4, 'Atividades de Alogamento', 'alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n');
+(4, 'Atividades de Alogamento', 'alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
+(15, 'testeeee', 'teste2.png', 'testeeeee');
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,8 @@ INSERT INTO `exercicios_mindfulness_ex` (`exercicios_mindfulness_ex_id`, `exerci
 (30, 1, 'Mindfulness – Body Scan', '', 0x4d696e6466756c6e65737320e2809320426f6479205363616e2e6d7033),
 (32, 1, 'Mindfulness – Explorar Sensações e Pensamentos Difíceis', '', 0x4d696e6466756c6e65737320e28093204578706c6f7261722053656e7361c3a7c3b5657320652050656e73616d656e746f7320446966c3ad636569732e6d7033),
 (33, 1, 'Relaxamento Muscular Progressivo', '', 0x52656c6178616d656e746f204d757363756c61722050726f677265737369766f2e6d7033),
-(34, 1, 'Respiração Diafragmática', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033);
+(34, 1, 'Respiração Diafragmática', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033),
+(35, 15, 'testeeeee', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033);
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,8 @@ INSERT INTO `grupos_perturbacoes` (`grupos_perturbacoes_id`, `nome`, `texto`, `s
 (15, 'Grupo B', 'teste', NULL, NULL, NULL),
 (16, 'Grupo C', 'teste', NULL, NULL, NULL),
 (17, 'Perturbação de Stress Pós-Traumático', 'teste', 'teste', 'teste', 'teste'),
-(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste');
+(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste'),
+(22, 'testeeeee', 'testeeeee', 'testeeeee', 'testeeeee', 'testeeeee');
 
 -- --------------------------------------------------------
 
@@ -408,7 +411,7 @@ INSERT INTO `perguntas` (`perguntas_id`, `pergunta`, `resposta`) VALUES
 (1, 'Pergunta 1', 'Resposta à pergunta 1'),
 (2, 'Pergunta 2', 'Resposta à pergunta 2'),
 (3, 'Pergunta 3', 'Resposta à pergunta 3'),
-(4, 'teste21', 'teste21');
+(4, 'teste2', 'teste2');
 
 -- --------------------------------------------------------
 
@@ -437,7 +440,7 @@ INSERT INTO `perturbacoes` (`perturbacoes_id`, `nome`, `texto`, `img_perturbacao
 (5, 'Perturbações Obsessivo-Compulsivas', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-obscomp.png', NULL, 'teste.avif'),
 (6, 'Perturbações de Personalidade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-perso.png', NULL, 'teste.avif'),
 (7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-stress.png', NULL, 'teste.avif'),
-(13, 'testepert', 'testepert', '', NULL, '');
+(13, 'testeperteee', 'testeperteee', 'pert-aliment.png', NULL, 'teste.avif');
 
 -- --------------------------------------------------------
 
@@ -468,7 +471,8 @@ INSERT INTO `perturbacoes_personalidade` (`perturbacoes_personalidade_id`, `nome
 (7, 'Perturbação Narcísica da Personalidade', 'teste', 'teste', 'teste', 'teste'),
 (8, 'Perturbação Evitante da Personalidade', 'teste', 'teste', 'teste', 'teste'),
 (9, 'Perturbação Dependente da Personalidade', 'teste', 'teste', 'teste', 'teste'),
-(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste', 'teste');
+(10, 'Perturbação Obsessivo-Compulsiva da Personalidade', 'teste', 'teste', 'teste', 'teste'),
+(12, 'testeeee', 'testeeee', 'testeeee', 'testeeee', 'testeeee');
 
 -- --------------------------------------------------------
 
@@ -570,7 +574,8 @@ INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `img_quiz`, `explicacao_quiz`, 
 (1, 'O quão empática/o és?', 'empatia.png', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra'),
 (2, 'O quão preocupada/o és?', 'preocupado.png', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
 (3, 'Tens uma energia positiva', 'energia.png', 'Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative attitudes impair it. Take this quiz to determine your positivity score and the energy impact you have on yourself and others.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
-(4, 'O quão livre és, emocionalmente?', 'livre.png', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m');
+(4, 'O quão livre és, emocionalmente?', 'livre.png', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m'),
+(23, 'teste1', 'teste2.png', 'teste1', 'teste1');
 
 -- --------------------------------------------------------
 
@@ -594,7 +599,8 @@ INSERT INTO `quiz_questoes` (`quiz_questoes_id`, `quiz_nome_id`, `questao`, `opc
 (1, 2, 'Preocupo-me com muitas coisas todos os dias', 'Sim', 'Nao'),
 (2, 2, 'Fico frequentemente sobrecarregado ou ansioso', 'Sim', 'Nao'),
 (3, 1, 'Fui rotulado como excessivamente sensivel, timido ou introvertido', 'Sim', 'Nao'),
-(4, 2, 'Emanas um sentimento de apoio e compaixão pelos outros?', 'Sim', 'Não');
+(4, 2, 'Emanas um sentimento de apoio e compaixão pelos outros?', 'Sim', 'Não'),
+(17, 23, 'testequestao', 'teste1a', 'teste2b');
 
 -- --------------------------------------------------------
 
@@ -619,7 +625,8 @@ INSERT INTO `quiz_respostas` (`quiz_respostas_id`, `quiz_nome_id`, `qtd`, `respo
 (3, 1, 3, 'És uma pessoa com tendências empáticas fortes'),
 (4, 1, 4, 'És uma pessoa com mesmo muita empatia'),
 (5, 2, 1, 'teste1'),
-(6, 2, 2, 'teste2');
+(6, 2, 2, 'teste2'),
+(19, 23, 2, 'testeresposta1');
 
 -- --------------------------------------------------------
 
@@ -670,7 +677,7 @@ CREATE TABLE `ted_talks` (
 --
 
 INSERT INTO `ted_talks` (`ted_talks_id`, `autor`, `titulo`, `data`, `tempo`, `img_ted_talks`, `link`) VALUES
-(1, 'Andrew Solomons', 'Depression, the secret we share', 'Outubro 2013', '29:07 min', 'ted-talk1.jpg', 'https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true'),
+(1, 'Andrew Solomon', 'Depression, the secret we share', 'Outubro 2013', '29:07 min', 'ted-talk1.jpg', 'https://www.ted.com/talks/andrew_solomon_depression_the_secret_we_share?referrer=playlist-the_struggle_of_mental_health&autoplay=true'),
 (2, 'Kevin Breel', 'Confessions of a depressed comic', 'Maio 2013', '10:46 min', 'ted-talk2.jpg', 'https://www.ted.com/talks/kevin_breel_confessions_of_a_depressed_comic?referrer=playlist-the_struggle_of_mental_health&autoplay=true'),
 (3, 'Mariano Sigman', 'Your words may predict your future mental health', 'Fevereiro 2016', '12:04 min', 'ted-talk3.jpg', 'https://www.ted.com/talks/mariano_sigman_your_words_may_predict_your_future_mental_health'),
 (4, 'Hailey Hardcastle', 'Why students should have mental health days', 'Janeiro 2020', '07:15 min', 'ted-talk4.jpg', 'https://www.ted.com/talks/hailey_hardcastle_why_students_should_have_mental_health_days');
@@ -876,19 +883,19 @@ ALTER TABLE `conteudo_artigo`
 -- AUTO_INCREMENT de tabela `conteudo_noticia`
 --
 ALTER TABLE `conteudo_noticia`
-  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios_mindfulness`
 --
 ALTER TABLE `exercicios_mindfulness`
-  MODIFY `exercicios_mindfulness_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `exercicios_mindfulness_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios_mindfulness_ex`
 --
 ALTER TABLE `exercicios_mindfulness_ex`
-  MODIFY `exercicios_mindfulness_ex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `exercicios_mindfulness_ex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de tabela `factos_10`
@@ -900,7 +907,7 @@ ALTER TABLE `factos_10`
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
 --
 ALTER TABLE `grupos_perturbacoes`
-  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `grupos_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
@@ -948,7 +955,7 @@ ALTER TABLE `perturbacoes`
 -- AUTO_INCREMENT de tabela `perturbacoes_personalidade`
 --
 ALTER TABLE `perturbacoes_personalidade`
-  MODIFY `perturbacoes_personalidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `perturbacoes_personalidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `quizzes`
@@ -960,19 +967,19 @@ ALTER TABLE `quizzes`
 -- AUTO_INCREMENT de tabela `quiz_nome`
 --
 ALTER TABLE `quiz_nome`
-  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `quiz_nome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_questoes`
 --
 ALTER TABLE `quiz_questoes`
-  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_respostas`
 --
 ALTER TABLE `quiz_respostas`
-  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `registos`
@@ -984,7 +991,7 @@ ALTER TABLE `registos`
 -- AUTO_INCREMENT de tabela `ted_talks`
 --
 ALTER TABLE `ted_talks`
-  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ted_talks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
