@@ -1,40 +1,41 @@
 <?php
+// Inicia a sessão
 session_start();
-require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
+    require_once ("../../../conn/conn.php"); // Inclui o arquivo de conexão com o banco de dados
+
     // Recupera o ID do utilizador da sessão
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    $data = json_decode(file_get_contents("php://input"), true);
-    $answers = $data['answers'];
+    // Verifica se foi recebido o quiz_nome_id via POST
+    if (isset($_GET['quiz_nome_id'])) {
+        $quiz_nome_id = $_GET['quiz_nome_id'];
+        echo "Quiz Nome ID Recebido: " . $quiz_nome_id;
 
-    // Consulta para obter as respostas correspondentes às perguntas respondidas
-    $responses = [];
-    foreach ($answers as $answer) {
-        $query = "SELECT respostas FROM quiz_respostas WHERE quiz_nome_id = $quiz_nome_id";
-        $result = $conn->query($query);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $responses[] = $row['resposta'];
+        // Prepara e executa a consulta SQL usando declarações preparadas
+        $query_insert = "INSERT INTO quizzes (utilizador_id, quiz_nome_id) VALUES (?, ?)";
+        $stmt = $conn->prepare($query_insert);
+        $stmt->bind_param("ii", $utilizador_id, $quiz_nome_id);
+
+        if ($stmt->execute()) {
+            echo "Dados inseridos com sucesso!";
+        } else {
+            echo "Erro ao inserir dados: " . $stmt->error;
         }
+
+        // Fecha a declaração
+        $stmt->close();
+    } else {
+        // Se quiz_nome_id não foi recebido via GET, retorna uma mensagem de erro
+        echo "Erro: quiz_nome_id não foi recebido via GET";
     }
 
-    // Aqui você pode calcular o resultado com base nas respostas obtidas
-    // Exemplo de cálculo do resultado
-    $result = "";
-    foreach ($responses as $response) {
-        $result .= $response . ", ";
-    }
-
-    // Remove a vírgula extra no final
-    $result = rtrim($result, ", ");
-
-    // Aqui você pode enviar o resultado de volta para o front-end ou fazer o que desejar com ele
-    echo $result;
-
-    // Feche a conexão com o banco de dados
+    // Fecha a conexão com o banco de dados
     $conn->close();
+} else {
+    // Se a sessão do usuário não estiver definida, retorna uma mensagem de erro
+    echo "Erro: Sessão do usuário não está definida";
 }
 ?>
