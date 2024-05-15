@@ -35,8 +35,8 @@ if (isset($_SESSION['id_utilizador'])) {
             $edicao_realizada = true;
           }
         } /*else {
-        $_SESSION['danger_nome_message'] = "Nome utilizado anteriormente. Insere outro!";
-      }*/
+    $_SESSION['danger_nome_message'] = "Nome utilizado anteriormente. Insere outro!";
+  }*/
       }
     }
 
@@ -477,114 +477,55 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 
-            <!-- QUIZ EMPATIA -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão
-                        empática/o és?
+            <!-- QUIZZES -->
+            <?php
+            $query = "SELECT
+                        quizzes.quiz_nome_id,
+                        quiz_nome.nome AS nome,
+                        COUNT(*) AS total
+                      FROM
+                        quizzes
+                      INNER JOIN
+                        quiz_nome ON quizzes.quiz_nome_id = quiz_nome.quiz_nome_id
+                      WHERE
+                        utilizador_id = $utilizador_id
+                      GROUP BY
+                        quiz_nome_id";
+
+            $query_run = mysqli_query($conn, $query);
+
+            // Verifica se a consulta foi bem-sucedida e se há linhas retornadas
+            if ($query_run && mysqli_num_rows($query_run) > 0) {
+              while ($row = mysqli_fetch_assoc($query_run)) {
+                $quiz_nome = $row['nome'];
+                $total = $row['total'];
+                ?>
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            <?php echo "Quiz realizado - $quiz_nome"; ?>
+                          </div>
+                          <h1><?php echo $total; ?></h1>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-question fa-2x text-gray-300"></i>
+                        </div>
                       </div>
-                      <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 1 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
-
-                      $query_run = mysqli_query($conn, $query);
-
-                      $row = mysqli_num_rows($query_run);
-
-                      echo '<h1> ' . $row . '</h1>';
-                      ?>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-handshake fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- QUIZ PREOCUPAÇÃO -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão
-                        preocupada/o és?
-                      </div>
-                      <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 2 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
-
-                      $query_run = mysqli_query($conn, $query);
-
-                      $row = mysqli_num_rows($query_run);
-
-                      echo '<h1> ' . $row . '</h1>';
-                      ?>
-                    </div>
-                    <div class="col-auto">
-                      <i class="far fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- QUIZ ENERGIA -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - Tens uma
-                        energia positiva?
-                      </div>
-                      <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 3 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
-
-                      $query_run = mysqli_query($conn, $query);
-
-                      $row = mysqli_num_rows($query_run);
-
-                      echo '<h1> ' . $row . '</h1>';
-                      ?>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-bolt fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <?php
+              }
+            } else {
+              // Se não houver nenhum quiz realizado pelo usuário, exiba uma mensagem indicando isso
+              echo "Nenhum quiz realizado.";
+            }
+            ?>
 
 
-            <!-- QUIZ EMOÇÃO -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Quiz realizado - O quão
-                        livre emocionalmente, és?
-                      </div>
-                      <?php
-                      $query = "SELECT utilizador_id FROM quizzes WHERE quiz_nome_id = 4 AND utilizador_id = $utilizador_id ORDER BY quiz_id";
-
-                      $query_run = mysqli_query($conn, $query);
-
-                      $row = mysqli_num_rows($query_run);
-
-                      echo '<h1> ' . $row . '</h1>';
-                      ?>
-                    </div>
-                    <div class="col-auto">
-                      <i class="far fa-smile-wink fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <!--</div>
             </div>
           </div>-->
