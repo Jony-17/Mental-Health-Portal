@@ -130,35 +130,35 @@ if (isset($_SESSION['id_utilizador'])) {
 
       <!-- Nav Item - Editar Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEditar"
-          aria-expanded="true" aria-controls="collapseEditar">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEditar" aria-expanded="true"
+          aria-controls="collapseEditar">
           <i class="fas fa-edit"></i>
           <span>Editar</span>
         </a>
         <div id="collapseEditar" class="collapse" aria-labelledby="headingEditar" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Perturbações Mentais</h6>
-            <a class="collapse-item" href="inserir/perturbacoes/">Perturbações</a><!---->
-            <a class="collapse-item" href="inserir/grupos-perturbacoes/">Grupo de Perturbações</a><!---->
-            <a class="collapse-item" href="inserir/juncao-perturbacoes/">Junção de Perturbações</a><!---->
-            <a class="collapse-item" href="inserir/perturbacoes/personalidade/">Perturbações de Person.</a><!---->
-            <a class="collapse-item" href="inserir/juncao-perturbacoes-personalidade/">Junção de Pert. de
-              Person.</a><!---->
-            <a class="collapse-item" href="inserir/10-factos/">10 factos</a><!---->
+            <a class="collapse-item" href="editar/perturbacoes/">Perturbações</a><!--feito-->
+            <a class="collapse-item" href="editar/grupos-perturbacoes/">Grupo de Perturbações</a><!--feito-->
+            <a class="collapse-item" href="editar/juncao-perturbacoes/">Junção de Perturbações</a><!--feito-->
+            <a class="collapse-item" href="editar/perturbacoes/personalidade/">Perturbações de Person.</a><!--feito-->
+            <a class="collapse-item" href="editar/juncao-perturbacoes-personalidade/">Junção de Pert. de
+              Person.</a><!--feito-->
+            <a class="collapse-item" href="editar/10-factos/">10 factos</a><!--feito-->
 
             <h6 class="collapse-header">Artigos</h6>
-            <a class="collapse-item" href="inserir/artigos/">Artigos</a><!---->
+            <a class="collapse-item" href="editar/artigos/">Artigos</a><!--feito-->
 
             <h6 class="collapse-header">Notícias</h6>
-            <a class="collapse-item" href="inserir/noticias/">Notícias</a><!---->
+            <a class="collapse-item" href="editar/noticias/">Notícias</a><!--feito-->
 
             <h6 class="collapse-header">Conteúdo Educativo</h6>
-            <a class="collapse-item" href="inserir/quizzes/">Quizzes</a><!---->
-            <a class="collapse-item" href="inserir/exercicios-mindfulness/">Exercícios Mindfulness</a><!---->
-            <a class="collapse-item" href="inserir/ted-talks/">TED Talks</a><!---->
+            <a class="collapse-item" href="editar/quizzes/">Quizzes</a><!--feito-->
+            <a class="collapse-item" href="editar/exercicios-mindfulness/">Exercícios Mindfulness</a><!--feito-->
+            <a class="collapse-item" href="editar/ted-talks/">TED Talks</a><!--feito-->
 
             <h6 class="collapse-header">Perguntas Frequentes</h6>
-            <a class="collapse-item" href="inserir/perguntas-frequentes/">Perguntas e respostas</a><!---->
+            <a class="collapse-item" href="editar/perguntas-frequentes/">Perguntas e respostas</a><!--feito-->
           </div>
         </div>
       </li>
@@ -272,7 +272,7 @@ if (isset($_SESSION['id_utilizador'])) {
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Alunos registados -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -298,29 +298,131 @@ if (isset($_SESSION['id_utilizador'])) {
               </div>
             </div>
 
-            <!-- Pending Requests Card Example -->
+            <!-- Artigos existentes -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TAREFAS REALIZADAS</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">ARTIGOS EXISTENTES</div>
                       <?php
-                      $query = "SELECT utilizador_id FROM utilizadores WHERE admin=0 ORDER BY utilizador_id";
+                      $query = "SELECT COUNT(*) AS total_artigos FROM artigos";
                       $query_run = mysqli_query($conn, $query);
-
-                      $row = mysqli_num_rows($query_run);
-
-                      echo '<h1> ' . $row . '</h1>';
+                      
+                      $row = mysqli_fetch_assoc($query_run);
+                      
+                      $total_artigos = $row['total_artigos'];
+                      echo '<h1>' . $total_artigos . '</h1>';
                       ?>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- Notícias existentes -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">NOTÍCIAS EXISTENTES</div>
+                      <?php
+                      $query = "SELECT COUNT(*) AS total_noticias FROM noticias";
+                      $query_run = mysqli_query($conn, $query);
+                      
+                      $row = mysqli_fetch_assoc($query_run);
+                      
+                      $total_noticias = $row['total_noticias'];
+                      echo '<h1>' . $total_noticias . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                      <i class="far fa-newspaper fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quizzes existentes -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">QUIZZES EXISTENTES</div>
+                      <?php
+                      $query = "SELECT COUNT(*) AS total_quizzes FROM quiz_nome";
+                      $query_run = mysqli_query($conn, $query);
+                      
+                      $row = mysqli_fetch_assoc($query_run);
+                      
+                      $total_quizzes = $row['total_quizzes'];
+                      echo '<h1>' . $total_quizzes . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                    <i class="fas fa-question fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exercícios Mindfulness existentes -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">EXERCÍCIOS MINDFULNESS EXISTENTES</div>
+                      <?php
+                      $query = "SELECT COUNT(*) AS total_exercicios_mindfulness FROM exercicios_mindfulness";
+                      $query_run = mysqli_query($conn, $query);
+                      
+                      $row = mysqli_fetch_assoc($query_run);
+                      
+                      $total_exercicios_mindfulness = $row['total_exercicios_mindfulness'];
+                      echo '<h1>' . $total_exercicios_mindfulness . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-heart fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ted Talks existentes -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TED TALKS EXISTENTES</div>
+                      <?php
+                      $query = "SELECT COUNT(*) AS total_ted_talks FROM ted_talks";
+                      $query_run = mysqli_query($conn, $query);
+                      
+                      $row = mysqli_fetch_assoc($query_run);
+                      
+                      $total_ted_talks = $row['total_ted_talks'];
+                      echo '<h1>' . $total_ted_talks . '</h1>';
+                      ?>
+                    </div>
+                    <div class="col-auto">
+                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <!-- Content Row -->
