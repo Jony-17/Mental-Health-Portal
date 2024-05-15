@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Maio-2024 às 00:33
+-- Tempo de geração: 15-Maio-2024 às 13:24
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -85,9 +85,9 @@ CREATE TABLE `conteudo_artigo` (
 
 INSERT INTO `conteudo_artigo` (`conteudo_artigo_id`, `artigo_id`, `ponto`, `texto`) VALUES
 (1, 1, 'testetestete1', 'testetestete1'),
-(2, 1, 'testetestete2', 'testetestete2'),
+(2, 1, 'testetestete1', 'testetestete1'),
 (4, 2, 'Conteúdo', '1 Generalized anxiety disorder (GAD) is a specific type of anxiety disorder. Most people worry at times about'),
-(40, 40, 'testeponto', 'testeTexto');
+(40, 40, 'testeponto1', 'testeTexto1');
 
 -- --------------------------------------------------------
 
@@ -272,7 +272,8 @@ INSERT INTO `juncao_perturbacoes` (`juncao_perturbacoes_id`, `perturbacoes_id`, 
 (15, 6, 15),
 (16, 6, 16),
 (17, 7, 17),
-(18, 7, 18);
+(18, 7, 18),
+(25, 13, 22);
 
 -- --------------------------------------------------------
 
@@ -491,66 +492,8 @@ CREATE TABLE `quizzes` (
 --
 
 INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_nome_id`) VALUES
-(88, 18, 1),
-(93, 18, 1),
-(94, 18, 1),
-(95, 18, 2),
-(96, 18, 1),
-(97, 18, 1),
-(98, 18, 2),
-(99, 18, 3),
-(100, 18, 2),
-(101, 18, 4),
-(102, 18, 4),
-(103, 18, 4),
-(104, 18, 4),
-(105, 18, 4),
-(106, 18, 4),
-(107, 18, 4),
-(108, 18, 4),
-(109, 18, 4),
-(110, 18, 4),
-(111, 18, 4),
-(112, 18, 4),
-(113, 18, 4),
-(114, 18, 4),
-(115, 18, 4),
-(116, 18, 4),
-(117, 18, 4),
-(118, 18, 4),
-(119, 18, 4),
-(120, 18, 4),
-(121, 18, 4),
-(122, 18, 4),
-(123, 18, 4),
-(124, 18, 4),
-(125, 18, 4),
-(126, 18, 4),
-(127, 18, 4),
-(128, 18, 4),
-(129, 18, 4),
-(130, 18, 4),
-(131, 18, 4),
-(132, 18, 4),
-(133, 18, 4),
-(134, 18, 4),
-(135, 18, 4),
-(136, 18, 4),
-(137, 18, 4),
-(138, 18, 4),
-(139, 18, 4),
-(140, 18, 4),
-(141, 18, 4),
-(142, 18, 4),
-(143, 18, 4),
-(144, 18, 4),
-(145, 18, 4),
-(146, 18, 4),
-(147, 18, 4),
-(148, 18, 4),
-(149, 18, 4),
-(150, 18, 4),
-(151, 18, 4);
+(162, 18, 1),
+(163, 18, 23);
 
 -- --------------------------------------------------------
 
@@ -626,7 +569,7 @@ INSERT INTO `quiz_respostas` (`quiz_respostas_id`, `quiz_nome_id`, `qtd`, `respo
 (4, 1, 4, 'És uma pessoa com mesmo muita empatia'),
 (5, 2, 1, 'teste1'),
 (6, 2, 2, 'teste2'),
-(19, 23, 2, 'testeresposta1');
+(19, 23, 1, 'testeresposta1');
 
 -- --------------------------------------------------------
 
@@ -913,7 +856,7 @@ ALTER TABLE `grupos_perturbacoes`
 -- AUTO_INCREMENT de tabela `juncao_perturbacoes`
 --
 ALTER TABLE `juncao_perturbacoes`
-  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `juncao_perturbacoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `juncao_pert_personalidade`
@@ -961,7 +904,7 @@ ALTER TABLE `perturbacoes_personalidade`
 -- AUTO_INCREMENT de tabela `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_nome`
