@@ -334,11 +334,11 @@ if (isset($_SESSION['id_utilizador'])) {
                         $titulo_codificado = urlencode($row["titulo"]);
                         ?>
                         <a href="artigo/?titulo=<?php echo $titulo_codificado; ?>">
-                        <img src="../admin/inserir/imgs/artigos/<?php if (!empty($row["img_artigo"])) {
-                                    echo $row["img_artigo"];
-                                } else {
-                                    echo "teste.jpeg";
-                                } ?>" alt="<?php echo $row["img_artigo"];?>">
+                            <img src="../admin/inserir/imgs/artigos/<?php if (!empty($row["img_artigo"])) {
+                                echo $row["img_artigo"];
+                            } else {
+                                echo "teste.jpeg";
+                            } ?>" alt="<?php echo $row["img_artigo"]; ?>">
                         </a>
                         <div class="card4-content">
                             <h3><?php echo $row["perturbacao_nome"] ?></h3>
@@ -436,10 +436,19 @@ if (isset($_SESSION['id_utilizador'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <div class="fontes-content2">
-            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                vita. MyLife.</p>
-        </div>
+        <?php
+        // Consulta para obter a lista de perturbações
+        $query = "SELECT * FROM artigos WHERE fonte IS NOT NULL AND fonte <> '';";
+        $result = mysqli_query($conn, $query);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="fontes-content2">
+                <p><?php echo $row['fonte']; ?></p>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 
     <!--Scroll to top-->
