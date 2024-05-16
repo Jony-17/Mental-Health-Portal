@@ -338,6 +338,20 @@ header {
 
 /*--------------Heading---------------------------*/
 
+.background1 {
+  position: absolute;
+  top: 280px;
+  right: 0;
+  z-index: -2;
+}
+
+.background2 {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  z-index: -2;
+}
+
 .heading {
   padding-left: 100px;
   padding-right: 100px;
