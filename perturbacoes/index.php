@@ -171,6 +171,14 @@ if (isset($_SESSION['id_utilizador'])) {
         </li>
     </ol>
 
+    <div class="background1">
+        <img src="background1.png" alt="banner background" />
+    </div>
+
+    <div class="background2">
+        <img src="background2.png" alt="banner background" />
+    </div>
+
     <div class="heading">
         <h1>
             Perturbações Mentais
