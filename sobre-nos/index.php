@@ -119,7 +119,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="#">Exercícios Mindfulness</a></li>
@@ -183,57 +184,48 @@ if (isset($_SESSION['id_utilizador'])) {
         <h1>
             Quem somos
         </h1>
-        <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to someone
-            else.  Being an empath means you can actually feel another person’s happiness or sadness in your own body.
+        <p>Sabemos que não existe uma abordagem única quando se trata de saúde mental e
+            bem-estar, porque vivemo-lo diariamente. O objetivo do Portal de Saúde Mental consiste em fornecer variados
+            tipos de
+            recursos para cada pessoa, consoante todos os aspetos da vida.
         </p>
     </div>
 
     <!--Sobre nós-->
     <section class="sobre-nos" id="sobre-nos">
         <div class="sobre-nos-texto">
-            <h2>“O que é necessário para mudar uma pessoa é mudar a consciência de si mesma.”</h2>
-            <p>— Abraham Maslow</p>
+            <h2>“Não podemos mudar, não podemos nos afastar do que somos enquanto não aceitarmos profundamente o que
+                somos.”</h2>
+            <p>— Carl Rogers</p>
         </div>
         <div class="sobre-nos-container">
             <img src="sobre-nos.png" alt="">
-            <p>O ISPGAYA pretende promover o pleno desenvolvimento dos seus estudantes através duma formação integrada
-                técnico-científica, sociocultural e humana.
-                Baseado nos valores humanos, o ISPGAYA dá importante relevo à dimensão pessoal e comunitária, formando
-                os
-                seus estudantes para a liberdade responsável, a abertura ao futuro, a flexibilidade na mudança, a
-                solidariedade com o mundo em que está inserido, a responsabilidade participativa, o respeito pelas
-                ideias e
-                pela consciência dos demais e o compromisso na construção da fraternidade humana.
-                O ISPGAYA procura também estimular a criação, difusão da cultura e da ciência através do CID - Centro de
-                Investigação e Desenvolvimento, nomeadamente, a revista Politécnica, a revista PEC - Psicologia,
-                Educação e
-                Cultura e outras publicações científicas relevantes.</p>
+            <p>O Portal de Saúde Mental é um espaço dedicado aos alunos do ISPGAYA, com o intuito de proporcionar ao
+                bem-estar emocional, recursos como um chatbot onde poderão pedir todo o tipo de ajuda, um fórum onde
+                poderão compartilhar experiências, procurar conselhos e encontrar
+                suporte emocional, artigos e notícias atualizadas. Com um compromisso
+                com a integridade científica e o desenvolvimento pessoal, o nosso objetivo é oferecer suporte abrangente
+                para diversas perturbações mentais, promovendo a solidariedade, o respeito e a responsabilidade
+                comunitária. Prezamos por um ambiente de aprendizagem contínua e de apoio mútuo, contribuindo para a
+                construção de uma sociedade mais consciente e fraterna!</p>
         </div>
 
         <div class="nossa-missao">
             <h1>
                 A nossa missão
             </h1>
-            <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
-                Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to
-                someone
-                else.  Being an empath means you can actually feel another person’s happiness or sadness in your own
-                body.
+            <p>Pretendemos fornecer todo o tipo de informação sobre perturbações mentais e os grupos adjacentes. A nossa
+                missão
+                objetivo é criar um repositório abrangente que aborde desde definições e sintomas até
+                prevalências das mesmas.
+
+                O portal inclui artigos detalhados, guias práticos, notícias atualizadas sempre com o intuito de
+                promover a conscientização. Através do nosso fórum, os alunos podem trocar experiências, obter conselhos
+                e encontrar conforto numa comunidade solidária.
+
+                Estamos comprometidos com a criação de um ambiente inclusivo e informativo, onde todos possam aceder o
+                e obter todo o conhecimento necessário para lidar com desafios mentais e emocionais, promovendo uma vida
+                mais saudável e equilibrada.
             </p>
         </div>
     </section>
