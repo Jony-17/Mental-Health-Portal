@@ -170,14 +170,16 @@ if (isset($_SESSION['id_utilizador'])) {
                 <img src="imgs/imgs-backgrounds/background1.png" alt="banner background" />
             </div>
 
+            <!--<div class="home-banner2Image-container">
+                <img src="imgs/imgs-backgrounds/background-nuvens.png" alt="banner background" />
+            </div>-->
+
             <div class="home-text-section">
                 <h1 class="home-primary-heading">
                     Saúde Mental <br> É Uma Prioridade
                 </h1>
                 <p class="home-primary-text">
-                    Healthy switcher chefs do all the prep work, like
-                    peeding, chopping & marinating, so you can cook
-                    a fresh food.
+                    Comece hoje a melhorar a sua saúde mental e bem-estar!
                 </p>
                 <a href="#about" class="secondary-button">
                     <i class="fas fa-arrow-down"></i> Sabe mais
@@ -211,9 +213,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     Nós queremos <br> saber de ti
                 </h1>
                 <p class="about-primary-text">
-                    Healthy switcher chefs do all the prep work, like
-                    peeding, chopping & marinating, so you can cook
-                    a fresh food.
+                    Nós encarregamo-nos de fornecer todo o conhecimento e habilidades necessárias para fortalecer a sua
+                    saúde mental e bem-estar
                 </p>
                 <div class="card">
                     <div class="card-body">
@@ -233,7 +234,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     <div class="card-body">
                         <i class="far fa-newspaper"></i>
-                        <h1 class="card-title">Notícias de saúde mental sempre atualizadas</h1>
+                        <h1 class="card-title">Artigos científicos atualizados</h1>
                     </div>
                 </div>
 
@@ -372,26 +373,47 @@ if (isset($_SESSION['id_utilizador'])) {
             </h1>
         </div>
         <div class="card4-container">
-            <a href="../conteudo-educativo/quizzes/quizzes-empatia">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão empática/o és?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/empatia.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
-            <a href="../conteudo-educativo/quizzes/quizzes-emocao">
-                <div class="card4">
-                    <div class="card4-content">
-                        <h1>O quão livre és, emocionalmente?</h1>
-                    </div>
-                    <div class="card4-content2">
-                        <img src="imgs/imgs-quizzes/livre.png" alt="O que é a saúde mental?">
-                    </div>
-                </div>
-            </a>
+            <?php
+            $query = "SELECT * FROM quiz_nome LIMIT 2";
+            $query_run = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    ?>
+                    <?php
+                    $nome_codificado = urlencode($row["nome"]);
+                    ?>
+                    <a href="../conteudo-educativo/quizzes/quizz/?nome=<?php echo $nome_codificado; ?>&quiz_nome_id=<?php echo $row['quiz_nome_id']; ?>"
+                        onclick="loadQuizData(<?php echo $row['quiz_nome_id']; ?>);">
+                        <div class="card4">
+                            <div class="card4-content">
+                                <h1><?php echo $row['nome']; ?></h1>
+                            </div>
+                            <div class="card4-content2">
+                                <img src="../admin/inserir/imgs/quizzes/<?php if (!empty($row["img_quiz"])) {
+                                    echo $row["img_quiz"];
+                                } else {
+                                    echo "teste.jpeg";
+                                } ?>" alt="Quizz">
+                            </div>
+                        </div>
+                    </a>
+                    <!--<a href="../conteudo-educativo/quizzes/quizzes-emocao">
+                        <div class="card4">
+                            <div class="card4-content">
+                                <h1>O quão livre és, emocionalmente?</h1>
+                            </div>
+                            <div class="card4-content2">
+                                <img src="imgs/imgs-quizzes/livre.png" alt="O que é a saúde mental?">
+                            </div>
+                        </div>
+                    </a>-->
+                    <?php
+                }
+            } else {
+                echo '<div style="margin: 100px 100px 30px 100px; font-size: 20px;">Nenhuma perturbação encontrada.</div>';
+            }
+            ?>
         </div>
         <a href="../conteudo-educativo/quizzes" class="fifth-button">Ver mais</a>
     </section>
@@ -679,29 +701,29 @@ if (isset($_SESSION['id_utilizador'])) {
                 <ul>
                     <li><a href="#" target="_blank">Apoio Psicológico</a>
                         <ul>
-                            <li style="color: #DADADA;">24h/dia</li>
+                            <li style="color: #9e630a;">24h/dia</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
                         <ul>
-                            <li style="color: #DADADA;">Todos os dias das 08h00 às 00h00</li>
+                            <li style="color: #9e630a;">Todos os dias das 08h00 às 00h00</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="#" target="_blank">SOS Voz Amiga</a>
                         <ul>
-                            <li style="color: #DADADA;">Todos os dias das 15:30h às 00:30h</li>
+                            <li style="color: #9e630a;">Todos os dias das 15:30h às 00:30h</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="#" target="_blank">Linha Conversa Amiga</a>
                         <ul>
-                            <li style="color: #DADADA;">Dias úteis das 15h00 às 22h00</li>
-                            <li style="color: #DADADA;">Fins de semana das 19h00 às 22h00</li>
+                            <li style="color: #9e630a;">Dias úteis das 15h00 às 22h00</li>
+                            <li style="color: #9e630a;">Fins de semana das 19h00 às 22h00</li>
                         </ul>
                     </li>
                 </ul>
