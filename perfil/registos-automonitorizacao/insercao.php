@@ -1,58 +1,31 @@
 <?php
 session_start();
-require_once ('../../conn/conn.php');
+require_once ("../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
-if (isset($_SESSION['id_utilizador'])) {
-    // Obtém o ID do usuário da sessão
-    $utilizador_id = $_SESSION['id_utilizador'];
-    echo "<script>console.log('ID: $utilizador_id');</script>";
+if (isset($_POST['inserirbtn'])) {
+    $pensamento = $_POST['pensamento'];
+    $comportamento = $_POST['comportamento'];
+    $sentimentos = $_POST['sentimentos'];
+    $quando = $_POST['quando'];
+    $pensamento_alternativo = $_POST['pensamento_alternativo'];
+    $comportamento_alternativo = $_POST['comportamento_alternativo'];
 
-    // Consulta SQL para buscar o campo img_perfil
-    $query = "SELECT nome, email, password, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
+    if (isset($_POST['registos_id']))
+        $registos_id = $_POST['registos_id'];
 
-    $result = mysqli_query($conn, $query);
+    $query = "UPDATE registos SET pensamento = '$pensamento', comportamento = '$comportamento', sentimentos = '$sentimentos', quando = '$quando', pensamento_alternativo = '$pensamento_alternativo', comportamento_alternativo = '$comportamento_alternativo' WHERE registos_id = $registos_id";
 
-    if ($result) {
-        // Extrair o resultado da consulta
-        $row = mysqli_fetch_assoc($result);
+    $query_run = mysqli_query($conn, $query);
 
-        // Exibir o valor da sessão
-        //var_dump($_SESSION['id_utilizador']);
+    if ($query_run) {
+        $_SESSION['status'] = "Registos atualizados com sucesso";
+        $_SESSION['status_code'] = "success";
+        header('Location: .');
     } else {
-        echo "Erro na consulta SQL: " . mysqli_error($conn);
-    }
-
-
-
-    if (isset($_POST['inserirbtn'])) {
-        $Pensamento = $_POST['Pensamento'];
-        $Comportamento = $_POST['Comportamento'];
-        $Sentimentos = $_POST['Sentimentos'];
-        $Quando = $_POST['Quando'];
-        $Pensamento_Alternativo = $_POST['Pensamento_Alternativo'];
-        $Comportamento_Alternativo = $_POST['Comportamento_Alternativo'];
-
-        $nome_query = "SELECT * FROM registos WHERE pensamento='$Pensamento' AND comportamento='$Comportamento'
-                       AND sentimentos='$Sentimentos' AND quando='$Quando' AND pensamento_alternativo='$Pensamento_Alternativo' AND comportamento_alternativo='$Comportamento_Alternativo'";
-        $nome_query_run = mysqli_query($conn, $nome_query);
-        if (!empty($Pensamento) && !empty($Comportamento)) {
-            $query = "INSERT INTO registos (utilizador_id, pensamento, comportamento, sentimentos, quando, pensamento_alternativo, comportamento_alternativo) VALUES ('$utilizador_id', '$Pensamento','$Comportamento', '$Sentimentos', '$Quando', '$Pensamento_Alternativo', '$Comportamento_Alternativo')";
-            $query_run = mysqli_query($conn, $query);
-
-            if ($query_run) {
-                echo '<script>console.log("Foram inseridos");</script>';
-                $_SESSION['status'] = "Dados inseridos com sucesso";
-                $_SESSION['status_code'] = "success";
-                header('Location: .');
-            } else {
-                echo '<script>console.log("Erro ao executar consulta SQL: ' . mysqli_error($conn) . '");</script>';
-            }
-        } else {
-            $_SESSION['status'] = "Não foi inserido nenhum dado";
-            $_SESSION['status_code'] = "warning";
-            header('Location: .');
-        }
+        $_SESSION['status'] = "Erro ao atualizar Registos   ";
+        $_SESSION['status_code'] = "error";
+        header('Location: .');
     }
 }
+
 ?>

@@ -347,7 +347,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <th><a href="#pontos"><span class="th-textos">[4]</span></a>Quando</th>
                         <th><a href="#pontos"><span class="th-textos">[5]</span></a>Pensamento Alternativo</th>
                         <th><a href="#pontos"><span class="th-textos">[6]</span></a>Comportamento Alternativo</th>
-                        <!--<th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>-->
+                        <th><a href="#pontos"><span class="th-textos"></span></a>Nota</th>
                       </tr>
                     </thead>
                     <tbody> <?php if (mysqli_num_rows($result) > 0) {
@@ -359,6 +359,13 @@ if (isset($_SESSION['id_utilizador'])) {
                             <td><?php echo $row['quando']; ?></td>
                             <td><?php echo $row['pensamento_alternativo']; ?></td>
                             <td><?php echo $row['comportamento_alternativo']; ?></td>
+                            <td>
+                              <form action="edicao.php" method="post">
+                                <input type="hidden" name="edit_id" value="<?php echo $row['registos_id']; ?>">
+                                <button type="submit" name="edit_btn" class="btn btn-primary">
+                                  Editar</button>
+                              </form>
+                            </td>
                             </form>
 
                           </tr> <?php }
