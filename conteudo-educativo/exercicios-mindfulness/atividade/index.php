@@ -72,7 +72,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <ul class="links">
                 <li><a href="../../../paginainicial">Página Inicial</a></li>
-                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="../../../sobre-nos">Sobre Nós</a></li>
                 <li><a href="../../../perturbacoes">Perturbações</a></li>
                 <li><a href="../../../artigos">Artigos</a></li>
                 <li><a href="../../../noticias">Notícias</a></li>
@@ -116,7 +116,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <div class="dropdown_menu">
             <li><a href="../../../paginainicial">Página Inicial</a></li>
-            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="../../../sobre-nos">Sobre Nós</a></li>
             <li><a href="../../../perturbacoes">Perturbações</a></li>
             <li><a href="../../../artigos">Artigos</a></li>
             <li><a href="../../../noticias">Notícias</a></li>

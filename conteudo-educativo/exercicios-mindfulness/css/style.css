@@ -339,6 +339,23 @@ header {
 
 /*--------------Heading---------------------------*/
 
+.background1 {
+  position: absolute;
+  top: 400px;
+  right: 0;
+  z-index: -2;
+  max-width: 700px;
+}
+
+.background2 {
+  position: absolute;
+  top: 600px;
+  left: 0;
+  transform: rotate(180deg);
+  z-index: -2;
+  max-width: 700px;
+}
+
 .heading {
   padding-left: 100px;
   padding-right: 100px;

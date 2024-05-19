@@ -70,7 +70,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <ul class="links">
                 <li><a href="../../paginainicial">Página Inicial</a></li>
-                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="../../sobre-nos">Sobre Nós</a></li>
                 <li><a href="../../perturbacoes">Perturbações</a></li>
                 <li><a href="../../artigos">Artigos</a></li>
                 <li><a href="../../noticias">Notícias</a></li>
@@ -114,7 +114,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <div class="dropdown_menu">
             <li><a href="../../paginainicial">Página Inicial</a></li>
-            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="../../sobre-nos">Sobre Nós</a></li>
             <li><a href="../../perturbacoes">Perturbações</a></li>
             <li><a href="../../artigos">Artigos</a></li>
             <li><a href="../../noticias">Notícias</a></li>
@@ -186,6 +186,15 @@ if (isset($_SESSION['id_utilizador'])) {
         <p>Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual,
             intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar
             absorvido por ela</p>
+    </div>
+
+    <!--Backgrounds-->
+    <div class="background1">
+        <img src="../ted-talks/imgs/imgs-backgrounds/background2.png" alt="banner background" />
+    </div>
+
+    <div class="background2">
+        <img src="../ted-talks/imgs/imgs-backgrounds/background2.png" alt="banner background" />
     </div>
 
     <!--Exercícios Mindfulness-->
