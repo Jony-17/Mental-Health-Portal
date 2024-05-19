@@ -71,6 +71,7 @@ button#langButtonPT {
   padding: 0;
   box-sizing: border-box;
   font-family: "Saira Condensed", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1181,7 +1182,7 @@ footer {
   width: 90%;
   margin: auto;
   display: flex;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   align-items: flex-start;
   justify-content: space-between;
 }
