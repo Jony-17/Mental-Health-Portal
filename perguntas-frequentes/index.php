@@ -71,7 +71,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <ul class="links">
                 <li><a href="../paginainicial">Página Inicial</a></li>
-                <li><a href="">Sobre Nós</a></li>
+                <li><a href="../sobre-nos">Sobre Nós</a></li>
                 <li><a href="../perturbacoes">Perturbações</a></li>
                 <li><a href="../artigos">Artigos</a></li>
                 <li><a href="../noticias">Notícias</a></li>
@@ -79,7 +79,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
                         <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                        <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
                         <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                     </ul>
                 </li>
@@ -115,7 +115,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <div class="dropdown_menu">
             <li><a href="../paginainicial">Página Inicial</a></li>
-            <li><a href="">Sobre Nós</a></li>
+            <li><a href="../sobre-nos">Sobre Nós</a></li>
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
@@ -123,7 +123,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
                     <li><a href="../conteudo-educativo/ted-talks">TED Talks</a></li>
                 </ul>
             </li>
