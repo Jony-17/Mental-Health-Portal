@@ -18,7 +18,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
         // Exibir o valor da sessão
         //var_dump($_SESSION['id_utilizador']);
-
     } else {
         echo "Erro na consulta SQL: " . mysqli_error($conn);
     }
@@ -217,50 +216,59 @@ if (isset($_SESSION['id_utilizador'])) {
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Inserir dados da notícia</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Inserir junção de perturbações de
+                                    personalidade</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="noticias.php" method="POST" enctype="multipart/form-data">
+                            <form action="juncao-perturbacoes-personalidade.php" method="POST">
 
                                 <div class="modal-body">
 
                                     <div class="form-group">
-                                        <label>Título</label>
-                                        <input type="text" name="titulo" class="form-control">
+                                        <label>Nome da Perturbação</label>
+                                        <select name="nome_perturbacao" class="form-control">
+                                            <?php
+                                            $query_perturbacoes = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = 'Perturbações de Personalidade'";
+                                            $result_perturbacoes = mysqli_query($conn, $query_perturbacoes);
+
+                                            while ($row = mysqli_fetch_assoc($result_perturbacoes)): ?>
+                                                <option value="<?php echo $row['perturbacoes_id']; ?>">
+                                                    <?php echo $row['nome']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Data da publicação</label>
-                                        <input type="text" name="data_publicacao" class="form-control">
+                                        <label>Grupo da Perturbação</label>
+                                        <select name="grupo_perturbacao" class="form-control">
+                                            <?php
+                                            $query_grupos_perturbacoes = "SELECT grupos_perturbacoes_id, nome FROM grupos_perturbacoes WHERE nome LIKE '%Grupo%'";
+                                            $result_grupos_perturbacoes = mysqli_query($conn, $query_grupos_perturbacoes);
+
+                                            while ($row = mysqli_fetch_assoc($result_grupos_perturbacoes)): ?>
+                                                <option value="<?php echo $row['grupos_perturbacoes_id']; ?>">
+                                                    <?php echo $row['nome']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <label>Autor</label>
-                                        <input type="text" name="autor" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Imagem da notícia</label>
-                                        <input type="file" name="img_noticia" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Conteúdo do texto</label>
-                                        <input type="text" name="conteudo_texto" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ponto 1</label>
-                                        <div class="input-group">
-                                            <input type="text" name="ponto[]" class="form-control ponto-dinamico">
-                                            <button type="button"
-                                                class="btn btn-outline-secondary btn-add-ponto">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label>Texto do ponto 1</label>
-                                            <input type="text" name="texto[]" class="form-control texto-dinamico">
-                                            <button type="button"
-                                                class="btn btn-outline-secondary btn-add-texto">+</button>
-                                        </div>
+                                        <label>Grupo associados ao grupo da perturbação</label>
+                                        <select name="grupos_assoc_perturbacao" class="form-control">
+                                            <?php
+                                            $query_perturbacoes = "SELECT perturbacoes_personalidade_id, nome FROM perturbacoes_personalidade";
+                                            $result_perturbacoes = mysqli_query($conn, $query_perturbacoes);
+
+                                            while ($row = mysqli_fetch_assoc($result_perturbacoes)): ?>
+                                                <option value="<?php echo $row['perturbacoes_personalidade_id']; ?>">
+                                                    <?php echo $row['nome']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
                                     </div>
 
 
@@ -274,55 +282,20 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
 
-                <script>
-                    const btnAddPonto = document.querySelector('.btn-add-ponto');
-                    const btnAddTexto = document.querySelector('.btn-add-texto');
-                    let pontoCount = 1; // Começa em 1
-                    let textoCount = 1; // Começa em 1
-
-                    btnAddPonto.addEventListener('click', function () {
-                        const pontoGroup = this.closest('.form-group');
-                        const newPontoGroup = pontoGroup.cloneNode(true);
-                        pontoCount++; // Incrementar após a clonagem
-
-                        // Atualizar o identificador, nome e rótulo do campo
-                        const newInput = newPontoGroup.querySelector('.ponto-dinamico');
-                        newInput.name = `ponto[${pontoCount}]`;
-                        newInput.value = ''; // Limpar o valor do campo clonado
-                        const newLabel = newPontoGroup.querySelector('label');
-                        newLabel.textContent = `Ponto ${pontoCount}`; // Atualizar o rótulo
-
-                        pontoGroup.parentNode.insertBefore(newPontoGroup, pontoGroup.nextSibling);
-                    });
-
-                    btnAddTexto.addEventListener('click', function () {
-                        const textoGroup = this.closest('.form-group');
-                        const newTextoGroup = textoGroup.cloneNode(true);
-                        textoCount++; // Incrementar após a clonagem
-
-                        // Atualizar o identificador, nome e rótulo do campo
-                        const newInput = newTextoGroup.querySelector('.texto-dinamico');
-                        newInput.name = `texto[${textoCount}]`;
-                        newInput.value = ''; // Limpar o valor do campo clonado
-                        const newLabel = newTextoGroup.querySelector('label');
-                        newLabel.textContent = `Texto do ponto ${textoCount}`; // Atualizar o rótulo
-
-                        textoGroup.parentNode.insertBefore(newTextoGroup, textoGroup.nextSibling);
-                    });
-
-                </script>
 
                 <div class="container-fluid">
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Notícias</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Junção de perturbações de personalidade</h6>
                             <div class="card-header2">
+
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#addadminprofile">
-                                    Inserir
+                                    Inserir junção
                                 </button>
+
                             </div>
                         </div>
 
@@ -330,28 +303,20 @@ if (isset($_SESSION['id_utilizador'])) {
 
                             <div class="table-responsive">
                                 <?php
-                                $query = "SELECT 
-                                noticias.*, 
-                                GROUP_CONCAT(conteudo_noticia.ponto SEPARATOR '--- ') AS ponto,
-                                GROUP_CONCAT(conteudo_noticia.texto SEPARATOR '--- ') AS texto
-                            FROM 
-                                noticias
-                            LEFT JOIN 
-                            conteudo_noticia ON noticias.noticias_id = conteudo_noticia.noticias_id
-                            GROUP BY 
-                            noticias.noticias_id;";
+                                $query = "SELECT j.juncao_pert_pers_id, pp.nome AS pert_pers, p.*, p.nome AS nome_perturbacao, g.nome AS nome_grupo
+                                FROM juncao_pert_personalidade j
+                                INNER JOIN perturbacoes pp ON j.perturbacoes_id = pp.perturbacoes_id
+                                INNER JOIN perturbacoes_personalidade p ON j.perturbacoes_personalidade_id = p.perturbacoes_personalidade_id
+                                INNER JOIN grupos_perturbacoes g ON j.grupos_perturbacoes_id = g.grupos_perturbacoes_id;
+                                ";
                                 $query_run = mysqli_query($conn, $query);
                                 ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Título</th>
-                                            <th>Data de publicação</th>
-                                            <th>Autor</th>
-                                            <th>Imagem</th>
-                                            <th>Conteúdo</th>
-                                            <th>Pontos</th>
-                                            <th>Texto dos pontos</th>
+                                            <th>Nome da Perturbação</th>
+                                            <th>Nome do Grupo da perturbação</th>
+                                            <th>Nome do Grupo associados ao grupo da perturbação</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -361,25 +326,13 @@ if (isset($_SESSION['id_utilizador'])) {
                                                 ?>
                                                 <tr>
                                                     <td>
-                                                        <?php echo $row['titulo']; ?>
+                                                        <?php echo $row['pert_pers']; ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['data_publicacao']; ?>
+                                                        <?php echo $row['nome_grupo']; ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['autor']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['img_noticia']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['conteudo_texto']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['ponto']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['texto']; ?>
+                                                        <?php echo $row['nome_perturbacao']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php
