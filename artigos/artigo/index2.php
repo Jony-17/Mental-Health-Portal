@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html class="selection:text-white selection:bg-orange-400">
+<html>
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -34,7 +34,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../imgs/logo.png">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,16 +72,16 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <ul class="links">
                 <li><a href="../../paginainicial">Página Inicial</a></li>
-                <li><a href="../../sobre-nos">Sobre Nós</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="../../perturbacoes">Perturbações</a></li>
-                <li><a href="../../artigos">Artigos</a></li>
-                <li><a href="../../noticias">Notícias</a></li>
-                <li><a href="../../conteudo-educativo">Conteúdo Educativo</a>
+                <li><a href="..">Artigos</a></li>
+                <li><a href="#noticias">Notícias</a></li>
+                <li><a href="#">Conteúdo Educativo</a>
                     <i class="fas fa-chevron-down"></i>
                     <ul class="dropdown">
-                        <li><a href="../../conteudo-educativo/quizzes">Quizzes</a></li>
-                        <li><a href="../../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
-                        <li><a href="../../conteudo-educativo/ted-talks">TED Talks</a></li>
+                        <li><a href="../../quizzes">Quizzes</a></li>
+                        <li><a href="#">Exercícios Mindfulness</a></li>
+                        <li><a href="#">TED Talks</a></li>
                     </ul>
                 </li>
                 </li>
@@ -116,16 +116,15 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <div class="dropdown_menu">
             <li><a href="../../paginainicial">Página Inicial</a></li>
-            <li><a href="../../sobre-nos">Sobre Nós</a></li>
+            <li><a href="#">Sobre Nós</a></li>
             <li><a href="../../perturbacoes">Perturbações</a></li>
-            <li><a href="../../artigo">Artigos</a></li>
-            <li><a href="../../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../../conteudo-educativo">Conteúdo Educativo <i
-                        class="fas fa-chevron-down"></i></a>
+            <li><a href="..">Artigos</a></li>
+            <li><a href="#portfolio">Notícias</a></li>
+            <li class="dropdown-trigger"><a href="#">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="../../conteudo-educativo/quizzes">Quizzes</a></li>
-                    <li><a href="../../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
-                    <li><a href="../../conteudo-educativo/ted-talks">TED Talks</a></li>
+                    <li><a href="../../quizzes">Quizzes</a></li>
+                    <li><a href="#">Exercícios Mindfulness</a></li>
+                    <li><a href="#">TED Talks</a></li>
                 </ul>
             </li>
 
@@ -180,15 +179,13 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $artigo_id = $row['artigo_id'];
-
+            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
+    
             // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao
-                            FROM juncao_perturbacoes jp
-                            INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id
-                            WHERE jp.juncao_perturbacoes_id =
-                            (SELECT juncao_perturbacoes_id
-                            FROM artigos WHERE artigo_id = $artigo_id)";
+            $query_grupo = "SELECT jp.perturbacoes_id, p.nome AS nome_perturbacao 
+                        FROM juncao_perturbacoes jp 
+                        INNER JOIN perturbacoes p ON jp.perturbacoes_id = p.perturbacoes_id 
+                        WHERE jp.juncao_perturbacoes_id = $artigo_id";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
@@ -197,7 +194,7 @@ if (isset($_SESSION['id_utilizador'])) {
             echo '<ol role="list">';
             echo '<li class="list"><div class="items"><a href=".." class="text-sm">Artigos</a><span class="separator">/</span></div></li>';
             echo '<li class="list"><div class="items"><span class="text-sm">' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</span><span class="separator">/</span></div></li>';
-            echo '<li class="list"><div class="items-current"><span class="text-sm" aria-current="page">' . $row['titulo'] . '</span></div></li>';
+            echo '<li class="list"><div class="items-current"><span class="text-sm" aria-current="page">Artigo - ' . $row['titulo'] . '</span></div></li>';
             echo '</ol>';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
@@ -209,13 +206,6 @@ if (isset($_SESSION['id_utilizador'])) {
     }
     ?>
 
-    <div class="background1">
-        <img src="../background1.png" alt="banner background" />
-    </div>
-
-    <div class="background2">
-        <img src="../background2.png" alt="banner background" />
-    </div>
 
     <!--Títulos-->
     <?php
@@ -239,11 +229,7 @@ if (isset($_SESSION['id_utilizador'])) {
             $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
                         FROM juncao_perturbacoes jp 
                         INNER JOIN grupos_perturbacoes p ON jp.grupos_perturbacoes_id = p.grupos_perturbacoes_id 
-                        WHERE jp.juncao_perturbacoes_id =
-                        (SELECT juncao_perturbacoes_id
-                        FROM artigos
-                        WHERE artigo_id = $artigo_id)";
-
+                        WHERE jp.juncao_perturbacoes_id = $artigo_id";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
             $result_grupo = mysqli_query($conn, $query_grupo);
@@ -251,7 +237,7 @@ if (isset($_SESSION['id_utilizador'])) {
             // Exibir os resultados
             echo '<div class="heading">';
             echo '<h4>' . (($result_grupo && mysqli_num_rows($result_grupo) > 0) ? mysqli_fetch_assoc($result_grupo)['nome_perturbacao'] : "Perturbação não encontrada.") . '</h4>';
-            echo '<h1>' . $row['titulo'] . '</h1>';
+            echo '<h1>Artigo - ' . $row['titulo'] . '</h1>';
             echo '</div>';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
@@ -313,7 +299,7 @@ if (isset($_SESSION['id_utilizador'])) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
             // Exibir o autor e a data de publicação do artigo
-            echo '<img class="img-artigo" src="../../admin/inserir/imgs/artigos/' . (!empty($row["img_artigo"]) ? $row["img_artigo"] : "teste.jpeg") . '" alt="' . $row["img_artigo"] . '">';
+            echo '<img class="img-artigo" src="' . $row['img_artigo'] . '">';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
             echo "Autor ou data de publicação não encontrados.";
@@ -354,7 +340,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <!--Pontos-->
             <?php
             // Consulta SQL para selecionar os pontos do artigo atual apenas
-            $query = "SELECT conteudo_artigo_id, artigo_id, ponto, texto FROM conteudo_artigo WHERE artigo_id = $artigo_id";
+            $query = "SELECT artigo_id, ponto, conteudo_artigo_id FROM conteudo_artigo WHERE artigo_id = $artigo_id";
 
             // Executar a consulta
             $result = mysqli_query($conn, $query);
@@ -364,9 +350,26 @@ if (isset($_SESSION['id_utilizador'])) {
                 // Loop através dos resultados
                 while ($row = mysqli_fetch_assoc($result)) {
                     // Exibir o conteúdo de cada ponto dentro dos elementos <div> e <h1>
-                    echo '<div class="subheading" id="ponto_' . urlencode($row['ponto']) . '">';
+                    echo '<div class="subheading" id="ponto_' . $row['ponto'] . '">';
                     echo '<h1>' . $row['ponto'] . '</h1>';
-                    echo '<p>' . $row['texto'] . '</p>';
+
+                    $conteudo_artigo_id = $row['conteudo_artigo_id'];
+                    $query_conteudo = "SELECT texto FROM texto_artigo WHERE conteudo_artigo_id = $conteudo_artigo_id";
+
+                    // Executar a consulta de conteúdo
+                    $result_conteudo = mysqli_query($conn, $query_conteudo);
+
+                    // Verificar se a consulta de conteúdo foi bem-sucedida e se retornou pelo menos uma linha
+                    if ($result_conteudo && mysqli_num_rows($result_conteudo) > 0) {
+                        // Exibir o conteúdo real do ponto
+                        while ($row_conteudo = mysqli_fetch_assoc($result_conteudo)) {
+                            echo '<p>' . $row_conteudo['texto'] . '</p>';
+                        }
+                    } else {
+                        // Se a consulta de conteúdo não retornar nenhum resultado
+                        echo "Não há conteúdo disponível para este ponto.";
+                    }
+
                     echo '</div>';
                 }
             } else {
@@ -395,24 +398,10 @@ if (isset($_SESSION['id_utilizador'])) {
             }
             ?>
         </section>
-
     </div>
 
 
-
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            var dropdownToggle = document.querySelector('.dropdown-toggle');
-            var dropdownMenu = document.querySelector('.dropdown-menu');
-
-            if (window.innerWidth <= 768) {
-                dropdownToggle.addEventListener('click', function () {
-                    dropdownMenu.classList.toggle('show');
-                });
-            }
-        });
-    </script>
-
+    
     <div class="fontes" id="fontes">
         <div class="fontes-content">
             <svg class="svg-up" width="15" height="10" xmlns="http://www.w3.org/2000/svg"
@@ -427,27 +416,10 @@ if (isset($_SESSION['id_utilizador'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <?php
-        if (isset($_GET['titulo'])) {
-            // Obter o título do artigo da URL e decodificar
-            $titulo_artigo = urldecode($_GET['titulo']);
-
-            // Consulta SQL para buscar o artigo pelo título
-            $query = "SELECT a.fonte
-                      FROM artigos a
-                      WHERE a.titulo = '$titulo_artigo'";
-
-            $result = mysqli_query($conn, $query);
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                <div class="fontes-content2">
-                    <p><?php echo $row['fonte']; ?></p>
-                </div>
-                <?php
-            }
-        }
-        ?>
+        <div class="fontes-content2">
+            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
+                vita. MyLife.</p>
+        </div>
     </div>
 
 

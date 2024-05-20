@@ -118,7 +118,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
@@ -218,11 +219,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <!--Artigos-->
     <section class="artigos" id="artigos">
-        <div class="artigos-banner-container">
-            <h1 class="artigos-primary-heading">
-                <!-- Adicione seu título aqui -->
-            </h1>
-        </div>
 
         <?php
         // Consulta para obter a lista de perturbações
@@ -279,7 +275,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $offset = ($pagina_atual - 1) * $itens_por_pagina;
 
         // Consulta SQL para recuperar os artigos
-        $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+        $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
                 FROM artigos 
                 INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
                 INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
@@ -437,8 +433,33 @@ if (isset($_SESSION['id_utilizador'])) {
             <h3>Fontes</h3>
         </div>
         <?php
-        // Consulta para obter a lista de perturbações
-        $query = "SELECT * FROM artigos WHERE fonte IS NOT NULL AND fonte <> '';";
+        // Base da consulta para obter as fontes
+        $query = "SELECT DISTINCT artigos.fonte 
+              FROM artigos 
+              INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+              INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+              INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+              WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> ''";
+
+        // Adiciona filtro de pesquisa, se fornecido
+        if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+            $search_query = mysqli_real_escape_string($conn, $_GET['search_query']);
+            $query .= " AND artigos.titulo LIKE '%$search_query%'";
+        }
+
+        // Adiciona filtro de perturbação, se fornecido
+        if (isset($_GET['filter']) && $_GET['filter'] !== '') {
+            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter']));
+            if ($filtro_nome !== 'Perturbações') {
+                $query .= " AND perturbacoes.nome = '$filtro_nome'";
+            }
+        }
+
+        // Adiciona ordenação por data de publicação mais recente, se fornecido
+        if (isset($_GET['ordem']) && $_GET['ordem'] === 'data_recente') {
+            $query .= " ORDER BY artigos.data_publicacao DESC";
+        }
+
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
