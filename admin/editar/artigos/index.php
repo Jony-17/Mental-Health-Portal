@@ -226,6 +226,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     </div>
                 </div>
 
+                
 
                 <div class="container-fluid">
 
@@ -264,7 +265,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <tr>
                                             <th>Ação</th>
                                             <th>Título</th>
-                                            <th>Descrição</th>
                                             <th>Data de publicação</th>
                                             <th>Autor</th>
                                             <th>Imagem</th>
@@ -272,6 +272,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Perturbação e respetivo grupo</th>
                                             <th>Pontos</th>
                                             <th>Texto dos pontos</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -290,9 +291,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['titulo']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['descricao']; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['data_publicacao']; ?>
@@ -314,6 +312,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

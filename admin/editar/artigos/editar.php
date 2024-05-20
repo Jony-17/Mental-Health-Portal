@@ -261,12 +261,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Descrição</label>
-                                            <input type="text" name="descricao" value="<?php echo $row['descricao'] ?>"
-                                                class="form-control" placeholder="Editar descrição">
-                                        </div>
-
-                                        <div class="form-group">
                                             <label>Data da publicação</label>
                                             <input type="text" name="data_publicacao"
                                                 value="<?php echo $row['data_publicacao'] ?>" class="form-control"
@@ -332,32 +326,28 @@ if (isset($_SESSION['id_utilizador'])) {
                                             </select>
                                         </div>
 
-                                        <!--<div class="form-group">
-                                            <div class="input-group">
-                                                <label>Texto do ponto 1</label>
-                                                <input type="text" name="texto[]" value="<?php echo $row['texto'] ?>" class="form-control texto-dinamico">
-                                                <button type="button" class="btn btn-outline-secondary btn-add-texto">+</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Ponto 1</label>
-                                            <div class="input-group">
-                                                <input type="text" name="ponto[]" value="<?php echo $row['ponto'] ?>" class="form-control ponto-dinamico">
-                                                <button type="button" class="btn btn-outline-secondary btn-add-ponto">+</button>
-                                            </div>
-                                        </div>-->
                                         
-                                        <div class="form-group">
-                                            <label>Pontos</label>
-                                            <input type="text" name="ponto" value="<?php echo $row['ponto'] ?>"
-                                                class="form-control" placeholder="Editar pontos">
-                                        </div>
+                                        <?php
+                                        $pontos = explode('---', $row['ponto']);
+                                        $textos = explode('---', $row['texto']);
+                                        foreach ($pontos as $index => $ponto) {
+                                            ?>
+                                            <div class="form-group">
+                                                <label>Ponto <?php echo $index + 1 ?></label>
+                                                <input type="text" name="ponto[]" value="<?php echo $ponto ?>"
+                                                    class="form-control ponto-dinamico">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Texto do ponto <?php echo $index + 1 ?></label>
+                                                <input type="text" name="texto[]" value="<?php echo $textos[$index] ?>"
+                                                    class="form-control texto-dinamico">
+                                            </div>
+                                        <?php } ?>
 
                                         <div class="form-group">
-                                            <label>Texto dos pontos</label>
-                                            <input type="text" name="texto" value="<?php echo $row['texto'] ?>"
-                                                class="form-control" placeholder="Editar texto">
+                                            <label>Fonte</label>
+                                            <input type="text" name="fonte" value="<?php echo $row['fonte'] ?>"
+                                                class="form-control" placeholder="Editar fonte">
                                         </div>
 
                                         <a href="." class="btn btn-danger">Cancelar</a>

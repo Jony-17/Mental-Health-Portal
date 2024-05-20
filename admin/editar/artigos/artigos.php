@@ -1,19 +1,22 @@
 <?php
 session_start();
-require_once ("../../../conn/conn.php");
+require_once("../../../conn/conn.php");
 
 if (isset($_POST['inserirbtn'])) {
+    $artigo_id = $_POST['artigo_id']; // Recebendo o ID do artigo a ser atualizado
+
     $titulo = $_POST['titulo'];
-    $descricao = $_POST['descricao'];
     $data_publicacao = $_POST['data_publicacao'];
     $autor = $_POST['autor'];
-    $conteudo = $_POST['conteudo'];
+    $conteudo_texto = $_POST['conteudo'];
     $nome_perturbacao = $_POST['perturbacao'];
     $nome_grupo = $_POST['grupo_perturbacao'];
     $pontos = $_POST['ponto'];
-    $texto = $_POST['texto'];
+    $textos = $_POST['texto'];
+    $fonte = $_POST['fonte'];
     $imagem = '';
 
+    // Separar os nomes das perturbações e grupos
     $nome_perturbacao_array = explode(' - ', $nome_perturbacao);
     $nome_perturbacao_bd = $nome_perturbacao_array[0];
     $nome_grupo_array = explode(' - ', $nome_grupo);
@@ -37,7 +40,7 @@ if (isset($_POST['inserirbtn'])) {
         $imagem = $imagem_atual;
     }
 
-    // Verifica se um novo arquivo de imagem foi enviado
+    // Verifica se um arquivo de imagem foi enviado
     if ($_FILES['imagem']['error'] == UPLOAD_ERR_OK && !empty($_FILES['imagem']['tmp_name'])) {
         $imagem_temp = $_FILES['imagem']['tmp_name'];
         $imagem_nome = $_FILES['imagem']['name'];
@@ -53,73 +56,57 @@ if (isset($_POST['inserirbtn'])) {
         }
     }
 
-    // Verifica se há um ID de artigo para determinar se é uma inserção ou uma atualização
-    if (isset($artigo_id)) {
-        $query_perturbacao = "SELECT perturbacoes_id FROM perturbacoes WHERE nome='$nome_perturbacao_bd'";
-        $query_grupo = "SELECT grupos_perturbacoes_id FROM grupos_perturbacoes WHERE nome='$nome_grupo_bd'";
+    // Obter os IDs da perturbação e do grupo
+    $query_perturbacao = "SELECT perturbacoes_id FROM perturbacoes WHERE nome='$nome_perturbacao_bd'";
+    $query_grupo = "SELECT grupos_perturbacoes_id FROM grupos_perturbacoes WHERE nome='$nome_grupo_bd'";
 
-        $query_perturbacao_run = mysqli_query($conn, $query_perturbacao);
-        $query_grupo_run = mysqli_query($conn, $query_grupo);
+    $query_perturbacao_run = mysqli_query($conn, $query_perturbacao);
+    $query_grupo_run = mysqli_query($conn, $query_grupo);
 
-        if ($query_perturbacao_run && $query_grupo_run && mysqli_num_rows($query_perturbacao_run) > 0 && mysqli_num_rows($query_grupo_run) > 0) {
-            $perturbacao_id = mysqli_fetch_assoc($query_perturbacao_run)['perturbacoes_id'];
-            $grupo_id = mysqli_fetch_assoc($query_grupo_run)['grupos_perturbacoes_id'];
+    if ($query_perturbacao_run && $query_grupo_run && mysqli_num_rows($query_perturbacao_run) > 0 && mysqli_num_rows($query_grupo_run) > 0) {
+        $perturbacao_id = mysqli_fetch_assoc($query_perturbacao_run)['perturbacoes_id'];
+        $grupo_id = mysqli_fetch_assoc($query_grupo_run)['grupos_perturbacoes_id'];
 
-            // Atualizar o artigo com os novos IDs da perturbação e do grupo
-            $query = "UPDATE artigos SET titulo = '$titulo', descricao = '$descricao', data_publicacao = '$data_publicacao', autor = '$autor', img_artigo = '$imagem', conteudo_texto = '$conteudo',
-                      juncao_perturbacoes_id = (SELECT juncao_perturbacoes_id
-                                                FROM juncao_perturbacoes
-                                                WHERE perturbacoes_id='$perturbacao_id' AND grupos_perturbacoes_id='$grupo_id') 
-                      WHERE artigo_id = $artigo_id";
-        } else {
-            // Não foi possível encontrar IDs para perturbação e grupo, não execute a atualização
-            echo "Não foi possível encontrar IDs para perturbação e grupo.";
-            exit();
-        }
-    } else {
-        // ID não presente, é uma inserção
-        $query = "INSERT INTO artigos (titulo, descricao, data_publicacao, autor, img_artigo, conteudo_texto, juncao_perturbacoes_id) VALUES ('$titulo', '$descricao', '$data_publicacao', '$autor', '$imagem', '$conteudo', $juncao_perturbacoes_id)";
-    }
+        // Atualizar o artigo com os novos IDs da perturbação e do grupo
+        $query_update_artigo = "UPDATE artigos SET titulo = '$titulo', data_publicacao = '$data_publicacao', autor = '$autor', img_artigo = '$imagem', conteudo_texto = '$conteudo_texto', fonte = '$fonte',
+                                juncao_perturbacoes_id = (SELECT juncao_perturbacoes_id
+                                                          FROM juncao_perturbacoes
+                                                          WHERE perturbacoes_id='$perturbacao_id' AND grupos_perturbacoes_id='$grupo_id') 
+                                WHERE artigo_id = $artigo_id";
 
-    // Executa a consulta SQL
-    $query_run = mysqli_query($conn, $query);
+        $query_update_artigo_run = mysqli_query($conn, $query_update_artigo);
 
-    if ($query_run) {
-        // Se for uma atualização, também atualiza a tabela quiz_questoes
-        if (isset($artigo_id)) {
-            // Verifica se a questão já existe para o quiz_nome_id
-            $query_questao = "SELECT * FROM conteudo_artigo WHERE artigo_id = $artigo_id";
-            $result_questao = mysqli_query($conn, $query_questao);
+        if ($query_update_artigo_run) {
+            // Atualização do conteúdo do artigo
+            foreach ($pontos as $index => $ponto) {
+                $texto_atual = $textos[$index]; // Use o índice do loop para acessar o texto correspondente
 
-            if ($result_questao && mysqli_num_rows($result_questao) > 0) {
-                // Questão existe, atualiza a questão
-                $query_update_questao = "UPDATE conteudo_artigo SET ponto = '$pontos', texto = '$texto' WHERE artigo_id = $artigo_id";
-                mysqli_query($conn, $query_update_questao);
-            } else {
-                // Questão não existe, insere uma nova questão
-                $query_insert_questao = "INSERT INTO conteudo_artigo (artigo_id, ponto, texto) VALUES ($artigo_id, '$pontos', '$texto')";
-                mysqli_query($conn, $query_insert_questao);
+                // Verifica se o conteúdo já existe para o ponto atual
+                $query_check_conteudo = "SELECT * FROM conteudo_artigo WHERE artigo_id='$artigo_id' AND ponto='$ponto' AND texto='$texto_atual'";
+                $result_check_conteudo = mysqli_query($conn, $query_check_conteudo);
+
+                if ($result_check_conteudo) {
+                    if (mysqli_num_rows($result_check_conteudo) > 0) {
+                        // Se o conteúdo existir, atualiza-o
+                        $texto_atual_escaped = mysqli_real_escape_string($conn, $texto_atual);
+                        $query_update_conteudo = "UPDATE conteudo_artigo SET texto = '$texto_atual_escaped' WHERE artigo_id = $artigo_id AND ponto = '$ponto'";
+                        mysqli_query($conn, $query_update_conteudo);
+                    }
+                } else {
+                    echo "Erro ao verificar conteúdo do artigo: " . mysqli_error($conn);
+                }
             }
+
+            echo "Artigo e conteúdo atualizados com sucesso";
+            header('Location: .');
         } else {
-            // Se for uma nova inserção, pega o último ID inserido na tabela quiz_nome
-            $ultimo_id = mysqli_insert_id($conn);
-
-            // Insere a nova questão na tabela quiz_questoes
-            $query_insert_questao = "INSERT INTO conteudo_artigo (artigo_id, ponto, texto) VALUES ($artigo_id, '$pontos', '$texto')";
-            mysqli_query($conn, $query_insert_questao);
+            echo "Erro ao atualizar artigo: " . mysqli_error($conn);
         }
-
-        $_SESSION['status'] = isset($artigo_id) ? "Quiz atualizado com sucesso" : "Quiz inserido com sucesso";
-        $_SESSION['status_code'] = "success";
-        header('Location: .');
     } else {
-        $_SESSION['status'] = isset($artigo_id) ? "Erro ao atualizar Quiz" : "Erro ao inserir Quiz";
-        $_SESSION['status_code'] = "error";
-        header('Location: .');
+        // Não foi possível encontrar IDs para perturbação e grupo, não execute a atualização
+        echo "Não foi possível encontrar IDs para perturbação e grupo.";
+        exit();
     }
-} else {
-    $_SESSION['status'] = "Não foi inserido qualquer Quiz";
-    $_SESSION['status_code'] = "warning";
-    header('Location: .');
 }
+
 ?>
