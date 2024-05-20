@@ -6,18 +6,26 @@ Compreender como colocar o portal/website online para que seja possível
 - Criar o chatbot (integrar uma API talvez)
   - (Dialogflow ou aplicar mesmo com Python (Patrick Loeber))
 
-Na página inicial ter todas as atividades (quizzes, conteúdo educativo, para depois no perfil, indicar quantas realizou e quais realizou)
-- A nossa missão
+Informação presente ao longo do website:
+- Sobre nós
 - Tipos de perturbações mentais
-  - Ansiedade
-  - Depressão
-  - ...
+  - Perturbação de Ansiedade
+       - Ansiedade Social
+       - ...
+  - Perturbação do Sono/Vigília
 - Artigos científicos
-- Quizzes
-  - Que emoção és tu?
-  - Que tipo de líder és tu?
-  - Que cor és tu?
-- Notícias de saúde mental
+- Notícias
+- Conteúdo Educativo
+  - Quizzes
+        - Que emoção és tu?
+        - Que tipo de líder és tu?
+        - Que cor és tu?
+  - Exercícios Mindfulness
+  - Ted Talks
 - Perguntas Frequentes
-- Testemunhos
+- Termos e Condições
 - Chatbot
+- Perfil
+  - Registos de automonitorização
+  - Fórum
+  - Lembrete de notificações
