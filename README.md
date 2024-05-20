@@ -8,6 +8,8 @@ Compreender como colocar o portal/website online para que seja possível
 
 Informação presente ao longo do website:
 - Sobre nós
+- Perguntas Frequentes
+- Termos e Condições
 - Tipos de perturbações mentais
   - Perturbação de Ansiedade
        - Ansiedade Social
@@ -22,8 +24,6 @@ Informação presente ao longo do website:
         - Que cor és tu?
   - Exercícios Mindfulness
   - Ted Talks
-- Perguntas Frequentes
-- Termos e Condições
 - Chatbot
 - Perfil
   - Registos de automonitorização
