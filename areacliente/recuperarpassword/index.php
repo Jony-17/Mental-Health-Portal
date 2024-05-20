@@ -61,12 +61,13 @@
                     <h2 class="content-text1">Tu</h2>
                     <h3 class="content-text2">mereces ser feliz</h3>
                     <p class="content-text3">
-                        “ O que é necessário para mudar uma pessoa é mudar sua consciência de si mesma. ”
+                        “A sua visão tornar-se-á clara somente quando olhar para o seu próprio coração. Quem olha para
+                        fora, sonha. Quem olha para dentro, desperta.”
                     </p>
-                    <h2 class="content-text4">Abraham Maslow</h2>
-                    <h3 class="content-text5">Psicólogo</h3>
+                    <h2 class="content-text4">Carl Jung</h2>
+                    <h3 class="content-text5">Psiquiatra e Psicanalista</h3>
                 </div>
-                <img src="imgs/teste.png" class="image" alt="" />
+                <img src="imgs/background-acesso.png" class="image" alt="" />
                 <img src="imgs/elementos/musica.png" class="elem1 lp1" />
                 <img src="imgs/elementos/musica.png" class="elem1 lp2" />
 
