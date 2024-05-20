@@ -302,7 +302,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
         <?php
 
-        $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.descricao, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
+        $query = "SELECT artigos.juncao_perturbacoes_id, perturbacoes.nome AS perturbacao_nome, grupos_perturbacoes.nome AS grupo_nome, artigos.titulo, artigos.data_publicacao, artigos.autor, artigos.img_artigo 
         FROM artigos 
         INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
         INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
@@ -762,7 +762,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
