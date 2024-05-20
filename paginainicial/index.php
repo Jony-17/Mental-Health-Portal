@@ -103,7 +103,7 @@ if (isset($_SESSION['id_utilizador'])) {
                             <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
-                    <a class="btn" onclick="funcao1()">Terminar Sessão</a>
+                    <a class="btn" onclick="logout()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
                 <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
@@ -144,14 +144,13 @@ if (isset($_SESSION['id_utilizador'])) {
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
-                <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
+                <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
             <?php else: ?>
                 <li><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
-
             <script>
-                function funcao1() {
+                function logout() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
                         var url = "../logout/logout.php";
@@ -160,6 +159,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     document.getElementById("demo").innerHTML = x;
                 }
             </script>
+
         </div>
     </header>
 
@@ -186,7 +186,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 </a>
             </div>
             <div class="image-container2">
-                <img src="imgs/imgs-home/image1.png" alt="" />
+                <img src="imgs/imgs-home/background.png" alt="" />
             </div>
         </div>
     </section>

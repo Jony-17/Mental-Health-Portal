@@ -385,7 +385,7 @@ img {
   background-color: var(--main-color);
   outline: none;
   border: none;
-  border-radius: 5rem;
+  border-radius: 1.4rem;
   font-size: var(--buttons);
   cursor: pointer;
   font-weight: 600;
@@ -404,7 +404,7 @@ img {
 }
 
 .secondary-button:hover {
-  background-color: var(--orange2-color);
+  background-color: var(--orange3-color);
 }
 
 /*------------------ABOUT------------------*/
@@ -479,6 +479,10 @@ img {
   margin-bottom: 20px;
 }
 
+.card-body:hover {
+  box-shadow: 0 0 0 2px var(--main-color);
+}
+
 /*.card-body:hover {
   color: white;
 }*/
@@ -543,6 +547,10 @@ img {
   align-self: center;
   justify-content: center;
   text-decoration: none;
+}
+
+.third-button:hover {
+  background-color: var(--orange3-color);
 }
 
 .card2-container {
@@ -619,6 +627,10 @@ img {
   display: block;
   margin: 20px auto 0;
   width: 200px;
+}
+
+.fourth-button:hover {
+  background-color: var(--orange3-color);
 }
 
 .card3-container {
@@ -737,6 +749,10 @@ img {
   width: 200px;
 }
 
+.fifth-button:hover {
+  background-color: var(--orange3-color);
+}
+
 .quizzes-bannerImage4-container {
   position: absolute;
   top: -300px;
@@ -843,6 +859,10 @@ img {
   align-self: center;
   justify-content: center;
   text-decoration: none;
+}
+
+.sixth-button:hover {
+  background-color: var(--orange3-color);
 }
 
 .noticias-bannerImage2-container {
