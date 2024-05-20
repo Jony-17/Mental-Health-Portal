@@ -231,10 +231,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <input type="text" name="titulo" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Descrição</label>
-                                        <input type="text" name="descricao" class="form-control">
-                                    </div>
-                                    <div class="form-group">
                                         <label>Data da publicação</label>
                                         <input type="text" name="data_publicacao" class="form-control">
                                     </div>
@@ -249,22 +245,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <div class="form-group">
                                         <label>Conteúdo do texto</label>
                                         <input type="text" name="conteudo_texto" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ponto 1</label>
-                                        <div class="input-group">
-                                            <input type="text" name="ponto[]" class="form-control ponto-dinamico">
-                                            <button type="button"
-                                                class="btn btn-outline-secondary btn-add-ponto">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label>Texto do ponto 1</label>
-                                            <input type="text" name="texto[]" class="form-control texto-dinamico">
-                                            <button type="button"
-                                                class="btn btn-outline-secondary btn-add-texto">+</button>
-                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Perturbação</label>
@@ -303,6 +283,28 @@ if (isset($_SESSION['id_utilizador'])) {
                                         </select>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label>Fonte</label>
+                                        <input type="text" name="fonte" class="form-control">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Ponto 1</label>
+                                        <div class="input-group">
+                                            <input type="text" name="ponto[]" class="form-control ponto-dinamico">
+                                            <button type="button"
+                                                class="btn btn-outline-secondary btn-add-ponto">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label>Texto do ponto 1</label>
+                                            <input type="text" name="texto[]" class="form-control texto-dinamico">
+                                            <button type="button"
+                                                class="btn btn-outline-secondary btn-add-texto">+</button>
+                                        </div>
+                                    </div>
 
 
                                 </div>
@@ -332,7 +334,8 @@ if (isset($_SESSION['id_utilizador'])) {
                         const newLabel = newPontoGroup.querySelector('label');
                         newLabel.textContent = `Ponto ${pontoCount}`; // Atualizar o rótulo
 
-                        pontoGroup.parentNode.insertBefore(newPontoGroup, pontoGroup.nextSibling);
+                        // Adicionar o novo ponto ao final do formulário
+                        pontoGroup.parentNode.appendChild(newPontoGroup);
                     });
 
                     btnAddTexto.addEventListener('click', function () {
@@ -347,8 +350,10 @@ if (isset($_SESSION['id_utilizador'])) {
                         const newLabel = newTextoGroup.querySelector('label');
                         newLabel.textContent = `Texto do ponto ${textoCount}`; // Atualizar o rótulo
 
-                        textoGroup.parentNode.insertBefore(newTextoGroup, textoGroup.nextSibling);
+                        // Adicionar o novo texto ao final do formulário
+                        textoGroup.parentNode.appendChild(newTextoGroup);
                     });
+
 
                 </script>
 
@@ -396,7 +401,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                     <thead>
                                         <tr>
                                             <th>Título</th>
-                                            <th>Descrição</th>
                                             <th>Data de publicação</th>
                                             <th>Autor</th>
                                             <th>Imagem</th>
@@ -404,6 +408,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Perturbação e respetivo grupo</th>
                                             <th>Pontos</th>
                                             <th>Texto dos pontos</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -414,9 +419,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                                 <tr>
                                                     <td>
                                                         <?php echo $row['titulo']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['descricao']; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['data_publicacao']; ?>
@@ -438,6 +440,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

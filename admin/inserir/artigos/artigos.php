@@ -4,7 +4,6 @@ require_once ("../../../conn/conn.php");
 
 if (isset($_POST['inserirbtn'])) {
     $titulo = $_POST['titulo'];
-    $descricao = $_POST['descricao'];
     $data_publicacao = $_POST['data_publicacao'];
     $autor = $_POST['autor'];
     $conteudo_texto = $_POST['conteudo_texto'];
@@ -12,6 +11,7 @@ if (isset($_POST['inserirbtn'])) {
     $nome_grupo = $_POST['grupo_perturbacao'];
     $pontos = $_POST['ponto'];
     $texto = $_POST['texto'];
+    $fonte = $_POST['fonte'];
 
     // Separar os nomes das perturbações e grupos
     $nome_perturbacao_array = explode(' - ', $nome_perturbacao);
@@ -83,8 +83,8 @@ if (isset($_POST['inserirbtn'])) {
             $juncao_perturbacoes_id = mysqli_fetch_assoc($query_juncao_run)['juncao_perturbacoes_id'];
 
             // Inserir na base de dados
-            $query_artigo = "INSERT INTO artigos (titulo, descricao, data_publicacao, autor, img_artigo, conteudo_texto, juncao_perturbacoes_id) 
-            VALUES ('$titulo','$descricao','$data_publicacao','$autor','$img_artigo','$conteudo_texto','$juncao_perturbacoes_id')";
+            $query_artigo = "INSERT INTO artigos (titulo, data_publicacao, autor, img_artigo, conteudo_texto, fonte, juncao_perturbacoes_id) 
+            VALUES ('$titulo','$data_publicacao','$autor','$img_artigo','$conteudo_texto', '$fonte', '$juncao_perturbacoes_id')";
             $query_artigo_run = mysqli_query($conn, $query_artigo);
 
             if ($query_artigo_run) {
