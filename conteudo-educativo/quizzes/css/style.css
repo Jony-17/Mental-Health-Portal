@@ -768,6 +768,11 @@ ol {
   margin-right: 10px;
 }
 
+.background1,
+  .background2 {
+    display: none;
+  }
+
 .heading {
   padding: 0;
   margin-left: 15px;
