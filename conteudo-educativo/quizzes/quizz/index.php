@@ -318,10 +318,27 @@ if (isset($_SESSION['id_utilizador'])) {
                     </svg>
                     <h3>Fontes</h3>
                 </div>
-                <div class="fontes-content2">
-                    <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                        vita. MyLife.</p>
-                </div>
+                <?php
+                if (isset($_GET['nome'])) {
+                    // Obter o título do artigo da URL e decodificar
+                    $nome = urldecode($_GET['nome']);
+
+                    // Consulta SQL para buscar o artigo pelo título
+                    $query = "SELECT q.fonte
+                      FROM quiz_nome q
+                      WHERE q.nome = '$nome' AND fonte != ''";
+
+                    $result = mysqli_query($conn, $query);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="fontes-content2">
+                            <p><?php echo $row['fonte']; ?></p>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
             </div>
     </section>
 
@@ -437,7 +454,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
