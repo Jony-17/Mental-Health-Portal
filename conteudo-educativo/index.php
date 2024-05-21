@@ -350,6 +350,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
