@@ -274,9 +274,28 @@ if (isset($_SESSION['id_utilizador'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <div class="fontes-content2">
-            <p>1. https://greatist.com/fitness/daily-stretching-routine#Benefits-of-daily-stretching</p>
-        </div>
+        <?php
+        if (isset($_GET['nome'])) {
+            // Obter o título do artigo da URL e decodificar
+            $nome = urldecode($_GET['nome']);
+
+            // Consulta SQL para buscar o artigo pelo título
+            $query = "SELECT eme.fonte
+                      FROM exercicios_mindfulness_ex eme
+                      INNER JOIN exercicios_mindfulness em ON em.exercicios_mindfulness_id = eme.exercicios_mindfulness_id
+                      WHERE em.nome = '$nome' AND fonte != ''";
+
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="fontes-content2">
+                    <p><?php echo $row['fonte']; ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 
 
@@ -391,6 +410,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
