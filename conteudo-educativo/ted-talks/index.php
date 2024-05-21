@@ -328,7 +328,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <h3>Fontes</h3>
         </div>
         <div class="fontes-content2">
-            <p>1. https://www.ted.com/</p>
+            <p>https://www.ted.com/</p>
         </div>
     </div>
 
@@ -444,7 +444,8 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
+    
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>

@@ -82,6 +82,24 @@ dropdownTriggers.forEach((trigger) => {
   });
 });
 
+/*---------------Loading---------------*/
+
+const loader = document.querySelector(".loader");
+
+//Função Load página
+function hideLoader() {
+  loader.classList.add("loader--hidden");
+
+  loader.addEventListener("transitionend", () => {
+      document.body.removeChild(loader);
+  });
+}
+
+window.addEventListener("load", () => {
+  hideLoader();
+  setInterval(textLoad, 12000);
+});
+
 /*---------------Footer---------------*/
 
 /*function changeLanguage(language) {
