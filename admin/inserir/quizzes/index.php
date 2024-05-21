@@ -261,6 +261,10 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <label>Quantidade (intervalo)</label>
                                         <input type="text" name="qtd" class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Fonte</label>
+                                        <input type="text" name="fonte" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -307,6 +311,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Opção B</th>
                                             <th>Resposta</th>
                                             <th>Quantidade(intervalo)</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -341,6 +346,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['qtd']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

@@ -9,6 +9,7 @@ if (isset($_POST['inserirbtn'])) {
     $conteudo_texto = $_POST['conteudo_texto'];
     $pontos = $_POST['ponto'];
     $texto = $_POST['texto'];
+    $fonte = $_POST['fonte'];
 
     // Verifica se um arquivo de imagem foi enviado
     if ($_FILES['img_noticia']['error'] == UPLOAD_ERR_OK && !empty($_FILES['img_noticia']['tmp_name'])) {
@@ -32,8 +33,8 @@ if (isset($_POST['inserirbtn'])) {
 
 
 
-    $query = "INSERT INTO noticias (titulo, data_publicacao, autor, img_noticia, conteudo_texto) 
-            VALUES ('$titulo','$data_publicacao','$autor','$img_noticia','$conteudo_texto')";
+    $query = "INSERT INTO noticias (titulo, data_publicacao, autor, img_noticia, conteudo_texto, fonte) 
+            VALUES ('$titulo','$data_publicacao','$autor','$img_noticia','$conteudo_texto','$fonte')";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {

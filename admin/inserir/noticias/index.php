@@ -263,6 +263,10 @@ if (isset($_SESSION['id_utilizador'])) {
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label>Fonte</label>
+                                        <input type="text" name="fonte" class="form-control">
+                                    </div>
 
                                 </div>
                                 <div class="modal-footer">
@@ -352,6 +356,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Conteúdo</th>
                                             <th>Pontos</th>
                                             <th>Texto dos pontos</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -380,6 +385,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

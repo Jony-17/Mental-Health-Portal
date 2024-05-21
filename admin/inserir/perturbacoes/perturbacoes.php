@@ -5,6 +5,7 @@ require_once ("../../../conn/conn.php");
 if (isset($_POST['inserirbtn'])) {
     $nome = $_POST['nome'];
     $texto = $_POST['texto'];
+    $fonte = $_POST['fonte'];
 
     // Verifica se um arquivo de imagem foi enviado
     if ($_FILES['imagemperfil']['error'] == UPLOAD_ERR_OK && !empty($_FILES['imagemperfil']['tmp_name'])) {
@@ -46,7 +47,7 @@ if (isset($_POST['inserirbtn'])) {
         $banner = ""; // Ou defina um valor padrão, se desejar
     }
 
-    $query = "INSERT INTO perturbacoes (nome,texto,img_perturbacao,banner_perturbacao) VALUES ('$nome','$texto','$imagemperfil','$banner')";
+    $query = "INSERT INTO perturbacoes (nome,texto,img_perturbacao,banner_perturbacao,fonte) VALUES ('$nome','$texto','$imagemperfil','$banner','$fonte')";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {

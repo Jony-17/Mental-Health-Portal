@@ -11,6 +11,7 @@ if (isset($_POST['inserirbtn'])) {
     $opcao_b = $_POST['opcao_b'];
     $respostas = $_POST['respostas'];
     $qtd = $_POST['qtd'];
+    $fonte = $_POST['fonte'];
 
     // Verifica se um arquivo de imagem foi enviado
     if ($_FILES['imagemperfil']['error'] == UPLOAD_ERR_OK && !empty($_FILES['imagemperfil']['tmp_name'])) {
@@ -33,7 +34,7 @@ if (isset($_POST['inserirbtn'])) {
     }
 
     // Inserir novo quiz_nome
-    $query = "INSERT INTO quiz_nome (nome,img_quiz,explicacao_quiz,texto_informacao) VALUES ('$nome','$imagemperfil','$explicacao','$texto')";
+    $query = "INSERT INTO quiz_nome (nome,img_quiz,explicacao_quiz,texto_informacao,fonte) VALUES ('$nome','$imagemperfil','$explicacao','$texto','$fonte')";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {

@@ -9,8 +9,9 @@ if(isset($_POST['inserirbtn']))
     $sintomas = $_POST['sintomas'];
     $prevalencias = $_POST['prevalencias'];
     $ajuda = $_POST['ajuda'];
+    $fonte = $_POST['fonte'];
 
-    $nome_query = "SELECT * FROM perturbacoes_personalidade WHERE nome='$nome' AND texto='$texto' AND sintomas_texto='$sintomas' AND prevalencias_texto='$prevalencias' AND ajuda_texto='$ajuda'";
+    $nome_query = "SELECT * FROM perturbacoes_personalidade WHERE nome='$nome' AND texto='$texto' AND sintomas_texto='$sintomas' AND prevalencias_texto='$prevalencias' AND ajuda_texto='$ajuda' AND fonte='$fonte'";
     $nome_query_run = mysqli_query($conn, $nome_query);
     if(mysqli_num_rows($nome_query_run) > 0)
     {
@@ -20,9 +21,9 @@ if(isset($_POST['inserirbtn']))
     }
     else
     {
-    if($nome && $texto && $sintomas && $prevalencias && $ajuda)
+    if($nome && $texto && $sintomas && $prevalencias && $ajuda && $fonte)
     {
-        $query = "INSERT INTO perturbacoes_personalidade (nome,texto,sintomas_texto,prevalencias_texto,ajuda_texto) VALUES ('$nome','$texto','$sintomas','$prevalencias','$ajuda')";
+        $query = "INSERT INTO perturbacoes_personalidade (nome,texto,sintomas_texto,prevalencias_texto,ajuda_texto,fonte) VALUES ('$nome','$texto','$sintomas','$prevalencias','$ajuda','$fonte')";
         $query_run = mysqli_query($conn, $query);
     
         if($query_run)

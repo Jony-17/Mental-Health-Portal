@@ -245,6 +245,10 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <label>Texto de ajuda</label>
                                         <input type="text" name="ajuda" class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Fonte</label>
+                                        <input type="text" name="fonte" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -284,6 +288,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Texto de sintomas</th>
                                             <th>Texto de prevalências</th>
                                             <th>Texto de ajuda</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -306,6 +311,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['ajuda_texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php
