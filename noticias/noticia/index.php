@@ -120,7 +120,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <li><a href="../../perturbacoes">Perturbações</a></li>
             <li><a href="../../artigos">Artigos</a></li>
             <li><a href="../../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="../../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
@@ -430,10 +431,27 @@ if (isset($_SESSION['id_utilizador'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <div class="fontes-content2">
-            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                vita. MyLife.</p>
-        </div>
+        <?php
+        if (isset($_GET['titulo'])) {
+            // Obter o título do artigo da URL e decodificar
+            $titulo_artigo = urldecode($_GET['titulo']);
+
+            // Consulta SQL para buscar o artigo pelo título
+            $query = "SELECT n.fonte
+                      FROM noticias n
+                      WHERE n.titulo = '$titulo_artigo'";
+
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="fontes-content2">
+                    <p><?php echo $row['fonte']; ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 
 
@@ -548,6 +566,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">

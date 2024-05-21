@@ -118,7 +118,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <li><a href="../perturbacoes">Perturbações</a></li>
             <li><a href="../artigos">Artigos</a></li>
             <li><a href="../noticias">Notícias</a></li>
-            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-trigger"><a href="../conteudo-educativo">Conteúdo Educativo <i
+                        class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="../conteudo-educativo/quizzes">Quizzes</a></li>
                     <li><a href="../conteudo-educativo/exercicios-mindfulness">Exercícios Mindfulness</a></li>
@@ -274,7 +275,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                 echo $row["img_noticia"];
                             } else {
                                 echo "teste.jpeg";
-                            } ?>" alt="<?php echo $row['img_noticia'];?>">
+                            } ?>" alt="<?php echo $row['img_noticia']; ?>">
                         </a>
                         <div class="card4-content">
                             <h1><?php echo $row["titulo"] ?></h1>
@@ -361,12 +362,24 @@ if (isset($_SESSION['id_utilizador'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <div class="fontes-content2">
-            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                vita. MyLife.</p>
-        </div>
-    </div>
+        <?php
 
+        // Consulta SQL para buscar o artigo pelo título
+        $query = "SELECT fonte
+                  FROM noticias
+                  WHERE fonte IS NOT NULL AND fonte <> ''";
+
+        $result = mysqli_query($conn, $query);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="fontes-content2">
+                <p><?php echo $row['fonte']; ?></p>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
@@ -479,7 +492,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
