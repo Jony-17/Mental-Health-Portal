@@ -717,6 +717,11 @@ li:not(:last-child) .separator {
     margin-right: 10px;
   }
 
+  .background1,
+  .background2 {
+    display: none;
+  }
+
   .first-button {
     font-size: 1rem;
     cursor: pointer;
