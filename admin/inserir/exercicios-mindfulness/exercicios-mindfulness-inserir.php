@@ -5,6 +5,7 @@ require_once ("../../../conn/conn.php");
 if (isset($_POST['insertbtn'])) {
     $exercicios_mindfulness_id = $_POST['exercicios_mindfulness_id'];
     $titulo = $_POST['titulo'];
+    $fonte = $_POST['fonte'];
 
     // Verifica se um arquivo de imagem foi enviado
     if ($_FILES['img']['error'] == UPLOAD_ERR_OK && !empty($_FILES['img']['tmp_name'])) {
@@ -47,7 +48,7 @@ if (isset($_POST['insertbtn'])) {
     }
 
     // Inserir na tabela exercicios_mindfulness
-    $query = "INSERT INTO exercicios_mindfulness_ex (exercicios_mindfulness_id, titulo, img, audio) VALUES ('$exercicios_mindfulness_id','$titulo','$img','$audio')";
+    $query = "INSERT INTO exercicios_mindfulness_ex (exercicios_mindfulness_id, titulo, img, audio, fonte) VALUES ('$exercicios_mindfulness_id','$titulo','$img','$audio','$fonte')";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {

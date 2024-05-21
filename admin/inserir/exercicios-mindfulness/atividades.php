@@ -252,6 +252,10 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <label>Áudio</label>
                                             <input type="file" name="audio" class="form-control" accept="audio/mpeg, audio/mp3">
                                         </div>
+                                        <div class="form-group">
+                                            <label>Fonte</label>
+                                            <input type="text" name="fonte" class="form-control">
+                                        </div>
                                         <a href="index.php" class="btn btn-danger">Cancelar</a>
                                         <button type="submit" name="insertbtn" class="btn btn-primary">Inserir</button>
                                     </form>

@@ -8,8 +8,9 @@ if(isset($_POST['inserirbtn']))
     $numero = $_POST['numero'];
     $factos = $_POST['factos'];
     $explicacao = $_POST['explicacao'];
+    $fonte = $_POST['fonte'];    
 
-    $nome_query = "SELECT * FROM factos_10 WHERE perturbacoes_id='$perturbacao' AND nº='$numero' AND factos='$facto' AND descricao='$explicacao' ";
+    $nome_query = "SELECT * FROM factos_10 WHERE perturbacoes_id='$perturbacao' AND nº='$numero' AND factos='$facto' AND descricao='$explicacao' AND fonte='$fonte'";
     $nome_query_run = mysqli_query($conn, $nome_query);
     if(mysqli_num_rows($nome_query_run) > 0)
     {
@@ -19,9 +20,9 @@ if(isset($_POST['inserirbtn']))
     }
     else
     {
-    if($perturbacao && $numero && $factos && $explicacao)
+    if($perturbacao && $numero && $factos && $explicacao && $fonte)
     {
-        $query = "INSERT INTO factos_10 (perturbacoes_id,nº,factos,descricao) VALUES ('$perturbacao','$numero','$factos','$explicacao')";
+        $query = "INSERT INTO factos_10 (perturbacoes_id,nº,factos,descricao,fonte) VALUES ('$perturbacao','$numero','$factos','$explicacao','$fonte')";
         $query_run = mysqli_query($conn, $query);
     
         if($query_run)
