@@ -11,6 +11,7 @@ if (isset($_POST['inserirbtn'])) {
     $opcao_b = $_POST['opcao_b'];
     $resposta = $_POST['resposta'];
     $qtd = $_POST['qtd'];
+    $fonte = $_POST['fonte'];
     $imagem = '';
 
     if (isset($_POST['quiz_nome_id'])) {
@@ -50,10 +51,10 @@ if (isset($_POST['inserirbtn'])) {
     // Verifica se há um ID de quiz para determinar se é uma inserção ou uma atualização
     if (isset($quiz_nome_id)) {
         // ID presente, é uma atualização
-        $query = "UPDATE quiz_nome SET nome = '$nome', explicacao_quiz = '$explicacao_quiz', texto_informacao = '$texto_informacao', img_quiz = '$imagem' WHERE quiz_nome_id = $quiz_nome_id";
+        $query = "UPDATE quiz_nome SET nome = '$nome', explicacao_quiz = '$explicacao_quiz', texto_informacao = '$texto_informacao', img_quiz = '$imagem', fonte = '$fonte' WHERE quiz_nome_id = $quiz_nome_id";
     } else {
         // ID não presente, é uma inserção
-        $query = "INSERT INTO quiz_nome (nome, explicacao_quiz, texto_informacao, img_quiz) VALUES ('$nome', '$explicacao_quiz', '$texto_informacao', '$imagem')";
+        $query = "INSERT INTO quiz_nome (nome, explicacao_quiz, texto_informacao, img_quiz, fonte) VALUES ('$nome', '$explicacao_quiz', '$texto_informacao', '$imagem', '$fonte')";
     }
 
     // Executa a consulta SQL para a tabela quiz_nome

@@ -250,6 +250,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Texto de sintomas</th>
                                             <th>Texto de prevalências</th>
                                             <th>Texto de ajuda</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -280,6 +281,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['ajuda_texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

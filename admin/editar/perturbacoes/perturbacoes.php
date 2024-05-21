@@ -5,6 +5,7 @@ require_once("../../../conn/conn.php");
 if (isset($_POST['inserirbtn'])) {
     $nome = $_POST['nome'];
     $texto = $_POST['texto'];
+    $fonte = $_POST['fonte'];
     $imagem = '';
     $banner = '';
 
@@ -64,10 +65,10 @@ if (isset($_POST['inserirbtn'])) {
     // Verifica se há um ID de perturbação para determinar se é uma inserção ou uma atualização
     if (isset($perturbacoes_id)) {
         // ID presente, é uma atualização
-        $query = "UPDATE perturbacoes SET nome = '$nome', texto = '$texto', img_perturbacao = '$imagem', banner_perturbacao = '$banner' WHERE perturbacoes_id = $perturbacoes_id";
+        $query = "UPDATE perturbacoes SET nome = '$nome', texto = '$texto', img_perturbacao = '$imagem', banner_perturbacao = '$banner', fonte = '$fonte' WHERE perturbacoes_id = $perturbacoes_id";
     } else {
         // ID não presente, é uma inserção
-        $query = "INSERT INTO perturbacoes (nome, texto, img_perturbacao, banner_perturbacao) VALUES ('$nome', '$texto', '$imagem', '$banner')";
+        $query = "INSERT INTO perturbacoes (nome, texto, img_perturbacao, banner_perturbacao, fonte) VALUES ('$nome', '$texto', '$imagem', '$banner', '$fonte')";
     }
 
     // Executa a consulta SQL

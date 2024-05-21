@@ -9,6 +9,7 @@ if (isset($_POST['inserirbtn'])) {
     $conteudo = $_POST['conteudo'];
     $pontos = $_POST['ponto'];
     $texto = $_POST['texto'];
+    $fonte = $_POST['fonte'];
     $imagem = '';
 
     if (isset($_POST['noticias_id'])) {
@@ -48,11 +49,11 @@ if (isset($_POST['inserirbtn'])) {
     // Verifica se há um ID de artigo para determinar se é uma inserção ou uma atualização
     if (isset($noticias_id)) {
         // Atualizar o artigo com os novos IDs da perturbação e do grupo
-        $query = "UPDATE noticias SET titulo = '$titulo', data_publicacao = '$data_publicacao', autor = '$autor', img_noticia = '$imagem', conteudo_texto = '$conteudo'
+        $query = "UPDATE noticias SET titulo = '$titulo', data_publicacao = '$data_publicacao', autor = '$autor', img_noticia = '$imagem', conteudo_texto = '$conteudo', fonte = '$fonte'
                   WHERE noticias_id = $noticias_id";
     } else {
         // ID não presente, é uma inserção
-        $query = "INSERT INTO noticias (titulo, data_publicacao, autor, img_noticia, conteudo_texto) VALUES ('$titulo', '$data_publicacao', '$autor', '$imagem', '$conteudo')";
+        $query = "INSERT INTO noticias (titulo, data_publicacao, autor, img_noticia, conteudo_texto, fonte) VALUES ('$titulo', '$data_publicacao', '$autor', '$imagem', '$conteudo', '$fonte')";
     }
 
     // Executa a consulta SQL

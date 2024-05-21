@@ -301,6 +301,12 @@ if (isset($_SESSION['id_utilizador'])) {
                                                 class="form-control" placeholder="Editar quantidade">
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Fonte</label>
+                                            <input type="text" name="fonte" value="<?php echo $row['fonte'] ?>"
+                                                class="form-control" placeholder="Editar fonte">
+                                        </div>
+
                                         <a href="." class="btn btn-danger">Cancelar</a>
                                         <button type="submit" name="inserirbtn" class="btn btn-primary">Editar</button>
                                     </form>
