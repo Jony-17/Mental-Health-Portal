@@ -47,7 +47,9 @@ if (isset($_SESSION['id_utilizador'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -65,6 +67,37 @@ if (isset($_SESSION['id_utilizador'])) {
             width: 400px;
             height: 600px;
             border: none;
+        }
+
+        .btn-confirm {
+            background-color: #fe9e0d;
+            color: white;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .btn-confirm:hover {
+            background-color: #c27500;
+        }
+
+        .btn-cancel {
+            background-color: #d33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .btn-cancel:hover {
+            background-color: #b32424;
         }
     </style>
 
@@ -151,12 +184,22 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <script>
                 function logout() {
-                    var r = confirm("Deseja realmente terminar sessão?");
-                    if (r == true) {
-                        var url = "../logout/logout.php";
-                        window.location = url;
-                    }
-                    document.getElementById("demo").innerHTML = x;
+                    Swal.fire({
+                        title: 'Deseja realmente terminar sessão?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Sim',
+                        cancelButtonText: 'Não',
+                        customClass: {
+                            confirmButton: 'btn-confirm',
+                            cancelButton: 'btn-cancel'
+                        },
+                        buttonsStyling: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location = "../logout/logout.php";
+                        }
+                    });
                 }
             </script>
 
@@ -328,7 +371,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                 echo $row["img_artigo"];
                             } else {
                                 echo "teste.jpeg";
-                            } ?>" alt="Artigos">
+                            } ?>" alt="Artigos" class="lazyload">
                         </a>
                         <div class="card3-content">
                             <h3>
@@ -763,6 +806,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </footer>
 
     <div class="loader">A carregar...</div>
+
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
@@ -770,6 +814,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 
 </body>
 
