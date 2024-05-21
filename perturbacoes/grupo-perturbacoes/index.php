@@ -179,7 +179,7 @@ if (isset($_GET['nome'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../logout/logout.php";
+                        var url = "../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -420,10 +420,27 @@ if (isset($_GET['nome'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <div class="fontes-content2">
-            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                vita. MyLife.</p>
-        </div>
+        <?php
+        if (isset($_GET['nome'])) {
+            // Obter o título do artigo da URL e decodificar
+            $nome = urldecode($_GET['nome']);
+
+            // Consulta SQL para buscar o artigo pelo título
+            $query = "SELECT p.fonte
+                      FROM perturbacoes p
+                      WHERE p.nome = '$nome'";
+
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="fontes-content2">
+                    <p><?php echo $row['fonte']; ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 
     <!--Scroll to top-->
@@ -538,7 +555,7 @@ if (isset($_GET['nome'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
