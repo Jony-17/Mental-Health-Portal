@@ -243,11 +243,13 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Ação</th>
                                             <th>Grupo de perturbação</th>
                                             <th>Explicação</th>
                                             <th>Texto de sintomas</th>
                                             <th>Texto de prevalências</th>
                                             <th>Texto de ajuda</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -278,6 +280,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['ajuda_texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php

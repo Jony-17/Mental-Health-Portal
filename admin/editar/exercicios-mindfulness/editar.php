@@ -316,6 +316,12 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <input type="file" name="audio" class="form-control" accept="audio/mpeg, audio/mp3">
                                         </div>
 
+                                        <div class="form-group">
+                                            <label>Fonte</label>
+                                            <input type="text" name="fonte" value="<?php echo $row['fonte'] ?>"
+                                                class="form-control" placeholder="Editar fonte">
+                                        </div>
+
                                         <a href="." class="btn btn-danger">Cancelar</a>
                                         <button type="submit" name="inserirbtn" class="btn btn-primary">Inserir</button>
                                     </form>

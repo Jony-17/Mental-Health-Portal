@@ -6,6 +6,7 @@ if (isset($_POST['inserirbtn'])) {
     $nome = $_POST['nome'];
     $definicao = $_POST['definicao'];
     $titulo = $_POST['titulo'];
+    $fonte = $_POST['fonte'];
     $imagem = '';
     $img = '';
     $audio = '';
@@ -108,11 +109,11 @@ if (isset($_POST['inserirbtn'])) {
 
             if ($result_questao && mysqli_num_rows($result_questao) > 0) {
                 // Questão existe, atualiza a questão
-                $query_update_questao = "UPDATE exercicios_mindfulness_ex SET titulo = '$titulo', img = '$img', audio = '$audio' WHERE exercicios_mindfulness_ex_id = $exercicios_mindfulness_ex_id";
+                $query_update_questao = "UPDATE exercicios_mindfulness_ex SET titulo = '$titulo', img = '$img', audio = '$audio', fonte = '$fonte' WHERE exercicios_mindfulness_ex_id = $exercicios_mindfulness_ex_id";
                 mysqli_query($conn, $query_update_questao);
             } else {
                 // Questão não existe, insere uma nova questão
-                $query_insert_questao = "INSERT INTO exercicios_mindfulness_ex (exercicios_mindfulness_ex_id, titulo, img, audio) VALUES ($exercicios_mindfulness_ex_id, '$titulo', '$img', '$audio')";
+                $query_insert_questao = "INSERT INTO exercicios_mindfulness_ex (exercicios_mindfulness_ex_id, titulo, img, audio, fonte) VALUES ($exercicios_mindfulness_ex_id, '$titulo', '$img', '$audio', '$fonte')";
                 mysqli_query($conn, $query_insert_questao);
             }
         } else {
@@ -120,7 +121,7 @@ if (isset($_POST['inserirbtn'])) {
             $ultimo_id = mysqli_insert_id($conn);
 
             // Insere a nova questão na tabela quiz_questoes
-            $query_insert_questao = "INSERT INTO exercicios_mindfulness_ex (exercicios_mindfulness_ex_id, titulo, img, audio) VALUES ($exercicios_mindfulness_ex_id, '$titulo', '$img', '$audio')";
+            $query_insert_questao = "INSERT INTO exercicios_mindfulness_ex (exercicios_mindfulness_ex_id, titulo, img, audio, fonte) VALUES ($exercicios_mindfulness_ex_id, '$titulo', '$img', '$audio', '$fonte')";
             mysqli_query($conn, $query_insert_questao);
         }
 

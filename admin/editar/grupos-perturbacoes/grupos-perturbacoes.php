@@ -8,11 +8,12 @@ if (isset($_POST['inserirbtn'])) {
     $sintomas_texto = $_POST['sintomas_texto'];
     $prevalencias_texto = $_POST['prevalencias_texto'];
     $ajuda_texto = $_POST['ajuda_texto'];
+    $fonte = $_POST['fonte'];
 
     if (isset($_POST['grupos_perturbacoes_id']))
         $grupos_perturbacoes_id = $_POST['grupos_perturbacoes_id'];
 
-    $query = "UPDATE grupos_perturbacoes SET nome = '$nome', texto = '$texto', sintomas_texto = '$sintomas_texto', prevalencias_texto = '$prevalencias_texto', ajuda_texto = '$ajuda_texto' WHERE grupos_perturbacoes_id = $grupos_perturbacoes_id";
+    $query = "UPDATE grupos_perturbacoes SET nome = '$nome', texto = '$texto', sintomas_texto = '$sintomas_texto', prevalencias_texto = '$prevalencias_texto', ajuda_texto = '$ajuda_texto', fonte = '$fonte' WHERE grupos_perturbacoes_id = $grupos_perturbacoes_id";
 
     $query_run = mysqli_query($conn, $query);
 

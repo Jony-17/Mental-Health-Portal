@@ -255,6 +255,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Título da atividade</th>
                                             <th>Imagem/GIF da atividade</th>
                                             <th>Áudio</th>
+                                            <th>Fonte</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -291,6 +292,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['audio']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                 </tr>
                                                 <?php
