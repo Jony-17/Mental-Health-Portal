@@ -720,6 +720,11 @@ li:not(:last-child) .separator {
     margin-left: 15px;
     margin-right: 10px;
   }
+
+  .background1,
+  .background2 {
+    display: none;
+  }
   
   .heading {
     padding: 0;

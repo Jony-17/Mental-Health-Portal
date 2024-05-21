@@ -45,6 +45,9 @@ if (isset($_SESSION['id_utilizador'])) {
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -62,6 +65,37 @@ if (isset($_SESSION['id_utilizador'])) {
             width: 400px;
             height: 600px;
             border: none;
+        }
+
+        .btn-confirm {
+            background-color: #fe9e0d;
+            color: white;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .btn-confirm:hover {
+            background-color: #c27500;
+        }
+
+        .btn-cancel {
+            background-color: #d33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .btn-cancel:hover {
+            background-color: #b32424;
         }
     </style>
     <header>
@@ -100,7 +134,7 @@ if (isset($_SESSION['id_utilizador'])) {
                             <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
-                    <a class="btn" onclick="funcao1()">Terminar Sessão</a>
+                    <a class="btn" onclick="logout()">Terminar Sessão</a>
                 </li>
             <?php else: ?>
                 <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
@@ -141,20 +175,30 @@ if (isset($_SESSION['id_utilizador'])) {
                         <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
-                <li><a class="btn" onclick="funcao1()">Terminar Sessão</a></li>
+                <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
             <?php else: ?>
                 <li><a class="btn" href="../../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
 
             <script>
-                function funcao1() {
-                    var r = confirm("Deseja realmente terminar sessão?");
-                    if (r == true) {
-                        var url = "../logout/logout.php";
-                        window.location = url;
-                    }
-                    document.getElementById("demo").innerHTML = x;
+                function logout() {
+                    Swal.fire({
+                        title: 'Deseja realmente terminar sessão?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Sim',
+                        cancelButtonText: 'Não',
+                        customClass: {
+                            confirmButton: 'btn-confirm',
+                            cancelButton: 'btn-cancel'
+                        },
+                        buttonsStyling: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location = "../logout/logout.php";
+                        }
+                    });
                 }
             </script>
         </div>
@@ -348,7 +392,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </footer>
 
     <div class="loader">A carregar...</div>
-    
+
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
