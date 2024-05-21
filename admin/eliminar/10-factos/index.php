@@ -240,7 +240,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                             <div class="table-responsive">
                                 <?php
-                                $query = "SELECT 10_factos_id, nº, factos, descricao, perturbacoes.nome AS perturbacoes
+                                $query = "SELECT factos_10.*, perturbacoes.nome AS perturbacoes
                                 FROM factos_10
                                 JOIN perturbacoes ON factos_10.perturbacoes_id = perturbacoes.perturbacoes_id";
                                 $query_run = mysqli_query($conn, $query);
@@ -252,6 +252,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Número</th>
                                             <th>Facto</th>
                                             <th>Explicação</th>
+                                            <th>Fonte</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -272,6 +273,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['descricao']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                     <td>
                                                         <form action="10-factos.php" method="post">

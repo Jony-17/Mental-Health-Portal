@@ -257,6 +257,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Opção B</th>
                                             <th>Resposta</th>
                                             <th>Quantidade(intervalo)</th>
+                                            <th>Fonte</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -292,6 +293,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['qtd']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                     <td>
                                                         <form action="quizzes.php" method="post">

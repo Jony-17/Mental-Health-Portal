@@ -262,6 +262,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Conteúdo</th>
                                             <th>Pontos</th>
                                             <th>Texto dos pontos</th>
+                                            <th>Fonte</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -291,6 +292,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                     <td>
                                                         <form action="noticias.php" method="post">

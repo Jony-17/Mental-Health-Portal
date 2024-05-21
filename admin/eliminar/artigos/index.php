@@ -267,7 +267,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <tr>
                                             <th>Nº Artigo</th>
                                             <th>Título</th>
-                                            <th>Descrição</th>
                                             <th>Data de publicação</th>
                                             <th>Autor</th>
                                             <th>Imagem</th>
@@ -275,6 +274,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Perturbação e respetivo grupo</th>
                                             <th>Pontos</th>
                                             <th>Texto dos pontos</th>
+                                            <th>Fonte</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -289,9 +289,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['titulo']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['descricao']; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['data_publicacao']; ?>
@@ -313,6 +310,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['texto']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                     <td>
                                                         <form action="artigos.php" method="post">

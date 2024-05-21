@@ -241,7 +241,8 @@ if (isset($_SESSION['id_utilizador'])) {
                                 $query = "SELECT exercicios_mindfulness.*, 
                                 exercicios_mindfulness_ex.titulo, 
                                 exercicios_mindfulness_ex.img,
-                                exercicios_mindfulness_ex.audio
+                                exercicios_mindfulness_ex.audio,
+                                exercicios_mindfulness_ex.fonte
                                 FROM exercicios_mindfulness
                                 LEFT JOIN exercicios_mindfulness_ex 
                                 ON exercicios_mindfulness.exercicios_mindfulness_id = exercicios_mindfulness_ex.exercicios_mindfulness_id";
@@ -257,6 +258,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Título da atividade</th>
                                             <th>Imagem/GIF da atividade</th>
                                             <th>Áudio</th>
+                                            <th>Fonte</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -284,6 +286,9 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['audio']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['fonte']; ?>
                                                     </td>
                                                     <td>
                                                         <form action="exercicios-mindfulness.php" method="post">
