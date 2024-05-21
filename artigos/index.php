@@ -334,7 +334,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                 echo $row["img_artigo"];
                             } else {
                                 echo "teste.jpeg";
-                            } ?>" alt="<?php echo $row["img_artigo"]; ?>">
+                            } ?>" alt="<?php echo $row["img_artigo"]; ?>" class="lazyload">
                         </a>
                         <div class="card4-content">
                             <h3><?php echo $row["perturbacao_nome"] ?></h3>
@@ -584,7 +584,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
@@ -594,6 +594,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 
 </body>
 
