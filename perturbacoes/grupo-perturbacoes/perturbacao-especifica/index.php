@@ -151,7 +151,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 function funcao1() {
                     var r = confirm("Deseja realmente terminar sessão?");
                     if (r == true) {
-                        var url = "../logout/logout.php";
+                        var url = "../../../logout/logout.php";
                         window.location = url;
                     }
                     document.getElementById("demo").innerHTML = x;
@@ -508,10 +508,27 @@ if (isset($_SESSION['id_utilizador'])) {
             </svg>
             <h3>Fontes</h3>
         </div>
-        <div class="fontes-content2">
-            <p>1. Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua
-                vita. MyLife.</p>
-        </div>
+        <?php
+        if (isset($_GET['nome'])) {
+            // Obter o título do artigo da URL e decodificar
+            $nome = urldecode($_GET['nome']);
+
+            // Consulta SQL para buscar o artigo pelo título
+            $query = "SELECT gp.fonte
+                      FROM grupos_perturbacoes gp
+                      WHERE gp.nome = '$nome'";
+
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="fontes-content2">
+                    <p><?php echo $row['fonte']; ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 
     <!--Artigos relacionados-->
@@ -711,7 +728,8 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
-
+    <div class="loader">A carregar...</div>
+    
     <!--Chatbot-->
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
