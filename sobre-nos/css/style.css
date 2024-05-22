@@ -584,7 +584,7 @@ footer {
   width: 90%;
   margin: auto;
   display: flex;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   align-items: flex-start;
   justify-content: space-between;
 }
@@ -626,6 +626,10 @@ footer {
   color: var(--white-color);
 }
 
+.footer-col ul li ul li {
+  color: var(--footer-text);
+}
+
 hr {
   width: 90%;
   border: 0;
@@ -661,7 +665,7 @@ hr {
 
 .vertical-hr {
   border-left: 2px solid var(--white-color);
-  height: 15px;
+  height: 25px;
   margin: 6px 0;
 }
 
@@ -887,6 +891,10 @@ ol {
     margin-top: 10px;
   }
 
+  .footer-row {
+    flex-wrap: wrap;
+  }
+  
   .vertical-hr {
     display: none;
   }
