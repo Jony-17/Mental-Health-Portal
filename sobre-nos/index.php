@@ -363,11 +363,11 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="footer-links">
             <p class="copyright">@2024 Todos os direitos reservados</p>
             <div class="footer-links-2">
-                <a href="#">Termos & Condições</a>
+                <a href="../termos-e-condicoes">Termos e Condições</a>
 
                 <div class="vertical-hr"></div>
 
-                <a href="#">FAQ</a>
+                <a href="../perguntas-frequentes">Perguntas Frequentes</a>
 
                 <div class="vertical-hr"></div>
 
@@ -376,16 +376,20 @@ if (isset($_SESSION['id_utilizador'])) {
                         <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
                         <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
                     </ul>
-                </li>-->
+                </li>
 
                 <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
                         class="lang-link">PT</a></span>
 
-                <div class="vertical-hr"></div>
+                <div class="vertical-hr"></div>-->
 
-                <input type="checkbox" id="darkmode-toggle">
-                Light/Dark
-                <label class="change" for="darkmode-toggle">
+                Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
+                    <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+                        <path fill="currentColor"
+                            d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+                            transform="translate(-8 -8)" />
+                    </svg>
+                </button>
             </div>
         </div>
     </footer>
@@ -399,6 +403,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+    <script src="../darkmode/darkmode.js"></script>
 
 </body>
 

@@ -15,6 +15,8 @@
   --neutralgrey-color: #f2f2f2;
   --grey2-color: #333;
 
+  --footer-text: #9e630a;
+
   /* FONTS */
   --logo: 30px;
   --navbar: 17px;
@@ -26,10 +28,57 @@
   --second2-heading: clamp(12px, 5vw, 52px);
 
   --buttons: 1.1rem;
+
+  /* --- */
+
+  --clr-light: #fff;
+  --clr-dark: #C27500;
+  --clr-primary: #dbffa2;
+  --clr-secondary: #c3fcf2;
+  --clr-accent: #ff7750;
+
+  --foreground: var(--clr-dark);
+  --background: var(--clr-light);
+}
+
+.darkmode {
+  --clr-light: #fff;
+  --clr-dark: #C27500;
+  --clr-primary: #202302;
+  --clr-secondary: #00100d;
+  --clr-accent: #ff7750;
+
+  --foreground: var(--clr-light);
+  --background: var(--clr-dark);
+
+
+  --title-color: #fff;
+  --title2-color: #fff;
+
+  --grey2-color: #fff;
+
+  --footer-text: #cbcbcb;
+
+  /*--orange2-color: #e48f0f;*/
+  --orange3-color: #7b6f5a;
+
+  --main-color: #3C3C3C;
+}
+
+.dark-mode-toggle {
+  z-index: 100;
+  color: var(--foreground);
+  border: 2px solid currentColor;
+  padding: 4px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  position: relative;
 }
 
 /*Texto sublinhado*/
-
 .selection\:text-white ::selection {
   --tw-text-opacity: 1;
   color: rgb(255 255 255/var(--tw-text-opacity))
@@ -54,6 +103,25 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(41 100% 35% / 1);
+}
+
+body.darkmode::-webkit-scrollbar-thumb {
+  background: 	hsl(0, 0%, 24%); /* Background color of thumb */
+  border-radius: 5px; /* Adjust border-radius as needed */
+}
+
+body.darkmode::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 80%); /* Hover background color */
+}
+
+/*Tradução*/
+button#langButtonEN,
+button#langButtonPT {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 /*Loading*/
@@ -115,15 +183,17 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Saira Condensed", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   height: auto;
   width: 85vw;
-  background-color: var(--white-color);
   max-width: 100%;
   overflow-x: hidden;
   margin: 0rem auto;
+
+  background: var(--background);
 }
 
 section {
@@ -149,7 +219,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white-color);
+  background-color: var(--background);
   z-index: 100;
   display: flex;
   justify-content: space-around;
@@ -181,6 +251,10 @@ header {
   color: var(--main-color);
 }
 
+.navbar .dropdown-container ul li a:hover {
+  color: var(--main-color);
+}
+
 .navbar .toggle_btn {
   color: var(--main-color);
   font-size: 1.5rem;
@@ -206,7 +280,7 @@ header {
   top: 100%;
   left: 0;
   z-index: 999;
-  background-color: var(--white-color); /* Cor de fundo */
+  background-color: var(--background); /* Cor de fundo */
   border: 1px solid var(--white2-color); /* Borda */
   padding: 10px;
   min-width: 150px; /* Largura mínima */
@@ -228,9 +302,7 @@ header {
 }
 
 .links li ul.dropdown li a:hover {
-  background-color: var(
-    --neutralgrey-color
-  ); /* Cor de fundo ao passar o mouse */
+  background-color: var(--neutralgrey-color);
 }
 
 /*------------------Navbar perfil------------------*/
@@ -250,7 +322,7 @@ header {
   top: 100%;
   left: 0;
   z-index: 999;
-  background-color: var(--white-color);
+  background-color: var(--background);
   border: 1px solid var(--white2-color);
   padding: 10px;
   min-width: 150px;
@@ -392,6 +464,11 @@ header {
 
 /*--------------Heading---------------------------*/
 
+body.darkmode .background1 img,
+body.darkmode .background2 img {
+  filter: invert(1) brightness(150) hue-rotate(224deg);
+}
+
 .background1 {
   position: absolute;
   top: 280px;
@@ -515,6 +592,10 @@ footer {
 .footer-col {
   /*flex-basis: 10%;*/
   padding: 10px;
+}
+
+.footer-col ul:hover {
+  text-decoration: underline;
 }
 
 .footer-col h1 {
