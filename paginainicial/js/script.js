@@ -122,8 +122,8 @@ window.addEventListener("load", () => {
         }*/
 
 //Função Light/Dark
-function toggleDarkMode() {
+/*function toggleDarkMode() {
   document.body.classList.toggle("dark-mode", this.checked);
 }
 darkModeToggle.addEventListener("change", toggleDarkMode);
-const darkModeToggle = document.getElementById("darkmode-toggle");
+const darkModeToggle = document.getElementById("darkmode-toggle");*/

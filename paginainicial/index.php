@@ -47,7 +47,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- SweetAlert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
@@ -206,6 +206,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
         </div>
     </header>
+
 
     <!--Home-->
     <section class="home" id="home">
@@ -745,29 +746,29 @@ if (isset($_SESSION['id_utilizador'])) {
                 <ul>
                     <li><a href="#" target="_blank">Apoio Psicológico</a>
                         <ul>
-                            <li style="color: #9e630a;">24h/dia</li>
+                            <li>24h/dia</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
                         <ul>
-                            <li style="color: #9e630a;">Todos os dias das 08h00 às 00h00</li>
+                            <li>Todos os dias das 08h00 às 00h00</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="#" target="_blank">SOS Voz Amiga</a>
                         <ul>
-                            <li style="color: #9e630a;">Todos os dias das 15:30h às 00:30h</li>
+                            <li>Todos os dias das 15:30h às 00:30h</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="#" target="_blank">Linha Conversa Amiga</a>
                         <ul>
-                            <li style="color: #9e630a;">Dias úteis das 15h00 às 22h00</li>
-                            <li style="color: #9e630a;">Fins de semana das 19h00 às 22h00</li>
+                            <li>Dias úteis das 15h00 às 22h00</li>
+                            <li>Fins de semana das 19h00 às 22h00</li>
                         </ul>
                     </li>
                 </ul>
@@ -792,16 +793,20 @@ if (isset($_SESSION['id_utilizador'])) {
                         <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
                         <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
                     </ul>
-                </li>-->
+                </li>
 
                 <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
                         class="lang-link">PT</a></span>
 
-                <div class="vertical-hr"></div>
+                <div class="vertical-hr"></div>-->
 
-                <input type="checkbox" id="darkmode-toggle">
-                Light/Dark
-                <label class="change" for="darkmode-toggle">
+                Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
+                    <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+                        <path fill="currentColor"
+                            d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+                            transform="translate(-8 -8)" />
+                    </svg>
+                </button>
             </div>
         </div>
     </footer>
@@ -816,6 +821,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+    <script src="../darkmode/darkmode.js"></script>
 
 </body>
 
