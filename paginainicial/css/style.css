@@ -6,6 +6,7 @@
 
   --title-color: #4c4c4c;
   --title2-color: #6a6a6a;
+  --title3-color: #3b3b3b;
 
   --card1-color: #505050;
 
@@ -54,6 +55,7 @@
 
   --title-color: #fff;
   --title2-color: #fff;
+  --title3-color: #3b3b3b;
 
   --grey2-color: #fff;
 
@@ -1306,7 +1308,7 @@ svg {
   margin-top: 20px;
   padding: 10px 30px 10px 30px;
   border-radius: 20px;
-  color: var(--title-color);
+  color: var(--title3-color);
   background-color: var(--white-color);
 }
 
