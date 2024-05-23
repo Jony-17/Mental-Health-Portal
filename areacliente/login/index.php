@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="selection:text-white selection:bg-orange-400">
 
 <head>
     <meta charset="UTF-8" />
@@ -22,7 +22,7 @@
                     <h3 class="title-h3">Bem-vindo</h3>
                     <h2 class="title-h2">Login</h2>
 
-                    <?php if (isset ($_GET['error'])) { ?>
+                    <?php if (isset($_GET['error'])) { ?>
                         <p class="error">
                             <?php echo $_GET['error']; ?>
                         </p>
@@ -43,7 +43,8 @@
                     <p class="text2">OU</p>
                     <p class="text3">Não tens conta? <a class="text3" href="../registo/">Junta-te a
                             nós!</a></p>
-                    <p class="text3"><a class="text3" href="../../paginainicial/">Acede ao website sem criar conta</a></p>
+                    <p class="text3"><a class="text3" href="../../paginainicial/">Acede ao website sem criar conta</a>
+                    </p>
                 </form>
             </div>
         </div>
@@ -51,6 +52,13 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
+                    <button id="dark-mode-toggle" class="dark-mode-toggle">
+                        <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+                            <path fill="currentColor"
+                                d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+                                transform="translate(-8 -8)" />
+                        </svg>
+                    </button>
                     <h2 class="content-text1">Tu</h2>
                     <h3 class="content-text2">mereces ser feliz</h3>
                     <p class="content-text3">
@@ -82,6 +90,7 @@
     </div>
     <script src="./js/toggle-password.js"></script>
     <script src="app.js"></script>
+    <script src="../../darkmode/darkmode.js"></script>
 </body>
 
 </html>
