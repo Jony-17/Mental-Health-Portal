@@ -10,6 +10,9 @@
 
   --card1-color: #505050;
 
+  --card-color: #f0f0f0;
+  --card-text-color: #3C3C3C;
+
   --white-color: #fff;
   --white2-color: #ccc;
 
@@ -52,6 +55,8 @@
   --foreground: var(--clr-light);
   --background: var(--clr-dark);
 
+  --card-color: #6f6d6d;
+  --card-text-color: #fff;
 
   --title-color: #fff;
   --title2-color: #fff;
@@ -597,7 +602,7 @@ img {
 }
 
 .card-body {
-  background-color: #f0f0f0;
+  background-color: var(--card-color);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -615,7 +620,7 @@ img {
 }*/
 
 .card-title {
-  color: var(--card1-color);
+  color: var(--card-text-color);
   font-size: 25px;
   font-weight: 600;
   margin-left: 15px;
@@ -626,7 +631,7 @@ img {
 .card-body .fas.fa-robot,
 .card-body .fas.fa-sticky-note,
 .card-body .far.fa-newspaper {
-  color: var(--card1-color);
+  color: var(--card-text-color);
   font-size: 20px;
   margin-right: 10px;
 }
@@ -1316,6 +1321,8 @@ svg {
 /*----------------FOOTER------------------------*/
 
 footer {
+  position: relative;
+  z-index: 10000;
   width: 100%;
   /*position: absolute;*/
   background-color: var(--main-color);
