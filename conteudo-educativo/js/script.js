@@ -102,29 +102,3 @@ window.addEventListener("load", () => {
   hideLoader();
   setInterval(textLoad, 12000);
 });
-
-
-/*---------------Footer---------------*/
-
-/*function changeLanguage(language) {
-            // Lógica para mudar o idioma aqui
-            // Por exemplo, você pode recarregar a página com o idioma selecionado ou usar AJAX para carregar novos conteúdos.
-            console.log("Idioma selecionado: " + language);
-
-            if (language === 'portuguese') {
-                document.getElementById('portugues').removeAttribute('href');
-                document.getElementById('ingles').setAttribute('href', '#');
-            } else if (language === 'english') {
-                document.getElementById('ingles').removeAttribute('href');
-                document.getElementById('portugues').setAttribute('href', '#');
-            }
-
-            // Aqui você pode implementar a lógica para alterar o idioma conforme necessário
-        }*/
-
-//Função Light/Dark
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode", this.checked);
-}
-darkModeToggle.addEventListener("change", toggleDarkMode);
-const darkModeToggle = document.getElementById("darkmode-toggle");
