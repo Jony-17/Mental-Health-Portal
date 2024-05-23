@@ -100,7 +100,7 @@ input {
 }
 
 .darkmode {
-  --clr-light: #fe9e0d;
+  --clr-light: #fff;
   --clr-dark: #C27500;
   --clr-primary: #202302;
   --clr-secondary: #00100d;
