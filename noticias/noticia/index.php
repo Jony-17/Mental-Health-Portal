@@ -505,7 +505,7 @@ if (isset($_SESSION['id_utilizador'])) {
             class="fas fa-chevron-up"></i></button>
 
 
-    <!---Footer--->
+    <!--Footer-->
     <footer>
         <div class="footer-row">
             <div class="footer-col">
@@ -513,70 +513,129 @@ if (isset($_SESSION['id_utilizador'])) {
                 <p>Tu mereces ser feliz.</p>
             </div>
 
-            <div class="footer-col">
-                <h3>Perturbações</h3>
-                <ul>
-                    <li><a href="../perturbacoes/perturbacoes-ansiedade/">Perturbações de Ansiedade</a></li>
-                    <li><a href="#">Perturbações do Sono - Vigília</a></li>
-                    <li><a href="#">Perturbações de Humor</a></li>
-                    <li><a href="#">Perturbações Alimentares</a></li>
-                    <li><a href="#">Perturbações Obsessivo-Compulsivas</a></li>
-                    <li><a href="#">Perturbações de Personalidade</a></li>
-                    <li><a href="#">Perturbações relacionadas com trauma<br>e fatores de stress</a></li>
-                </ul>
-            </div>
+            <?php
 
-            <div class="footer-col">
-                <h3>Artigos</h3>
-                <ul>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                </ul>
-            </div>
+            $query = "SELECT nome, img_perturbacao FROM perturbacoes";
+            $result = mysqli_query($conn, $query);
 
-            <div class="footer-col">
-                <h3>Notícias</h3>
-                <ul>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                    <li><a href="#">Depressão</a></li>
-                </ul>
-            </div>
+            if ($result && mysqli_num_rows($result) > 0) {
+                ?>
+                <div class="footer-col">
+                    <h3>Perturbações</h3>
+                    <?php
 
-            <div class="footer-col">
-                <h3>Conteúdo Educativo</h3>
-                <ul>
-                    <li><a href="../quizzes">Quizzes</a></li>
-                    <li><a href="#">Exercícios Mindfulness</a></li>
-                    <li><a href="#">TED Talks</a></li>
-                </ul>
-            </div>
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <ul>
+                            <?php
 
+                            $nome_codificado = urlencode($row["nome"]);
+                            ?>
+                            <li><a
+                                    href="../../perturbacoes/grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"><?php echo $row["nome"] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!--Artigos-->
+            <?php
+
+            $query = "SELECT titulo FROM artigos LIMIT 3";
+            $result = mysqli_query($conn, $query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                ?>
+
+                <div class="footer-col">
+                    <h3>Artigos</h3>
+                    <?php
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+
+                        <ul>
+                            <?php
+                            $titulo_codificado = urlencode($row["titulo"]);
+                            ?>
+                            <li><a
+                                    href="../../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!--Notícias-->
+            <?php
+
+            $query = "SELECT titulo FROM noticias LIMIT 3";
+            $result = mysqli_query($conn, $query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                ?>
+
+                <div class="footer-col">
+                    <h3>Notícias</h3>
+                    <?php
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+
+                        <ul>
+                            <?php
+                            $titulo_codificado = urlencode($row["titulo"]);
+                            ?>
+                            <li><a
+                                    href="../../noticias/noticia/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
+            <!--Contactos-->
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
                     <li><a href="#" target="_blank">Apoio Psicológico</a>
                         <ul>
-                            <li style="color: #DADADA;">24h/dia</li>
+                            <li>24h/dia</li>
                         </ul>
                     </li>
+                </ul>
+                <ul>
                     <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
                         <ul>
-                            <li style="color: #DADADA;">Todos os dias das 08h00 às 00h00</li>
+                            <li>Todos os dias das 08h00 às 00h00</li>
                         </ul>
                     </li>
+                </ul>
+                <ul>
                     <li><a href="#" target="_blank">SOS Voz Amiga</a>
                         <ul>
-                            <li style="color: #DADADA;">Todos os dias das 15:30h às 00:30h</li>
+                            <li>Todos os dias das 15:30h às 00:30h</li>
                         </ul>
                     </li>
+                </ul>
+                <ul>
                     <li><a href="#" target="_blank">Linha Conversa Amiga</a>
                         <ul>
-                            <li style="color: #DADADA;">Dias úteis das 15h00 às 22h00</li>
-                            <li style="color: #DADADA;">Fins de semana das 19h00 às 22h00</li>
+                            <li>Dias úteis das 15h00 às 22h00</li>
+                            <li>Fins de semana das 19h00 às 22h00</li>
                         </ul>
                     </li>
                 </ul>
@@ -588,7 +647,11 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="footer-links">
             <p class="copyright">@2024 Todos os direitos reservados</p>
             <div class="footer-links-2">
-                <a href="#">Termos & Condições</a>
+                <a href="../../termos-e-condicoes">Termos e Condições</a>
+
+                <div class="vertical-hr"></div>
+
+                <a href="../../perguntas-frequentes">Perguntas Frequentes</a>
 
                 <div class="vertical-hr"></div>
 
@@ -597,16 +660,20 @@ if (isset($_SESSION['id_utilizador'])) {
                         <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
                         <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
                     </ul>
-                </li>-->
+                </li>
 
                 <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
                         class="lang-link">PT</a></span>
 
-                <div class="vertical-hr"></div>
+                <div class="vertical-hr"></div>-->
 
-                <input type="checkbox" id="darkmode-toggle">
-                Light/Dark
-                <label class="change" for="darkmode-toggle">
+                Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
+                    <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+                        <path fill="currentColor"
+                            d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+                            transform="translate(-8 -8)" />
+                    </svg>
+                </button>
             </div>
         </div>
     </footer>
@@ -620,6 +687,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+    <script src="../../darkmode/darkmode.js"></script>
 
 </body>
 
