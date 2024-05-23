@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 /*Scroll bar*/
-
 ::-webkit-scrollbar {
   width: 0.70em;
 }
@@ -15,6 +14,17 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(41 100% 35% / 1);
+}
+
+/*Texto sublinhado*/
+.selection\:text-white ::selection {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255/var(--tw-text-opacity))
+}
+
+.selection\:bg-orange-400 ::selection {
+  --tw-bg-opacity: 1;
+    background-color: rgb(251 146 60/var(--tw-bg-opacity))
 }
 
 * {
@@ -49,11 +59,86 @@
   --ctexts: #8d8d8d;
   --background-alert: #f2dede;
   --color-alert: #a94442;
+
+  --card1-color: #505050;
+
+  --white-color: #fff;
+  --white2-color: #ccc;
+
+  --neutralgrey-color: #f2f2f2;
+  --grey2-color: #333;
+
+  --footer-text: #9e630a;
+
+  --index-color: #8a8a8a;
+
+  --card-color: #f0f0f0;
+  --card-text-color: #3C3C3C;
+
+  --fontes-color: #B13E3E;
+
+  /* --- */
+
+  --clr-light: #fff;
+  --clr-dark: #C27500;
+  --clr-primary: #dbffa2;
+  --clr-secondary: #c3fcf2;
+  --clr-accent: #ff7750;
+
+  --foreground: var(--clr-dark);
+  --background: var(--clr-light);
 }
 
 body,
 input {
   font-family: "Lato", sans-serif;
+}
+
+
+.darkmode {
+  --clr-light: #fe9e0d;
+  --clr-dark: #C27500;
+  --clr-primary: #202302;
+  --clr-secondary: #00100d;
+  --clr-accent: #ff7750;
+
+  --foreground: var(--clr-light);
+  --background: var(--clr-dark);
+
+
+  --title-color: #fff;
+  --title2-color: #fff;
+  --title3-color: #3b3b3b;
+
+  --grey2-color: #fff;
+
+  --footer-text: #cbcbcb;
+
+  /*--orange2-color: #e48f0f;*/
+  --orange3-color: #7b6f5a;
+
+  --index-color: #fff;
+
+  --card-color: #6f6d6d;
+  --card-text-color: #fff;
+
+  --fontes-color: #7f1c1c;
+
+  --main-color: #3C3C3C;
+}
+
+.dark-mode-toggle {
+  z-index: 100;
+  color: var(--foreground);
+  border: 2px solid currentColor;
+  padding: 4px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
 }
 
 /*----------------MENSAGENS ERRO/SUCESSO------------------------*/
@@ -95,7 +180,7 @@ input {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-color: #fe9e0d;
+  background-color: var(--main-color);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -273,7 +358,7 @@ form.sign-in-form {
 
 .btn {
   width: auto;
-  background-color: #fe9e0d;
+  background-color: var(--main-color);
   border: none;
   outline: none;
   height: 50px;
@@ -287,9 +372,9 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #ffffff;
-  color: #fe9e0d;
-  border: 2px solid #fe9e0d;
+  background-color: var(--left-container);
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
 }
 
 .panels-container {
