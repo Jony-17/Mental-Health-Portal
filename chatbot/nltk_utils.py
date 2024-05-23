@@ -1,27 +1,24 @@
 import numpy as np
 import nltk
 from nltk.tokenize import word_tokenize
+from nltk.stem import RSLPStemmer
 
 nltk.download('punkt')
+nltk.download('rslp')
 
-def tokenize(sentence, language='english'):
+stemmer = RSLPStemmer()
+
+def tokenize(sentence):
     """
-    Tokenize the sentence based on language
+    Tokenize the sentence in Portuguese
     """
-    if language == 'english':
-        return word_tokenize(sentence)
-    elif language == 'portuguese':
-        # Usar o tokenizador para o idioma português e forçar a tokenização de palavras compostas
-        return word_tokenize(sentence.lower(), language='portuguese', preserve_line=True)
-    else:
-        raise ValueError("Language not supported")
+    return word_tokenize(sentence.lower(), language='portuguese')
 
 def stem(word):
     """
-    Stem a word
+    Stem a word using the RSLP stemmer for Portuguese
     """
-    # Aqui você pode implementar o stemming para diferentes idiomas, se necessário
-    return word.lower()
+    return stemmer.stem(word.lower())
 
 def bag_of_words(tokenized_sentence, words):
     """
