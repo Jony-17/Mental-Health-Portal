@@ -1129,7 +1129,6 @@ input:checked + .change::after {
   .footer-row {
     flex-wrap: wrap;
   }
-    
 
   .vertical-hr {
     display: none;

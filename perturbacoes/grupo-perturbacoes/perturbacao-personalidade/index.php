@@ -26,7 +26,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 <!DOCTYPE html>
-<html>
+<html class="selection:text-white selection:bg-orange-400">
 
 <head>
     <title>Portal de Saúde Mental</title>
@@ -582,7 +582,7 @@ if (isset($_SESSION['id_utilizador'])) {
                             $nome_codificado = urlencode($row["nome"]);
                             ?>
                             <li><a
-                                    href="../../perturbacoes/grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"><?php echo $row["nome"] ?></a>
+                                    href="../../../perturbacoes/grupo-perturbacoes/?nome=<?php echo $nome_codificado; ?>"><?php echo $row["nome"] ?></a>
                             </li>
                         </ul>
                         <?php
@@ -614,7 +614,7 @@ if (isset($_SESSION['id_utilizador'])) {
                             $titulo_codificado = urlencode($row["titulo"]);
                             ?>
                             <li><a
-                                    href="../../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
+                                    href="../../../artigos/artigo/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
                             </li>
                         </ul>
                         <?php
@@ -646,7 +646,7 @@ if (isset($_SESSION['id_utilizador'])) {
                             $titulo_codificado = urlencode($row["titulo"]);
                             ?>
                             <li><a
-                                    href="../../noticias/noticia/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
+                                    href="../../../noticias/noticia/?titulo=<?php echo $titulo_codificado; ?>"><?php echo $row["titulo"] ?></a>
                             </li>
                         </ul>
                         <?php
