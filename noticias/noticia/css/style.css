@@ -203,6 +203,10 @@ button#langButtonPT {
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 90px;
+}
+
 body {
   height: auto;
   width: 85vw;
