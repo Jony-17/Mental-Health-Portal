@@ -2,6 +2,11 @@
 session_start();
 require_once ("../conn/conn.php");
 
+// Define a zona de tempo para Portugal
+date_default_timezone_set('Europe/Lisbon');
+
+setlocale(LC_TIME, 'pt_PT.utf8');
+
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
 
@@ -309,6 +314,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="card-container">
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
+                    // Formata a data da publicação
+                    $data_publicacao = date("d-m-Y", strtotime($row['data_publicacao'])); // Alterar "d/m/Y" para o formato desejado
                     ?>
                     <div class="card">
                         <?php
@@ -323,7 +330,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         </a>
                         <div class="card4-content">
                             <h1><?php echo $row["titulo"] ?></h1>
-                            <p><?php echo $row['data_publicacao'] ?></p>
+                            <p><?php echo $data_publicacao ?></p>
                             <p><?php echo $row['autor'] ?></p>
                         </div>
                     </div>
@@ -413,6 +420,17 @@ if (isset($_SESSION['id_utilizador'])) {
                   FROM noticias
                   WHERE fonte IS NOT NULL AND fonte <> ''";
 
+        // Adiciona filtro de pesquisa, se fornecido
+        if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+            $search_query = mysqli_real_escape_string($conn, $_GET['search_query']);
+            $query .= " AND noticias.titulo LIKE '%$search_query%'";
+        }
+
+        // Adiciona ordenação por data de publicação mais recente, se fornecido
+        if (isset($_GET['ordem']) && $_GET['ordem'] === 'data_recente') {
+            $query .= " ORDER BY data_publicacao DESC";
+        }
+
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -423,6 +441,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <?php
         }
         ?>
+
     </div>
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i

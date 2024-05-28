@@ -386,7 +386,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <!--Pontos-->
             <?php
-            // Consulta SQL para selecionar os pontos do artigo atual apenas
+            // Consulta SQL para selecionar os pontos do noticia atual apenas
             $query = "SELECT conteudo_noticia_id, noticias_id, ponto, texto FROM conteudo_noticia WHERE noticias_id = $noticias_id";
 
             // Executar a consulta
@@ -397,27 +397,9 @@ if (isset($_SESSION['id_utilizador'])) {
                 // Loop através dos resultados
                 while ($row = mysqli_fetch_assoc($result)) {
                     // Exibir o conteúdo de cada ponto dentro dos elementos <div> e <h1>
-                    echo '<div class="subheading" id="ponto_' . $row['ponto'] . '">';
+                    echo '<div class="subheading" id="ponto_' . urlencode($row['ponto']) . '">';
                     echo '<h1>' . $row['ponto'] . '</h1>';
-
-                    $conteudo_noticia_id = $row['conteudo_noticia_id'];
-                    $query_conteudo = "SELECT texto FROM conteudo_noticia WHERE conteudo_noticia_id = $conteudo_noticia_id";
-
-
-                    // Executar a consulta de conteúdo
-                    $result_conteudo = mysqli_query($conn, $query_conteudo);
-
-                    // Verificar se a consulta de conteúdo foi bem-sucedida e se retornou pelo menos uma linha
-                    if ($result_conteudo && mysqli_num_rows($result_conteudo) > 0) {
-                        // Exibir o conteúdo real do ponto
-                        while ($row_conteudo = mysqli_fetch_assoc($result_conteudo)) {
-                            echo '<p>' . $row_conteudo['texto'] . '</p>';
-                        }
-                    } else {
-                        // Se a consulta de conteúdo não retornar nenhum resultado
-                        echo "Não há conteúdo disponível para este ponto.";
-                    }
-
+                    echo '<p>' . $row['texto'] . '</p>';
                     echo '</div>';
                 }
             } else {
