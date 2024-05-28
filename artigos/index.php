@@ -2,6 +2,11 @@
 session_start();
 require_once ("../conn/conn.php");
 
+// Define a zona de tempo para Portugal
+date_default_timezone_set('Europe/Lisbon');
+
+setlocale(LC_TIME, 'pt_PT.utf8');
+
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
 
@@ -368,6 +373,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="card-container">
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
+                    // Formata a data da publicação
+                    $data_publicacao = date("d-m-Y", strtotime($row['data_publicacao'])); // Alterar "d/m/Y" para o formato desejado
                     ?>
                     <div class="card">
                         <?php
