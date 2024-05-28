@@ -993,26 +993,38 @@ input:checked + .change::after {
 
 /*---------------ANIMATIONS SCROLL-------------------------*/
 
+.subheading,
+.card-body,
 .card2-container {
-  scale: .6; opacity: 0;
-  animation: fadeIn linear forwards;
-  animation-timeline: view();
-  animation-range: entry;
+  animation: fadeIn 1s linear;
 }
 
 /*---------------ANIMATIONS-------------------------*/
 
-
-@keyframes fadeIn {
-  to {
-    scale: 1;
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(1.12);
+  }
+  100% {
     opacity: 1;
+    transform: scale(1);
   }
 }
 
-@keyframes fadeOut {
-  to {
+@keyframes fadeIn {
+  from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
