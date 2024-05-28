@@ -807,17 +807,23 @@ input:checked + .change::after {
     width: auto;
   }
 
+  .heading h1 {
+    line-height: 1.2;
+  }
+
   .heading p {
-    text-align: left;
+    font-size: 16px;
   }
 
   .question h3,
   .divider {
     margin-left: 0;
+    font-size: 1.4rem;
   }
 
   .answer p {
     padding-left: 0;
+    font-size: 1.1rem;
   }
 
 
