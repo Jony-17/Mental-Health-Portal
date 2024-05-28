@@ -2,6 +2,11 @@
 session_start();
 require_once ("../../conn/conn.php");
 
+// Define a zona de tempo para Portugal
+date_default_timezone_set('Europe/Lisbon');
+
+setlocale(LC_TIME, 'pt_PT.utf8');
+
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
 
@@ -317,8 +322,9 @@ if (isset($_SESSION['id_utilizador'])) {
             // Exibir o autor e a data de publicação do artigo
             echo '<ol role="list2" class="list2">';
             echo '<li class="list"><div class="items"><span class="text-sm">' . $row['autor'] . '</span><span class="separator">|</span></div></li>';
-            echo '<li class="list"><div class="items"><span class="text-sm">' . $row['data_publicacao'] . '</span></div></li>';
+            echo '<li class="list"><div class="items"><span class="text-sm">' . $data_publicacao = date("d-m-Y", strtotime($row['data_publicacao'])) . '</span></div></li>';
             echo '</ol>';
+
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
             echo "Autor ou data de publicação não encontrados.";
