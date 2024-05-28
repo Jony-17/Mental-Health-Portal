@@ -550,7 +550,15 @@ body.darkmode .background2 img {
   display: flex;
   flex-direction: column;
   /*justify-content: space-between;*/
+
+  transition: opacity 1s ease; /* Transição suave para a opacidade */
+  opacity: 0;
 }
+
+.card.card-entry {
+  opacity: 1;
+}
+
 
 .card img {
   width: 100%;
@@ -1018,6 +1026,33 @@ li:not(:last-child) .separator {
     color: #232323;
 }
 
+/*---------------ANIMATIONS SCROLL-------------------------*/
+
+.heading,
+.container {
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+}
+
+/*---------------ANIMATIONS-------------------------*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
 /*---------------MEDIA QUERIES-------------------------*/
 
