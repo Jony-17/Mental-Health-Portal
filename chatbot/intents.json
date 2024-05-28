@@ -43,10 +43,28 @@
       "tag": "cabeca",
       "patterns": [
         "Dor de cabeça",
-        "Dor de cabeca"
+        "Dor de cabeca",
+        "Doi-me a cabeca",
+        "Nao aguento de dores na cabeca",
+        "Estou mal da cabeca",
+        "Estou com enxaquecas",
+        "Estou cheio de dores de cabeca"
       ],
       "responses": [
         "Tendo em conta esse sintoma, recomendo que vás ao seguinte link: <a href=\"https://trello.com/b/MEs8b2zt/projeto-saude-mental\" target=\"_blank\">aqui</a>"
+      ]
+    },
+    {
+      "tag": "corpo",
+      "patterns": [
+        "Dor no corpo",
+        "Doi-me o corpo",
+        "Nao aguento de dores no corpo",
+        "Estou mal do corpo",
+        "Estou cheio de dores no corpo"
+      ],
+      "responses": [
+        "Tendo em conta esse sintoma, recomendo que vás ao seguinte link: <a href=\"https://www.figma.com/design/wAi2z7AsBH2O3x396Pnr1W/Project---Mental-Health-Portal?node-id=0-1&t=1FPHocv6Wux3D0dl-0\" target=\"_blank\">aqui</a>"
       ]
     }
   ]
