@@ -749,7 +749,8 @@ svg {
   left: -15px;
 }
 
-body.darkmode .factos-bannerImage-container img {
+body.darkmode .factos-bannerImage-container img,
+body.darkmode .factos-bannerImage-container2 img {
   filter: invert(1) brightness(150) hue-rotate(224deg);
 }
 
@@ -763,33 +764,8 @@ body.darkmode .factos-bannerImage-container img {
 
 .factos-bannerImage-container2 {
   position: absolute;
-  top: 670px;
-  left: -360px;
-  rotate: 180deg;
-  z-index: -2;
-  max-width: 900px;
-}
-
-.factos-bannerImage-container3 {
-  position: absolute;
   top: 1200px;
-  right: -360px;
-  z-index: -2;
-  max-width: 900px;
-}
-
-.factos-bannerImage-container4 {
-  position: absolute;
-  bottom: 390px;
-  right: -360px;
-  z-index: -2;
-  max-width: 900px;
-}
-
-.factos-bannerImage-container5 {
-  position: absolute;
-  bottom: 250px;
-  left: -360px;
+  left: -400px;
   z-index: -2;
   max-width: 900px;
 }
@@ -1071,6 +1047,11 @@ input:checked + .change::after {
     border-right: 15px solid var(--card-color);
     border-left: 0;
     left: -15px;
+  }
+
+  .factos-bannerImage-container,
+  .factos-bannerImage-container2 {
+    display: none;
   }
 
   /*Fontes*/

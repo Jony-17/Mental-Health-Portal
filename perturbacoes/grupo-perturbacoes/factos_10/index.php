@@ -304,6 +304,10 @@ if (isset($_SESSION['id_utilizador'])) {
                         <img src="imgs/background2.png" alt="banner background" />
                     </div>
 
+                    <div class="factos-bannerImage-container2">
+                        <img src="imgs/background3.png" alt="banner background" />
+                    </div>
+
                     <?php
                     $left = true;
                     // Exibir informações adicionais sobre outras perturbações
