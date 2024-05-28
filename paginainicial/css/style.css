@@ -1048,12 +1048,12 @@ img {
 
 .card5-background2 h3 {
   color: white;
-  font-size: 27px;
+  font-size: 24px;
   font-weight: 200;
   position: absolute;
   /* transform: translate(-50%, -50%); */
   /* text-align: center; */
-  top: 85%;
+  top: 90%;
   left: 5%;
   z-index: 100;
 }
@@ -1061,18 +1061,14 @@ img {
 
 .card5-background2 h1 {
   color: white;
-  font-size: 30px;
+  font-size: 24px;
   position: absolute;
   /* transform: translate(-50%, -50%); */
   /* text-align: center; */
-  top: 70%;
+  top: 85%;
   left: 5%;
   z-index: 100;
 }
-
-
-
-
 
 .card6-container {
   display: grid;
@@ -1560,12 +1556,13 @@ input:checked + .change::after {
   .home-primary-heading {
     text-align: center;
     max-width: 90%;
-    font-size: 30px;
+    font-size: 40px;
   }
   .home-primary-text {
     text-align: center;
     max-width: 80%;
     padding-bottom: 10px;
+    font-size: 20px;
   }
   .home-text-section {
     justify-content: center;
@@ -1578,10 +1575,13 @@ input:checked + .change::after {
     margin-top: 40px;
   }
   .about-primary-heading {
-    font-size: 20px;
+    font-size: 27px;
   }
   .primary-heading {
-    font-size: 30px;
+    font-size: 40px;
+  }
+  .about-primary-text{
+    font-size: 20px;
   }
   .about-primary-heading,
   .home-primary-heading,
@@ -1597,14 +1597,14 @@ input:checked + .change::after {
     cursor: pointer;
   }
   .card-title {
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .card-body .fas.fa-comments,
   .card-body .fas.fa-robot,
   .card-body .fas.fa-sticky-note,
   .card-body .far.fa-newspaper {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   /*Perturbações*/
@@ -1617,16 +1617,19 @@ input:checked + .change::after {
   .quizzes-primary-heading,
   .noticias-primary-heading,
   .perguntas-primary-heading {
-    font-size: 22px;
+    font-size: 27px;
     margin-top: 50px;
   }
 
   .perturbacoes-second-heading,
   .artigos-second-heading,
   .quizzes-second-heading,
-  .noticias-second-heading,
+  .noticias-second-heading {
+    font-size: 30px;
+  }
+
   .perguntas-second-heading {
-    font-size: 25px;
+    font-size: 27px;
   }
 
   .card2-container {
@@ -1642,13 +1645,6 @@ input:checked + .change::after {
     font-size: 20px;
   }
 
-  .third-button {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    padding: 10px 30px;
-    text-align: center;
-    white-space: nowrap;
-  }
 
   /*Artigos científicos*/
   .card3-container {
@@ -1677,11 +1673,11 @@ input:checked + .change::after {
   }
 
   .sixth-button {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 10px 30px;
     text-align: center;
     white-space: nowrap;
-    margin-left: 7px;
+    margin-left: 20px;
   }
 
   .card5-container {
@@ -1701,9 +1697,27 @@ input:checked + .change::after {
     margin-left: 0;
   }
 
+  .card5-background2 h1,
+  .card5-background2 h3 {
+    font-size: 22px;
+  }
+
+  .card6-background2 h1,
+  .card6-background2 h3 {
+    font-size: 18px;
+  }
+
   /*Perguntas frequentes*/
   .faq {
     font-size: 100px;
+  }
+
+  .question h3 {
+    font-size: 1.4rem;
+  }
+
+  .answer p {
+    font-size: 1.1rem;
   }
 
   /*Newsletter*/
@@ -1743,6 +1757,17 @@ input:checked + .change::after {
 
   .footer-row {
     flex-wrap: wrap;
+  }
+
+  /*Buttons*/
+  .third-button,
+  .fourth-button,
+  .fifth-button {
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 10px 30px;
+    text-align: center;
+    white-space: nowrap;
   }
 }
 
