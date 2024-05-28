@@ -1076,29 +1076,30 @@ li:not(:last-child) .separator {
   }
 
   .artigos-banner-container {
-      width: auto;
+    width: auto;
   }
 
   .artigos-primary-heading {
-      font-size: 25px;
+    font-size: 25px;
   }
 
   .card-container {
-      grid-template-columns: repeat(1, 1fr);
-      margin-right: 0;
-      margin-left: 0;
+    grid-template-columns: repeat(1, 1fr);
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .card img {
-      height: 150px;
+    height: 150px;
   }
 
   .card h1 {
-      font-size: 20px;
+    font-size: 25px;
+    margin-top: 10px;
   }
 
   .card p {
-      font-size: 15px;
+    font-size: 15px;
   }
 
   form {
