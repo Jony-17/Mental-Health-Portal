@@ -98,3 +98,22 @@ window.addEventListener("load", () => {
   hideLoader();
   setInterval(textLoad, 12000);
 });
+
+
+/*---------------Cards---------------*/
+
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('card-entry');
+    } else {
+      entry.target.classList.remove('card-entry');
+    }
+  });
+});
+
+cards.forEach((card) => {
+  observer.observe(card);
+});
