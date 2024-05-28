@@ -503,6 +503,8 @@ header {
   font-size: 18px;
   font-family: "Libre Baskerville", sans-serif;
   margin-top: 15px;
+  text-align: justify;
+  line-height: 2;
 }
 
 
@@ -587,7 +589,7 @@ audio {
   color: var(--grey2-color);
   padding: 20px 0px 0px 25px;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .fontes.active .fontes-content2 {
@@ -881,6 +883,14 @@ li:not(:last-child) .separator {
     line-height: 1;
     margin-bottom: 20px;
     width: auto;
+  }
+
+  .heading h1 {
+    line-height: 1.2;
+  }
+
+  .heading p {
+    font-size: 16px;
   }
 
   .first-button {
