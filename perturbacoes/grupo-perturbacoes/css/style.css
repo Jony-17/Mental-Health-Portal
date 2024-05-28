@@ -624,7 +624,7 @@ li:not(:last-child) .separator {
   color: var(--grey2-color);
   padding: 20px 0px 0px 25px;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .fontes.active .fontes-content2 {
@@ -1074,7 +1074,7 @@ input:checked + .change::after {
   }
 
   .card2 p {
-    font-size: 13px;
+    font-size: 17px;
   }
 
   .card2-content {
