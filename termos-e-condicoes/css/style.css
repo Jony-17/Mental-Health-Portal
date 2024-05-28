@@ -525,6 +525,11 @@ li::marker {
   padding-right: 10px;
 }
 
+ol.decimal li::marker {
+  color: black;
+  font-weight: 500;
+}
+
 /*----------------FOOTER------------------------*/
 
 footer {
@@ -763,8 +768,12 @@ input:checked + .change::after {
     width: auto;
   }
 
+  .heading h1 {
+    line-height: 1.2;
+  }
+
   .heading p {
-    text-align: left;
+    font-size: 16px;
   }
 
 
