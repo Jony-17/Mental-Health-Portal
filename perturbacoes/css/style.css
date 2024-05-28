@@ -823,9 +823,14 @@ li:not(:last-child) .separator {
     margin: 10px 0 20px 15px;
     padding: 0;
   }
+  
+  .heading h1 {
+    line-height: 1.2;
+  }
 
   .perturbacoes-banner-container {
     width: auto;
+    margin-top: 0;
   }
 
   .perturbacoes-primary-heading {
