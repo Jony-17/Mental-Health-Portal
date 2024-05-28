@@ -1,8 +1,10 @@
 <?php
 session_start();
-require_once("../../../conn/conn.php");
+require_once ("../../../conn/conn.php");
 
 if (isset($_POST['inserirbtn'])) {
+    $noticias_id = $_POST['noticias_id'];
+
     $titulo = $_POST['titulo'];
     $data_publicacao = $_POST['data_publicacao'];
     $autor = $_POST['autor'];
@@ -51,56 +53,39 @@ if (isset($_POST['inserirbtn'])) {
         // Atualizar o artigo com os novos IDs da perturbação e do grupo
         $query = "UPDATE noticias SET titulo = '$titulo', data_publicacao = '$data_publicacao', autor = '$autor', img_noticia = '$imagem', conteudo_texto = '$conteudo', fonte = '$fonte'
                   WHERE noticias_id = $noticias_id";
-    } else {
-        // ID não presente, é uma inserção
-        $query = "INSERT INTO noticias (titulo, data_publicacao, autor, img_noticia, conteudo_texto, fonte) VALUES ('$titulo', '$data_publicacao', '$autor', '$imagem', '$conteudo', '$fonte')";
-    }
+        $query_run = mysqli_query($conn, $query);
 
-    // Executa a consulta SQL
-    $query_run = mysqli_query($conn, $query);
 
-    if ($query_run) {
-        // Se for uma atualização, também atualiza a tabela conteudo_noticia
-        if (isset($noticias_id)) {
-            if ($pontos === '---') {
-                // Insere um novo registro na tabela conteudo_noticia
-                $query_insert_conteudo = "INSERT INTO conteudo_noticia (noticias_id, ponto, texto) VALUES ($noticias_id, '$pontos', '$texto')";
-                mysqli_query($conn, $query_insert_conteudo);
-            } else {
-                // Verifica se a questão já existe para o noticias_id
-                $query_questao = "SELECT * FROM conteudo_noticia WHERE noticias_id = $noticias_id";
-                $result_questao = mysqli_query($conn, $query_questao);
+        if ($query_run) {
+            // Atualização do conteúdo do artigo
+            foreach ($pontos as $index => $ponto) {
+                $texto_atual = $textos[$index]; // Use o índice do loop para acessar o texto correspondente
 
-                if ($result_questao && mysqli_num_rows($result_questao) > 0) {
-                    // Questão existe, atualiza a questão
-                    $query_update_questao = "UPDATE conteudo_noticia SET ponto = '$pontos', texto = '$texto' WHERE noticias_id = $noticias_id";
-                    mysqli_query($conn, $query_update_questao);
+                // Verifica se o conteúdo já existe para o ponto atual
+                $query_check_conteudo = "SELECT * FROM conteudo_noticia WHERE noticias_id='$noticias_id' AND ponto='$ponto' AND texto='$texto_atual'";
+                $result_check_conteudo = mysqli_query($conn, $query_check_conteudo);
+
+                if ($result_check_conteudo) {
+                    if (mysqli_num_rows($result_check_conteudo) > 0) {
+                        // Se o conteúdo existir, atualiza-o
+                        $texto_atual_escaped = mysqli_real_escape_string($conn, $texto_atual);
+                        $query_update_conteudo = "UPDATE conteudo_noticia SET texto = '$texto_atual_escaped' WHERE noticias_id = $noticias_id AND ponto = '$ponto'";
+                        mysqli_query($conn, $query_update_conteudo);
+                    }
                 } else {
-                    // Questão não existe, insere uma nova questão
-                    $query_insert_questao = "INSERT INTO conteudo_noticia (noticias_id, ponto, texto) VALUES ($noticias_id, '$pontos', '$texto')";
-                    mysqli_query($conn, $query_insert_questao);
+                    echo "Erro ao verificar conteúdo do artigo: " . mysqli_error($conn);
                 }
             }
+
+            echo "Artigo e conteúdo atualizados com sucesso";
+            header('Location: .');
         } else {
-            // Se for uma nova inserção, pega o último ID inserido na tabela noticias
-            $ultimo_id = mysqli_insert_id($conn);
-
-            // Insere a nova questão na tabela conteudo_noticia
-            $query_insert_questao = "INSERT INTO conteudo_noticia (noticias_id, ponto, texto) VALUES ($ultimo_id, '$pontos', '$texto')";
-            mysqli_query($conn, $query_insert_questao);
+            echo "Erro ao atualizar artigo: " . mysqli_error($conn);
         }
-
-        $_SESSION['status'] = isset($noticias_id) ? "Notícia atualizada com sucesso" : "Notícia inserida com sucesso";
-        $_SESSION['status_code'] = "success";
-        header('Location: .');
     } else {
-        $_SESSION['status'] = isset($noticias_id) ? "Erro ao atualizar Notícia" : "Erro ao inserir Notícia";
-        $_SESSION['status_code'] = "error";
-        header('Location: .');
+        // Não foi possível encontrar IDs para perturbação e grupo, não execute a atualização
+        echo "Não foi possível encontrar IDs para perturbação e grupo.";
+        exit();
     }
-} else {
-    $_SESSION['status'] = "Não foi inserida qualquer Notícia";
-    $_SESSION['status_code'] = "warning";
-    header('Location: .');
 }
 ?>
