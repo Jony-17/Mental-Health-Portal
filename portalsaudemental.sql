@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Maio-2024 às 18:58
+-- Tempo de geração: 28-Maio-2024 às 02:47
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -100,8 +100,22 @@ CREATE TABLE `conteudo_noticia` (
 --
 
 INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
-(1, 1, 'ee1', 'aaa'),
-(8, 7, 'ponto1', 'texto1');
+(1, 1, 'O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa que se tem uma perturbação?--- O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa ', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.--- Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais.Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta.As perturbações de personalidade não são raras: podem afetar até 15% da população.--- Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem'),
+(2, 1, 'O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa que se tem uma perturbação?--- O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa ', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.--- Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais.Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta.As perturbações de personalidade não são raras: podem afetar até 15% da população.--- Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem'),
+(3, 1, 'O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa que se tem uma perturbação?--- O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa ', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.--- Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais.Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta.As perturbações de personalidade não são raras: podem afetar até 15% da população.--- Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem'),
+(4, 2, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental. A depressão é a que mais afeta os portugueses. As \"doenças invisíveis\" são muitas vezes a razão pela qual as pessoas são vítimas de olhares e comentários discriminatórios de colegas, amigos e familiares.'),
+(5, 2, 'Os sinais de alerta', 'Isolamento, alienação, apatia, preocupação, medo e tristeza, cansaço, ansiedade e agressividade são palavras que podem estar associadas a perturbações da saúde mental.'),
+(6, 2, 'Que tratamento deve ser feito?', 'Existem várias formas de tratar doentes com perturbações mentais. A escolha do tratamento e a sua duração são definidos por um profissional especializado e vão sempre depender do quadro clínico de cada paciente.'),
+(7, 3, 'A quem e onde pedir ajuda?', 'As perturbações mentais resultam de muitos fatores que têm a sua base física no cérebro. Já sabemos que podem afetar todos, em toda a parte. E sabemos também que podem ser tratadas eficazmente.\r\n\r\nÉ, por isso, fundamental manter-se informado e estar atento e, aos primeiros sinais de alerta, pedir ajuda.'),
+(8, 3, 'Que tratamento deve ser feito?', 'Existem várias formas de tratar doentes com perturbações mentais. A escolha do tratamento e a sua duração são definidos por um profissional especializado e vão sempre depender do quadro clínico de cada paciente.'),
+(9, 4, 'Os traumas e as consequências', '\"Grande parte poderá ter comportamentos desviantes, como dificuldade em estabelecer limites e regras. Depois há outros que têm outras condicionantes do ponto de vista mental, com questões associadas a depressão ou do foro da personalidade, questões um bocadinho mais pesadas que implicam a necessidade de psicofarmacologia\"'),
+(10, 4, 'Sinais de alerta: quando é preciso pedir ajuda', 'Os sinais de alerta nem sempre são fáceis de identificar, em especial nos mais novos. Os pais e a comunidade escolar devem estar atentos.\r\n\r\nHá crianças que \"não têm a capacidade de verbalizar, apenas se manifestam pelo choro ou outro tipo de mal-estar\", por isso, \"quando a criança está sempre a chorar, e parece não haver nada que a console, é preciso estar atento\"'),
+(11, 4, 'Os pais ansiosos e \"super cuidadosos\"', '\"Muitas vezes é como se estivessemos a remar contra a maré. Estamos a tentar que a criança ou jovem interiorize e assuma determinadas rotinas e em casa isso é tudo alterado e nada é compreendido. Os pais são a maior referência que as crianças têm. Se os próprios pais não acreditam ou não estão sensibilizados para um determinado problema, o natural é que a criança também duvide que haja outras pessoas que queiram genuinamente ajudá-la\".'),
+(12, 5, 'O que é a solidão?', 'A solidão é um sentimento provocado pela falta de contacto com outras pessoas — ou com as pessoas com quem gostaríamos de estar mais frequentemente. É também uma sensação que pode estar relacionada com a ideia de se estar isolado e pode interferir com a nossa qualidade de vida.'),
+(13, 5, 'Há vários tipos de solidão?', 'Sim. Os especialistas referem geralmente dois tipos de solidão: uma solidão social, caracterizada por menos relações com família, amigos e colegas do que aquelas que gostaríamos de ter, e uma solidão emocional, quando não temos relacionamentos de intimidade que permitam partilhas intensas.'),
+(14, 5, 'Como é que a solidão afeta a saúde mental?', 'A solidão prolongada tem um impacto muito significativo na saúde e pode ser um fator de risco para desenvolver uma doença mental. Um relatório publicado em 2023 pelo cirurgião-geral dos EUA [a autoridade máxima operacional de saúde pública do país, equivalente à Direção-Geral de Saúde em Portugal], refere que probabilidade de desenvolver depressão é mais do dobro entre pessoas que relatam sentir-se sozinhas com frequência, em comparação com aquelas que raramente ou nunca se sentem sós.'),
+(15, 6, 'Quando faz sentido procurar ajuda?', 'Para Fernando Mesquita, psicólogo clínico e terapeuta sexual, a intervenção de um sexólogo é indicada em casos de disfunções sexuais ou para casais com dificuldades como “discrepância no desejo e expectativas, insatisfação sexual, situações de trauma sexual, dificuldades de comunicação ou intimidade, mudanças nos padrões de comportamento sexual e problemas relacionados com eventos de vida significativos, bem como com a orientação sexual e identidade de género”.'),
+(16, 6, 'Como é que a saúde mental e a sexualidade se influenciam?', 'Influenciam-se mutuamente: ter uma perturbação mental, como depressão ou ansiedade, pode afetar a sexualidade, mas os problemas sexuais também podem ter um impacto na saúde mental, agravando outras doenças ou contribuindo para o seu desenvolvimento.\r\n\r\nTomando como exemplo a depressão, Fernando Mesquita refere que “frequentemente está associada a alterações na resposta sexual, como dificuldades na excitação, orgasmo e desejo”, sendo que, além disso “alguns medicamentos para a depressão apresentam efeitos colaterais que afetam a função sexual”.\r\n\r\nPor outro lado, a influência da sexualidade na saúde mental é muitas vezes subestimada e “pessoas que enfrentam desafios na esfera sexual, como disfunções sexuais ou insatisfação, podem experimentar um aumento de stress, ansiedade ou mesmo depressão”.');
 
 -- --------------------------------------------------------
 
@@ -371,7 +385,7 @@ INSERT INTO `mensagens` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) 
 CREATE TABLE `noticias` (
   `noticias_id` int(11) NOT NULL,
   `titulo` varchar(1000) NOT NULL,
-  `data_publicacao` varchar(1000) NOT NULL,
+  `data_publicacao` date NOT NULL,
   `autor` varchar(1000) NOT NULL,
   `img_noticia` mediumtext NOT NULL,
   `conteudo_texto` varchar(1000) NOT NULL,
@@ -383,13 +397,12 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`noticias_id`, `titulo`, `data_publicacao`, `autor`, `img_noticia`, `conteudo_texto`, `fonte`) VALUES
-(1, 'Dar uma casa a doentes mentais que vivem na rua', '13 de abril de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste', 'fonte1'),
-(2, 'O que são perturbações da personalidade?', '20 de abril de 2024', 'Observador', 'noticia2.webp', 'testetestetestetestetestetestetestetestetesteteste', 'fonte2'),
-(3, 'O projeto que ajuda a prevenir o suicídio juvenil', '30 de março de 2024', 'Observador', 'noticia3.webp', 'testetestetestetestetestetestetestetestetesteteste', ''),
-(4, 'O projeto que ajuda o suicídio juvenil', '30 de março de 2024', 'Observador', 'noticia4.webp', 'testetestetestetestetestetestetestetestetesteteste', ''),
-(5, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste', ''),
-(6, 'O po que ajuda o juvenil', '30 de março de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste', ''),
-(7, 'O po que o juvenil', '30 de março de 2024', 'Observador', 'noticia1.webp', 'testetestetestetestetestetestetestetestetesteteste', '');
+(1, 'O que são perturbações da personalidade?', '2024-04-20', 'Sofia Teixeira', 'noticia1.webp', 'Há dez tipos de personalidade que a medicina considera uma perturbação, quer pelo desvio em relação aos padrões habituais, quer pelo sofrimento que provocam à pessoa e aos que estão à volta.', 'https://observador.pt/explicadores/o-que-sao-perturbacoes-da-personalidade-oito-respostas-sobre-pessoas-diferentes-do-habitual-e-o-sofrimento-que-tem-e-provocam-nos-outros/'),
+(2, 'Vamos falar de saúde mental', '2020-10-09', 'Sandra Varandas, Bárbara Ferreira e Inês M. Borges', 'noticia2.webp', 'Porque é importante e muitas vezes desvalorizada. Porque devemos cuidar dela. E porque sem ela surgem as perturbações mentais que afetam a vida de milhões de pessoas no mundo.\r\nA doença mental não acontece só aos outros. De acordo com a Organização Mundial da Saúde, uma em cada quatro pessoas será afetada por uma perturbação mental em determinada fase da vida.', 'https://sicnoticias.pt/especiais/saude-mental/2020-10-09-Vamos-falar-de-saude-mental-481aafab'),
+(3, 'Saúde mental: deixar de sofrer em silêncio', '2020-10-13', 'Sandra Varandas e Bárbara Ferreira', 'noticia3.webp', 'Pedir ajuda aos amigos, aos familiares, ao médico de família ou ao psicólogo é o grande passo para a recuperação.\r\nA doença mental não acontece só aos outros. De acordo com a Organização Mundial da Saúde, uma em cada quatro pessoas será afetada por uma perturbação mental em determinada fase da vida.', 'https://sicnoticias.pt/especiais/saude-mental/2020-10-13-Saude-mental-deixar-de-sofrer-em-silencio-46db9dc6'),
+(4, 'Como está a saúde mental das crianças e dos jovens?', '2020-10-10', 'Rita Rogado, Sandra Varandas e Diogo Sentieiro', 'noticia4.webp', 'Vinte por cento das crianças e dos adolescentes têm, pelo menos, uma perturbação mental, de acordo com a Organização Mundial de Saúde. Em Portugal, quase 31% dos jovens têm sintomas depressivos, a maioria moderados ou graves. Os psicólogos dizem que estes números são preocupantes, mas os sinais de alerta nem sempre são fáceis de identificar, por isso os pais e a comunidade escolar devem estar atentos.', 'https://sicnoticias.pt/especiais/saude-mental/2020-10-10-Como-esta-a-saude-mental-das-criancas-e-dos-jovens--617b2917'),
+(5, 'Como é que a solidão afeta a nossa saúde mental?', '2024-02-25', 'Sofia Teixeira', 'noticia5.webp', 'Stress, depressão, ansiedade, adição ou baixa autoestima são algumas possíveis consequências da solidão.', 'https://observador.pt/explicadores/sentir-solidao-e-o-mesmo-que-estar-sozinho-nove-perguntas-sobre-um-sentimento-que-afeta-a-saude-mental-e-pode-provocar-varias-doencas/'),
+(6, 'O sexo afeta a saúde mental? Deve procurar ajuda?', '2024-05-12', 'Sofia Teixeira', 'noticia6.webp', 'Os problemas sexuais têm quase sempre impacto na saúde mental. E as perturbações mentais podem afetar a sexualidade. Tanto num caso como no outro, um terapeuta sexual pode ajudar.', 'https://observador.pt/explicadores/o-sexo-afeta-a-saude-mental-e-quando-deve-procurar-ajuda-10-respostas-sobre-disfuncao-sexual/');
 
 -- --------------------------------------------------------
 
@@ -408,10 +421,10 @@ CREATE TABLE `perguntas` (
 --
 
 INSERT INTO `perguntas` (`perguntas_id`, `pergunta`, `resposta`) VALUES
-(1, 'Pergunta 1', 'Resposta à pergunta 1'),
-(2, 'Pergunta 2', 'Resposta à pergunta 2'),
-(3, 'Pergunta 3', 'Resposta à pergunta 3'),
-(4, 'teste2', 'teste2');
+(1, 'Em que consiste o Portal de Saúde Mental', 'O Portal de Saúde Mental consiste em fornecer por meio de fontes credíveis, informações e recursos que possam ajudar as pessoas a melhorarem o seu bem-estar mental.'),
+(2, 'Quais serviços são oferecidos?', 'O Portal de Saúde Mental é um website meramente informativo, prestador de informações e não de serviços. Em momento algum será feito qualquer tipo de diagnóstico adjacente a qualquer problema existente.'),
+(3, 'O que fazer perante sintomas de perturbação mental?', 'Perante a ocorrência de um ou vários sinais/sintomas mais graves deve-se procurar ajuda de um profissional de saúde. Alguns dos comportamentos citados podem ser normais e enquadrarem-se na capacidade de adaptação psicossocial à vida e às circunstâncias. No entanto, se forem continuados e persistentes, devem ser reportados a um profissional de saúde dos cuidados de saúde primários (Centro de Saúde / Unidade de Saúde Familiar)'),
+(4, 'O que posso fazer para melhorar a minha saúde mental?', 'A título de exemplo, destaca-se recorrer a atividades prazerosas, como a leitura, o ouvir música, o exercício físico, que despoletam sensação de bem-estar, tranquilidade e conforto; ter um estilo de vida saudável, no que diz respeito a padrões de alimentação, sono e atividade física; desfrutar de uma rede de relações positivas, seja em contexto familiar, ou de amigos.');
 
 -- --------------------------------------------------------
 
@@ -651,8 +664,8 @@ CREATE TABLE `utilizadores` (
 INSERT INTO `utilizadores` (`utilizador_id`, `unique_id`, `nome`, `email`, `password`, `genero`, `img_perfil`, `admin`, `data_criacao`) VALUES
 (10, 0, 'Admin2', 'admin2@gmail.com', '$2y$10$/VvdG5/dxdJXeUa/ockQFeiuQtyPZPuIr0aZHd3u7QJVGa9Bg2ZKC', 2, 'user2.png', 1, '0000-00-00 00:00:00'),
 (12, 0, 'Admin', 'admin@gmail.com', '$2y$10$qhuOmrEAp7dt2CkDG.RAiOqrT.Ief55PRldhZjDpzDuVejQv002k.', 1, 'user.png', 1, '2024-02-25 20:17:56'),
-(18, 1703689423, 'João', 'teste@gmail.com', '$2y$10$c9VNDLhd/qGIVewjjY63.OPp7RPHuxseY2ZbFO9xwDIyv7L4z6qgK', 1, 'user.png', 0, '2024-03-11 15:13:13'),
-(26, 1703689628, 'Fernando', 'teste2@gmail.com', '$2y$10$yAkDfepI6ubbkl0tHBluPOO6FOdJ6N6ODgi0/JZp8GZ6IwUfFrgzu', 3, 'user.png', 0, '2024-03-12 10:26:14'),
+(18, 1703689423, 'João', 'teste@gmail.com', '$2y$10$kwCyuAC0eey9XxnY42SVUOjeKklJ6f5Uuonqv5ooCxfN9bXKH9i6S', 1, 'user.png', 0, '2024-03-11 15:13:13'),
+(26, 1703689628, 'Fernando', 'teste2@gmail.com', '$2y$10$BtzRpzU0Unz8aQhV0zGGU.Oc88YY8ZytRY0b4XDUK13bfFNDhmfL6', 3, 'user.png', 0, '2024-03-12 10:26:14'),
 (27, 1035944128, 'Miguel', 'teste3@gmail.com', '$2y$10$i2zHS8WBb0bgvZDzkSgE7./3LGOfUa2lGKJjhli9sOEmzlCk8fwRu', 1, 'pin booking.jpg', 0, '2024-03-12 16:38:55'),
 (29, 1414583001, 'teste', 'teste5@gmail.com', '$2y$10$go0lJUIIBajXpaszNN1n6O0Q0IIe08B5vLaTfuua1rOMLXvpFAUQi', 3, '', 0, '2024-05-21 17:21:48');
 
@@ -828,7 +841,7 @@ ALTER TABLE `conteudo_artigo`
 -- AUTO_INCREMENT de tabela `conteudo_noticia`
 --
 ALTER TABLE `conteudo_noticia`
-  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios_mindfulness`
@@ -882,7 +895,7 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `perguntas`
