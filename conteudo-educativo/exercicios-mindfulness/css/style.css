@@ -525,6 +525,8 @@ body.darkmode .background2 img {
   font-size: 18px;
   font-family: "Libre Baskerville", sans-serif;
   margin-top: 15px;
+  text-align: justify;
+  line-height: 2;
 }
 
 
@@ -840,6 +842,14 @@ li:not(:last-child) .separator {
     line-height: 1;
     margin-bottom: 20px;
     width: auto;
+  }
+
+  .heading h1 {
+    line-height: 1.2;
+  }
+
+  .heading p {
+    font-size: 16px;
   }
 
   .first-button {
