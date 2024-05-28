@@ -424,7 +424,7 @@ header {
 }
 
 .dropdown_menu ul.dropdown li a {
-  font-size: 13px; /* Adicionado para centralizar os elementos do submenu */
+  font-size: 15px; /* Adicionado para centralizar os elementos do submenu */
 }
 
 .dropdown_menu ul.dropdown li a:hover {
