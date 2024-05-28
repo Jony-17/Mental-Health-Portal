@@ -727,6 +727,10 @@ form input {
   display: flex;
 }
 
+input::placeholder {
+  color: var(--grey2-color);
+}
+
 form button {
   background: var(--main-color);
   padding: 10px 50px;
