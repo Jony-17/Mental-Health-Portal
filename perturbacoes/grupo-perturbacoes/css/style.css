@@ -991,6 +991,31 @@ input:checked + .change::after {
 }
 
 
+/*---------------ANIMATIONS SCROLL-------------------------*/
+
+.card2-container {
+  scale: .6; opacity: 0;
+  animation: fadeIn linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+/*---------------ANIMATIONS-------------------------*/
+
+
+@keyframes fadeIn {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
 
 /*---------------MEDIA QUERIES-------------------------*/
 
