@@ -763,7 +763,7 @@ li:not(:last-child) .separator {
   color: var(--grey2-color);
   padding: 20px 0px 0px 25px;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .fontes.active .fontes-content2 {
@@ -1062,12 +1062,8 @@ input:checked + .change::after {
     margin-bottom: 20px;
   }
 
-  .subheading {
-    font-size: 15px;
-  }
-
-  .subheading p {
-    font-size: 15px;
+  .heading h1 {
+    line-height: 1.2;
   }
 
   .perturbacao-especifica {
