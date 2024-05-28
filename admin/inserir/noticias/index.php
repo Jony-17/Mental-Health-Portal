@@ -232,7 +232,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     </div>
                                     <div class="form-group">
                                         <label>Data da publicação</label>
-                                        <input type="text" name="data_publicacao" class="form-control">
+                                        <input type="date" name="data_publicacao" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Autor</label>
