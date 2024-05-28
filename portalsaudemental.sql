@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Maio-2024 às 02:47
+-- Tempo de geração: 29-Maio-2024 às 00:05
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -100,9 +100,9 @@ CREATE TABLE `conteudo_noticia` (
 --
 
 INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
-(1, 1, 'O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa que se tem uma perturbação?--- O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa ', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.--- Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais.Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta.As perturbações de personalidade não são raras: podem afetar até 15% da população.--- Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem'),
-(2, 1, 'O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa que se tem uma perturbação?--- O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa ', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.--- Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais.Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta.As perturbações de personalidade não são raras: podem afetar até 15% da população.--- Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem'),
-(3, 1, 'O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa que se tem uma perturbação?--- O que é a personalidade?--- O que é uma perturbação da personalidade?--- Mas ter alguns destes traços significa ', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.--- Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais.Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta.As perturbações de personalidade não são raras: podem afetar até 15% da população.--- Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem'),
+(1, 1, 'O que é a personalidade?', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.'),
+(2, 1, 'O que é uma perturbação da personalidade?', 'Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais. Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta. As perturbações de personalidade não são raras: podem afetar até 15% da população.'),
+(3, 1, 'Mas ter alguns destes traços significa que se tem uma perturbação?', 'Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que t'),
 (4, 2, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental. A depressão é a que mais afeta os portugueses. As \"doenças invisíveis\" são muitas vezes a razão pela qual as pessoas são vítimas de olhares e comentários discriminatórios de colegas, amigos e familiares.'),
 (5, 2, 'Os sinais de alerta', 'Isolamento, alienação, apatia, preocupação, medo e tristeza, cansaço, ansiedade e agressividade são palavras que podem estar associadas a perturbações da saúde mental.'),
 (6, 2, 'Que tratamento deve ser feito?', 'Existem várias formas de tratar doentes com perturbações mentais. A escolha do tratamento e a sua duração são definidos por um profissional especializado e vão sempre depender do quadro clínico de cada paciente.'),
@@ -507,7 +507,14 @@ CREATE TABLE `quizzes` (
 
 INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_nome_id`) VALUES
 (162, 18, 1),
-(163, 18, 23);
+(163, 18, 23),
+(164, 18, 1),
+(165, 18, 2),
+(166, 18, 2),
+(167, 18, 2),
+(168, 18, 2),
+(169, 18, 2),
+(170, 18, 23);
 
 -- --------------------------------------------------------
 
@@ -919,7 +926,7 @@ ALTER TABLE `perturbacoes_personalidade`
 -- AUTO_INCREMENT de tabela `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_nome`
