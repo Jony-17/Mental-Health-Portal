@@ -20,7 +20,10 @@ if (isset($_SESSION['id_utilizador'])) {
         $row = mysqli_fetch_assoc($result);
     }
 } else {
+    // Armazena a URL de destino na sessão
+    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
     header("Location: ../../../areacliente/login");
+    exit();
 }
 ?>
 

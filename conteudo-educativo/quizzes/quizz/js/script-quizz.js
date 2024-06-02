@@ -80,7 +80,7 @@ function submitQuiz() {
 
   // Defina os parâmetros que deseja passar para realizacao_quiz.php
   const params = new URLSearchParams();
-  params.append("nome", "quiz_nome_id"); // substitua "valor1" pelo valor que deseja passar para o parâmetro "nome"
+  params.append("nome", "quiz_nome_id");
   params.append("quiz_nome_id", quizId);
 
   const xhr = new XMLHttpRequest();
@@ -92,7 +92,6 @@ function submitQuiz() {
         // Atualiza o conteúdo da página com os resultados do quiz
         quiz.innerHTML = `
           <h2 class="result-heading">OS TEUS RESULTADOS</h2>
-          <p class="quiz-heading">O quão empática/o és?</p>
           <p class="result-text">${respostas}</p>
           <button class="restart-btn" onclick="location.reload()">Responder novamente</button>
         `;

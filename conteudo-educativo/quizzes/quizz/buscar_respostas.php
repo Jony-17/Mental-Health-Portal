@@ -6,24 +6,41 @@ if (isset($_GET['quiz_nome_id']) && isset($_GET['simCount'])) {
     $quiz_nome_id = $_GET['quiz_nome_id'];
     $simCount = $_GET['simCount'];
 
-    // Consultar a base de dados para obter as respostas com base no quiz_nome_id e no simCount
-    $query = "SELECT r.respostas
-    FROM (
-        SELECT 
-            CASE 
-                WHEN ? BETWEEN 1 AND 2 THEN 1
-                ELSE 2
-            END AS qtd_value
-    ) AS subquery
-    JOIN quiz_respostas r ON subquery.qtd_value = r.qtd AND r.quiz_nome_id = ?;
-    ";
+    if ($quiz_nome_id == 1) {
+        // Consultar a base de dados para obter as respostas com base no quiz_nome_id e no simCount
+        $query = "SELECT r.respostas
+        FROM (
+            SELECT 
+                CASE 
+                    WHEN ? BETWEEN 0 AND 5 THEN 1
+                    WHEN ? BETWEEN 6 AND 10 THEN 6
+                    WHEN ? BETWEEN 11 AND 15 THEN 11
+                    ELSE 16
+                END AS qtd_value
+        ) AS subquery
+        JOIN quiz_respostas r ON subquery.qtd_value = r.qtd AND r.quiz_nome_id = ?;
+        ";
+    } else {
+        $query = "SELECT r.respostas
+        FROM (
+            SELECT 
+                CASE 
+                    WHEN ? BETWEEN 0 AND 1 THEN 1
+                    WHEN ? BETWEEN 2 AND 3 THEN 2
+                    WHEN ? BETWEEN 4 AND 5 THEN 4
+                    ELSE 6
+                END AS qtd_value
+        ) AS subquery
+        JOIN quiz_respostas r ON subquery.qtd_value = r.qtd AND r.quiz_nome_id = ?;
+        ";
+    }
 
 
     // Preparar a declaração
     $stmt = mysqli_prepare($conn, $query);
 
     // Vincular os parâmetros
-    mysqli_stmt_bind_param($stmt, "ii", $simCount, $quiz_nome_id);
+    mysqli_stmt_bind_param($stmt, "iiii", $simCount, $simCount, $simCount, $quiz_nome_id);
 
     // Executar a consulta
     mysqli_stmt_execute($stmt);
