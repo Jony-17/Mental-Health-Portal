@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Maio-2024 às 00:05
+-- Tempo de geração: 02-Jun-2024 às 18:39
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -507,14 +507,32 @@ CREATE TABLE `quizzes` (
 
 INSERT INTO `quizzes` (`quiz_id`, `utilizador_id`, `quiz_nome_id`) VALUES
 (162, 18, 1),
-(163, 18, 23),
 (164, 18, 1),
 (165, 18, 2),
 (166, 18, 2),
 (167, 18, 2),
 (168, 18, 2),
 (169, 18, 2),
-(170, 18, 23);
+(171, 26, 2),
+(172, 26, 2),
+(173, 26, 2),
+(174, 26, 2),
+(175, 26, 2),
+(176, 26, 2),
+(177, 26, 2),
+(178, 26, 2),
+(179, 26, 2),
+(180, 26, 2),
+(181, 26, 2),
+(182, 26, 2),
+(183, 26, 2),
+(184, 26, 2),
+(185, 26, 2),
+(186, 26, 1),
+(187, 26, 2),
+(188, 26, 1),
+(189, 26, 1),
+(190, 26, 2);
 
 -- --------------------------------------------------------
 
@@ -536,11 +554,10 @@ CREATE TABLE `quiz_nome` (
 --
 
 INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `img_quiz`, `explicacao_quiz`, `texto_informacao`, `fonte`) VALUES
-(1, 'O quão empática/o és?', 'empatia.png', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra', 'fontequiz1'),
-(2, 'O quão preocupada/o és?', 'preocupado.png', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', ''),
+(1, 'O quão empática/o és?', 'empatia.png', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra', 'Orloff, J. (2017). The empath\'s survival guide: Life strategies for sensitive people. Sounds True.'),
+(2, 'O quão preocupada/o és?', 'preocupado.png', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', 'Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua vita. MyLife.'),
 (3, 'Tens uma energia positiva', 'energia.png', 'Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative attitudes impair it. Take this quiz to determine your positivity score and the energy impact you have on yourself and others.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', ''),
-(4, 'O quão livre és, emocionalmente?', 'livre.png', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', ''),
-(23, 'teste1', 'teste2.png', 'teste1', 'teste1', 'fontequiz2');
+(4, 'O quão livre és, emocionalmente?', 'livre.png', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', '');
 
 -- --------------------------------------------------------
 
@@ -561,11 +578,32 @@ CREATE TABLE `quiz_questoes` (
 --
 
 INSERT INTO `quiz_questoes` (`quiz_questoes_id`, `quiz_nome_id`, `questao`, `opcao_a`, `opcao_b`) VALUES
-(1, 2, 'Preocupo-me com muitas coisas todos os dias', 'Sim', 'Nao'),
-(2, 2, 'Fico frequentemente sobrecarregado ou ansioso', 'Sim', 'Nao'),
-(3, 1, 'Fui rotulado como excessivamente sensivel, timido ou introvertido', 'Sim', 'Nao'),
-(4, 2, 'Emanas um sentimento de apoio e compaixão pelos outros?', 'Sim', 'Não'),
-(17, 23, 'testequestao', 'teste1a', 'teste2b');
+(1, 2, 'Preocupaste com muitas coisas todos os dias?', 'Sim', 'Não'),
+(2, 2, 'Torno os problemas maiores, e não menores?', 'Sim', 'Não'),
+(3, 2, 'Preocupo-me com coisas com as quais ninguém ao meu redor se preocupa?', 'Sim', 'Não'),
+(4, 2, 'Preocupo-me mesmo em momentos felizes?', 'Sim', 'Não'),
+(5, 2, 'Acho que não consigo parar de me preocupar, embora tente?', 'Sim', 'Não'),
+(6, 2, 'Quando uma preocupação é resolvida, concentro-me imediatamente em outra?', 'Sim', 'Não'),
+(7, 1, 'Fui rotulado como “excessivamente sensível”, tímido ou introvertido?', 'Sim', 'Não'),
+(8, 1, 'Fico frequentemente sobrecarregado ou ansioso?', 'Sim', 'Não'),
+(9, 1, 'Discussões ou gritos deixam-me doente?', 'Sim', 'Não'),
+(10, 1, 'Muitas vezes sinto que não me encaixo?', 'Sim', 'Não'),
+(11, 1, 'Estou esgotado pelas multidões e preciso de um tempo sozinho para me reanimar?', 'Sim', 'Não'),
+(12, 1, 'Sou superestimulado por ruídos, odores ou pessoas que falam sem parar?', 'Sim', 'Não'),
+(13, 1, 'Tenho sensibilidades químicas ou não tolero roupas que arranham?', 'Sim', 'Não'),
+(14, 1, 'Prefiro levar o meu próprio carro para poder sair mais cedo se precisar?', 'Sim', 'Não'),
+(15, 1, 'Como demais para lidar com o stress?', 'Sim', 'Não'),
+(16, 1, 'Tenho medo de ser sufocado por relacionamentos íntimos?', 'Sim', 'Não'),
+(17, 1, 'Assusto-me facilmente?', 'Sim', 'Não'),
+(18, 1, 'Reajo fortemente à cafeína ou aos medicamentos?', 'Sim', 'Não'),
+(19, 1, 'Tenho um limiar de dor baixo?', 'Sim', 'Não'),
+(20, 1, 'Tenho tendência a isolar-me socialmente?', 'Sim', 'Não'),
+(21, 1, 'Absorvo o stress, as emoções ou os sintomas de outras pessoas?', 'Sim', 'Não'),
+(22, 1, 'Fico sobrecarregado com a multitarefa e prefiro fazer uma coisa de cada vez?', 'Sim', 'Não'),
+(23, 1, 'Reabasteço-me na natureza?', 'Sim', 'Não'),
+(24, 1, 'Preciso de muito tempo para me recuperar depois de estar com pessoas difíceis?', 'Sim', 'Não'),
+(25, 1, 'Sinto-me melhor nas cidades pequenas ou no campo, do que nas grandes cidades?', 'Sim', 'Não'),
+(26, 1, 'Prefiro interações individuais ou pequenos grupos em vez de grandes reuniões?', 'Sim', 'Não');
 
 -- --------------------------------------------------------
 
@@ -585,13 +623,14 @@ CREATE TABLE `quiz_respostas` (
 --
 
 INSERT INTO `quiz_respostas` (`quiz_respostas_id`, `quiz_nome_id`, `qtd`, `respostas`) VALUES
-(1, 1, 1, 'És uma pessoa parcialmente empática'),
-(2, 1, 1, 'És uma pessoa parcialmente empática'),
-(3, 1, 1, 'És uma pessoa parcialmente empática'),
-(4, 1, 1, 'És uma pessoa parcialmente empática'),
-(5, 2, 1, 'teste1'),
-(6, 2, 2, 'teste2'),
-(19, 23, 1, 'testeresposta1');
+(1, 2, 1, 'És mais um guerreiro que preocupado.'),
+(2, 2, 2, 'A preocupação desempenha um papel moderado na tua vida.'),
+(3, 2, 4, 'A preocupação desempenha um papel importante na tua vida.'),
+(4, 2, 6, 'A preocupação desempenha um papel muito importante na tua vida.'),
+(5, 1, 1, 'Sentes parcialmente, empatia.'),
+(6, 1, 6, 'Tens tendências empáticas moderadas.'),
+(7, 1, 11, 'Tens fortes tendências empáticas.'),
+(8, 1, 16, 'Tens toda a empatia.');
 
 -- --------------------------------------------------------
 
@@ -926,7 +965,7 @@ ALTER TABLE `perturbacoes_personalidade`
 -- AUTO_INCREMENT de tabela `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_nome`
@@ -938,13 +977,13 @@ ALTER TABLE `quiz_nome`
 -- AUTO_INCREMENT de tabela `quiz_questoes`
 --
 ALTER TABLE `quiz_questoes`
-  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `quiz_questoes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de tabela `quiz_respostas`
 --
 ALTER TABLE `quiz_respostas`
-  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `quiz_respostas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `registos`
