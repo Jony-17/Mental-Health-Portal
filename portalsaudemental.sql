@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Jun-2024 às 18:39
+-- Tempo de geração: 03-Jun-2024 às 15:18
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -138,9 +138,7 @@ INSERT INTO `exercicios_mindfulness` (`exercicios_mindfulness_id`, `nome`, `bann
 (1, 'Atividades de Relaxamento', 'relaxamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela'),
 (2, 'Atividades de Bem-estar', 'bem-estar.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela'),
 (3, 'Atividades de Yoga', 'yoga.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
-(4, 'Atividades de Alongamento', 'alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n'),
-(15, 'testeeee', 'teste2.png', 'testeeeee'),
-(16, 'teste', '', 'teste');
+(4, 'Atividades de Alongamento', 'alongamento.png', 'Mindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por elaMindfulness é definida como uma forma específica de atenção plena – concentração no momento atual, intencional, e sem julgamento. Significa estar plenamente em contato com a vivência do momento, sem estar absorvido por ela\r\n\r\n\r\n\r\n\r\n');
 
 -- --------------------------------------------------------
 
@@ -162,21 +160,19 @@ CREATE TABLE `exercicios_mindfulness_ex` (
 --
 
 INSERT INTO `exercicios_mindfulness_ex` (`exercicios_mindfulness_ex_id`, `exercicios_mindfulness_id`, `titulo`, `img`, `audio`, `fonte`) VALUES
-(1, 4, 'Rodar a cabeça', 'alongamento1.webp', '', 'ex4'),
+(1, 4, 'Rodar a cabeça', 'alongamento1.webp', '', 'https://greatist.com/fitness/daily-stretching-routine#Your-15-minute-daily-stretching-routine'),
 (2, 4, 'Rodar os ombros', 'alongamento2.webp', '', ''),
 (3, 4, 'Alongamento de braços e abdominais', 'alongamento3.webp', '', ''),
-(4, 3, 'Gato-Vaca (Marjaryasana-Bitilasana)', 'yoga1.webp', '', ''),
+(4, 3, 'Gato-Vaca (Marjaryasana-Bitilasana)', 'yoga1.webp', '', 'https://www.yogajournal.com/practice/yoga-sequences/beginner-sequence-to-root-ground-your-practice/'),
 (5, 3, 'Posição de criança (Balasana)', 'yoga2.webp', '', ''),
 (6, 3, 'Posição de montanha (Tadasana)', 'yoga3.webp', '', ''),
-(7, 2, 'Ver um filme ou série', 'teste2.png', '', ''),
+(7, 2, 'Ver um filme ou série', 'teste2.png', '', 'https://saudemental.p5.pt/profile/bem-estar/module/atividades-de-bem-estar'),
 (8, 2, 'Assistir/acompanhar algum desporto', 'teste2.png', '', ''),
-(29, 1, 'Mindfulness – Atenção à Respiração', '', 0x4d696e6466756c6e65737320e28093204174656ec3a7c3a36f20c3a02052657370697261c3a7c3a36f2e6d7033, 'ex1'),
+(29, 1, 'Mindfulness – Atenção à Respiração', '', 0x4d696e6466756c6e65737320e28093204174656ec3a7c3a36f20c3a02052657370697261c3a7c3a36f2e6d7033, 'https://saudemental.p5.pt/profile/relaxamento/module/relaxamento'),
 (30, 1, 'Mindfulness – Body Scan', '', 0x4d696e6466756c6e65737320e2809320426f6479205363616e2e6d7033, ''),
 (32, 1, 'Mindfulness – Explorar Sensações e Pensamentos Difíceis', '', 0x4d696e6466756c6e65737320e28093204578706c6f7261722053656e7361c3a7c3b5657320652050656e73616d656e746f7320446966c3ad636569732e6d7033, ''),
 (33, 1, 'Relaxamento Muscular Progressivo', '', 0x52656c6178616d656e746f204d757363756c61722050726f677265737369766f2e6d7033, ''),
-(34, 1, 'Respiração Diafragmática', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033, ''),
-(35, 15, 'testeeeee', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033, ''),
-(37, 16, 'teste', '', '', 'teste');
+(34, 1, 'Respiração Diafragmática', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033, '');
 
 -- --------------------------------------------------------
 
