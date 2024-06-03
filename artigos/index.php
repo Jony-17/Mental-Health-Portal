@@ -253,17 +253,52 @@ if (isset($_SESSION['id_utilizador'])) {
 
         if ($result_perturbacoes && mysqli_num_rows($result_perturbacoes) > 0) {
             ?>
-            <div class="buttons">
-                <a class="btn2" href="?filter=Perturbações">Todos</a>
-                <?php
-                while ($row = mysqli_fetch_assoc($result_perturbacoes)) {
-                    ?>
-                    <a class="btn2" href="?filter=<?php echo urlencode($row['nome']); ?>">
-                        <?php echo $row['nome']; ?>
-                    </a>
+            <div class="dropdown">
+                <button class="dropbtn">Selecionar perturbação
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+
+                    <a href="?filter=Perturbações">Todos</a>
                     <?php
-                }
-                ?>
+                    while ($row = mysqli_fetch_assoc($result_perturbacoes)) {
+                        ?>
+                        <a href="?filter=<?php echo urlencode($row['nome']); ?>">
+                            <?php echo $row['nome']; ?>
+                        </a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        // Consulta para obter a lista de perturbações
+        $query_autor = "SELECT autor FROM artigos";
+        $result_autor = mysqli_query($conn, $query_autor);
+
+        if ($result_autor && mysqli_num_rows($result_autor) > 0) {
+            ?>
+            <div class="dropdown">
+                <button class="dropbtn2">Selecionar autor
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content2">
+
+                    <a href="?filter_autor=Autores">Todos</a>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result_autor)) {
+                        ?>
+                        <a href="?filter_autor=<?php echo urlencode($row['autor']); ?>">
+                            <?php echo $row['autor']; ?>
+                        </a>
+                        <?php
+                    }
+                    ?>
+                </div>
             </div>
             <?php
         }
@@ -318,6 +353,14 @@ if (isset($_SESSION['id_utilizador'])) {
             $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter']));
             if ($filtro_nome !== 'Perturbações') {
                 $query .= " WHERE perturbacoes.nome = '$filtro_nome'";
+            }
+        }
+
+        // Adiciona filtro de perturbação, se fornecido
+        if (isset($_GET['filter_autor']) && $_GET['filter_autor'] !== '') {
+            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter_autor']));
+            if ($filtro_nome !== 'Autores') {
+                $query .= " WHERE artigos.autor = '$filtro_nome'";
             }
         }
 
@@ -393,6 +436,10 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "&filter=" . urlencode($_GET['filter']);
                     }
 
+                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
+                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
+                    }
+
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
@@ -411,6 +458,10 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "&filter=" . urlencode($_GET['filter']);
                     }
 
+                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
+                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
+                    }
+
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
@@ -426,6 +477,10 @@ if (isset($_SESSION['id_utilizador'])) {
                     echo "<a href='?pagina=" . ($pagina_atual + 1);
                     if (isset($_GET['filter']) && !empty($_GET['filter'])) {
                         echo "&filter=" . urlencode($_GET['filter']);
+                    }
+
+                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
+                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
                     }
 
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
@@ -483,6 +538,14 @@ if (isset($_SESSION['id_utilizador'])) {
             }
         }
 
+        // Adiciona filtro de perturbação, se fornecido
+        if (isset($_GET['filter_autor']) && $_GET['filter_autor'] !== '') {
+            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter_autor']));
+            if ($filtro_nome !== 'Autores') {
+                $query .= " AND artigos.autor = '$filtro_nome'";
+            }
+        }
+
         // Adiciona ordenação por data de publicação mais recente, se fornecido
         if (isset($_GET['ordem']) && $_GET['ordem'] === 'data_recente') {
             $query .= " ORDER BY artigos.data_publicacao DESC";
@@ -506,8 +569,8 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
 
-     <!--Footer-->
-     <footer>
+    <!--Footer-->
+    <footer>
         <div class="footer-row">
             <div class="footer-col">
                 <h1>Portal de <br> Saúde Mental.</h1>
