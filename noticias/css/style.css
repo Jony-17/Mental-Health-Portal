@@ -1074,6 +1074,7 @@ li:not(:last-child) .separator {
 /*---------------ANIMATIONS SCROLL-------------------------*/
 
 .heading,
+.dropdown,
 .container {
   opacity: 0;
   animation: fadeIn 1s linear forwards;
@@ -1187,6 +1188,11 @@ li:not(:last-child) .separator {
     flex-direction: column;
     width: auto;
     margin-bottom: 30px;
+  }
+
+  .dropbtn,
+  .dropdown-content {
+    margin-left: 0;
   }
 
   .search-wrapper {
