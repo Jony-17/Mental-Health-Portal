@@ -1,4 +1,7 @@
 <?php
+
+include '../../includes/header.php';
+
 session_start();
 require_once ("../../conn/conn.php");
 
@@ -111,7 +114,8 @@ if (isset($_SESSION['id_utilizador'])) {
           <i class="fas fa-bell"></i>
           <span>Notificações</span>
         </a>
-        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações" data-parent="#accordionSidebar">
+        <div id="collapseNotificações" class="collapse" aria-labelledby="headingNotificações"
+          data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!--<h6 class="collapse-header">Login Screens:</h6>-->
             <a class="collapse-item" href="../notificacoes">Todas as notificações</a>
@@ -149,8 +153,8 @@ if (isset($_SESSION['id_utilizador'])) {
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-          <!-- Nav Item - Alerts -->
-          <li class="nav-item dropdown no-arrow mx-1">
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
@@ -213,13 +217,11 @@ if (isset($_SESSION['id_utilizador'])) {
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                   <?php echo $row["nome"] ?>
                 </span>
-                <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (
-                  !empty($row["img_perfil"])
-                ) {
+                <img class="img-profile rounded-circle" src="../../areacliente/registo/imgs/<?php if (!empty($row["img_perfil"])) {
                   echo $row["img_perfil"];
                 } else {
-                  echo "../teste.jpeg";
-                } ?>">
+                  echo "teste.jpeg";
+                } ?>" alt="Imagem de Perfil">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

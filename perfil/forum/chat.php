@@ -1,4 +1,6 @@
 <?php
+include '../../includes/header.php';
+
 session_start();
 require_once("../../conn/conn.php");
 
@@ -219,7 +221,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 ) {
                   echo $row["img_perfil"];
                 } else {
-                  echo "../teste.jpeg";
+                  echo "teste.jpeg";
                 } ?>">
               </a>
               <!-- Dropdown - User Information -->

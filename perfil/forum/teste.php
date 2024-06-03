@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../conn/conn.php");
+require_once ("../../conn/conn.php");
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
