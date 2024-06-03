@@ -1,6 +1,13 @@
 <?php
+include '../includes/header.php';
+
 session_start();
 require_once ("../conn/conn.php");
+
+// Define a zona de tempo para Portugal
+date_default_timezone_set('Europe/Lisbon');
+
+setlocale(LC_TIME, 'pt_PT.utf8');
 
 // Verifica se a sessão do usuário está definida
 if (isset($_SESSION['id_utilizador'])) {
