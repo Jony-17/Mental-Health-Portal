@@ -254,11 +254,11 @@ if (isset($_SESSION['id_utilizador'])) {
 
         if ($result_autor && mysqli_num_rows($result_autor) > 0) {
             ?>
-            <div class="dropdown">
+            <div class="dropdown2">
                 <button class="dropbtn">Selecionar autor
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown2-content">
 
                     <a href="?filter_autor=Autores">Todos</a>
                     <?php
