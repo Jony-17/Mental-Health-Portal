@@ -247,6 +247,35 @@ if (isset($_SESSION['id_utilizador'])) {
             </h1>
         </div>
 
+        <?php
+        // Consulta para obter a lista de perturbações
+        $query_autor = "SELECT DISTINCT autor FROM noticias";
+        $result_autor = mysqli_query($conn, $query_autor);
+
+        if ($result_autor && mysqli_num_rows($result_autor) > 0) {
+            ?>
+            <div class="dropdown">
+                <button class="dropbtn">Selecionar autor
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+
+                    <a href="?filter_autor=Autores">Todos</a>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result_autor)) {
+                        ?>
+                        <a href="?filter_autor=<?php echo urlencode($row['autor']); ?>">
+                            <?php echo $row['autor']; ?>
+                        </a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+
         <!--Pesquisa-->
         <div class="container">
             <div class="container-search">
@@ -285,6 +314,14 @@ if (isset($_SESSION['id_utilizador'])) {
         if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
             $search_query = mysqli_real_escape_string($conn, $_GET['search_query']);
             $query .= " WHERE titulo LIKE '%$search_query%'";
+        }
+
+        // Adiciona filtro de perturbação, se fornecido
+        if (isset($_GET['filter_autor']) && $_GET['filter_autor'] !== '') {
+            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter_autor']));
+            if ($filtro_nome !== 'Autores') {
+                $query .= " WHERE noticias.autor = '$filtro_nome'";
+            }
         }
 
         if (isset($_GET['ordem']) && $_GET['ordem'] === 'data_recente') {
@@ -358,6 +395,10 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
 
+                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
+                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
+                    }
+
                     if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
                         echo "&ordem=" . urlencode($_GET['ordem']);
                     }
@@ -373,6 +414,10 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
 
+                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
+                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
+                    }
+
                     if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
                         echo "&ordem=" . urlencode($_GET['ordem']);
                     }
@@ -385,6 +430,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
+                    }
+
+                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
+                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
                     }
 
                     if (isset($_GET['ordem']) && !empty($_GET['ordem'])) {
@@ -426,6 +475,14 @@ if (isset($_SESSION['id_utilizador'])) {
         if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
             $search_query = mysqli_real_escape_string($conn, $_GET['search_query']);
             $query .= " AND noticias.titulo LIKE '%$search_query%'";
+        }
+
+        // Adiciona filtro de perturbação, se fornecido
+        if (isset($_GET['filter_autor']) && $_GET['filter_autor'] !== '') {
+            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter_autor']));
+            if ($filtro_nome !== 'Autores') {
+                $query .= " AND autor = '$filtro_nome'";
+            }
         }
 
         // Adiciona ordenação por data de publicação mais recente, se fornecido
