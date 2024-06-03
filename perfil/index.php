@@ -1,4 +1,7 @@
 <?php
+
+include '../includes/header.php';
+
 session_start();
 require_once ("../conn/conn.php");
 
