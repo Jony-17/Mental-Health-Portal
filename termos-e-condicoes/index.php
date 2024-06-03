@@ -1,4 +1,6 @@
 <?php
+include '../includes/header.php';
+
 session_start();
 require_once ("../conn/conn.php");
 
@@ -23,32 +25,6 @@ if (isset($_SESSION['id_utilizador'])) {
     echo "NÃO DEU";
 }
 ?>
-
-
-<!DOCTYPE html>
-<html class="selection:text-white selection:bg-orange-400">
-
-<head>
-    <title>Portal de Saúde Mental</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imgs/logo.png">
-
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <!-- SweetAlert2 JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-</head>
 
 <body>
     <style>
@@ -220,38 +196,66 @@ if (isset($_SESSION['id_utilizador'])) {
         <h1>
             Termos e Condições
         </h1>
-        <p>Being an empath is different from being empathetic.  Being empathetic is when your heart goes out to someone
-            else.  Being an empath means you can actually feel another person’s happiness or sadness in your own body.
+        <p>Bem-vindo ao Portal de Saúde Mental. Este documento estabelece os termos e condições gerais de
+            uso do site e dos serviços oferecidos. Ao aceder e utilizar este site, irá concorda em cumprir e estar
+            vinculado a estes termos. Recomendamos que leia atentamente este documento antes de continuar a navegação ou
+            utilizar os serviços.
         </p>
         <ol class="decimal">
             <li>
                 <p>
-                    O ISPGAYA não garante que o acesso ao website não sofra interrupções ou perturbações
-                    resultantes de problemas técnicos. Também não assume qualquer responsabilidade
-                    pelos prejuízos decorrentes de eventuais situações de impossibilidade, atraso,
-                    suspensão ou interrupção no acesso ao website acima referido;
+                    Isenção de responsabilidade: O conteúdo do site, incluindo textos, gráficos, imagens e outros
+                    materiais, é apenas para fins informativos. Nada contido no site é ou deve ser considerado ou usado
+                    como substituto de aconselhamento, diagnóstico ou tratamento médico ou de saúde mental profissional.
+
+                    Nunca ignore o conselho médico do seu médico ou outro profissional de saúde qualificado, nem demore
+                    a procurá-lo por causa de algo que leu na Internet, inclusive no site. Recomendamos que procure
+                    o conselho do seu médico ou outro profissional de saúde qualificado caso tenha qualquer dúvida que
+                    possa ter em relação a uma condição médica ou de saúde mental.
+
+                    As informações contidas ou fornecidas através do site são fornecidas “como estão”, sem qualquer
+                    garantia, expressa ou implícita. Qualquer acesso ao site é voluntário e por sua conta e risco. A
+                    informação apresentada no site é disponibilizada apenas para fins de informação geral.
+                    Isentamo-nos de toda responsabilidade decorrente de qualquer confiança depositada em tais materiais;
                 </p>
             </li>
             <li>
                 <p>
-                    O ISPGAYA não garante a total imunidade do website acima referido a ataques de
-                    hackers e vírus ou outros softwares de intrusão;
+                    O Portal de Saúde Mental é um serviço fornecido exclusivamente pelo Portal de Saúde Mental. Não há
+                    investidores com interesse financeiro nas informações disponibilizadas no site. Não é aceite
+                    publicidade, o que nos permite total autonomia editorial;
                 </p>
             </li>
             <li>
                 <p>
-                    As informações prestadas são de caráter geral e meramente indicativas, destinando-se,
-                    em exclusivo, a permitir ao Utilizador uma adequada ponderação do leque de produtos
-                    e serviços disponibilizados, pelo que o Utilizador assume todos os riscos resultantes da
-                    utilização da informação a que tem acesso no website acima referido, sendo o único e
-                    exclusivo responsável por todas as decisões tomadas com base na mesma;
+                    O site contém links para sites de propriedade de terceiros. Esses links são fornecidos apenas para
+                    conveniência e não são conteúdos ou serviços do Portal de Saúde Mental. O Portal de Saúde Mental não
+                    tem controlo e não é responsável pelo conteúdo de quaisquer sites vinculados e não faz nenhuma
+                    representação em relação ao conteúdo ou à precisão dos materiais nesses sites. Se decidir visitar
+                    sites de terceiros usando links do site, estará por sua própria conta e risco. Consequentemente, o
+                    Portal de Saúde Mental isenta-se expressamente de qualquer responsabilidade pelo conteúdo,
+                    materiais, precisão das informações e/ou qualidade dos produtos ou serviços fornecidos, disponíveis
+                    ou anunciados nesses sites de terceiros;
                 </p>
             </li>
             <li>
                 <p>
-                    O ISPGAYA não se responsabiliza por faltas de veracidade, falhas de qualidade,
-                    incorreções, erros e imprecisões que possam verificar-se em conteúdos presentes neste
-                    website, muito embora envide todos os esforços para os corrigir, quando detetados;
+                    Poderemos solicitar que forneça voluntariamente determinadas informações, como nome e endereço
+                    de e-mail, quando tentar efetuar registo no site. Irá concordar em fornecer
+                    informações verdadeiras, precisas, atuais e completas sobre si.
+
+                    Quando envia, envia, publica, baixa, exibe, executa, transmite ou de outra forma distribui
+                    informações ou conteúdo para o site, você concede ao Portal de Saúde Mental e afiliados, executivos,
+                    diretores, funcionários, consultores, agentes e representantes uma licença para usar, copiar,
+                    distribuir, transmitir, exibir, reproduzir ou editar seu conteúdo. Garante que possui os
+                    direitos sobre qualquer conteúdo enviado e/ou está autorizado a transmitir, enviar, exibir e/ou
+                    disponibilizar de outra forma tal conteúdo.
+
+                    Concorda em não enviar ou publicar qualquer conteúdo que seja calunioso, difamatório, obsceno,
+                    pornográfico, abusivo, ameaçador, defenda ou encoraje conduta que possa constituir uma ofensa
+                    criminal ou dar origem a responsabilidade civil, ou que de outra forma viole qualquer legislação
+                    local, estadual, nacional aplicável, ou lei ou regulamento estrangeiro, ou que anuncie ou de outra
+                    forma solicite fundos ou seja uma solicitação;
                 </p>
             </li>
             <li>
