@@ -295,7 +295,7 @@ if (isset($_SESSION['id_utilizador'])) {
                       </div>
 
                       <div class="col-lg-6 col-md-12 mb-4">
-                        <p>TEMPO</p>
+                        <p>HORA</p>
                         <input type="time" name="horario"
                           style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; width: 100%;">
                       </div>
