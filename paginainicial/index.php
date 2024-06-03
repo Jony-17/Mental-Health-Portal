@@ -1,4 +1,6 @@
 <?php
+include '../includes/header.php';
+
 session_start();
 require_once ("../conn/conn.php");
 
@@ -22,36 +24,7 @@ if (isset($_SESSION['id_utilizador'])) {
 } else {
     echo "NÃO DEU";
 }
-
 ?>
-
-
-<!DOCTYPE html>
-<html class="selection:text-white selection:bg-orange-400">
-
-<head>
-    <title>Portal de Saúde Mental</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imgs/logo.png">
-
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <!-- SweetAlert2 JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-</head>
 
 <body>
     <style>
@@ -341,9 +314,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
             </div>
             <h2 class="artigos-primary-heading">Artigos Científicos</h2>
-            <h1 class="artigos-second-heading">
-                Últimas publicações
-            </h1>
+            <h1 class="artigos-second-heading">Últimas publicações</h1>
         </div>
         <?php
 
@@ -413,9 +384,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <img src="imgs/imgs-backgrounds/background4.png" alt="banner background" />
             </div>
             <h2 class="quizzes-primary-heading">Quizzes</h2>
-            <h1 class="quizzes-second-heading">
-                Descobre o que és
-            </h1>
+            <h1 class="quizzes-second-heading">Descobre o que és</h1>
         </div>
         <div class="card4-container">
             <?php
@@ -472,9 +441,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
             <h2 class="noticias-primary-heading">Notícias</h2>
             <div class="noticias-banner-container2">
-                <h1 class="noticias-second-heading">
-                    Saúde Mental
-                </h1>
+                <h1 class="noticias-second-heading">Saúde Mental</h1>
                 <a href="../noticias" class="sixth-button">Ver mais</a>
             </div>
         </div>
@@ -586,9 +553,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <img src="imgs/imgs-backgrounds/background5.png" alt="banner background" />
             </div>
             <h2 class="perguntas-primary-heading">O que precisas de saber</h2>
-            <h1 class="perguntas-second-heading">
-                Perguntas Frequentes
-            </h1>
+            <h1 class="perguntas-second-heading">Perguntas Frequentes</h1>
         </div>
         <?php
         $query = "SELECT pergunta, resposta FROM perguntas";

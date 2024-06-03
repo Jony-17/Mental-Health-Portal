@@ -1046,7 +1046,7 @@ img {
   background: black;
   opacity: 0.5;
   width: 100%; /* Defina a largura para cobrir completamente a imagem */
-  height: auto;
+  height: 99%;
 }
 
 .card5-background2 h3 {
@@ -1105,7 +1105,7 @@ img {
   background: black;
   opacity: 0.5;
   width: 100%; /* Defina a largura para cobrir completamente a imagem */
-  height: auto;
+  height: 97%;
 }
 
 .card6-background2 h3 {
