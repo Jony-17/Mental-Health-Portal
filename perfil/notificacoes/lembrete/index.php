@@ -335,7 +335,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <div class="modal-body">Tens a certeza que queres sair?</div>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                  <a class="btn btn-primary" href="../../areacliente/login/">Logout</a>
+                  <a class="btn btn-primary" href="../../../areacliente/login/">Logout</a>
                 </div>
               </div>
             </div>
