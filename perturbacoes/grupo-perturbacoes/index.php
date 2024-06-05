@@ -450,12 +450,12 @@ if (isset($_GET['nome'])) {
                       FROM perturbacoes p
                       WHERE p.nome = '$nome'
                       UNION
-                      SELECT DISTINCT artigos.fonte 
+                      SELECT DISTINCT artigos.fonte
                       FROM artigos 
                       INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
                       INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
                       INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                      WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> ''";
+                      WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> '' AND juncao_perturbacoes.perturbacoes_id = $perturbacoes_id";
 
             $result = mysqli_query($conn, $query);
 
