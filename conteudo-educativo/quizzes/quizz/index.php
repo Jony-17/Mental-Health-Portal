@@ -475,28 +475,28 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
-                    <li><a href="#" target="_blank">Apoio Psicológico</a>
+                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#" target="_blank">Apoio Psicológico</a>
                         <ul>
                             <li>24h/dia</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="#" target="_blank">Vira(l)Solidariedade</a>
+                    <li><a href="https://www.instagram.com/p/CK665-vMKhw/" target="_blank">Vira(l)Solidariedade</a>
                         <ul>
                             <li>Todos os dias das 08h00 às 00h00</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="#" target="_blank">SOS Voz Amiga</a>
+                    <li><a href="https://www.sosvozamiga.org/pt/contactos/" target="_blank">SOS Voz Amiga</a>
                         <ul>
                             <li>Todos os dias das 15:30h às 00:30h</li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="#" target="_blank">Linha Conversa Amiga</a>
+                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-" target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li>Dias úteis das 15h00 às 22h00</li>
                             <li>Fins de semana das 19h00 às 22h00</li>
