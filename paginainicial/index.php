@@ -194,7 +194,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <div class="home-text-section">
                 <h1 class="home-primary-heading">
-                    Saúde Mental <br> é uma <span style="color: #c27500;">prioridade</span>
+                    Saúde Mental <br> é uma <span style="color: var(--main-color);">prioridade</span>
                 </h1>
                 <p class="home-primary-text">
                     Comece hoje a melhorar a sua saúde mental e bem-estar!
