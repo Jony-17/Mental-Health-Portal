@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "tag": "greeting",
+      "tag": "saudacoes",
       "patterns": [
         "Ola",
         "Oi",
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "tag": "goodbye",
+      "tag": "despedidas",
       "patterns": [
         "Ate a proxima",
         "Ate amanha",
@@ -26,6 +26,17 @@
         "Tem um otimo dia",
         "Ate a proxima, obrigado por visitares",
         "Adeus, volta sempre"
+      ]
+    },
+    {
+      "tag": "cumprimentos",
+      "patterns": [
+        "Está tudo bem",
+        "Como estás",
+        "Como te sentes"
+      ],
+      "responses": [
+        "Estou bem e tu? Em que te posso ajudar?"
       ]
     },
     {
@@ -40,7 +51,7 @@
       ]
     },
     {
-      "tag": "cabeca",
+      "tag": "dores",
       "patterns": [
         "Dor de cabeça",
         "Dor de cabeca",
@@ -48,15 +59,7 @@
         "Nao aguento de dores na cabeca",
         "Estou mal da cabeca",
         "Estou com enxaquecas",
-        "Estou cheio de dores de cabeca"
-      ],
-      "responses": [
-        "Tendo em conta esse sintoma, recomendo que vás ao seguinte link: <a href=\"https://trello.com/b/MEs8b2zt/projeto-saude-mental\" target=\"_blank\">aqui</a>"
-      ]
-    },
-    {
-      "tag": "corpo",
-      "patterns": [
+        "Estou cheio de dores de cabeca",
         "Dor no corpo",
         "Doi-me o corpo",
         "Nao aguento de dores no corpo",
@@ -64,7 +67,18 @@
         "Estou cheio de dores no corpo"
       ],
       "responses": [
-        "Tendo em conta esse sintoma, recomendo que vás ao seguinte link: <a href=\"https://www.figma.com/design/wAi2z7AsBH2O3x396Pnr1W/Project---Mental-Health-Portal?node-id=0-1&t=1FPHocv6Wux3D0dl-0\" target=\"_blank\">aqui</a>"
+        "Esse tipo de sintoma é comum, não implica necessariamente que tenhas alguma perturbação. Sê mais específico, por favor."
+      ]
+    },
+    {
+      "tag": "perigo",
+      "patterns": [
+        "Quero suicidar-me",
+        "Quero matar-me",
+        "Quero desaparecer"
+      ],
+      "responses": [
+        "Tendo em conta o elevado sofrimento psicológico que passas, recomendo que contactes a linha de apoio: <a href=\"https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#\" target=\"_blank\">aqui.</a> <br> Contudo, verifica a linha de contactos presente no final de cada página."
       ]
     }
   ]
