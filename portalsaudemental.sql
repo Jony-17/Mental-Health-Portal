@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jun-2024 às 15:18
+-- Tempo de geração: 06-Jun-2024 às 11:55
 -- Versão do servidor: 10.4.18-MariaDB
 -- versão do PHP: 8.0.3
 
@@ -45,7 +45,7 @@ CREATE TABLE `artigos` (
 INSERT INTO `artigos` (`artigo_id`, `juncao_perturbacoes_id`, `titulo`, `data_publicacao`, `autor`, `img_artigo`, `conteudo_texto`, `fonte`) VALUES
 (1, 1, 'Ansiedade social: Da timidez à fobia social.', '2000', 'Gouveia, J. P. ', 'artigo1.jpg', 'O medo é uma emoção simples que pode estar ligada a qualquer situação específica. Esta emoção não deve ser considerada de forma depreciativa, pois pode ajudar a defender o indivíduo de ocorrências perigosas. É útil, por exemplo, alguém ter medo de atravessar uma rua com muito trânsito e observar primeiro se passam carros, pois esta atitude pode evitar que seja atropelado. Neste sentido podemos referir que o medo é uma emoção adaptativa. Contudo, há situações, em que o medo deixa de ser adaptativo. É o que acontece no caso das fobias', 'Gouveia, J. P. (2000). Ansiedade social: Da timidez à fobia social.'),
 (2, 9, 'OLHANDO A PERTURBAÇÃO BIPOLAR.', '2006', 'da Fonseca, S. C. L. ', 'artigo2.jpg', 'É com frequência que os nossos doentes fazem inúmeras perguntas sobre a doença mental, especialmente na preparação do regresso a casa, assistindo-se por vezes com um sentimento de impotência e solidão, às duvidas e inquietações que sentem os familiares do doente mental.', 'da Fonseca, S. C. L. OLHANDO A PERTURBAÇÃO BIPOLAR.'),
-(3, 3, 'Habilidades sociais na agorafobia e fobia social. Psicologia: Teoria e Pesquisa', '2008', 'Levitan, M., Rangé, B., & Nardi, A. E. ', 'artigo3.jpg', 's transtornos ansiosos são freqüentemente associados ao déficit de habilidades sociais (HS). A fobia social é o quadro mais relacionado a esse déficit, enquanto a agorafobia é desconsiderada. O objetivo deste artigo é investigar essa associação por meio de uma revisão da literatura.', 'Levitan, M., Rangé, B., & Nardi, A. E. (2008). Habilidades sociais na agorafobia e fobia social. Psicologia: Teoria e Pesquisa, 24, 95-99.'),
+(3, 3, 'Habilidades sociais na agorafobia e fobia social.', '2008', 'Levitan, M., Rangé, B., & Nardi, A. E. ', 'artigo3.jpg', 's transtornos ansiosos são freqüentemente associados ao déficit de habilidades sociais (HS). A fobia social é o quadro mais relacionado a esse déficit, enquanto a agorafobia é desconsiderada. O objetivo deste artigo é investigar essa associação por meio de uma revisão da literatura.', 'Levitan, M., Rangé, B., & Nardi, A. E. (2008). Habilidades sociais na agorafobia e fobia social. Psicologia: Teoria e Pesquisa, 24, 95-99.'),
 (4, 5, 'Intervenção psicológica em situações de pânico.', '1991', 'Costa, M. E. ', 'artigo4.jpg', 'Muitas vezes, o cliente não acredita na possibilidade de funcionar sem o medicamento, assumindo um estatuto de doente que dificulta a reestruturação da sua aulo-estima. Assim, sempre que a perturbação de pânico tem um fundo biológico caracterizado p0r ataques de pânico sem quaisquer factores desencadeadores, a medicação seria a reSp0Sta ideal. ', 'Costa, M. E. (1991). Intervenção psicológica em situações de pânico.');
 
 -- --------------------------------------------------------
@@ -102,7 +102,7 @@ CREATE TABLE `conteudo_noticia` (
 INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `texto`) VALUES
 (1, 1, 'O que é a personalidade?', 'A personalidade é um conjunto de características que cada pessoa tem e que corresponde a padrões de comportamentos, de emoções e de conhecimentos do mundo que a rodeia (cognitivos). Por outras palavras, é a forma habitual de pensar, sentir e agir de cada um. Alguns exemplos de características de personalidade que facilmente reconhecemos nos outros ou em nós são, por exemplo, ser extrovertido, organizado, pessimista, criativo ou desconfiado.'),
 (2, 1, 'O que é uma perturbação da personalidade?', 'Uma perturbação da personalidade é uma maneira de pensar, sentir e agir que representa um desvio extremo em relação aos padrões sociais e culturais. Por isso a pessoa tem dificuldade em relacionar-se com os outros e em adaptar-se a situações do dia-a-dia, tornando-se pouco funcional. Isso traz quase sempre sofrimento — tanto ao próprio, como aos que estão à sua volta. As perturbações de personalidade não são raras: podem afetar até 15% da população.'),
-(3, 1, 'Mas ter alguns destes traços significa que se tem uma perturbação?', 'Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que t'),
+(3, 1, 'Mas ter alguns destes traços significa que se tem uma perturbação?', 'Não. Quase toda a gente tem algum destes traços de personalidade, sem que isso signifique que tem uma perturbação.'),
 (4, 2, 'O que é a saúde mental?', 'Estima-se que uma em cada cinco pessoas em Portugal tenha uma doença mental. A depressão é a que mais afeta os portugueses. As \"doenças invisíveis\" são muitas vezes a razão pela qual as pessoas são vítimas de olhares e comentários discriminatórios de colegas, amigos e familiares.'),
 (5, 2, 'Os sinais de alerta', 'Isolamento, alienação, apatia, preocupação, medo e tristeza, cansaço, ansiedade e agressividade são palavras que podem estar associadas a perturbações da saúde mental.'),
 (6, 2, 'Que tratamento deve ser feito?', 'Existem várias formas de tratar doentes com perturbações mentais. A escolha do tratamento e a sua duração são definidos por um profissional especializado e vão sempre depender do quadro clínico de cada paciente.'),
@@ -243,8 +243,7 @@ INSERT INTO `grupos_perturbacoes` (`grupos_perturbacoes_id`, `nome`, `texto`, `s
 (15, 'Grupo B', 'teste', NULL, NULL, NULL, ''),
 (16, 'Grupo C', 'teste', NULL, NULL, NULL, ''),
 (17, 'Perturbação de Stress Pós-Traumático', 'teste', 'teste', 'teste', 'teste', ''),
-(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste', ''),
-(22, 'testeeeee', 'testeeeee', 'testeeeee', 'testeeeee', 'testeeeee', '');
+(18, 'Perturbação de Ajustamento', 'teste', 'teste', 'teste', 'teste', '');
 
 -- --------------------------------------------------------
 
@@ -280,8 +279,7 @@ INSERT INTO `juncao_perturbacoes` (`juncao_perturbacoes_id`, `perturbacoes_id`, 
 (15, 6, 15),
 (16, 6, 16),
 (17, 7, 17),
-(18, 7, 18),
-(25, 13, 22);
+(18, 7, 18);
 
 -- --------------------------------------------------------
 
@@ -445,12 +443,11 @@ CREATE TABLE `perturbacoes` (
 INSERT INTO `perturbacoes` (`perturbacoes_id`, `nome`, `texto`, `img_perturbacao`, `img_perturbacao_circ`, `banner_perturbacao`, `fonte`) VALUES
 (1, 'Perturbações de Ansiedade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety, know that you are not alone. The National Institutes of Mental Health estimate that nearly one-third of US adults will deal with an anxiety disorder at some point in their lives.1 Any Anxiety Disorder, National Institutes of Mental Health Since anxiety is a common mental health condition (and is a condition that can be debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety screening.2 Treatment options like therapy, medication, self-care strategies, and lifestyle changes can help you manage your anxiety and help you live your best life at home, at work, and in your relationships.\n\nwith anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxiety, know that you are not alone. The National Institutes of Mental Health estimate that nearly one-third of US adults will deal with an anxiety disorder at some point in their lives.1 Any Anxiety Disorder, National Institutes of Mental Health Since anxiety is a common mental health condition (and is a condition that can be debilitating), it\'s recommended that all adults under the age of 65 receive routine anxiety screening.2 Treatment options like therapy, medication, self-care strategies, and lifestyle changes can help you manage your anxiety and help you live your best life at home, at work, and in your relationships.\n\n', 'pert-ansie.png', 'https://i.ibb.co/pWP0R34/pert-ansie-circle.png', 'banner-ans.png', 'testeansiedade'),
 (2, 'Perturbações do Sono - Vigília', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-sono.png', 'https://i.ibb.co/CJDnQW2/pert-sono-circle.png', 'banner-sono.png', 'testesono'),
-(3, 'Perturbações de Humor', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-humor.png', 'https://i.ibb.co/3r3SSyx/pert-humor-circle.png', 'banner-humor.png', ''),
+(3, 'Perturbações de Humor', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-humor.png', 'https://i.ibb.co/3r3SSyx/pert-humor-circle.png', 'banner-humor.png', 'testehumor'),
 (4, 'Perturbações Alimentares', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-aliment.png', 'https://i.ibb.co/2djRPxt/pert-aliment-circle.png', 'banner-aliment.png', ''),
 (5, 'Perturbações Obsessivo-Compulsivas', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-obscomp.png', NULL, 'banner-obscomp.png', ''),
 (6, 'Perturbações de Personalidade', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-perso.png', NULL, 'banner-pers.png', ''),
-(7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-stress.png', NULL, 'banner-stress.png', ''),
-(13, 'testeperteee', 'testeperteee', 'pert-aliment.png', NULL, 'teste.avif', 'd');
+(7, 'Perturbações relacionadas com Trauma e Fatores de stress', 'Everybody deals Everybody deals with anxiety from time to time, but when everyday feelings of nervousness turn to intense and persistent feelings of fear, it may rise to the level of a diagnosable anxiety disorder. If you\'re struggling with an anxiety disorder like social anxiety or generalized anxie', 'pert-stress.png', NULL, 'banner-stress.png', '');
 
 -- --------------------------------------------------------
 
