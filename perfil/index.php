@@ -98,7 +98,7 @@ if (isset($_SESSION['id_utilizador'])) {
     if (isset($_FILES["nova_imagemperfil"]) && !empty($_FILES["nova_imagemperfil"]["name"])) {
       $nome_arquivo = $_FILES["nova_imagemperfil"]["name"];
       $nome_temporario = $_FILES["nova_imagemperfil"]["tmp_name"];
-      $caminho_destino = "../areacliente/registo/imgs" . $nome_arquivo;
+      $caminho_destino = "../areacliente/registo/imgs/" . $nome_arquivo;
 
       if (move_uploaded_file($nome_temporario, $caminho_destino)) {
         // Atualize o campo de imagem de perfil no banco de dados com o novo caminho da imagem
