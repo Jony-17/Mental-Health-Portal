@@ -47,6 +47,8 @@
 
   --foreground: var(--clr-dark);
   --background: var(--clr-light);
+
+  --hover: #dddddd;
 }
 
 .darkmode {
@@ -79,6 +81,8 @@
   --fontes-color: #7f1c1c;
 
   --main-color: #3C3C3C;
+
+  --hover: #9e9e9e;
 }
 
 .dark-mode-toggle {
@@ -705,9 +709,10 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
   display: block;
 }
 
-/*.dropdown2-content a:hover {
-  background-color: #f1f1f1;
-}*/
+.dropdown2-content a:hover,
+.dropdown2-content2 a:hover {
+  background-color: var(--hover);
+}
 
 .dropdown2:hover .dropdown2-content {
   display: block;
@@ -796,6 +801,10 @@ form button {
   cursor: pointer;
   border-radius: 9px 9px 9px 0px;
   font-size: 15px;
+}
+
+form button:hover {
+  background-color: var(--orange3-color);
 }
 
 form .fa-search {
