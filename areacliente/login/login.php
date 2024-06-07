@@ -37,13 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['admin'] = $row['admin'];
                 $_SESSION['unique_id'] = $row['unique_id'];
 
-                if ($_SESSION['admin'] == "1") {
-                    header('Location: ../../admin/index.php');
-                    exit();
-                } else if ($_SESSION['admin'] == "0") {
-                    header('Location: ../../paginainicial/index.php');
-                    exit();
+                // Redireciona para a URL armazenada na sessão ou para a página padrão
+                if (isset($_SESSION['redirect_url'])) {
+                    $redirect_url = $_SESSION['redirect_url'];
+                    unset($_SESSION['redirect_url']); // Limpe a URL de redirecionamento armazenada na sessão
+                    header("Location: $redirect_url");
+                } else {
+                    if ($_SESSION['admin'] == "1") {
+                        header('Location: ../../admin/');
+                    } else {
+                        header('Location: ../../paginainicial/');
+                    }
                 }
+                exit();
             } else {
                 // Senha incorreta
                 header('Location: index.php?error=Credenciais Incorretas');
