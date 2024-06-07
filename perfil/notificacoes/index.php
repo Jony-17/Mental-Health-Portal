@@ -199,7 +199,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <span class="font-weight-bold"><?php echo $row_lembrete['mensagem']; ?></span>
                       </div>
                     </a>
-                    <a class="dropdown-item text-center small text-gray-500" href="notificacoes">Ver todas as
+                    <a class="dropdown-item text-center small text-gray-500" href="">Ver todas as
                       notificações</a>
                     <?php
                   }
