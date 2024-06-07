@@ -545,6 +545,10 @@ body.darkmode .background2 img {
   text-decoration: none;
 }
 
+.first-button:hover {
+  background-color: var(--orange3-color);
+}
+
 /*------------------Tipos Perturbações Mentais------------------*/
 
 .ted-talks-card {
