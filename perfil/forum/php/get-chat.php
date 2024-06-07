@@ -11,6 +11,8 @@
         $query = mysqli_query($conn, $sql);
         if(mysqli_num_rows($query) > 0){
             while($row = mysqli_fetch_assoc($query)){
+                $img_perfil = !empty($row['img_perfil']) ? $row['img_perfil'] : 'teste.jpeg';
+
                 if($row['outgoing_msg_id'] === $outgoing_id){
                     $output .= '<div class="chat outgoing">
                                 <div class="details">
@@ -19,7 +21,8 @@
                                 </div>';
                 }else{
                     $output .= '<div class="chat incoming">
-                                <img src="../../areacliente/registo/imgs/'.$row['img_perfil'].'" alt="">
+                            <img src="../../areacliente/registo/imgs/' . $img_perfil . '" alt="">
+
                                 <div class="details">
                                     <p>'. $row['msg'] .'</p>
                                 </div>

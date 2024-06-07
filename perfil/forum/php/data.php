@@ -7,6 +7,9 @@
         $row2 = mysqli_fetch_assoc($query2);
         (mysqli_num_rows($query2) > 0) ? $result = $row2['msg'] : $result ="Sem mensagens";
         (strlen($result) > 28) ? $msg =  substr($result, 0, 28) . '...' : $msg = $result;
+
+        $img_perfil = !empty($row['img_perfil']) ? $row['img_perfil'] : 'teste.jpeg';
+
         if(isset($row2['outgoing_msg_id'])){
             ($outgoing_id == $row2['outgoing_msg_id']) ? $you = "Tu: " : $you = "";
         }else{
@@ -16,7 +19,7 @@
 /*chat.php*/
         $output .= '<a href="chat.php?utilizador_id='. $row['unique_id'] .'">
                     <div class="content">
-                    <img src="../../areacliente/registo/imgs/'. $row['img_perfil'] .'" alt="">
+                    <img src="../../areacliente/registo/imgs/' . $img_perfil . '" alt="">
                     <div class="details">
                         <span>'. $row['nome']. '</span>
                         <p>'. $you . $msg .'</p>
