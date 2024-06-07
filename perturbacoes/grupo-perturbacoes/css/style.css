@@ -792,7 +792,7 @@ svg {
 
 .btn2:hover {
   scale: 1.05;
-  color: var(--white-color);
+  background-color: var(--orange3-color);
 }
 
 
