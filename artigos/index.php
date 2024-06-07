@@ -276,33 +276,45 @@ if (isset($_SESSION['id_utilizador'])) {
         ?>
 
         <?php
-        // Consulta para obter a lista de perturbações
-        $query_autor = "SELECT DISTINCT autor FROM artigos";
-        $result_autor = mysqli_query($conn, $query_autor);
+        // Consulta para obter a lista de autores
+        $query_autores = "SELECT DISTINCT autor FROM artigos ORDER BY autor";
+        $result_autores = mysqli_query($conn, $query_autores);
 
-        if ($result_autor && mysqli_num_rows($result_autor) > 0) {
+        if ($result_autores && mysqli_num_rows($result_autores) > 0) {
+            $autores_por_letra = array();
+
+            // Organizar os autores por letra
+            while ($row = mysqli_fetch_assoc($result_autores)) {
+                $primeira_letra = strtoupper(substr($row['autor'], 0, 1));
+                $autores_por_letra[$primeira_letra][] = $row['autor'];
+            }
             ?>
+
             <div class="dropdown2">
                 <button class="dropbtn2">Selecionar autor
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="dropdown2-content2">
-
-                    <a href="?filter_autor=Autores">Todos</a>
                     <?php
-                    while ($row = mysqli_fetch_assoc($result_autor)) {
-                        ?>
-                        <a href="?filter_autor=<?php echo urlencode($row['autor']); ?>">
-                            <?php echo $row['autor']; ?>
-                        </a>
-                        <?php
+                    // Exibir os autores agrupados por letra
+                    foreach ($autores_por_letra as $letra => $autores) {
+                        echo "<div class='autor-group'>";
+                        echo "<span class='letra'>$letra</span>";
+                        echo "<div class='autores'>";
+                        foreach ($autores as $autor) {
+                            echo "<a href='?filter_autor=" . urlencode($autor) . "'>$autor</a>";
+                        }
+                        echo "</div>"; // fechar div autores
+                        echo "</div>"; // fechar div autor-group
                     }
                     ?>
                 </div>
             </div>
+
             <?php
         }
         ?>
+
 
         <!--Pesquisa-->
         <div class="container">
@@ -675,7 +687,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
-                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#" target="_blank">Apoio Psicológico</a>
+                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#"
+                            target="_blank">Apoio Psicológico</a>
                         <ul>
                             <li>24h/dia</li>
                         </ul>
@@ -696,7 +709,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-" target="_blank">Linha Conversa Amiga</a>
+                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-"
+                            target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li>Dias úteis das 15h00 às 22h00</li>
                             <li>Fins de semana das 19h00 às 22h00</li>
