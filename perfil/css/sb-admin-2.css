@@ -195,10 +195,10 @@ a {
   background-color: transparent;
 }
 
-a:hover {
+/*a:hover {
   color: #224abe;
   text-decoration: underline;
-}
+}*/
 
 a:not([href]):not([tabindex]) {
   color: inherit;
