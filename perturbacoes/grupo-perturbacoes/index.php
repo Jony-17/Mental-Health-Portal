@@ -450,12 +450,17 @@ if (isset($_GET['nome'])) {
                       FROM perturbacoes p
                       WHERE p.nome = '$nome'
                       UNION
-                      SELECT DISTINCT artigos.fonte
-                      FROM artigos 
-                      INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
-                      INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
-                      INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-                      WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> '' AND juncao_perturbacoes.perturbacoes_id = $perturbacoes_id";
+                      SELECT fonte
+                      FROM (
+                          SELECT DISTINCT artigos.fonte
+                          FROM artigos 
+                          INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
+                          INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
+                          INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
+                          WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> '' AND juncao_perturbacoes.perturbacoes_id = $perturbacoes_id
+                          LIMIT 3
+                      ) AS limited_artigos;
+                      ";
 
             $result = mysqli_query($conn, $query);
 
@@ -582,7 +587,8 @@ if (isset($_GET['nome'])) {
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
-                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#" target="_blank">Apoio Psicológico</a>
+                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#"
+                            target="_blank">Apoio Psicológico</a>
                         <ul>
                             <li>24h/dia</li>
                         </ul>
@@ -603,7 +609,8 @@ if (isset($_GET['nome'])) {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-" target="_blank">Linha Conversa Amiga</a>
+                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-"
+                            target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li>Dias úteis das 15h00 às 22h00</li>
                             <li>Fins de semana das 19h00 às 22h00</li>
