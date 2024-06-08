@@ -718,7 +718,7 @@ svg {
 
 .card4-container {
   display: grid;
-  grid-template-rows: repeat(3, minmax(230px, 1fr)); /*auto-fit*/
+  /*grid-template-rows: repeat(3, minmax(230px, 1fr)); auto-fit*/
   max-width: 40%;
 }
 
@@ -730,6 +730,7 @@ svg {
   justify-content: center;
   width: 100%;*/
   max-width: 85vw;
+  max-height: 40%;
 }
 
 .card4 img {
