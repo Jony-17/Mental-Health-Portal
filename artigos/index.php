@@ -534,7 +534,8 @@ if (isset($_SESSION['id_utilizador'])) {
               INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
               INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
               INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-              WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> ''";
+              WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> ''
+              LIMIT $itens_por_pagina OFFSET $offset";
 
         // Adiciona filtro de pesquisa, se fornecido
         if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
