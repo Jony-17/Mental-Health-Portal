@@ -290,27 +290,6 @@ if (isset($_SESSION['id_utilizador'])) {
             }
             ?>
 
-            <div class="dropdown2">
-                <button class="dropbtn2">Selecionar autor
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown2-content2">
-                    <?php
-                    // Exibir os autores agrupados por letra
-                    foreach ($autores_por_letra as $letra => $autores) {
-                        echo "<div class='autor-group'>";
-                        echo "<span class='letra'>$letra</span>";
-                        echo "<div class='autores'>";
-                        foreach ($autores as $autor) {
-                            echo "<a href='?filter_autor=" . urlencode($autor) . "'>$autor</a>";
-                        }
-                        echo "</div>"; // fechar div autores
-                        echo "</div>"; // fechar div autor-group
-                    }
-                    ?>
-                </div>
-            </div>
-
             <?php
         }
         ?>
