@@ -534,8 +534,7 @@ if (isset($_SESSION['id_utilizador'])) {
               INNER JOIN juncao_perturbacoes ON artigos.juncao_perturbacoes_id = juncao_perturbacoes.juncao_perturbacoes_id
               INNER JOIN perturbacoes ON juncao_perturbacoes.perturbacoes_id = perturbacoes.perturbacoes_id
               INNER JOIN grupos_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
-              WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> ''
-              LIMIT $itens_por_pagina OFFSET $offset";
+              WHERE artigos.fonte IS NOT NULL AND artigos.fonte <> ''";
 
         // Adiciona filtro de pesquisa, se fornecido
         if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
@@ -564,6 +563,23 @@ if (isset($_SESSION['id_utilizador'])) {
             $query .= " ORDER BY artigos.data_publicacao DESC";
         }
 
+        // Conta o número total de artigos com base nos filtros aplicados
+        $query_count = "SELECT COUNT(*) AS total FROM ($query) AS count_query";
+        $result_count = mysqli_query($conn, $query_count);
+        $total_resultados = 0;
+
+        if ($result_count) {
+            $row_count = mysqli_fetch_assoc($result_count);
+            $total_resultados = $row_count['total'];
+        }
+
+        // Calcula o número total de páginas com base nos resultados encontrados
+        $total_paginas = ceil($total_resultados / $itens_por_pagina);
+
+        // Adiciona limitação para paginação
+        $query .= " LIMIT $itens_por_pagina OFFSET $offset";
+
+        // Executa a consulta SQL
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
