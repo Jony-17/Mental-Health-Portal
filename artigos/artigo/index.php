@@ -346,29 +346,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <div class="container">
         <div class="artigo-wrapper">
-            <section class="artigo" id="artigo">
-                <div class="card">
-                    <div class="card-body">
-                        <?php
-                        // Se o título do artigo estiver definido na URL, exibir o conteúdo do artigo
-                        if (isset($_GET['titulo'])) {
-                            $titulo_artigo = urldecode($_GET['titulo']);
-                            $query = "SELECT conteudo_texto FROM artigos WHERE titulo = '$titulo_artigo'";
-                            $result = mysqli_query($conn, $query);
-                            if ($result && mysqli_num_rows($result) > 0) {
-                                $row = mysqli_fetch_assoc($result);
-                                echo '<p>' . $row['conteudo_texto'] . '</p>';
-                            } else {
-                                echo "Ainda não tem texto.";
-                            }
-                        } else {
-                            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-                            echo "Título do artigo não especificado na URL.";
-                        }
-                        ?>
-                    </div>
-                </div>
-            </section>
 
             <!--Pontos-->
             <?php
