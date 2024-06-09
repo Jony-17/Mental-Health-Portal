@@ -723,6 +723,7 @@ svg {
 .text-box p {
   display: inline-block;
   margin-top: 15px;
+  font-size: 20px;
 }
 
 .left-container-arrow {
