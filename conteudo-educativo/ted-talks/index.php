@@ -234,14 +234,13 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--Explicação do que são TED Talks-->
     <section class="ted-talks" id="ted-talks">
         <div class="ted-talks-card">
-            <p>Stands for <span class="color">Technology, Entertainment, Design</span> — three broad subject areas that
-                are collectively
-                shaping our world. But a TED conference is broader still, showcasing important research and ideas
-                from all disciplines and exploring how they connect. The format is fast-paced: 50+ talks over the
-                course of three days to a week, in addition to interviews, debates, workshops, activities,
-                interactive exhibits, evening events and parties. The program is designed for attendees and speakers
-                from vastly different fields to connect, cross-fertilize and draw inspiration from unlikely places.
-                This is the magic of TED.</p>
+            <p>Significa <span class="color"></span>Tecnologia, Entretenimento, Design</span> — três grandes áreas temáticas que moldam
+                coletivamente o nosso mundo. Uma conferência TED é ainda mais ampla, apresentando pesquisas e ideias
+                importantes de todas as disciplinas e explorando como elas se conectam. O formato é acelerado: mais de
+                50 palestras ao longo de três dias a uma semana, além de entrevistas, debates, workshops, atividades,
+                exposições interativas, eventos noturnos e festas. O programa foi projetado para que participantes e
+                palestrantes de áreas muito diferentes se conectem, fertilizem e se inspirem em lugares improváveis.
+            </p>
         </div>
 
 
@@ -488,7 +487,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
-                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#" target="_blank">Apoio Psicológico</a>
+                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#"
+                            target="_blank">Apoio Psicológico</a>
                         <ul>
                             <li>24h/dia</li>
                         </ul>
@@ -509,7 +509,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-" target="_blank">Linha Conversa Amiga</a>
+                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-"
+                            target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li>Dias úteis das 15h00 às 22h00</li>
                             <li>Fins de semana das 19h00 às 22h00</li>
