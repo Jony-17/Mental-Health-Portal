@@ -534,8 +534,7 @@ body.darkmode .background2 img {
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+  /*justify-content: space-between;*/
   transition: opacity 1s ease; /* Transição suave para a opacidade */
   opacity: 0;
 }
