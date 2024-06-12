@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jun-2024 às 21:08
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 12-Jun-2024 às 12:27
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -212,7 +212,9 @@ INSERT INTO `conteudo_noticia` (`conteudo_noticia_id`, `noticias_id`, `ponto`, `
 (13, 5, 'Há vários tipos de solidão?', 'Sim. Os especialistas referem geralmente dois tipos de solidão: uma solidão social, caracterizada por menos relações com família, amigos e colegas do que aquelas que gostaríamos de ter, e uma solidão emocional, quando não temos relacionamentos de intimidade que permitam partilhas intensas.'),
 (14, 5, 'Como é que a solidão afeta a saúde mental?', 'A solidão prolongada tem um impacto muito significativo na saúde e pode ser um fator de risco para desenvolver uma doença mental. Um relatório publicado em 2023 pelo cirurgião-geral dos EUA [a autoridade máxima operacional de saúde pública do país, equivalente à Direção-Geral de Saúde em Portugal], refere que probabilidade de desenvolver depressão é mais do dobro entre pessoas que relatam sentir-se sozinhas com frequência, em comparação com aquelas que raramente ou nunca se sentem sós.'),
 (15, 6, 'Quando faz sentido procurar ajuda?', 'Para Fernando Mesquita, psicólogo clínico e terapeuta sexual, a intervenção de um sexólogo é indicada em casos de disfunções sexuais ou para casais com dificuldades como “discrepância no desejo e expectativas, insatisfação sexual, situações de trauma sexual, dificuldades de comunicação ou intimidade, mudanças nos padrões de comportamento sexual e problemas relacionados com eventos de vida significativos, bem como com a orientação sexual e identidade de género”.'),
-(16, 6, 'Como é que a saúde mental e a sexualidade se influenciam?', 'Influenciam-se mutuamente: ter uma perturbação mental, como depressão ou ansiedade, pode afetar a sexualidade, mas os problemas sexuais também podem ter um impacto na saúde mental, agravando outras doenças ou contribuindo para o seu desenvolvimento.\r\n\r\nTomando como exemplo a depressão, Fernando Mesquita refere que “frequentemente está associada a alterações na resposta sexual, como dificuldades na excitação, orgasmo e desejo”, sendo que, além disso “alguns medicamentos para a depressão apresentam efeitos colaterais que afetam a função sexual”.\r\n\r\nPor outro lado, a influência da sexualidade na saúde mental é muitas vezes subestimada e “pessoas que enfrentam desafios na esfera sexual, como disfunções sexuais ou insatisfação, podem experimentar um aumento de stress, ansiedade ou mesmo depressão”.');
+(16, 6, 'Como é que a saúde mental e a sexualidade se influenciam?', 'Influenciam-se mutuamente: ter uma perturbação mental, como depressão ou ansiedade, pode afetar a sexualidade, mas os problemas sexuais também podem ter um impacto na saúde mental, agravando outras doenças ou contribuindo para o seu desenvolvimento.\r\n\r\nTomando como exemplo a depressão, Fernando Mesquita refere que “frequentemente está associada a alterações na resposta sexual, como dificuldades na excitação, orgasmo e desejo”, sendo que, além disso “alguns medicamentos para a depressão apresentam efeitos colaterais que afetam a função sexual”.\r\n\r\nPor outro lado, a influência da sexualidade na saúde mental é muitas vezes subestimada e “pessoas que enfrentam desafios na esfera sexual, como disfunções sexuais ou insatisfação, podem experimentar um aumento de stress, ansiedade ou mesmo depressão”.'),
+(18, 14, 'O que é que o stress faz ao corpo de uma pessoa?', 'Quando as pessoas pertencem uma aparente ameaça, são libertadas várias hormonas que fazem o coração bater mais depressa e aumentam a tensão arterial e o açúcar no sangue. Estas hormonas também desviam energia de outras partes do corpo, como o sistema imunitário e o sistema digestivo. Trata-se de adaptações evolutivas que, em tempos, ajudaram as pessoas a reagir a situações como a perseguição de predadores. Estas reacções de \"luta ou fuga\" são normais e podem ser úteis na vida moderna. Por exemplo, podem ajudar um atleta a ter um desempenho mais rápido ou um estudante a manter-se acordado para estudar para um exame.'),
+(19, 14, 'Todas as pessoas sofrem de stress, mas quando é que este se torna um problema?', 'As pessoas devem também perguntar a si próprias se o stress está a afetar negativamente o seu funcionamento em casa, no trabalho e com os amigos. Uma pessoa que se encontra invulgarmente irritável e que reage os seus entes queridos e colegas pode também estar a fazê-lo devido a stress excessivo.');
 
 -- --------------------------------------------------------
 
@@ -524,7 +526,8 @@ INSERT INTO `noticias` (`noticias_id`, `titulo`, `data_publicacao`, `autor`, `im
 (3, 'Saúde mental: deixar de sofrer em silêncio', '2020-10-13', 'Sandra Varandas e Bárbara Ferreira', 'noticia3.webp', 'Pedir ajuda aos amigos, aos familiares, ao médico de família ou ao psicólogo é o grande passo para a recuperação.\r\nA doença mental não acontece só aos outros. De acordo com a Organização Mundial da Saúde, uma em cada quatro pessoas será afetada por uma perturbação mental em determinada fase da vida.', 'https://sicnoticias.pt/especiais/saude-mental/2020-10-13-Saude-mental-deixar-de-sofrer-em-silencio-46db9dc6'),
 (4, 'Como está a saúde mental das crianças e dos jovens?', '2020-10-10', 'Rita Rogado, Sandra Varandas e Diogo Sentieiro', 'noticia4.webp', 'Vinte por cento das crianças e dos adolescentes têm, pelo menos, uma perturbação mental, de acordo com a Organização Mundial de Saúde. Em Portugal, quase 31% dos jovens têm sintomas depressivos, a maioria moderados ou graves. Os psicólogos dizem que estes números são preocupantes, mas os sinais de alerta nem sempre são fáceis de identificar, por isso os pais e a comunidade escolar devem estar atentos.', 'https://sicnoticias.pt/especiais/saude-mental/2020-10-10-Como-esta-a-saude-mental-das-criancas-e-dos-jovens--617b2917'),
 (5, 'Como é que a solidão afeta a nossa saúde mental?', '2024-02-25', 'Sofia Teixeira', 'noticia5.webp', 'Stress, depressão, ansiedade, adição ou baixa autoestima são algumas possíveis consequências da solidão.', 'https://observador.pt/explicadores/sentir-solidao-e-o-mesmo-que-estar-sozinho-nove-perguntas-sobre-um-sentimento-que-afeta-a-saude-mental-e-pode-provocar-varias-doencas/'),
-(6, 'O sexo afeta a saúde mental? Deve procurar ajuda?', '2024-05-12', 'Sofia Teixeira', 'noticia6.webp', 'Os problemas sexuais têm quase sempre impacto na saúde mental. E as perturbações mentais podem afetar a sexualidade. Tanto num caso como no outro, um terapeuta sexual pode ajudar.', 'https://observador.pt/explicadores/o-sexo-afeta-a-saude-mental-e-quando-deve-procurar-ajuda-10-respostas-sobre-disfuncao-sexual/');
+(6, 'O sexo afeta a saúde mental? Deve procurar ajuda?', '2024-05-12', 'Sofia Teixeira', 'noticia6.webp', 'Os problemas sexuais têm quase sempre impacto na saúde mental. E as perturbações mentais podem afetar a sexualidade. Tanto num caso como no outro, um terapeuta sexual pode ajudar.', 'https://observador.pt/explicadores/o-sexo-afeta-a-saude-mental-e-quando-deve-procurar-ajuda-10-respostas-sobre-disfuncao-sexual/'),
+(14, 'Como é que o stress prejudica a sua saúde', '2024-04-20', 'Katia Hetter', 'noticia7.jpg', 'Não há dúvida de que o stress faz parte da vida quotidiana, mas em excesso pode ter impactos prejudiciais na saúde física e mental das pessoas.', 'https://cnnportugal.iol.pt/saude/stress/como-e-que-o-stress-prejudica-a-sua-saude-e-o-que-fazer-para-o-evitar/20240420/661fba56d34ebf9bbb3c851c');
 
 -- --------------------------------------------------------
 
@@ -1007,7 +1010,7 @@ ALTER TABLE `conteudo_artigo`
 -- AUTO_INCREMENT de tabela `conteudo_noticia`
 --
 ALTER TABLE `conteudo_noticia`
-  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `conteudo_noticia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios_mindfulness`
@@ -1061,7 +1064,7 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `noticias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `perguntas`
