@@ -349,8 +349,6 @@ if (isset($_GET['nome'])) {
                             <h1>10 Factos sobre
                                 <?php echo $row["nome"]; ?>
                             </h1>
-                            <p>TesteTesteTesteTeste</p>
-                            <p>TesteTesteTeste</p>
                             <a class="secondary-button" href="factos_10/?nome=<?php echo $nome_codificado; ?>">
                                 Sabe mais<i class="fas fa-arrow-right"></i>
                             </a>
