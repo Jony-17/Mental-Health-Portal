@@ -526,7 +526,7 @@ body.darkmode .background2 img {
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  /*justify-content: space-evenly;*/
   margin: 100px 0;
   height: auto;
 }
