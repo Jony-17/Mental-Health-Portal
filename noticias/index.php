@@ -467,7 +467,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <?php
 
         // Consulta SQL para buscar o artigo pelo título
-        $query = "SELECT fonte
+        $query = "SELECT DISTINCT fonte
                   FROM noticias
                   WHERE fonte IS NOT NULL AND fonte <> ''";
 
@@ -490,6 +490,22 @@ if (isset($_SESSION['id_utilizador'])) {
             $query .= " ORDER BY data_publicacao DESC";
         }
 
+        // Conta o número total de artigos com base nos filtros aplicados
+        $query_count = "SELECT COUNT(*) AS total FROM ($query) AS count_query";
+        $result_count = mysqli_query($conn, $query_count);
+        $total_resultados = 0;
+
+        if ($result_count) {
+            $row_count = mysqli_fetch_assoc($result_count);
+            $total_resultados = $row_count['total'];
+        }
+
+        // Calcula o número total de páginas com base nos resultados encontrados
+        $total_paginas = ceil($total_resultados / $itens_por_pagina);
+
+        // Adiciona limitação para paginação
+        $query .= " LIMIT $itens_por_pagina OFFSET $offset";
+        
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -614,7 +630,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
-                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#" target="_blank">Apoio Psicológico</a>
+                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#"
+                            target="_blank">Apoio Psicológico</a>
                         <ul>
                             <li>24h/dia</li>
                         </ul>
@@ -635,7 +652,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-" target="_blank">Linha Conversa Amiga</a>
+                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-"
+                            target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li>Dias úteis das 15h00 às 22h00</li>
                             <li>Fins de semana das 19h00 às 22h00</li>
