@@ -767,7 +767,7 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
 
 form {
   background: var(--background);
-  width: 450px;
+  width: 425px;
   /*height: 55px;*/
   display: flex;
 }
