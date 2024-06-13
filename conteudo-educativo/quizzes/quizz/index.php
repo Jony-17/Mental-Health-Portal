@@ -252,7 +252,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                     entretenimento. De forma alguma
                                     este é um teste empiricamente validado. Os conceitos apresentados pela Dra. Judith Orloff
                                     não estão enraizados em nenhuma pesquisa conhecida. Contudo, caso queira aprender mais
-                                    acerca desta temática pode sempre aceder ao livro da autora. <a href="#fontes">[1]</a></p>
+                                    acerca desta temática pode sempre aceder ao livro da autora. <a style="color:var(--card-text-color);"; href="#fontes">[1]</a></p>
                             </div>
                             <?php
                             }
@@ -320,7 +320,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     <div class="card-body3">
                         <p>Esta triagem online não é uma ferramenta de diagnóstico. Somente um
                             profissional médico treinado, como um médico ou profissional de saúde mental, pode ajudá-lo
-                            a determinar os próximos passos mais adequados para você</p>
+                            a determinar os próximos passos mais adequados para si.</p>
                     </div>
                 </div>
             </div>
