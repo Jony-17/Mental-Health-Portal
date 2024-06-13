@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Jun-2024 às 12:27
+-- Tempo de geração: 13-Jun-2024 às 12:29
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.3.31
 
@@ -322,7 +322,47 @@ INSERT INTO `factos_10` (`10_factos_id`, `perturbacoes_id`, `nº`, `factos`, `de
 (30, 2, 7, 'a', 'A insónia é um sintoma comum de depressão e ansiedade.', ''),
 (31, 2, 8, 'a', 'O jet lag é uma perturbação temporária do ritmo circadiano que ocorre após viagens aéreas rápidas através de vários fusos horários, sendo causador de insónias. ', ''),
 (32, 2, 9, 'a', 'A paralisia do sono é uma condição em que a pessoa está consciente, mas incapaz de se mover ou falar ao adormecer ou ao acordar e é, frequentemente, é acompanhada de alucinações, tornando a experiência assustadora.', ''),
-(33, 2, 10, 'a', 'A insónia é uma das perturbações mais comuns com o avançar da idade.', '');
+(33, 2, 10, 'a', 'A insónia é uma das perturbações mais comuns com o avançar da idade.', ''),
+(34, 4, 1, 'a', 'São mais comuns em mulheres, especialmente adolescentes e jovens adultas.', 'American Psychiatric Association. (2013). Diagnostic and statistical manual of mental disorders (5th ed.). American Psychiatric Publishing. https://doi.org/10.1176/appi.books.9780890425596'),
+(35, 4, 2, 'a', 'Têm uma grande comorbilidade com outras condições psicológicas. ', ''),
+(36, 4, 3, 'a', 'Estudos mostram que há uma forte componente genética.', ''),
+(37, 4, 4, 'a', 'A restrição alimentar severa e a desnutrição podem levar a mudanças químicas no cérebro, afetando o humor, a ansiedade e o funcionamento cognitivo.', ''),
+(38, 4, 5, 'a', 'A anorexia nervosa tem a maior taxa de mortalidade entre todas as perturbações mentais, em parte devido a complicações médicas e ao suicídio.', ''),
+(39, 4, 6, 'a', 'A pressão para atender aos padrões culturais de beleza, especialmente em sociedades ocidentais, é um fator de risco significativo para o desenvolvimento de perturbações alimentares.', ''),
+(40, 4, 7, 'a', 'Atletas estão em maior risco de desenvolver perturbações alimentares.', ''),
+(41, 4, 8, 'a', 'O tratamento eficaz geralmente envolve uma equipa multidisciplinar, incluindo nutricionistas, psicólogos, psiquiatras e médicos. ', ''),
+(42, 4, 9, 'a', 'Nos últimos anos, houve um aumento nas campanhas de conscientização das perturbações alimentares, o que tem ajudado a promover a procura por tratamento e a apoiar aqueles que sofrem dessas condições.', ''),
+(43, 4, 10, 'a', 'A exposição a imagens e mensagens nas redes sociais que glorificam corpos magros pode contribuir para a insatisfação corporal e o desenvolvimento de perturbações alimentares, especialmente em jovens.', ''),
+(44, 5, 1, 'a', 'A POC é uma das condições mais incapacitantes segundo a Organização Mundial de Saúde (OMS).', 'American Psychiatric Association. (2013). Diagnostic and statistical manual of mental disorders (5th ed.). American Psychiatric Publishing. https://doi.org/10.1176/appi.books.9780890425596'),
+(45, 5, 2, 'a', 'Geralmente começa na infância, adolescência ou início da idade adulta.', ''),
+(46, 5, 3, 'a', 'Embora afete ambos os géneros, os homens são mais propensos a desenvolver esta condição na infância, enquanto as mulheres tendem a desenvolver mais tarde.', ''),
+(47, 5, 4, 'a', 'Pessoas com um parente de primeiro grau com POC têm um risco significativamente maior de desenvolver a condição.', ''),
+(48, 5, 5, 'a', 'A pesquisa em neuroimagem sugere que a POC está associada a anomalias na atividade cerebral.', ''),
+(49, 5, 6, 'a', 'Alguns dos temas obsessivos mais comuns incluem contaminação, dúvidas, simetria, e pensamentos proibidos ou tabu. ', ''),
+(50, 5, 7, 'a', 'As compulsões mais comuns incluem lavagem, verificação, contagem, e organização.', ''),
+(51, 5, 8, 'a', 'Cerca de 40-60% dos pacientes com POC não respondem adequadamente aos tratamentos padrão. ', ''),
+(52, 5, 9, 'a', 'Tecnologias como aplicações de saúde mental e terapia online estão a tornar-se mais populares para tratar a POC.', ''),
+(53, 5, 10, 'a', 'Com tratamento adequado, o prognóstico é positivo, sendo que muitas pessoas com POC podem alcançar uma redução significativa dos sintomas e melhorar a sua qualidade de vida.', ''),
+(54, 6, 1, 'a', 'As perturbações de personalidade do grupo A são altamente comórbidas com outras condições mentais, como depressão e ansiedade.', 'American Psychiatric Association. (2013). Diagnostic and statistical manual of mental disorders (5th ed.). American Psychiatric Publishing. https://doi.org/10.1176/appi.books.9780890425596'),
+(55, 6, 2, 'a', 'As perturbações de personalidade paranoide e esquizoide são mais comuns em homens, enquanto a perturbação esquizotípica tende a afetar igualmente homens e mulheres.', ''),
+(56, 6, 3, 'a', 'Pessoas com perturbações de personalidade do grupo A, podem ter dificuldades significativas em ambientes de trabalho devido à desconfiança, retraimento social e comportamento excêntrico.', ''),
+(57, 6, 4, 'a', 'Muitas vezes, perturbações de personalidade do Grupo B estão associadas a experiências traumáticas na infância.', ''),
+(58, 6, 5, 'a', 'Muitas vezes, pessoas com perturbações de personalidade do Grupo B, são capazes de mascarar os seus sintomas em situações sociais, apresentando-se de maneira encantadora e carismática.', ''),
+(59, 6, 6, 'a', 'Indivíduos com perturbações de personalidade do Grupo B, podem ser extremamente sensíveis à rejeição e críticas.', ''),
+(60, 6, 7, 'a', 'As perturbações de personalidade do Grupo C são relativamente mais comuns na população geral.', ''),
+(61, 6, 8, 'a', 'Geralmente, os sintomas perturbações de personalidade do Grupo C, começam a manifestar-se na adolescência ou no início da idade adulta e tendem a ser estáveis ao longo do tempo, a menos que sejam tratados.', ''),
+(62, 6, 9, 'a', 'Indivíduos com perturbações de personalidade do Grupo C, podem ter dificuldades significativas nos relacionamentos interpessoais.', ''),
+(63, 6, 10, 'a', 'Pessoas com perturbações de personalidade do Grupo C, podem ter extrema dificuldade em tomar decisões simples, como escolher o que vestir ou o que comer, sem a aprovação de outras pessoas.', ''),
+(64, 7, 1, 'a', 'As perturbações de stress têm sido cada vez mais reconhecidas e diagnosticadas em todo o mundo.', 'American Psychiatric Association. (2013). Diagnostic and statistical manual of mental disorders (5th ed.). American Psychiatric Publishing. https://doi.org/10.1176/appi.books.9780890425596'),
+(65, 7, 2, 'a', 'Traumas vivenciados por uma geração podem ter efeitos duradouros que afetam não apenas os indivíduos diretamente envolvidos, mas também as suas famílias e até mesmo gerações futuras.', ''),
+(66, 7, 3, 'a', 'Enquanto muitas pessoas desenvolvem perturbações de stress pós-traumático, uma parcela significativa demonstra resiliência, conseguindo adaptar-se e recuperar sem desenvolver condições psicológicas graves.', ''),
+(67, 7, 4, 'a', 'A forma como o stress e o trauma são percebidos e expressados pode variar amplamente entre diferentes culturas.', ''),
+(68, 7, 5, 'a', 'As perturbações de stress frequentemente coexistem com outras condições psicológicas, como depressão, ansiedade e abuso de substâncias, o que pode complicar o diagnóstico e o tratamento.', ''),
+(69, 7, 6, 'a', 'Além da exposição direta a eventos traumáticos, fatores como história familiar de perturbações mentais, falta de suporte social e experiências adversas na infância podem aumentar o risco de desenvolver perturbações de stress.', ''),
+(70, 7, 7, 'a', 'Estudos neurobiológicos têm identificado alterações no funcionamento cerebral associadas às perturbações de stress.', ''),
+(71, 7, 8, 'a', 'Pessoas que vivenciaram traumas frequentemente enfrentam desafios adicionais na vida.', ''),
+(72, 7, 9, 'a', 'A maneira como uma pessoa responde ao stress e ao trauma é altamente individualizada e pode ser influenciada por uma série de fatores.', ''),
+(73, 7, 10, 'a', 'Apesar dos avanços na compreensão e tratamento, o estigma social ainda persiste, impedindo algumas pessoas de procurar ajuda e apoio quando necessário. ', '');
 
 -- --------------------------------------------------------
 
@@ -668,7 +708,7 @@ CREATE TABLE `quiz_nome` (
   `nome` varchar(255) NOT NULL,
   `img_quiz` mediumtext NOT NULL,
   `explicacao_quiz` varchar(1000) NOT NULL,
-  `texto_informacao` varchar(1000) NOT NULL,
+  `texto_informacao` varchar(1500) NOT NULL,
   `fonte` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -677,10 +717,8 @@ CREATE TABLE `quiz_nome` (
 --
 
 INSERT INTO `quiz_nome` (`quiz_nome_id`, `nome`, `img_quiz`, `explicacao_quiz`, `texto_informacao`, `fonte`) VALUES
-(1, 'O quão empática/o és?', 'empatia.png', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurônios-espelho do cérebro – um grupo especializado de células responsáveis ​​pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes pode até ser difícil saber se estamos a sentir as próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizados com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. as pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com outra', 'Orloff, J. (2017). The empath\'s survival guide: Life strategies for sensitive people. Sounds True.'),
-(2, 'O quão preocupada/o és?', 'preocupado.png', 'Our world is in the midst of an emotional meltdown. As a psychiatrist, I’ve seen that many people are addicted to the adrenaline rush of anxiety, known as the “fight or flight” response, and they don’t know how to defuse it. An example of this is obsessively watching the news about natural disasters, trauma, economic stress and violence, and then not being able to turn bad news off. Also, people are prone to “techno-despair” — a term I coined in my book, “Emotional Freedom.” This is a state of high anxiety that results from information overload and Internet addiction. Being addicted to worry can lead to insomnia, nightmares, restless sleep and ongoing angst. Take this quiz to determine the role that worry is playing in your life.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', 'Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua vita. MyLife.'),
-(3, 'Tens uma energia positiva', 'energia.png', 'Relationships are always an energy exchange. Positive attitudes accentuate wellness. Negative attitudes impair it. Take this quiz to determine your positivity score and the energy impact you have on yourself and others.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', ''),
-(4, 'O quão livre és, emocionalmente?', 'livre.png', 'É capaz de cultivar emoções positivas e compaixão sem que os pensamentos negativos dominem a sua vida?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. In metus vulputate eu scelerisque. Libero id faucibus nisl tincidunt eget nullam non. At elementum eu facilisis sed odio morbi. Et malesuada fames ac turpis. At imperdiet dui accumsan sit. Quisque id diam vel quam. Vitae congue eu consequat ac felis donec et odio pellentesque. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Tristique senectus et netus et malesuada fames. Diam quam nulla porttitor massa. Consectetur lorem donec massa sapien faucibus. Nisi est sit amet facilisis magna etiam tempor. Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Dictum fusce ut placerat orci nulla pellentesque dignissim enim. Venenatis urna cursus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m', '');
+(1, 'O quão empática/o és?', 'empatia.png', 'É uma pessoa empática? Já lhe disseram que é “muito sensível” ou precisa de se fortalecer? Sente-se exausto e ansioso depois de estar no meio de uma multidão ou perto de certas pessoas? Tem sensibilidade à luz, som e cheiros? Demora mais a relaxar depois de um longo dia de trabalho?', 'Nas pessoas empáticas, acredita-se que o sistema de neurónios-espelho do cérebro – um grupo especializado de células responsáveis pela compaixão – seja hiperativo. Como resultado, as pessoas empáticas podem absorver as energias de outras pessoas (positivas e negativas) nos seus próprios corpos. Às vezes, pode até ser difícil saber se estamos a sentir as nossas próprias emoções ou as de outra pessoa. Existem diferentes tipos de sensibilidades que as pessoas empáticas podem experimentar. As pessoas empáticas físicas, por exemplo, estão especialmente sintonizadas com os sintomas físicos de outras pessoas e absorvem-nos nos seus próprios corpos. As pessoas empáticas emocionais captam as emoções das pessoas e tornam-se uma esponja para os seus sentimentos. As pessoas empáticas alimentares estão sintonizadas com a energia dos alimentos e podem até sentir sensibilidade a certos alimentos. Ter empatia traz benefícios, como maior intuição, compaixão, criatividade e uma conexão mais profunda com os outros.', 'Orloff, J. (2017). The empath\'s survival guide: Life strategies for sensitive people. Sounds True.'),
+(2, 'O quão preocupada/o és?', 'preocupado.png', 'É uma pessoa que se preocupa frequentemente? Já lhe disseram que está sempre ansioso/a ou que precisa de relaxar? Sente-se exausto/a e sobrecarregado/a depois de ler notícias ou de enfrentar situações stressantes? Tem dificuldade em desligar e frequentemente sofre de insónias ou sono inquieto?', 'Na sociedade atual, muitas pessoas encontram-se presas no ciclo vicioso da preocupação. O nosso mundo está no meio de um colapso emocional. Existem diferentes formas de preocupação que as pessoas podem experimentar. A preocupação crónica pode afectar a sua saúde mental e física, levando a sintomas como dores de cabeça, tensão muscular e problemas digestivos. Pessoas que se preocupam excessivamente muitas vezes têm dificuldade em concentrar-se e em desfrutar das atividades do dia-a-dia. Ser viciado em preocupações pode criar um ciclo de ansiedade que é difícil de quebrar.', 'Orloff, J. (2015). Emotional Freedom: Liberati delle emozioni negative e trasforma la tua vita. MyLife.');
 
 -- --------------------------------------------------------
 
@@ -1028,7 +1066,7 @@ ALTER TABLE `exercicios_mindfulness_ex`
 -- AUTO_INCREMENT de tabela `factos_10`
 --
 ALTER TABLE `factos_10`
-  MODIFY `10_factos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `10_factos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de tabela `grupos_perturbacoes`
