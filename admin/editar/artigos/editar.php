@@ -349,12 +349,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Conteúdo</label>
-                                            <input type="text" name="conteudo" value="<?php echo $row['conteudo_texto'] ?>"
-                                                class="form-control" placeholder="Editar conteudo">
-                                        </div>
-
-                                        <div class="form-group">
                                             <label>Perturbação</label>
                                             <select name="perturbacao" class="form-control">
                                                 <?php

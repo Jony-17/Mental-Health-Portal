@@ -8,7 +8,6 @@ if (isset($_POST['inserirbtn'])) {
     $titulo = $_POST['titulo'];
     $data_publicacao = $_POST['data_publicacao'];
     $autor = $_POST['autor'];
-    $conteudo_texto = $_POST['conteudo'];
     $nome_perturbacao = $_POST['perturbacao'];
     $nome_grupo = $_POST['grupo_perturbacao'];
     $pontos = $_POST['ponto'];
@@ -68,7 +67,7 @@ if (isset($_POST['inserirbtn'])) {
         $grupo_id = mysqli_fetch_assoc($query_grupo_run)['grupos_perturbacoes_id'];
 
         // Atualizar o artigo com os novos IDs da perturbação e do grupo
-        $query_update_artigo = "UPDATE artigos SET titulo = '$titulo', data_publicacao = '$data_publicacao', autor = '$autor', img_artigo = '$imagem', conteudo_texto = '$conteudo_texto', fonte = '$fonte',
+        $query_update_artigo = "UPDATE artigos SET titulo = '$titulo', data_publicacao = '$data_publicacao', autor = '$autor', img_artigo = '$imagem', fonte = '$fonte',
                                 juncao_perturbacoes_id = (SELECT juncao_perturbacoes_id
                                                           FROM juncao_perturbacoes
                                                           WHERE perturbacoes_id='$perturbacao_id' AND grupos_perturbacoes_id='$grupo_id') 
