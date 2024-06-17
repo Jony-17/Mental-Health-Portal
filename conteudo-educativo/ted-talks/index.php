@@ -234,7 +234,7 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--Explicação do que são TED Talks-->
     <section class="ted-talks" id="ted-talks">
         <div class="ted-talks-card">
-            <p>Significa <span class="color"></span>Tecnologia, Entretenimento, Design</span> — três grandes áreas temáticas que moldam
+            <p>Significa <span class="color">Tecnologia, Entretenimento, Design</span> — três grandes áreas temáticas que moldam
                 coletivamente o nosso mundo. Uma conferência TED é ainda mais ampla, apresentando pesquisas e ideias
                 importantes de todas as disciplinas e explorando como elas se conectam. O formato é acelerado: mais de
                 50 palestras ao longo de três dias a uma semana, além de entrevistas, debates, workshops, atividades,
@@ -246,11 +246,11 @@ if (isset($_SESSION['id_utilizador'])) {
 
         <!--Backgrounds-->
         <div class="background1">
-            <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
+            <img src="../imgs/imgs-backgrounds/background2.png" alt="banner background" />
         </div>
 
         <div class="background2">
-            <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
+            <img src="../imgs/imgs-backgrounds/background2.png" alt="banner background" />
         </div>
 
 
