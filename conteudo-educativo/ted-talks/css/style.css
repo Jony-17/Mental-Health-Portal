@@ -1227,6 +1227,10 @@ ol {
   margin-bottom: 30px;
 }
 
+.card2-container {
+  max-width: max-content;
+}
+
 .card2-content h1 {
   font-size: 25px;
 }
@@ -1235,6 +1239,10 @@ ol {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   width: auto;
+}
+
+.card2 img {
+  width: 100%;
 }
 
 .card2-content {
