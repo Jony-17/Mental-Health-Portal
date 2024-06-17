@@ -193,11 +193,11 @@ if (isset($_SESSION['id_utilizador'])) {
     </ol>
 
     <div class="background1">
-        <img src="background1.png" alt="banner background" />
+        <img src="imgs/imgs-backgrounds/background1.png" alt="banner background" />
     </div>
 
     <div class="background2">
-        <img src="background2.png" alt="banner background" />
+        <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
     </div>
 
     <div class="heading">
@@ -219,7 +219,7 @@ if (isset($_SESSION['id_utilizador'])) {
             <p>— Carl Rogers</p>
         </div>
         <div class="sobre-nos-container">
-            <img src="sobre-nos.png" alt="">
+            <img src="imgs/sobre-nos.png" alt="">
             <p>O Portal de Saúde Mental é um espaço dedicado aos alunos do ISPGAYA, com o intuito de proporcionar ao
                 bem-estar emocional, recursos como um chatbot onde poderão pedir todo o tipo de ajuda, um fórum onde
                 poderão compartilhar experiências, procurar conselhos e encontrar
