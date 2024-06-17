@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Jun-2024 às 12:29
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.3.31
+-- Tempo de geração: 17-Jun-2024 às 12:00
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -265,11 +265,12 @@ INSERT INTO `exercicios_mindfulness_ex` (`exercicios_mindfulness_ex_id`, `exerci
 (4, 3, 'Gato-Vaca (Marjaryasana-Bitilasana)', 'yoga1.webp', '', 'https://www.yogajournal.com/practice/yoga-sequences/beginner-sequence-to-root-ground-your-practice/'),
 (5, 3, 'Posição de criança (Balasana)', 'yoga2.webp', '', ''),
 (6, 3, 'Posição de montanha (Tadasana)', 'yoga3.webp', '', ''),
-(7, 2, 'Ver um filme ou série', 'teste2.png', '', 'https://saudemental.p5.pt/profile/bem-estar/module/atividades-de-bem-estar'),
-(8, 2, 'Assistir/acompanhar algum desporto', 'teste2.png', '', ''),
-(29, 1, 'Mindfulness – Atenção à Respiração', '', 0x4d696e6466756c6e65737320e28093204174656ec3a7c3a36f20c3a02052657370697261c3a7c3a36f2e6d7033, 'https://saudemental.p5.pt/profile/relaxamento/module/relaxamento'),
-(30, 1, 'Mindfulness – Body Scan', '', 0x4d696e6466756c6e65737320e2809320426f6479205363616e2e6d7033, ''),
-(32, 1, 'Mindfulness – Explorar Sensações e Pensamentos Difíceis', '', 0x4d696e6466756c6e65737320e28093204578706c6f7261722053656e7361c3a7c3b5657320652050656e73616d656e746f7320446966c3ad636569732e6d7033, ''),
+(7, 2, 'Caminhar', 'caminhar.png', '', 'https://saudemental.p5.pt/profile/bem-estar/module/atividades-de-bem-estar'),
+(8, 2, 'Praticar exercício físico', 'ex fisico.png', '', ''),
+(9, 2, 'Viajar', 'viajar.png', '', ''),
+(29, 1, 'Atenção à Respiração', '', 0x4d696e6466756c6e65737320e28093204174656ec3a7c3a36f20c3a02052657370697261c3a7c3a36f2e6d7033, 'https://saudemental.p5.pt/profile/relaxamento/module/relaxamento'),
+(30, 1, 'Body Scan', '', 0x4d696e6466756c6e65737320e2809320426f6479205363616e2e6d7033, ''),
+(32, 1, 'Explorar Sensações e Pensamentos Difíceis', '', 0x4d696e6466756c6e65737320e28093204578706c6f7261722053656e7361c3a7c3b5657320652050656e73616d656e746f7320446966c3ad636569732e6d7033, ''),
 (33, 1, 'Relaxamento Muscular Progressivo', '', 0x52656c6178616d656e746f204d757363756c61722050726f677265737369766f2e6d7033, ''),
 (34, 1, 'Respiração Diafragmática', '', 0x52657370697261c3a7c3a36f20446961667261676dc3a1746963612e6d7033, '');
 
