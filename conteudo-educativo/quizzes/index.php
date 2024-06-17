@@ -208,11 +208,11 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <!--Backgrounds-->
     <div class="background1">
-        <img src="../ted-talks/imgs/imgs-backgrounds/background2.png" alt="banner background" />
+        <img src="../imgs/imgs-backgrounds/background2.png" alt="banner background" />
     </div>
 
     <div class="background2">
-        <img src="../ted-talks/imgs/imgs-backgrounds/background2.png" alt="banner background" />
+        <img src="../imgs/imgs-backgrounds/background2.png" alt="banner background" />
     </div>
 
     <!--Quizzes-->
