@@ -6,7 +6,6 @@ if (isset($_POST['inserirbtn'])) {
     $titulo = $_POST['titulo'];
     $data_publicacao = $_POST['data_publicacao'];
     $autor = $_POST['autor'];
-    $conteudo_texto = $_POST['conteudo_texto'];
     $nome_perturbacao = $_POST['perturbacao'];
     $nome_grupo = $_POST['grupo_perturbacao'];
     $pontos = $_POST['ponto'];
@@ -83,8 +82,8 @@ if (isset($_POST['inserirbtn'])) {
             $juncao_perturbacoes_id = mysqli_fetch_assoc($query_juncao_run)['juncao_perturbacoes_id'];
 
             // Inserir na base de dados
-            $query_artigo = "INSERT INTO artigos (titulo, data_publicacao, autor, img_artigo, conteudo_texto, fonte, juncao_perturbacoes_id) 
-            VALUES ('$titulo','$data_publicacao','$autor','$img_artigo','$conteudo_texto', '$fonte', '$juncao_perturbacoes_id')";
+            $query_artigo = "INSERT INTO artigos (titulo, data_publicacao, autor, img_artigo, fonte, juncao_perturbacoes_id) 
+            VALUES ('$titulo','$data_publicacao','$autor','$img_artigo', '$fonte', '$juncao_perturbacoes_id')";
             $query_artigo_run = mysqli_query($conn, $query_artigo);
 
             if ($query_artigo_run) {
