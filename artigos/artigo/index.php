@@ -229,11 +229,11 @@ if (isset($_SESSION['id_utilizador'])) {
     ?>
 
     <div class="background1">
-        <img src="../background1.png" alt="banner background" />
+        <img src="../imgs/imgs-backgrounds/background1.png" alt="banner background" />
     </div>
 
     <div class="background2">
-        <img src="../background2.png" alt="banner background" />
+        <img src="../imgs/imgs-backgrounds/background2.png" alt="banner background" />
     </div>
 
     <!--Títulos-->
