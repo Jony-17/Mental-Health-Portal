@@ -477,7 +477,7 @@ body.darkmode .background2 img {
 
 .background2 {
   position: absolute;
-  top: 600px;
+  top: 200px;
   left: 0;
   transform: rotate(180deg);
   z-index: -2;
@@ -552,10 +552,11 @@ justify-content: center;
 flex-wrap: wrap;
 margin-top: 70px;*/
 display: grid;
-grid-template-columns: repeat(3, minmax(100px, 1fr));
+grid-template-columns: repeat(2, minmax(50px, 1fr));
 margin-left: 100px;
 margin-right: 100px;
 gap: 30px;
+width: 60%;
 }
 
 .card4 {
@@ -916,6 +917,7 @@ ol {
   grid-template-columns: repeat(1, 1fr);
   margin-right: 0;
   margin-left: 0;
+  width: 100%;
 }
 
 .card4-content h1 {
