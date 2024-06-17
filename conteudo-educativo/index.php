@@ -223,11 +223,11 @@ if (isset($_SESSION['id_utilizador'])) {
     </ol>
 
     <div class="background1">
-        <img src="background1.png" alt="banner background" />
+        <img src="imgs/imgs-backgrounds/background6.png" alt="banner background" />
     </div>
 
     <div class="background2">
-        <img src="background2.png" alt="banner background" />
+        <img src="imgs/imgs-backgrounds/background7.png" alt="banner background" />
     </div>
 
     <div class="heading">
