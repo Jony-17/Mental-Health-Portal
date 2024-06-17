@@ -330,7 +330,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Data de publicação</th>
                                             <th>Autor</th>
                                             <th>Imagem</th>
-                                            <th>Conteúdo</th>
                                             <th>Perturbação e respetivo grupo</th>
                                             <th>Pontos</th>
                                             <th>Texto dos pontos</th>
@@ -358,9 +357,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['img_artigo']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['conteudo_texto']; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['perturbacao'] . ' - ' . $row['grupo_perturbacao']; ?>
