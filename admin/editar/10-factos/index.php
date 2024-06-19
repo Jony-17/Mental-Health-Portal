@@ -103,27 +103,27 @@ if (isset($_SESSION['id_utilizador'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Perturbações Mentais</h6>
-                        <a class="collapse-item" href="../perturbacoes/">Perturbações</a>
-                        <a class="collapse-item" href="../grupos-perturbacoes/">Grupo de Perturbações</a>
-                        <a class="collapse-item" href="../juncao-perturbacoes/">Junção de Perturbações</a>
-                        <a class="collapse-item" href="../perturbacoes/personalidade/">Perturbações de Person.</a>
-                        <a class="collapse-item" href="../juncao-perturbacoes-personalidade/">Junção de Pert. de
+                        <a class="collapse-item" href="../../inserir/perturbacoes/">Perturbações</a>
+                        <a class="collapse-item" href="../../inserir/grupos-perturbacoes/">Grupo de Perturbações</a>
+                        <a class="collapse-item" href="../../inserir/juncao-perturbacoes/">Junção de Perturbações</a>
+                        <a class="collapse-item" href="../../inserir/perturbacoes/personalidade/">Perturbações de Person.</a>
+                        <a class="collapse-item" href="../../inserir/juncao-perturbacoes-personalidade/">Junção de Pert. de
                             Person.</a>
-                        <a class="collapse-item" href="../10-factos/">10 factos</a>
+                        <a class="collapse-item" href="../../inserir/10-factos/">10 factos</a>
 
                         <h6 class="collapse-header">Artigos</h6>
-                        <a class="collapse-item" href="../artigos/">Artigos</a>
+                        <a class="collapse-item" href="../../inserir/artigos/">Artigos</a>
 
                         <h6 class="collapse-header">Notícias</h6>
-                        <a class="collapse-item" href="../noticias/">Notícias</a>
+                        <a class="collapse-item" href="../../inserir/noticias/">Notícias</a>
 
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
-                        <a class="collapse-item" href="../quizzes/">Quizzes</a>
-                        <a class="collapse-item" href="../exercicios-mindfulness/">Exercícios Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../inserir/quizzes/">Quizzes</a>
+                        <a class="collapse-item" href="../../inserir/exercicios-mindfulness/">Exercícios Mindfulness</a>
+                        <a class="collapse-item" href="../../inserir/ted-talks">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
-                        <a class="collapse-item" href="../perguntas-frequentes/">Perguntas e respostas</a>
+                        <a class="collapse-item" href="../../inserir/perguntas-frequentes/">Perguntas e respostas</a>
                     </div>
                 </div>
             </li>
@@ -159,7 +159,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
                         <a class="collapse-item" href="../../editar/quizzes/">Quizzes</a>
                         <a class="collapse-item" href="../../editar/exercicios-mindfulness/">Exercícios Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../editar/ted-talks/">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
                         <a class="collapse-item" href="../../editar/perguntas-frequentes/">Perguntas e respostas</a>
@@ -199,7 +199,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <a class="collapse-item" href="../../eliminar/quizzes/">Quizzes</a>
                         <a class="collapse-item" href="../../eliminar/exercicios-mindfulness/">Exercícios
                             Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../eliminar/ted-talks/">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
                         <a class="collapse-item" href="../../eliminar/perguntas-frequentes/">Perguntas e respostas</a>
@@ -309,7 +309,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <th>Ação</th>
                                             <th>Perturbação</th>
                                             <th>Número</th>
-                                            <th>Facto</th>
                                             <th>Explicação</th>
                                             <th>Fonte</th>
                                         </tr>
@@ -333,9 +332,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nº']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['factos']; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['descricao']; ?>

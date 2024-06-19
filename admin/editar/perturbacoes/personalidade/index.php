@@ -103,27 +103,27 @@ if (isset($_SESSION['id_utilizador'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Perturbações Mentais</h6>
-                        <a class="collapse-item" href="../perturbacoes/">Perturbações</a>
-                        <a class="collapse-item" href="../grupos-perturbacoes/">Grupo de Perturbações</a>
-                        <a class="collapse-item" href="../juncao-perturbacoes/">Junção de Perturbações</a>
-                        <a class="collapse-item" href="../perturbacoes/personalidade/">Perturbações de Person.</a>
-                        <a class="collapse-item" href="../juncao-perturbacoes-personalidade/">Junção de Pert. de
+                        <a class="collapse-item" href="../../../inserir/perturbacoes/">Perturbações</a>
+                        <a class="collapse-item" href="../../../inserir/grupos-perturbacoes/">Grupo de Perturbações</a>
+                        <a class="collapse-item" href="../../../inserir/juncao-perturbacoes/">Junção de Perturbações</a>
+                        <a class="collapse-item" href="../../../inserir/perturbacoes/personalidade/">Perturbações de Person.</a>
+                        <a class="collapse-item" href="../../../inserir/juncao-perturbacoes-personalidade/">Junção de Pert. de
                             Person.</a>
-                        <a class="collapse-item" href="../10-factos/">10 factos</a>
+                        <a class="collapse-item" href="../../../inserir/10-factos/">10 factos</a>
 
                         <h6 class="collapse-header">Artigos</h6>
-                        <a class="collapse-item" href="../artigos/">Artigos</a>
+                        <a class="collapse-item" href="../../../inserir/artigos/">Artigos</a>
 
                         <h6 class="collapse-header">Notícias</h6>
-                        <a class="collapse-item" href="../noticias/">Notícias</a>
+                        <a class="collapse-item" href="../../../inserir/noticias/">Notícias</a>
 
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
-                        <a class="collapse-item" href="../quizzes/">Quizzes</a>
-                        <a class="collapse-item" href="../exercicios-mindfulness/">Exercícios Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../../inserir/quizzes/">Quizzes</a>
+                        <a class="collapse-item" href="../../../inserir/exercicios-mindfulness/">Exercícios Mindfulness</a>
+                        <a class="collapse-item" href="../../../inserir/ted-talks">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
-                        <a class="collapse-item" href="../perguntas-frequentes/">Perguntas e respostas</a>
+                        <a class="collapse-item" href="../../../inserir/perguntas-frequentes/">Perguntas e respostas</a>
                     </div>
                 </div>
             </li>
@@ -140,29 +140,29 @@ if (isset($_SESSION['id_utilizador'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Perturbações Mentais</h6>
-                        <a class="collapse-item" href="../../editar/perturbacoes/">Perturbações</a>
-                        <a class="collapse-item" href="../../editar/grupos-perturbacoes/">Grupo de Perturbações</a>
-                        <a class="collapse-item" href="../../editar/juncao-perturbacoes/">Junção de Perturbações</a>
-                        <a class="collapse-item" href="../../editar/perturbacoes/personalidade/">Perturbações de
+                        <a class="collapse-item" href="../../../editar/perturbacoes/">Perturbações</a>
+                        <a class="collapse-item" href="../../../editar/grupos-perturbacoes/">Grupo de Perturbações</a>
+                        <a class="collapse-item" href="../../../editar/juncao-perturbacoes/">Junção de Perturbações</a>
+                        <a class="collapse-item" href="../../../editar/perturbacoes/personalidade/">Perturbações de
                             Person.</a>
-                        <a class="collapse-item" href="../../editar/juncao-perturbacoes-personalidade/">Junção de Pert.
+                        <a class="collapse-item" href="../../../editar/juncao-perturbacoes-personalidade/">Junção de Pert.
                             de
                             Person.</a>
-                        <a class="collapse-item" href="../../editar/10-factos/">10 factos</a>
+                        <a class="collapse-item" href="../../../editar/10-factos/">10 factos</a>
 
                         <h6 class="collapse-header">Artigos</h6>
-                        <a class="collapse-item" href="../../editar/artigos/">Artigos</a>
+                        <a class="collapse-item" href="../../../editar/artigos/">Artigos</a>
 
                         <h6 class="collapse-header">Notícias</h6>
-                        <a class="collapse-item" href="../../editar/noticias/">Notícias</a>
+                        <a class="collapse-item" href="../../../editar/noticias/">Notícias</a>
 
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
-                        <a class="collapse-item" href="../../editar/quizzes/">Quizzes</a>
-                        <a class="collapse-item" href="../../editar/exercicios-mindfulness/">Exercícios Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../../editar/quizzes/">Quizzes</a>
+                        <a class="collapse-item" href="../../../editar/exercicios-mindfulness/">Exercícios Mindfulness</a>
+                        <a class="collapse-item" href="../../../editar/ted-talks/">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
-                        <a class="collapse-item" href="../../editar/perguntas-frequentes/">Perguntas e respostas</a>
+                        <a class="collapse-item" href="../../../editar/perguntas-frequentes/">Perguntas e respostas</a>
                     </div>
                 </div>
             </li>
@@ -179,30 +179,30 @@ if (isset($_SESSION['id_utilizador'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Perturbações Mentais</h6>
-                        <a class="collapse-item" href="../../eliminar/perturbacoes/">Perturbações</a>
-                        <a class="collapse-item" href="../../eliminar/grupos-perturbacoes/">Grupo de Perturbações</a>
-                        <a class="collapse-item" href="../../eliminar/juncao-perturbacoes/">Junção de Perturbações</a>
-                        <a class="collapse-item" href="../../eliminar/perturbacoes/personalidade/">Perturbações de
+                        <a class="collapse-item" href="../../../eliminar/perturbacoes/">Perturbações</a>
+                        <a class="collapse-item" href="../../../eliminar/grupos-perturbacoes/">Grupo de Perturbações</a>
+                        <a class="collapse-item" href="../../../eliminar/juncao-perturbacoes/">Junção de Perturbações</a>
+                        <a class="collapse-item" href="../../../eliminar/perturbacoes/personalidade/">Perturbações de
                             Person.</a>
-                        <a class="collapse-item" href="../../eliminar/juncao-perturbacoes-personalidade/">Junção de
+                        <a class="collapse-item" href="../../../eliminar/juncao-perturbacoes-personalidade/">Junção de
                             Pert. de
                             Person.</a>
-                        <a class="collapse-item" href="../../eliminar/10-factos/">10 factos</a>
+                        <a class="collapse-item" href="../../../eliminar/10-factos/">10 factos</a>
 
                         <h6 class="collapse-header">Artigos</h6>
-                        <a class="collapse-item" href="../../eliminar/artigos/">Artigos</a>
+                        <a class="collapse-item" href="../../../eliminar/artigos/">Artigos</a>
 
                         <h6 class="collapse-header">Notícias</h6>
-                        <a class="collapse-item" href="../../eliminar/noticias/">Notícias</a>
+                        <a class="collapse-item" href="../../../eliminar/noticias/">Notícias</a>
 
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
-                        <a class="collapse-item" href="../../eliminar/quizzes/">Quizzes</a>
-                        <a class="collapse-item" href="../../eliminar/exercicios-mindfulness/">Exercícios
+                        <a class="collapse-item" href="../../../eliminar/quizzes/">Quizzes</a>
+                        <a class="collapse-item" href="../../../eliminar/exercicios-mindfulness/">Exercícios
                             Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../../eliminar/ted-talks/">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
-                        <a class="collapse-item" href="../../eliminar/perguntas-frequentes/">Perguntas e respostas</a>
+                        <a class="collapse-item" href="../../../eliminar/perguntas-frequentes/">Perguntas e respostas</a>
                     </div>
                 </div>
             </li>

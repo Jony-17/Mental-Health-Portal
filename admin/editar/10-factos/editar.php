@@ -285,7 +285,7 @@ if (isset($_SESSION['id_utilizador'])) {
                             if (isset($_POST['edit_btn'])) {
                                 $factos_id = $_POST['edit_id'];
 
-                                $query = "SELECT factos_10.10_factos_id, factos_10.nº, factos_10.factos, factos_10.descricao, factos_10.fonte, factos_10.perturbacoes_id, perturbacoes.nome AS perturbacoes
+                                $query = "SELECT factos_10.10_factos_id, factos_10.nº, factos_10.descricao, factos_10.fonte, factos_10.perturbacoes_id, perturbacoes.nome AS perturbacoes
                                           FROM factos_10
                                           JOIN perturbacoes ON factos_10.perturbacoes_id = perturbacoes.perturbacoes_id
                                           WHERE factos_10.10_factos_id='$factos_id' ";
@@ -308,12 +308,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                             <label>Número</label>
                                             <input type="text" name="nº" value="<?php echo $row['nº'] ?>" class="form-control"
                                                 placeholder="Editar número">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Facto</label>
-                                            <input type="text" name="facto" value="<?php echo $row['factos'] ?>"
-                                                class="form-control" placeholder="Editar facto">
                                         </div>
 
                                         <div class="form-group">
