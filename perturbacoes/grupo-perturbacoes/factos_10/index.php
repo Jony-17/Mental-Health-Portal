@@ -293,7 +293,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <h1><span class="number">
                                         <?php echo $row_info_adicional['nº'] == 10 ? 10 : sprintf('%02d', $row_info_adicional['nº']); ?>
                                     </span>
-                                    <?php echo $row_info_adicional['factos']; ?>
+                                     <!--echo $row_info_adicional['factos'];-->
                                 </h1>
                                 <p>
                                     <?php echo $row_info_adicional['descricao']; ?>
