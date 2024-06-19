@@ -140,7 +140,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Perturbações Mentais</h6>
-                        <a class="collapse-item" href="">Perturbações</a>
+                        <a class="collapse-item" href="../../editar/perturbacoes">Perturbações</a>
                         <a class="collapse-item" href="../../editar/grupos-perturbacoes/">Grupo de Perturbações</a>
                         <a class="collapse-item" href="../../editar/juncao-perturbacoes/">Junção de Perturbações</a>
                         <a class="collapse-item" href="../../editar/perturbacoes/personalidade/">Perturbações de
@@ -179,7 +179,7 @@ if (isset($_SESSION['id_utilizador'])) {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Perturbações Mentais</h6>
-                        <a class="collapse-item" href="">Perturbações</a>
+                        <a class="collapse-item" href="../../eliminar/perturbacoes/">Perturbações</a>
                         <a class="collapse-item" href="../../eliminar/grupos-perturbacoes/">Grupo de Perturbações</a>
                         <a class="collapse-item" href="../../eliminar/juncao-perturbacoes/">Junção de Perturbações</a>
                         <a class="collapse-item" href="../../eliminar/perturbacoes/personalidade/">Perturbações de

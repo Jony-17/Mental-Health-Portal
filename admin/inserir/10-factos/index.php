@@ -120,7 +120,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
                         <a class="collapse-item" href="../quizzes/">Quizzes</a>
                         <a class="collapse-item" href="../exercicios-mindfulness/">Exercícios Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../ted-talks">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
                         <a class="collapse-item" href="../perguntas-frequentes/">Perguntas e respostas</a>
@@ -159,7 +159,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <h6 class="collapse-header">Conteúdo Educativo</h6>
                         <a class="collapse-item" href="../../editar/quizzes/">Quizzes</a>
                         <a class="collapse-item" href="../../editar/exercicios-mindfulness/">Exercícios Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../editar/ted-talks/">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
                         <a class="collapse-item" href="../../editar/perguntas-frequentes/">Perguntas e respostas</a>
@@ -199,7 +199,7 @@ if (isset($_SESSION['id_utilizador'])) {
                         <a class="collapse-item" href="../../eliminar/quizzes/">Quizzes</a>
                         <a class="collapse-item" href="../../eliminar/exercicios-mindfulness/">Exercícios
                             Mindfulness</a>
-                        <a class="collapse-item" href="">TED Talks</a>
+                        <a class="collapse-item" href="../../eliminar/ted-talks/">TED Talks</a>
 
                         <h6 class="collapse-header">Perguntas Frequentes</h6>
                         <a class="collapse-item" href="../../eliminar/perguntas-frequentes/">Perguntas e respostas</a>
@@ -305,10 +305,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <input type="text" name="numero" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label>Facto</label>
-                                        <input type="text" name="factos" class="form-control">
-                                    </div>
-                                    <div class="form-group">
                                         <label>Explicação</label>
                                         <input type="text" name="explicacao" class="form-control">
                                     </div>
@@ -355,7 +351,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                         <tr>
                                             <th>Perturbação</th>
                                             <th>Número</th>
-                                            <th>Facto</th>
                                             <th>Explicação</th>
                                             <th>Fonte</th>
                                         </tr>
@@ -371,9 +366,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $row['nº']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['factos']; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['descricao']; ?>
