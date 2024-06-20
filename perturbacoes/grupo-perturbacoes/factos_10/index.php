@@ -263,7 +263,7 @@ if (isset($_SESSION['id_utilizador'])) {
             $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
     
             // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
-            $query_grupo = "SELECT nº, factos, descricao 
+            $query_grupo = "SELECT *
                             FROM factos_10 
                             WHERE perturbacoes_id = $perturbacoes_id";
 
