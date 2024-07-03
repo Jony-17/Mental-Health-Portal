@@ -520,6 +520,7 @@ body.darkmode .background2 img {
 
 .heading h1 {
   font-family: "Libre Baskerville", sans-serif;
+  margin-bottom: 20px;
 }
 
 
@@ -685,7 +686,7 @@ display: inline-block; /* Mostra o SVG para baixo quando o conteúdo está ativo
   font-size: 16px;
   border: none;
   cursor: pointer;
-  margin: 0 0 30px 100px;
+  margin: 30px 0 30px 100px;
   border-radius: 9px 9px 9px 0px;
 }
 

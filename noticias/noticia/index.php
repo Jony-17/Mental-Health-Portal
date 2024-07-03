@@ -10,15 +10,15 @@ date_default_timezone_set('Europe/Lisbon');
 
 setlocale(LC_TIME, 'pt_PT.utf8');
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -194,7 +194,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter a notícia
         $query = "SELECT noticias_id, titulo FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -206,10 +206,10 @@ if (isset($_SESSION['id_utilizador'])) {
             $row = mysqli_fetch_assoc($result);
             $noticias_id = $row['noticias_id'];
 
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            // Consulta SQL para obter a noticia_id e o titulo associado à noticia
             $query_grupo = "SELECT noticias_id, titulo FROM noticias";
 
-            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            // Executar a consulta para obter a noticia_id
             $result_grupo = mysqli_query($conn, $query_grupo);
 
             // Exibir os resultados
@@ -239,10 +239,10 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--Títulos-->
     <?php
     if (isset($_GET['titulo'])) {
-        // Obter o título do artigo da URL e decodificar
+        // Obter o título da noticia da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter a noticia pelo título
         $query = "SELECT noticias_id, titulo FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -254,11 +254,11 @@ if (isset($_SESSION['id_utilizador'])) {
             $row = mysqli_fetch_assoc($result);
             $noticias_id = $row['noticias_id']; // Acessar o artigo_id associado ao artigo
     
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            // Consulta SQL para obter a noticia_id e o titulo associado à notica
             $query_grupo = "SELECT noticias_id, titulo FROM noticias";
 
 
-            // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
+            // Executar a consulta para obter a noticia_id e o titulo
             $result_grupo = mysqli_query($conn, $query_grupo);
 
             // Exibir os resultados
@@ -275,15 +275,13 @@ if (isset($_SESSION['id_utilizador'])) {
     }
     ?>
 
-
-
     <!--Autor/es e data de publicação-->
     <?php
     if (isset($_GET['titulo'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter a noticia pelo autor e data de publicacao
         $query = "SELECT autor, data_publicacao FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -315,7 +313,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter a imagem da noticia
         $query = "SELECT img_noticia FROM noticias WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -443,7 +441,7 @@ if (isset($_SESSION['id_utilizador'])) {
             // Obter o título do artigo da URL e decodificar
             $titulo_artigo = urldecode($_GET['titulo']);
 
-            // Consulta SQL para buscar o artigo pelo título
+            // Consulta SQL para a fonte da noticia
             $query = "SELECT n.fonte
                       FROM noticias n
                       WHERE n.titulo = '$titulo_artigo'";

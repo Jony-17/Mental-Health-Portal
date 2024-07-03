@@ -9,15 +9,15 @@ date_default_timezone_set('Europe/Lisbon');
 
 setlocale(LC_TIME, 'pt_PT.utf8');
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -241,14 +241,9 @@ if (isset($_SESSION['id_utilizador'])) {
 
     <!--Notícias-->
     <section class="artigos" id="artigos">
-        <div class="artigos-banner-container">
-            <h1 class="artigos-primary-heading">
-                <!-- Adicione seu título aqui -->
-            </h1>
-        </div>
 
         <?php
-        // Consulta para obter a lista de perturbações
+        // Consulta para obter a lista de autores
         $query_autor = "SELECT DISTINCT autor FROM noticias";
         $result_autor = mysqli_query($conn, $query_autor);
 
@@ -466,7 +461,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
         <?php
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter a fonte
         $query = "SELECT DISTINCT fonte
                   FROM noticias
                   WHERE fonte IS NOT NULL AND fonte <> ''";
