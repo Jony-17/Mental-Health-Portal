@@ -1,3 +1,4 @@
+/*---------------Alterar icon olho para password ---------------*/
 document.addEventListener('DOMContentLoaded', function () {
   const togglePassword = document.querySelector('.toggle-password');
   const toggleCPassword = document.querySelector('.toggle-cpassword');

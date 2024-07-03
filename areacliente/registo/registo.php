@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpasswordd']);
         $genero = mysqli_real_escape_string($conn, $_POST['genero']);
 
-        // Verifica se o email já existe no banco de dados
+        // Verifica se o email já existe na base de dados
         $sql_verificar = "SELECT * FROM utilizadores WHERE email='$email'";
         $result = $conn->query($sql_verificar);
         if ($result->num_rows > 0) {
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              // Gerar um unique_id único
              $ran_id = rand(time(), 100000000);
 
-             // Hash da senha para armazenamento seguro no banco de dados
+             // Hash da senha para armazenamento seguro na base de dados
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // Obtém a data e hora atuais
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Move o arquivo para o diretório de destino
                 $destino = "imgs/" . $imagemperfil_nome;
                 if (move_uploaded_file($imagemperfil_temp, $destino)) {
-                    // O upload foi bem-sucedido, salve o nome do arquivo no banco de dados
+                    // O upload foi bem-sucedido, salve o nome do arquivo na base de dados
                     $imagemperfil = $imagemperfil_nome;
                 } else {
                     // Ocorreu um erro ao mover o arquivo
@@ -49,17 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     exit();
                 }
             } else {
-                // Nenhum arquivo de imagem foi enviado, use um valor padrão ou deixe-o em branco
-                $imagemperfil = ""; // Ou defina um valor padrão, se desejar
+                // Nenhum arquivo de imagem foi enviado, deixa-o vazio
+                $imagemperfil = "";
             }
 
-            // Prepara e executa a query SQL para inserir o novo registro
+            // Prepara e executa a query SQL para inserir o novo registo
             $sql = "INSERT INTO utilizadores (unique_id, nome, email, password, genero, img_perfil, data_criacao)
             VALUES ('$ran_id', '$nome', '$email', '$hashed_password', '$genero', '$imagemperfil', '$data_criacao')";
 
             if ($conn->query($sql) === TRUE) {
                 header('Location: index.php?success=Registo feito com sucesso');
-                //header('Location: ../login/');
                 exit();
             } else {
                 echo "Erro: " . $sql . "<br>" . $conn->error;
