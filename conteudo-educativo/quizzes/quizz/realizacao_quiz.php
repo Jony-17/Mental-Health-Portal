@@ -2,9 +2,9 @@
 // Inicia a sessão
 session_start();
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
-    require_once ("../../../conn/conn.php"); // Inclui o arquivo de conexão com o banco de dados
+    require_once ("../../../conn/conn.php");
 
     // Recupera o ID do utilizador da sessão
     $utilizador_id = $_SESSION['id_utilizador'];
@@ -14,7 +14,7 @@ if (isset($_SESSION['id_utilizador'])) {
         $quiz_nome_id = $_GET['quiz_nome_id'];
         echo "Quiz Nome ID Recebido: " . $quiz_nome_id;
 
-        // Prepara e executa a consulta SQL usando declarações preparadas
+        // Prepara e executa a consulta SQL
         $query_insert = "INSERT INTO quizzes (utilizador_id, quiz_nome_id) VALUES (?, ?)";
         $stmt = $conn->prepare($query_insert);
         $stmt->bind_param("ii", $utilizador_id, $quiz_nome_id);
@@ -32,7 +32,6 @@ if (isset($_SESSION['id_utilizador'])) {
         echo "Erro: quiz_nome_id não foi recebido via GET";
     }
 
-    // Fecha a conexão com o banco de dados
     $conn->close();
 } else {
     // Se a sessão do usuário não estiver definida, retorna uma mensagem de erro
