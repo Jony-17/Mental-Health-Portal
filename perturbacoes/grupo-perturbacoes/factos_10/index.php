@@ -4,15 +4,15 @@ include '../../../includes/header.php';
 session_start();
 require_once ("../../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -106,8 +106,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="../../../perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -148,8 +146,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="../../../perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -182,14 +178,13 @@ if (isset($_SESSION['id_utilizador'])) {
     </header>
 
 
-
     <!--Separadores-->
     <?php
     if (isset($_GET['nome'])) {
-        // Obter o título do artigo da URL e decodificar
+        // Obter o nome da perturbacao da URL e descodificar
         $nome_codificado = urldecode($_GET['nome']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter o id da perturbacao e o nome
         $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_codificado'";
 
         // Executar a consulta
@@ -199,9 +194,9 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
+            $perturbacoes_id = $row['perturbacoes_id'];
     
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            // Consulta SQL para obter nome da perturbacao
             $query_grupo = "SELECT nome FROM perturbacoes WHERE perturbacoes_id = $perturbacoes_id";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
@@ -241,16 +236,12 @@ if (isset($_SESSION['id_utilizador'])) {
     }
     ?>
 
-
-
-
-
     <?php
     if (isset($_GET['nome'])) {
-        // Obter o título do artigo da URL e decodificar
+        // Obter o nome da perturbacao da URL e descodificar
         $nome_codificado = urldecode($_GET['nome']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter o id da perturbacao e o nome
         $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_codificado'";
 
         // Executar a consulta
@@ -260,9 +251,9 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $perturbacoes_id = $row['perturbacoes_id']; // Acessar o artigo_id associado ao artigo
+            $perturbacoes_id = $row['perturbacoes_id'];
     
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            // Consulta SQL para obter todas as informações dos factos consoante determinada perturbação
             $query_grupo = "SELECT *
                             FROM factos_10 
                             WHERE perturbacoes_id = $perturbacoes_id";
@@ -284,7 +275,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
                     <?php
                     $left = true;
-                    // Exibir informações adicionais sobre outras perturbações
                     while ($row_info_adicional = mysqli_fetch_assoc($result_grupo)) {
                         ?>
                         <div class="container <?php echo $left ? 'left-container' : 'right-container'; ?>">
@@ -293,7 +283,6 @@ if (isset($_SESSION['id_utilizador'])) {
                                 <h1><span class="number">
                                         <?php echo $row_info_adicional['nº'] == 10 ? 10 : sprintf('%02d', $row_info_adicional['nº']); ?>
                                     </span>
-                                     <!--echo $row_info_adicional['factos'];-->
                                 </h1>
                                 <p>
                                     <?php echo $row_info_adicional['descricao']; ?>
@@ -311,7 +300,6 @@ if (isset($_SESSION['id_utilizador'])) {
         }
     }
     ?>
-
 
     <script>
         // Função para ajustar a altura do pseudo-elemento ::after com base no scroll
@@ -345,10 +333,10 @@ if (isset($_SESSION['id_utilizador'])) {
         <?php
         if (isset($_GET['nome'])) {
             $perturbacoes_id = $row['perturbacoes_id'];
-            // Obter o título do artigo da URL e decodificar
+            // Obter o nome da perturbacao da URL e descodificar
             $nome = urldecode($_GET['nome']);
 
-            // Consulta SQL para buscar o artigo pelo título
+            // Consulta SQL para obter a fonte consoante a perturbacao
             $query = "SELECT f.fonte
                       FROM factos_10 f
                       WHERE f.perturbacoes_id = '$perturbacoes_id' AND fonte != ''";
@@ -522,18 +510,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
-                    <ul class="dropdown-f">
-                        <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
-                        <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
-                    </ul>
-                </li>
-
-                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
-                        class="lang-link">PT</a></span>
-
-                <div class="vertical-hr"></div>-->
-
                 Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-light">
                             <path fill="currentColor"
@@ -556,7 +532,6 @@ if (isset($_SESSION['id_utilizador'])) {
     <!--<div id="chatbotContainer">
         <iframe id="chatbotFrame" src="http://127.0.0.1:5000/"></iframe>
     </div>-->
-
 
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
