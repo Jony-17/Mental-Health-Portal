@@ -79,6 +79,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="navbar">
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
+            <!-- Links -->
             <ul class="links">
                 <li class="list"><a href="../paginainicial">Página Inicial</a></li>
                 <li class="list"><a href="../sobre-nos">Sobre Nós</a></li>
@@ -97,6 +98,8 @@ if (isset($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
+            <!-- Verificação da sessão do utilizador, caso tenha sessão iniciada apresentada a foto de perfil -->
+            <!-- Caso não tenha, apresenta o botão de Iniciar Sessão -->
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
@@ -108,8 +111,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li class="list"><a href="../perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -123,7 +124,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
         </div>
 
-
+        <!-- Dropdown telemóvel -->
         <div class="dropdown_menu">
             <li class="list"><a href="../paginainicial">Página Inicial</a></li>
             <li class="list"><a href="../sobre-nos">Sobre Nós</a></li>
@@ -140,6 +141,8 @@ if (isset($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
+            <!-- Verificação da sessão do utilizador, caso tenha sessão iniciada apresentada a foto de perfil -->
+            <!-- Caso não tenha, apresenta o botão de Iniciar Sessão -->
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
@@ -151,8 +154,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li class="list"><a href="../perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li class="list"><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -160,7 +161,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <li class="list"><a class="btn" href="../areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
-
+            <!-- Botão para logout -->
             <script>
                 function logout() {
                     Swal.fire({
