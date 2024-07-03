@@ -213,10 +213,6 @@ body {
   background: var(--background);
 }
 
-/*section {
-    padding: 50px 5%;
-  }*/
-
 li {
   list-style: none;
 }
@@ -319,13 +315,11 @@ header {
 }
 
 .links li ul.dropdown li a:hover {
-  background-color: var(
-    --neutralgrey-color
-  ); /* Cor de fundo ao passar o mouse */
+  background-color: var(--neutralgrey-color);
 }
 
-/*------------------Navbar perfil------------------*/
 
+/*------------------Navbar perfil------------------*/
 .dropdown-container {
   display: flex;
   align-items: center; /* Alinha verticalmente os elementos */
@@ -393,6 +387,7 @@ header {
   object-position: center;
   vertical-align: middle;
 }
+
 
 /*------------------DROPDOWN MENU------------------*/
 .dropdown_menu {
@@ -481,10 +476,6 @@ header {
   font-size: 1.5rem;
 }
 
-/* .secondary-button:hover {
-    background-color: var(--orange2-color);
-  }*/
-
 
 /*--------------Background-----------------------------*/
 
@@ -555,7 +546,6 @@ li:not(:last-child) .separator {
     font-weight: bold;
     color: #232323;
 }
-
 
 
 /*------------------Tipos Perturbações Mentais------------------*/
@@ -797,10 +787,6 @@ svg {
 }
 
 
-
-
-
-
 /*----------------FOOTER------------------------*/
 
 footer {
@@ -1032,9 +1018,6 @@ input:checked + .change::after {
 
 
 /*---------------MEDIA QUERIES-------------------------*/
-
-/* Responsive */
-
 /* Tela igual ou inferior a 576px */
 @media screen and (max-width: 576px) {
   .dropdown_menu {
@@ -1210,12 +1193,6 @@ input:checked + .change::after {
   .dropdown-container {
     display: none;
   }
-}
-
-/* Tela igual ou superior a 1360 */
-@media screen and (min-width: 1360px) {
-  
-
 }
 
 /* Tela igual ou superior a 1600 */
