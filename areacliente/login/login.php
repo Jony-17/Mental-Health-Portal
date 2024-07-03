@@ -21,16 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php?error=Password necessária");
         exit();
     } else {
-        // Consulta o banco de dados para o usuário com o email fornecido
+        // Consulta SQL para o utilizador verificar o email fornecido
         $query = "SELECT * FROM utilizadores WHERE email='$email'";
         $query_run = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($query_run) === 1) {
             $row = mysqli_fetch_assoc($query_run);
 
-            // Verifica se a senha fornecida corresponde à senha armazenada no banco de dados
+            // Verifica se a senha fornecida corresponde à senha armazenada na base de dados
             if (password_verify($password, $row['password'])) {
-                // Senha correta, inicia a sessão e redireciona para a página de sucesso
+                // Se a Senha for correta, inicia a sessão e redireciona para a página de sucesso
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['nome_user'] = $row['nome'];
                 $_SESSION['id_utilizador'] = $row['utilizador_id'];
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Redireciona para a URL armazenada na sessão ou para a página padrão
                 if (isset($_SESSION['redirect_url'])) {
                     $redirect_url = $_SESSION['redirect_url'];
-                    unset($_SESSION['redirect_url']); // Limpe a URL de redirecionamento armazenada na sessão
+                    unset($_SESSION['redirect_url']); // Limpa a URL de redirecionamento armazenada na sessão
                     header("Location: $redirect_url");
                 } else {
                     if ($_SESSION['admin'] == "1") {
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             }
         } else {
-            // Usuário não encontrado
+            // Utilizador não encontrado
             header('Location: index.php?error=Credenciais Incorretas');
             exit();
         }
