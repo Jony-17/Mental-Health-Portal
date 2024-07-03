@@ -5,10 +5,10 @@ include '../../includes/header.php';
 session_start();
 require_once ("../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verificar se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
@@ -30,10 +30,10 @@ if (isset($_SESSION['id_utilizador'])) {
 
 // Verifique se a variável $_GET['nome'] está definida na URL
 if (isset($_GET['nome'])) {
-    // Obter o título da perturbação da URL e decodificar
+    // Obter o título da perturbação da URL e descodificar
     $nome_perturbacao = urldecode($_GET['nome']);
 
-    // Consulta SQL para buscar o banner da perturbação pelo nome
+    // Consulta SQL para obter o banner da perturbação pelo nome
     $query_banner = "SELECT banner_perturbacao FROM perturbacoes WHERE nome = '$nome_perturbacao'";
 
     // Executar a consulta para obter o banner da perturbação
@@ -133,8 +133,6 @@ if (isset($_GET['nome'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="../../perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -175,8 +173,6 @@ if (isset($_GET['nome'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="../../perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -209,15 +205,13 @@ if (isset($_GET['nome'])) {
     </header>
 
 
-
-
     <!--Separadores-->
     <?php
     if (isset($_GET['nome'])) {
-        // Obter o nome da perturbação da URL e decodificar
+        // Obter o nome da perturbação da URL e descodificar
         $nome_perturbacao = urldecode($_GET['nome']);
 
-        // Consulta SQL para buscar a perturbação pelo nome
+        // Consulta SQL para obter o banner da perturbação pelo nome
         $query = "SELECT perturbacoes_id, nome FROM perturbacoes WHERE nome = '$nome_perturbacao'";
 
         // Executar a consulta
@@ -229,7 +223,7 @@ if (isset($_GET['nome'])) {
             $row = mysqli_fetch_assoc($result);
             $perturbacoes_id = $row['perturbacoes_id'];
 
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao nome
+            // Consulta SQL para obter o nome da perturbacao associada ao nome
             $query_grupo = "SELECT nome FROM perturbacoes WHERE perturbacoes_id = $perturbacoes_id";
 
             // Executar a consulta para obter a perturbacao_id e o nome da perturbacao
@@ -270,6 +264,7 @@ if (isset($_GET['nome'])) {
         $nome_perturbacao = urldecode($_GET['nome']);
         $perturbacoes_id = $row['perturbacoes_id'];
 
+        // Consulta SQL para obter os grupos de perturbações associados à perturbação
         $query = "SELECT grupos_perturbacoes.nome AS grupo_perturbacoes_nome
         FROM grupos_perturbacoes
         INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
@@ -440,10 +435,10 @@ if (isset($_GET['nome'])) {
         </div>
         <?php
         if (isset($_GET['nome'])) {
-            // Obter o título do artigo da URL e decodificar
+            // Obter o título do artigo da URL e descodificar
             $nome = urldecode($_GET['nome']);
 
-            // Consulta SQL para buscar o artigo pelo título
+            // Consulta SQL para obter o artigo consoante a perturbação
             $query = "SELECT p.fonte
                       FROM perturbacoes p
                       WHERE p.nome = '$nome'
@@ -476,7 +471,6 @@ if (isset($_GET['nome'])) {
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
-
 
 
     <!--Footer-->
