@@ -10,9 +10,9 @@ date_default_timezone_set('Europe/Lisbon');
 setlocale(LC_TIME, 'pt_PT.utf8');
 
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
-  // Obtém o ID do usuário da sessão
+  // Obtém o ID do utilizador da sessão
   $utilizador_id = $_SESSION['id_utilizador'];
   echo "<script>console.log('ID: $utilizador_id');</script>";
 

@@ -5,9 +5,9 @@ require_once ('../../conn/conn.php');
 // Define a zona de tempo para Portugal
 date_default_timezone_set('Europe/Lisbon');
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
-    // Obtém o ID do usuário da sessão
+    // Obtém o ID do utilizador da sessão
     $utilizador_id = $_SESSION['id_utilizador'];
     echo "<script>console.log('ID: $utilizador_id');</script>";
 
