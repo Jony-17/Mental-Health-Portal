@@ -4,9 +4,9 @@ include '../../includes/header.php';
 session_start();
 require_once("../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
-  // Obtém o ID do usuário da sessão
+  // Obtém o ID do utilizador da sessão
   $utilizador_id = $_SESSION['id_utilizador'];
 
   // Consulta SQL para buscar o campo img_perfil
@@ -24,7 +24,7 @@ if (isset($_SESSION['id_utilizador'])) {
     echo "Erro na consulta SQL: " . mysqli_error($conn);
   }
 } else {
-  echo "Sessão do usuário não está definida.";
+  echo "Sessão do utilizador não está definida.";
 }
 ?>
 
