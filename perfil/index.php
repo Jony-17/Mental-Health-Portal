@@ -5,9 +5,9 @@ include '../includes/header.php';
 session_start();
 require_once ("../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
-  // Obtém o ID do usuário da sessão
+  // Obtém o ID do utilizador da sessão
   $utilizador_id = $_SESSION['id_utilizador'];
   echo "<script>console.log('ID: $utilizador_id');</script>";
 
@@ -523,7 +523,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <?php
               }
             } else {
-              // Se não houver nenhum quiz realizado pelo usuário, exiba uma mensagem indicando isso
+              // Se não houver nenhum quiz realizado pelo utilizador, exiba uma mensagem indicando isso
               echo "Nenhum quiz realizado.";
             }
             ?>
