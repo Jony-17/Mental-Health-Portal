@@ -25,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php?error=As novas senhas não coincidem");
         exit();
     } else {
-        // Hash da nova senha para armazenamento seguro no banco de dados
+        // Hash da nova senha para armazenamento seguro na base de dados
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Atualiza a senha na tabela do banco de dados
+        // Atualiza a senha na tabela da base de dados
         $update_query = "UPDATE utilizadores SET password='$hashed_password' WHERE email='$email'";
         $update_result = mysqli_query($conn, $update_query);
         
