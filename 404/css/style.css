@@ -131,16 +131,6 @@ body.darkmode::-webkit-scrollbar-thumb:hover {
 }
 
 
-/*Tradução*/
-button#langButtonEN,
-button#langButtonPT {
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-
 /*Loading*/
 .loader {
   width: 250px;

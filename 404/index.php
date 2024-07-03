@@ -2,15 +2,15 @@
 session_start();
 require_once ("../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verificar se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -103,6 +103,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <div class="navbar">
             <div class="logo">Portal de <br> Saúde Mental.</div>
 
+            <!-- Links -->
             <ul class="links">
                 <li><a href="/PortalSaudeMental/paginainicial">Página Inicial</a></li>
                 <li><a href="#">Sobre Nós</a></li>
@@ -121,6 +122,8 @@ if (isset($_SESSION['id_utilizador'])) {
                 </li>
             </ul>
 
+            <!-- Verificação da sessão do utilizador, caso tenha sessão iniciada apresentada a foto de perfil -->
+            <!-- Caso não tenha, apresenta o botão de Iniciar Sessão -->
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-container">
                     <div class="profile-dropdown">
@@ -132,8 +135,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="/PortalSaudeMental/perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -147,7 +148,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
         </div>
 
-
+        <!-- Dropdown telemóvel -->
         <div class="dropdown_menu">
             <li><a href="/PortalSaudeMental/paginainicial">Página Inicial</a></li>
             <li><a href="#">Sobre Nós</a></li>
@@ -164,6 +165,8 @@ if (isset($_SESSION['id_utilizador'])) {
                 </ul>
             </li>
 
+            <!-- Verificação da sessão do utilizador, caso tenha sessão iniciada apresentada a foto de perfil -->
+            <!-- Caso não tenha, apresenta o botão de Iniciar Sessão -->
             <?php if (!empty($_SESSION['id_utilizador'])): ?>
                 <li class="dropdown-trigger">
                     <a href="#">
@@ -175,8 +178,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="/PortalSaudeMental/perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -184,7 +185,7 @@ if (isset($_SESSION['id_utilizador'])) {
                 <li><a class="btn" href="/PortalSaudeMental/areacliente/login/">Iniciar Sessão</a></li>
             <?php endif ?>
 
-
+            <!-- Botão para logout -->
             <script>
                 function logout() {
                     Swal.fire({
@@ -236,7 +237,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
 
             <?php
-
+            // Consulta SQL para apresentar todas as perturbações
             $query = "SELECT nome, img_perturbacao FROM perturbacoes";
             $result = mysqli_query($conn, $query);
 
@@ -267,7 +268,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <!--Artigos-->
             <?php
-
+            // Consulta SQL para apresentar o título de 3 artigos
             $query = "SELECT titulo FROM artigos LIMIT 3";
             $result = mysqli_query($conn, $query);
 
@@ -299,7 +300,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <!--Notícias-->
             <?php
-
+            // Consulta SQL para apresentar o título de 3 notícias
             $query = "SELECT titulo FROM noticias LIMIT 3";
             $result = mysqli_query($conn, $query);
 
@@ -377,18 +378,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
-                    <ul class="dropdown-f">
-                        <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
-                        <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
-                    </ul>
-                </li>
-
-                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
-                        class="lang-link">PT</a></span>
-
-                <div class="vertical-hr"></div>-->
-
                 Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-light">
                             <path fill="currentColor"
@@ -405,6 +394,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
+    <!-- Enquanto a página não dá o load completo, apresenta esta frase -->
     <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
