@@ -4,15 +4,15 @@ include '../../../includes/header.php';
 session_start();
 require_once ("../../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
