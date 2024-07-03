@@ -4,15 +4,15 @@ include '../../../includes/header.php';
 session_start();
 require_once ("../../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -106,8 +106,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="../../../perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -148,8 +146,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="../../../perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -187,6 +183,7 @@ if (isset($_SESSION['id_utilizador'])) {
     if (isset($_GET['nome'])) {
         $nome_perturbacao = urldecode($_GET['nome']);
 
+        // Consulta SQL das perturbacoes de personalidade, do grupo associado e da perturbacao associada
         $query = "SELECT perturbacoes_personalidade.nome AS perturbacoes_personalidade_nome, juncao_pert_personalidade.grupos_perturbacoes_id, juncao_pert_personalidade.perturbacoes_id
         FROM perturbacoes_personalidade
         INNER JOIN juncao_pert_personalidade ON juncao_pert_personalidade.perturbacoes_personalidade_id = perturbacoes_personalidade.perturbacoes_personalidade_id
@@ -210,8 +207,6 @@ if (isset($_SESSION['id_utilizador'])) {
             }
 
 
-
-
             if ($result && mysqli_num_rows($result) > 0) {
                 $row_perturbacao2 = mysqli_fetch_assoc($result);
                 $perturbacoes_id = $row['perturbacoes_id'];
@@ -227,7 +222,6 @@ if (isset($_SESSION['id_utilizador'])) {
                 }
 
                 ?>
-
 
 
                 <ol role="list">
@@ -522,10 +516,6 @@ if (isset($_SESSION['id_utilizador'])) {
     </div>
 
 
-
-
-
-
     <!--Scroll to top-->
     <button onclick="scrollTopFunction()" id="scrollToTopBtn" title="Go to top"><i
             class="fas fa-chevron-up"></i></button>
@@ -680,18 +670,6 @@ if (isset($_SESSION['id_utilizador'])) {
                 <a href="../../../perguntas-frequentes">Perguntas Frequentes</a>
 
                 <div class="vertical-hr"></div>
-
-                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
-                    <ul class="dropdown-f">
-                        <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
-                        <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
-                    </ul>
-                </li>
-
-                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
-                        class="lang-link">PT</a></span>
-
-                <div class="vertical-hr"></div>-->
 
                 Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-light">

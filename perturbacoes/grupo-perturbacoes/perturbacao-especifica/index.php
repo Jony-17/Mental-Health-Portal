@@ -4,15 +4,15 @@ include '../../../includes/header.php';
 session_start();
 require_once ("../../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -187,6 +187,7 @@ if (isset($_SESSION['id_utilizador'])) {
     if (isset($_GET['nome'])) {
         $nome_perturbacao = urldecode($_GET['nome']);
 
+        //Consulta SQL para obter o grupo de perturbação associado
         $query = "SELECT grupos_perturbacoes.nome AS grupo_perturbacoes_nome, juncao_perturbacoes.perturbacoes_id
                   FROM grupos_perturbacoes
                   INNER JOIN juncao_perturbacoes ON juncao_perturbacoes.grupos_perturbacoes_id = grupos_perturbacoes.grupos_perturbacoes_id
@@ -198,6 +199,7 @@ if (isset($_SESSION['id_utilizador'])) {
             $row = mysqli_fetch_assoc($result);
             $perturbacoes_id = $row['perturbacoes_id'];
 
+            // Consulta SQL para obter o nome de determinada perturbacao
             $query_perturbacao = "SELECT nome
                                   FROM perturbacoes
                                   WHERE perturbacoes_id = $perturbacoes_id";
@@ -262,6 +264,7 @@ if (isset($_SESSION['id_utilizador'])) {
     if (isset($_GET['nome'])) {
         $nome_perturbacao = urldecode($_GET['nome']);
 
+        // Consulta SQL para obter o grupo de perturbacao de determinada perturbacao
         $query = "SELECT grupos_perturbacoes_id
                   FROM grupos_perturbacoes
                   WHERE nome = '$nome_perturbacao'";
@@ -277,6 +280,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
 
         if ($nome_perturbacao === "Grupo A" || "Grupo B" || "Grupo C") {
+            // Consulta SQL para obter o nome das perturbações de personalidade referentes a determinada perturbacao
             $query = "SELECT perturbacoes_personalidade.nome AS perturbacoes_personalidade_nome
                       FROM perturbacoes_personalidade
                       INNER JOIN juncao_pert_personalidade ON juncao_pert_personalidade.perturbacoes_personalidade_id = perturbacoes_personalidade.perturbacoes_personalidade_id
@@ -305,45 +309,6 @@ if (isset($_SESSION['id_utilizador'])) {
     }
     ?>
 
-    <ol role="list2" class="list2">
-        <?php
-        if (isset($_GET['nome'])) {
-            $nome_perturbacao = urldecode($_GET['nome']);
-            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
-                ?>
-                <li class="list">
-                    <div class="items">
-                        <a href="#sintomas" class="text-sm">
-                            Sintomas
-                        </a>
-                        <span class="separator">|</span>
-                    </div>
-                </li>
-
-                <li class="list">
-                    <div class="items">
-                        <a href="#prevalencias" class="text-sm">
-                            Prevalências
-                        </a>
-                        <span class="separator">|</span>
-                    </div>
-                </li>
-
-                </li>
-                <li class="list">
-                    <div class="items">
-                        <a href="#ajuda" class="text-sm">
-                            Procurar ajuda
-                        </a>
-                    </div>
-                </li>
-                <?php
-            }
-        }
-        ?>
-    </ol>
-
-
     <!--Perturbação específica-->
     <section class="perturbacao-especifica" id="perturbacao-especifica">
         <div class="perturbacao-especifica-card">
@@ -368,93 +333,6 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
         </div>
     </section>
-
-
-    <div class="subheading" id="sintomas">
-        <?php
-        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
-        if (isset($_GET['nome'])) {
-            $nome_perturbacao = urldecode($_GET['nome']);
-            // Verifica se o nome do grupo não é A, B ou C
-            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
-                $query = "SELECT sintomas_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
-                $result = mysqli_query($conn, $query);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h1>Sintomas</h1>
-                    <p>
-                        <?php echo $row['sintomas_texto']; ?>
-                    </p>
-                    <?php
-                } else {
-                    echo "Ainda não tem texto.";
-                }
-            }
-        } else {
-            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Texto da perturbação não especificado na URL.";
-        }
-        ?>
-    </div>
-
-
-    <div class="subheading" id="prevalencias">
-        <?php
-        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
-        if (isset($_GET['nome'])) {
-            $nome_perturbacao = urldecode($_GET['nome']);
-            // Verifica se o nome do grupo não é A, B ou C
-            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
-                $query = "SELECT prevalencias_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
-                $result = mysqli_query($conn, $query);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h1>Prevalências</h1>
-                    <p>
-                        <?php echo $row['prevalencias_texto']; ?>
-                    </p>
-                    <?php
-                } else {
-                    echo "Ainda não tem texto.";
-                }
-            }
-        } else {
-            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Texto da perturbação não especificado na URL.";
-        }
-        ?>
-    </div>
-
-
-    <div class="subheading" id="ajuda">
-        <?php
-        // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
-        if (isset($_GET['nome'])) {
-            $nome_perturbacao = urldecode($_GET['nome']);
-            // Verifica se o nome do grupo não é A, B ou C
-            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
-                $query = "SELECT ajuda_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
-                $result = mysqli_query($conn, $query);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_assoc($result);
-                    ?>
-                    <h1>Procurar ajuda</h1>
-                    <p>
-                        <?php echo $row['ajuda_texto']; ?>
-                    </p>
-                    <?php
-                } else {
-                    echo "Ainda não tem texto.";
-                }
-            }
-        } else {
-            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
-            echo "Texto da perturbação não especificado na URL.";
-        }
-        ?>
-    </div>
 
 
     <!--Também nas-->
@@ -572,6 +450,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 $grupos_perturbacoes_id = $row['grupos_perturbacoes_id'];
 
+                // Consulta SQL para obter os artigos referentes a determinada perturbacao
                 $query_info_adicional = "SELECT
                                         perturbacoes.nome AS perturbacoes_nome,
                                         grupos_perturbacoes.nome AS grupos_perturbacoes_nome,
@@ -749,7 +628,8 @@ if (isset($_SESSION['id_utilizador'])) {
             <div class="footer-col">
                 <h3>Contactos</h3>
                 <ul>
-                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#" target="_blank">Apoio Psicológico</a>
+                    <li><a href="https://www.sns24.gov.pt/servico/aconselhamento-psicologico-no-sns-24/#"
+                            target="_blank">Apoio Psicológico</a>
                         <ul>
                             <li>24h/dia</li>
                         </ul>
@@ -770,7 +650,8 @@ if (isset($_SESSION['id_utilizador'])) {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-" target="_blank">Linha Conversa Amiga</a>
+                    <li><a href="https://eportugal.gov.pt/servicos/pedir-apoio-psicologico-e-emocional-atraves-da-linha-conversa-amiga-"
+                            target="_blank">Linha Conversa Amiga</a>
                         <ul>
                             <li>Dias úteis das 15h00 às 22h00</li>
                             <li>Fins de semana das 19h00 às 22h00</li>
@@ -793,30 +674,18 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
-                    <ul class="dropdown-f">
-                        <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
-                        <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
-                    </ul>
-                </li>
-
-                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
-                        class="lang-link">PT</a></span>
-
-                <div class="vertical-hr"></div>-->
-
                 Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-light">
-                            <path fill="currentColor"
-                                d="M283.2 512c79 0 151.1-35.9 198.9-94.8 7.1-8.7-.6-21.4-11.6-19.4-124.2 23.7-238.3-71.6-238.3-197 0-72.2 38.7-138.6 101.5-174.4 9.7-5.5 7.3-20.2-3.8-22.2A258.2 258.2 0 0 0 283.2 0c-141.3 0-256 114.5-256 256 0 141.3 114.5 256 256 256z"
-                                transform="translate(-8 -8)" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-dark"
-                            style="display:none">
-                            <path fill="currentColor"
-                                d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7 .2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z" />
-                        </svg>
-                    </button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-light">
+                        <path fill="currentColor"
+                            d="M283.2 512c79 0 151.1-35.9 198.9-94.8 7.1-8.7-.6-21.4-11.6-19.4-124.2 23.7-238.3-71.6-238.3-197 0-72.2 38.7-138.6 101.5-174.4 9.7-5.5 7.3-20.2-3.8-22.2A258.2 258.2 0 0 0 283.2 0c-141.3 0-256 114.5-256 256 0 141.3 114.5 256 256 256z"
+                            transform="translate(-8 -8)" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-dark"
+                        style="display:none">
+                        <path fill="currentColor"
+                            d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7 .2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z" />
+                    </svg>
+                </button>
             </div>
         </div>
     </footer>
