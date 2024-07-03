@@ -116,17 +116,6 @@ body.darkmode::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 0%, 80%); /* Hover background color */
 }
 
-
-/*Tradução*/
-button#langButtonEN,
-button#langButtonPT {
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-
 /*Loading*/
 .loader {
   width: 250px;
@@ -283,10 +272,10 @@ header {
   top: 100%;
   left: 0;
   z-index: 999;
-  background-color: var(--background); /* Cor de fundo */
-  border: 1px solid var(--white2-color); /* Borda */
+  background-color: var(--background);
+  border: 1px solid var(--white2-color);
   padding: 10px;
-  min-width: 150px; /* Largura mínima */
+  min-width: 150px;
 }
 
 .links li:hover ul.dropdown {
@@ -298,23 +287,21 @@ header {
 }
 
 .links li ul.dropdown li a {
-  color: var(--grey2-color); /* Cor do texto */
+  color: var(--grey2-color);
   text-decoration: none;
   display: block;
   padding: 5px;
 }
 
 .links li ul.dropdown li a:hover {
-  background-color: var(
-    --neutralgrey-color
-  ); /* Cor de fundo ao passar o mouse */
+  background-color: var(--neutralgrey-color);
 }
 
-/*------------------Navbar perfil------------------*/
 
+/*------------------Navbar perfil------------------*/
 .dropdown-container {
   display: flex;
-  align-items: center; /* Alinha verticalmente os elementos */
+  align-items: center;
 }
 
 .profile-dropdown {
@@ -380,6 +367,7 @@ header {
   vertical-align: middle;
 }
 
+
 /*------------------DROPDOWN MENU------------------*/
 .dropdown_menu {
   display: none;
@@ -417,17 +405,15 @@ header {
 }
 
 .dropdown_menu ul.dropdown li {
-  text-align: center; /* Adicionado para centralizar os elementos do submenu */
+  text-align: center;
 }
 
 .dropdown_menu ul.dropdown li a {
-  font-size: 15px; /* Adicionado para centralizar os elementos do submenu */
+  font-size: 15px;
 }
 
 .dropdown_menu ul.dropdown li a:hover {
-  color: var(
-    --white-color
-  ); /* Adicionado para centralizar os elementos do submenu */
+  color: var(--white-color);
 }
 
 .dropdown_menu .btn {
@@ -467,8 +453,8 @@ header {
   font-size: 1.5rem;
 }
 
-/*--------------Heading---------------------------*/
 
+/*--------------Heading---------------------------*/
 body.darkmode .background1 img,
 body.darkmode .background2 img {
   filter: invert(1) brightness(150) hue-rotate(224deg);
@@ -509,8 +495,8 @@ body.darkmode .background2 img {
   line-height: 2;
 }
 
-/*------------------Perguntas Frequentes------------------*/
 
+/*------------------Perguntas Frequentes------------------*/
 .perguntas {
   display: flex;
   flex-direction: column;
@@ -518,14 +504,8 @@ body.darkmode .background2 img {
 }
 
 .faq {
-  /*max-width: 700px;*/
   width: 100%;
-  /*margin-top: 2rem;
-  padding: 20px 10px 20px 0px;
-  background-color: var(--white-color);
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);*/
   cursor: pointer;
-  /*margin-left: auto;*/
   margin-right: auto;
   border-radius: 12px;
 }
@@ -573,11 +553,10 @@ svg {
   transition: transform 0.5s ease-in;
 }
 
-/*----------------FOOTER------------------------*/
 
+/*----------------FOOTER------------------------*/
 footer {
   width: 100%;
-  /*position: absolute;*/
   background-color: var(--main-color);
   color: var(--white-color);
   margin-top: 100px;
@@ -590,13 +569,11 @@ footer {
   width: 90%;
   margin: auto;
   display: flex;
-  /*flex-wrap: wrap;*/
   align-items: flex-start;
   justify-content: space-between;
 }
 
 .footer-col {
-  /*flex-basis: 10%;*/
   padding: 10px;
 }
 
@@ -635,8 +612,8 @@ footer {
 .footer-col ul li ul li {
   color: var(--footer-text);
 }
-
-hr {
+  
+  hr {
   width: 90%;
   border: 0;
   border-bottom: 1px solid var(--white2-color);
@@ -675,8 +652,8 @@ hr {
   margin: 6px 0;
 }
 
-/*Scroll to top*/
 
+/*Scroll to top*/
 #scrollToTopBtn {
   display: none; /* Ocultar inicialmente */
   position: fixed;
@@ -764,16 +741,16 @@ input:checked + .change::after {
   display: block;
 }
 
-/*---------------ANIMATIONS SCROLL-------------------------*/
 
+/*---------------ANIMATIONS SCROLL-------------------------*/
 .heading h1,
 .heading p,
 .perguntas {
   animation: fadeIn 1s linear;
 }
 
-/*---------------ANIMATIONS-------------------------*/
 
+/*---------------ANIMATIONS-------------------------*/
 @keyframes bounceIn {
   0% {
     opacity: 0;
@@ -803,9 +780,6 @@ input:checked + .change::after {
 
 
 /*---------------MEDIA QUERIES-------------------------*/
-
-/* Responsive */
-
 /* Tela igual ou inferior a 576px */
 @media screen and (max-width: 576px) {
   .dropdown_menu {
@@ -908,14 +882,4 @@ input:checked + .change::after {
   .dropdown-container {
     display: none;
   }
-}
-
-/* Tela igual ou superior a 1360 */
-@media screen and (min-width: 1360px) {
-  
-}
-
-/* Tela igual ou superior a 1600 */
-@media screen and (min-width: 1600px) {
-  
 }
