@@ -185,6 +185,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </header>
 
+    <!-- Backgrounds -->
     <div class="background1">
         <img src="imgs/imgs-backgrounds/background1.png" alt="banner background" />
     </div>
@@ -193,6 +194,7 @@ if (isset($_SESSION['id_utilizador'])) {
         <img src="imgs/imgs-backgrounds/background2.png" alt="banner background" />
     </div>
 
+    <!-- Títulos e textos -->
     <div class="heading">
         <h1>
             Termos e Condições
@@ -314,7 +316,7 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
 
             <?php
-
+            // Consulta SQL para apresentar todas as perturbações
             $query = "SELECT nome, img_perturbacao FROM perturbacoes";
             $result = mysqli_query($conn, $query);
 
@@ -345,7 +347,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <!--Artigos-->
             <?php
-
+            // Consulta SQL para apresentar o título de 3 artigos
             $query = "SELECT titulo FROM artigos LIMIT 3";
             $result = mysqli_query($conn, $query);
 
@@ -377,7 +379,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <!--Notícias-->
             <?php
-
+            // Consulta SQL para apresentar o título de 3 notícias
             $query = "SELECT titulo FROM noticias LIMIT 3";
             $result = mysqli_query($conn, $query);
 
@@ -455,18 +457,6 @@ if (isset($_SESSION['id_utilizador'])) {
 
                 <div class="vertical-hr"></div>
 
-                <!--<li class="dropdown-trigger-f"><i class="fas fa-globe"></i>Idioma <i class="fas fa-chevron-down"></i>
-                    <ul class="dropdown-f">
-                        <li><a href="#" id="portugues" onclick="changeLanguage('portuguese')">Português</a></li>
-                        <li><a href="#" id="ingles" onclick="changeLanguage('english')">Inglês</a></li>
-                    </ul>
-                </li>
-
-                <span><a href="?lang=en-GB" class="lang-link active">EN</a> / <a href="?lang=pt-PT"
-                        class="lang-link">PT</a></span>
-
-                <div class="vertical-hr"></div>-->
-
                 Light/Dark<button id="dark-mode-toggle" class="dark-mode-toggle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="dark-mode-icon-light">
                             <path fill="currentColor"
@@ -483,6 +473,7 @@ if (isset($_SESSION['id_utilizador'])) {
         </div>
     </footer>
 
+    <!-- Enquanto a página não dá o load completo, apresenta esta frase -->
     <div class="loader">A carregar...</div>
 
     <!--Chatbot-->
