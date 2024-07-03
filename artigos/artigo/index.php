@@ -5,15 +5,15 @@ include '../../includes/header.php';
 session_start();
 require_once ("../../conn/conn.php");
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -107,8 +107,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="../../perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -149,8 +147,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="../../perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -189,7 +185,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter o artigo pelo título
         $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -242,7 +238,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter o artigo pelo título
         $query = "SELECT artigo_id, titulo FROM artigos WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -252,9 +248,9 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            $artigo_id = $row['artigo_id']; // Acessar o artigo_id associado ao artigo
+            $artigo_id = $row['artigo_id'];
     
-            // Consulta SQL para buscar a perturbacao_id e o nome da perturbacao associada ao artigo
+            // Consulta SQL para obter a perturbacao_id e o nome da perturbacao associada ao artigo
             $query_grupo = "SELECT jp.grupos_perturbacoes_id, p.nome AS nome_perturbacao 
                         FROM juncao_perturbacoes jp 
                         INNER JOIN grupos_perturbacoes p ON jp.grupos_perturbacoes_id = p.grupos_perturbacoes_id 
@@ -290,7 +286,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter o autor e data de publicação do artigo
         $query = "SELECT autor, data_publicacao FROM artigos WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -321,7 +317,7 @@ if (isset($_SESSION['id_utilizador'])) {
         // Obter o título do artigo da URL e decodificar
         $titulo_artigo = urldecode($_GET['titulo']);
 
-        // Consulta SQL para buscar o artigo pelo título
+        // Consulta SQL para obter a imagem do artigo
         $query = "SELECT img_artigo FROM artigos WHERE titulo = '$titulo_artigo'";
 
         // Executar a consulta
@@ -331,7 +327,7 @@ if (isset($_SESSION['id_utilizador'])) {
         if ($result && mysqli_num_rows($result) > 0) {
             // Extrair o resultado da consulta
             $row = mysqli_fetch_assoc($result);
-            // Exibir o autor e a data de publicação do artigo
+            // Exibir a imagem do artigo
             echo '<img class="img-artigo" src="../../admin/inserir/imgs/artigos/' . (!empty($row["img_artigo"]) ? $row["img_artigo"] : "teste.jpeg") . '" alt="' . $row["img_artigo"] . '">';
         } else {
             // Se a consulta não retornar nenhum resultado, exibir uma mensagem de erro ou fazer alguma outra ação
@@ -395,7 +391,7 @@ if (isset($_SESSION['id_utilizador'])) {
     </div>
 
 
-
+    <!-- Script para os pontos se manterem no topo aquando do scroll -->
     <script>
         window.addEventListener('DOMContentLoaded', function () {
             var dropdownToggle = document.querySelector('.dropdown-toggle');
@@ -428,7 +424,7 @@ if (isset($_SESSION['id_utilizador'])) {
             // Obter o título do artigo da URL e decodificar
             $titulo_artigo = urldecode($_GET['titulo']);
 
-            // Consulta SQL para buscar o artigo pelo título
+            // Consulta SQL para obter a fonte de um artigo
             $query = "SELECT a.fonte
                       FROM artigos a
                       WHERE a.titulo = '$titulo_artigo'";
@@ -492,7 +488,7 @@ if (isset($_SESSION['id_utilizador'])) {
 
             <!--Artigos-->
             <?php
-
+            
             $query = "SELECT titulo FROM artigos LIMIT 3";
             $result = mysqli_query($conn, $query);
 

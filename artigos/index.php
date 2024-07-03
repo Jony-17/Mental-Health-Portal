@@ -9,15 +9,15 @@ date_default_timezone_set('Europe/Lisbon');
 
 setlocale(LC_TIME, 'pt_PT.utf8');
 
-// Verifica se a sessão do usuário está definida
+// Verifica se a sessão do utilizador está definida
 if (isset($_SESSION['id_utilizador'])) {
 
-    // Se a sessão do usuário já estiver definida, você pode executar outras ações aqui
+    // Se a sessão do utilizador já estiver definida, echo
     echo "Sessão do utilizador já está definida. ID do utilizador: " . $_SESSION['id_utilizador'];
 
     $utilizador_id = $_SESSION['id_utilizador'];
 
-    // Consulta SQL para buscar o campo img_perfil
+    // Consulta SQL
     $query = "SELECT nome, img_perfil FROM utilizadores WHERE utilizador_id = $utilizador_id";
 
     $result = mysqli_query($conn, $query);
@@ -112,8 +112,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down" style="margin-right: 20px;"></i>
                         <ul class="dropdown-p">
                             <li><a href="../perfil/">Perfil</a></li>
-                            <!--<li><a href="#">Termos e Condições</a></li>
-                            <li><a href="#">Definições</a></li>-->
                         </ul>
                     </div>
                     <a class="btn" onclick="logout()">Terminar Sessão</a>
@@ -154,8 +152,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="../perfil/">Perfil</a></li>
-                        <!--<li><a href="#">Termos e Condições</a></li>
-                        <li><a href="#">Definições</a></li>-->
                     </ul>
                 </li>
                 <li><a class="btn" onclick="logout()">Terminar Sessão</a></li>
@@ -201,10 +197,10 @@ if (isset($_SESSION['id_utilizador'])) {
         </li>
 
         <?php
-        // Defina os nomes das perturbações que deseja exibir na lista
+        // Define os nomes das perturbações que desejo exibir na lista
         $perturbacoes = array(
             'Perturbações de Ansiedade',
-            'Perturbações do Sono - Vigília',
+            'Perturbações do Sono',
             'Perturbações de Humor',
             'Perturbações Alimentares',
             'Perturbações de Personalidade',
@@ -275,25 +271,6 @@ if (isset($_SESSION['id_utilizador'])) {
         }
         ?>
 
-        <?php
-        // Consulta para obter a lista de autores
-        $query_autores = "SELECT DISTINCT autor FROM artigos ORDER BY autor";
-        $result_autores = mysqli_query($conn, $query_autores);
-
-        if ($result_autores && mysqli_num_rows($result_autores) > 0) {
-            $autores_por_letra = array();
-
-            // Organizar os autores por letra
-            while ($row = mysqli_fetch_assoc($result_autores)) {
-                $primeira_letra = strtoupper(substr($row['autor'], 0, 1));
-                $autores_por_letra[$primeira_letra][] = $row['autor'];
-            }
-            ?>
-
-            <?php
-        }
-        ?>
-
 
         <!--Pesquisa-->
         <div class="container">
@@ -344,14 +321,6 @@ if (isset($_SESSION['id_utilizador'])) {
             $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter']));
             if ($filtro_nome !== 'Perturbações') {
                 $query .= " WHERE perturbacoes.nome = '$filtro_nome'";
-            }
-        }
-
-        // Adiciona filtro de perturbação, se fornecido
-        if (isset($_GET['filter_autor']) && $_GET['filter_autor'] !== '') {
-            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter_autor']));
-            if ($filtro_nome !== 'Autores') {
-                $query .= " WHERE artigos.autor = '$filtro_nome'";
             }
         }
 
@@ -427,10 +396,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "&filter=" . urlencode($_GET['filter']);
                     }
 
-                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
-                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
-                    }
-
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
@@ -449,10 +414,6 @@ if (isset($_SESSION['id_utilizador'])) {
                         echo "&filter=" . urlencode($_GET['filter']);
                     }
 
-                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
-                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
-                    }
-
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
                         echo "&search_query=" . urlencode($_GET['search_query']);
                     }
@@ -468,10 +429,6 @@ if (isset($_SESSION['id_utilizador'])) {
                     echo "<a href='?pagina=" . ($pagina_atual + 1);
                     if (isset($_GET['filter']) && !empty($_GET['filter'])) {
                         echo "&filter=" . urlencode($_GET['filter']);
-                    }
-
-                    if (isset($_GET['filter_autor']) && !empty($_GET['filter_autor'])) {
-                        echo "&filter_autor=" . urlencode($_GET['filter_autor']);
                     }
 
                     if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
@@ -526,14 +483,6 @@ if (isset($_SESSION['id_utilizador'])) {
             $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter']));
             if ($filtro_nome !== 'Perturbações') {
                 $query .= " AND perturbacoes.nome = '$filtro_nome'";
-            }
-        }
-
-        // Adiciona filtro de perturbação, se fornecido
-        if (isset($_GET['filter_autor']) && $_GET['filter_autor'] !== '') {
-            $filtro_nome = mysqli_real_escape_string($conn, urldecode($_GET['filter_autor']));
-            if ($filtro_nome !== 'Autores') {
-                $query .= " AND artigos.autor = '$filtro_nome'";
             }
         }
 
