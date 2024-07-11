@@ -264,7 +264,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     $row = mysqli_fetch_assoc($query_run);
                                     ?>
-                                    <form action="insercao.php" method="post" enctype="multipart/form-data">
+                                    <form action="editar.php" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="registos_id" value="<?php echo $row['registos_id'] ?>">
 
                                         <div class="form-group">
@@ -306,7 +306,7 @@ if (isset($_SESSION['id_utilizador'])) {
                                         </div>
 
                                         <a href="." class="btn btn-danger">Cancelar</a>
-                                        <button type="submit" name="inserirbtn" class="btn btn-primary">Editar</button>
+                                        <button type="submit" name="editarbtn" class="btn btn-primary">Editar</button>
                                     </form>
                                     <?php
                                 }
