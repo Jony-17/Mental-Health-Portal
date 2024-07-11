@@ -295,7 +295,8 @@ form.sign-in-form {
   font-weight: 500;
 }
 
-.toggle-password {
+.toggle-password,
+.toggle-cpassword {
   cursor: pointer;
 }
 
