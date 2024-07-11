@@ -309,6 +309,44 @@ if (isset($_SESSION['id_utilizador'])) {
     }
     ?>
 
+<ol role="list2" class="list2">
+        <?php
+        if (isset($_GET['nome'])) {
+            $nome_perturbacao = urldecode($_GET['nome']);
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                ?>
+                <li class="list">
+                    <div class="items">
+                        <a href="#sintomas" class="text-sm">
+                            Sintomas
+                        </a>
+                        <span class="separator">|</span>
+                    </div>
+                </li>
+
+                <li class="list">
+                    <div class="items">
+                        <a href="#prevalencias" class="text-sm">
+                            Prevalências
+                        </a>
+                        <span class="separator">|</span>
+                    </div>
+                </li>
+
+                </li>
+                <li class="list">
+                    <div class="items">
+                        <a href="#ajuda" class="text-sm">
+                            Procurar ajuda
+                        </a>
+                    </div>
+                </li>
+                <?php
+            }
+        }
+        ?>
+    </ol>
+
     <!--Perturbação específica-->
     <section class="perturbacao-especifica" id="perturbacao-especifica">
         <div class="perturbacao-especifica-card">
@@ -333,6 +371,92 @@ if (isset($_SESSION['id_utilizador'])) {
             </div>
         </div>
     </section>
+
+    <div class="subheading" id="sintomas">
+        <?php
+        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
+        if (isset($_GET['nome'])) {
+            $nome_perturbacao = urldecode($_GET['nome']);
+            // Verifica se o nome do grupo não é A, B ou C
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                $query = "SELECT sintomas_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
+                $result = mysqli_query($conn, $query);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <h1>Sintomas</h1>
+                    <p>
+                        <?php echo $row['sintomas_texto']; ?>
+                    </p>
+                    <?php
+                } else {
+                    echo "Ainda não tem texto.";
+                }
+            }
+        } else {
+            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Texto da perturbação não especificado na URL.";
+        }
+        ?>
+    </div>
+
+
+    <div class="subheading" id="prevalencias">
+        <?php
+        // Se o nome da perturbação estiver definido na URL, exibir o conteúdo do artigo
+        if (isset($_GET['nome'])) {
+            $nome_perturbacao = urldecode($_GET['nome']);
+            // Verifica se o nome do grupo não é A, B ou C
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                $query = "SELECT prevalencias_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
+                $result = mysqli_query($conn, $query);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <h1>Prevalências</h1>
+                    <p>
+                        <?php echo $row['prevalencias_texto']; ?>
+                    </p>
+                    <?php
+                } else {
+                    echo "Ainda não tem texto.";
+                }
+            }
+        } else {
+            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Texto da perturbação não especificado na URL.";
+        }
+        ?>
+    </div>
+
+
+    <div class="subheading" id="ajuda">
+        <?php
+        // Se o nome da perturbacao estiver definido na URL, exibir o conteúdo do artigo
+        if (isset($_GET['nome'])) {
+            $nome_perturbacao = urldecode($_GET['nome']);
+            // Verifica se o nome do grupo não é A, B ou C
+            if ($nome_perturbacao != 'Grupo A' && $nome_perturbacao != 'Grupo B' && $nome_perturbacao != 'Grupo C') {
+                $query = "SELECT ajuda_texto FROM grupos_perturbacoes WHERE nome = '$nome_perturbacao'";
+                $result = mysqli_query($conn, $query);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
+                    <h1>Procurar ajuda</h1>
+                    <p>
+                        <?php echo $row['ajuda_texto']; ?>
+                    </p>
+                    <?php
+                } else {
+                    echo "Ainda não tem texto.";
+                }
+            }
+        } else {
+            // Se o título do artigo não estiver definido na URL, exibir uma mensagem de erro ou fazer alguma outra ação
+            echo "Texto da perturbação não especificado na URL.";
+        }
+        ?>
+    </div>
 
 
     <!--Também nas-->
