@@ -4,6 +4,7 @@
       "tag": "saudacoes",
       "patterns": [
         "Ola",
+        "Olá",
         "Oi",
         "Viva",
         "Bom dia",
@@ -11,40 +12,51 @@
         "Boa noite"
       ],
       "responses": [
-        "Ola, como te posso ajudar?"
+        "Olá, como te posso ajudar?"
       ]
     },
     {
       "tag": "despedidas",
       "patterns": [
         "Ate a proxima",
+        "Ate à próxima",
         "Ate amanha",
+        "Até amanhã",
         "Adeus",
         "Xau"
       ],
       "responses": [
-        "Tem um otimo dia",
-        "Ate a proxima, obrigado por visitares",
+        "Tem um ótimo dia",
+        "Ate à proxima, obrigado por visitares",
         "Adeus, volta sempre"
       ]
     },
     {
       "tag": "cumprimentos",
       "patterns": [
+        "Está tudo bem?",
+        "Esta tudo bem?",
         "Está tudo bem",
+        "Esta tudo bem",
+        "Como estás?",
+        "Como estas?",
         "Como estás",
+        "Como estas",
+        "Como te sentes?",
         "Como te sentes"
       ],
       "responses": [
-        "Estou bem e tu? Em que te posso ajudar?"
+        "Sim e contigo? Em que te posso ajudar?"
       ]
     },
     {
       "tag": "sintomas",
       "patterns": [
         "Nao me sinto bem",
+        "Não me sinto bem",
         "Estou com um problema",
-        "Nao me estou a sentir bem"
+        "Nao me estou a sentir bem",
+        "Não me estou a sentir bem"
       ],
       "responses": [
         "Que sintoma tens?"
@@ -56,13 +68,18 @@
         "Dor de cabeça",
         "Dor de cabeca",
         "Doi-me a cabeca",
+        "Doi-me a cabeça",
         "Nao aguento de dores na cabeca",
+        "Não aguento de dores na cabeça",
         "Estou mal da cabeca",
+        "Estou mal da cabeça",
         "Estou com enxaquecas",
         "Estou cheio de dores de cabeca",
         "Dor no corpo",
         "Doi-me o corpo",
+        "Dói-me o corpo",
         "Nao aguento de dores no corpo",
+        "Não aguento de dores no corpo",
         "Estou mal do corpo",
         "Estou cheio de dores no corpo"
       ],
